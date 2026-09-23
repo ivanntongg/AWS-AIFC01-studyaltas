@@ -6,3 +6,6 @@ dist/
 senseidoge-artifact.html
 # local tool settings
 .claude/
+
+.vercel
+.env*
