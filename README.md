@@ -1,5 +1,7 @@
 # SenseiDoge
 
+**Live:** https://senseidoge.vercel.app
+
 SenseiDoge is a bilingual (English / 简体中文) study app for the **AWS Certified AI Practitioner (AIF-C01)** exam, mapped to the official exam guide **v1.1 (April 2026)**.
 
 - 14 lessons, one per task statement in the exam guide, each listing the objectives it covers
@@ -34,17 +36,15 @@ npm run dev
 
 Then open http://localhost:4173.
 
-## Deploy to Vercel
+## Deployment
 
-Option A: Vercel CLI
+The site is hosted on Vercel (project `senseidoge`) and connected to this GitHub repository:
 
-```bash
-npm i -g vercel
-vercel
-vercel --prod
-```
+- Every push to `main` deploys to production automatically (https://senseidoge.vercel.app).
+- Pushes to other branches and pull requests get their own preview URL.
+- `vercel.json` sets the build command (`node build.mjs`) and output directory (`dist`).
 
-Option B: Git. Push this folder to a GitHub repository, then choose **Add New → Project** in Vercel and import the repository. `vercel.json` already sets the build command (`node build.mjs`) and output directory (`dist`), so no extra settings are needed.
+To deploy manually from your machine instead: `npx vercel deploy --prod`.
 
 ## Editing content
 
