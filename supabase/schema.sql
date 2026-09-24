@@ -37,3 +37,15 @@ $$;
 
 revoke all on function public.delete_my_account() from public, anon;
 grant execute on function public.delete_my_account() to authenticated;
+
+-- Live sync: let signed-in clients receive changes to their own progress row in real time.
+-- Row-level security above still applies, so each user only ever receives their own row.
+do $$
+begin
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = 'progress'
+  ) then
+    alter publication supabase_realtime add table public.progress;
+  end if;
+end $$;
