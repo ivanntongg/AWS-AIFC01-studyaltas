@@ -1337,7 +1337,11 @@ function hydrate(){
   var lg = store.get('lang', S.lang); if (lg === 'en' || lg === 'zh') S.lang = lg;
   var cm = store.get('cardMode', S.cardMode); if (cm === 'due' || cm === 'all') S.cardMode = cm;
   S.queue = null;
-  if (!document.getElementById('gsDlg') && !S.simDlg) render();
+  if (!document.getElementById('gsDlg') && !S.simDlg) {
+    var fid = document.activeElement && document.activeElement.id, y = window.scrollY;
+    render(); window.scrollTo(0, y);
+    var f = fid && document.getElementById(fid); if (f) f.focus({preventScroll: true});
+  }
   saveEmailLang();
 }
 /* sign-in emails are sent in the learner's language (Supabase reads user_metadata.lang) */
@@ -1355,24 +1359,51 @@ function syncDirty(){
 function errText(e){ return (e && (e.message || e.error_description)) || String(e); }
 function safePush(){ if (!syncUser || syncBusy) { if (syncUser) { clearTimeout(pushTimer); pushTimer = setTimeout(safePush, 1500); } return; } syncBusy = true; push().catch(function(e){ setSync(navigator.onLine === false ? 'offline' : 'error', errText(e)); }).then(function(){ syncBusy = false; }); }
 function safePull(){ if (!syncUser || syncBusy) return; syncBusy = true; setSync('pending'); pull().catch(function(e){ setSync(navigator.onLine === false ? 'offline' : 'error', errText(e)); }).then(function(){ syncBusy = false; }); }
+var lastPushedAt = 0;
 function push(){
-  var snap = localSnapshot();
-  return sbc.from('progress').upsert({user_id: syncUser.id, data: snap, updated_at: new Date().toISOString()}).then(function(r){ if (r.error) throw r.error; setSync('synced'); });
+  var snap = localSnapshot(), now = new Date(); lastPushedAt = now.getTime();
+  return sbc.from('progress').upsert({user_id: syncUser.id, data: snap, updated_at: now.toISOString()}).then(function(r){ if (r.error) throw r.error; setSync('synced'); });
+}
+function applyRemote(remote){
+  var local = localSnapshot(); remote = (remote && remote.data) ? remote : {data: {}, ts: {}};
+  var merged = SDMerge.merge(local, remote);
+  var localChanged = JSON.stringify(merged.data) !== JSON.stringify(local.data);
+  var remoteChanged = JSON.stringify(merged.data) !== JSON.stringify(remote.data);
+  writeLocal(merged);
+  if (localChanged) hydrate();
+  if (remoteChanged) return push();
+  setSync('synced');
 }
 function pull(){
   lastPull = Date.now();
   return sbc.from('progress').select('data').eq('user_id', syncUser.id).maybeSingle().then(function(r){
     if (r.error) throw r.error;
-    var local = localSnapshot(), remote = (r.data && r.data.data && r.data.data.data) ? r.data.data : {data: {}, ts: {}};
-    var merged = SDMerge.merge(local, remote);
-    var localChanged = JSON.stringify(merged.data) !== JSON.stringify(local.data);
-    var remoteChanged = JSON.stringify(merged.data) !== JSON.stringify(remote.data);
-    writeLocal(merged);
-    if (localChanged) hydrate();
-    if (remoteChanged) return push();
-    setSync('synced');
+    return applyRemote(r.data && r.data.data);
   });
 }
+/* Live sync: Supabase Realtime tells this tab the moment another device saves (row-level security limits it to your own row) */
+var liveCh = null, liveTimer = null;
+function startLive(){
+  stopLive();
+  if (!syncUser || !sbc || !sbc.channel) return;
+  liveCh = sbc.channel('progress-' + syncUser.id)
+    .on('postgres_changes', {event: '*', schema: 'public', table: 'progress', filter: 'user_id=eq.' + syncUser.id}, function(p){
+      var row = p && p.new;
+      if (!row || !row.data) return;
+      if (row.updated_at && new Date(row.updated_at).getTime() === lastPushedAt) return; // our own save coming back
+      liveApply(row.data);
+    })
+    .subscribe();
+}
+function liveApply(remote){
+  if (!syncUser) return;
+  if (syncBusy) { clearTimeout(liveTimer); liveTimer = setTimeout(function(){ liveApply(remote); }, 800); return; }
+  syncBusy = true; lastPull = Date.now();
+  Promise.resolve().then(function(){ return applyRemote(remote); })
+    .catch(function(e){ setSync(navigator.onLine === false ? 'offline' : 'error', errText(e)); })
+    .then(function(){ syncBusy = false; });
+}
+function stopLive(){ clearTimeout(liveTimer); if (liveCh && sbc) { sbc.removeChannel(liveCh); } liveCh = null; }
 function loadSupabase(cb){
   if (window.supabase && window.supabase.createClient) return cb();
   var s = document.createElement('script'); s.src = SB_JS; s.async = true;
@@ -1389,8 +1420,8 @@ function initSync(){
     sbc.auth.onAuthStateChange(function(ev, session){
       var before = syncUser && syncUser.id;
       syncUser = session ? session.user : null;
-      if (syncUser && syncUser.id !== before) { acctMsg = ''; sentTo = ''; safePull(); saveEmailLang(); }
-      if (!syncUser) setSync('off');
+      if (syncUser && syncUser.id !== before) { acctMsg = ''; sentTo = ''; safePull(); saveEmailLang(); startLive(); }
+      if (!syncUser) { stopLive(); setSync('off'); }
       paintSync();
       if (/access_token=|error_description=/.test(location.hash || '')) { try { history.replaceState(null, '', location.pathname + location.search + '#' + S.view); } catch (e) {} }
       if (m && !syncUser) openAcct();
@@ -1584,6 +1615,7 @@ var CHANGELOG = [
     'After you ask for a link, a check-your-email screen shows where it went, with Resend.',
     'Sign-in emails arrive in English or Chinese to match your language.',
     'Sign in with the code from the email, right in the tab you are using, or click the button in the email.',
+    'Live sync: progress made on one device appears on your other open devices within seconds.',
     'Practice and quick mock: a floating bar shows which question you are on, how many you have answered and your score, with a Next question button and a Go to # box to jump to any question number. Checking an answer brings that question to the top so its explanation is in view.',
     'SenseiDoge’s own dropdowns, checkboxes, switches, search boxes and tooltips replace the browser’s built-in ones; header buttons are now plain icons.',
     'Missed questions now show as a notice under Your progress, with a button to review them.',
@@ -1599,6 +1631,7 @@ var CHANGELOG = [
     '发送登录链接后，会显示“查收你的邮箱”页面，并可重新发送。',
     '登录邮件会按你的界面语言以中文或英文发送。',
     '可以直接在当前页面输入邮件中的验证码登录，也可以点击邮件中的按钮。',
+    '实时同步：在一台设备上的学习进度，几秒内就会出现在你其他打开的设备上。',
     '练习与快速模考：底部浮动栏显示当前题号、已答题数和得分，并提供“下一题”按钮和可跳转到任意题号的输入框；核对答案后，该题会移到页面顶部，方便查看解析。',
     '下拉菜单、复选框、开关、搜索框和提示框改用本站自己的设计，不再使用浏览器自带样式；顶部按钮改为纯图标。',
     '错题提醒移到“学习进度”下方，并附“复习错题”按钮。',
