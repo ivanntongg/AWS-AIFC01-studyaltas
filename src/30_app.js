@@ -37,7 +37,7 @@ var T = {
 en: {
   overview:'Overview', course:'Course', cards:'Flashcards', exam:'Practice exam', services:'Services', glossary:'Glossary', plan:'7-day plan',
   sub:'AWS Certified AI Practitioner · exam guide v1.1',
-  langBtn:'中文', langLabel:'切换到中文', openMenu:'Open menu', closeMenu:'Close menu', toLight:'Switch to light theme', toDark:'Switch to dark theme',
+  langBtn:'中文', langLabel:'切换到中文', langCta:'阅读中文版：课程、练习题和闪卡都有完整的简体中文。', langCtaLang:'zh-CN', openMenu:'Open menu', closeMenu:'Close menu', toLight:'Switch to light theme', toDark:'Switch to dark theme',
   eyebrow:'AWS Certified AI Practitioner · AIF-C01',
   heroH:'Every objective in the AIF-C01 exam guide, <em>explained and drilled</em>.',
   heroP:'14 lessons mapped one-to-one to the task statements in exam guide v1.1, a {q}-question bank in all four official formats, {c} flashcards, a quick 50-question mock and a full 65-question exam simulation. Switch between English and 中文 at any time.',
@@ -88,7 +88,7 @@ en: {
   practice:'Practice by domain', mockMode:'Quick mock · 50', check:'Check answer', correct:'Correct.', incorrect:'Not quite.', notAnswered:'Not answered.',
   answerIs:'Answer:', correctOrder:'Correct order:', single:'Choose ONE', chooseN:'Choose {n}', orderT:'Ordering', matchT:'Matching',
   resetOrder:'Reset order', orderHint:'Click the items in the correct order.', select:'Select…',
-  statsLine:'{c} checked · {r} correct', qbNav:'Question navigator', qbPos:'Question {k} of {n}', qbAns:'{a} answered', qbNext:'Next question', qbNextS:'Next', qbAllDone:'All done · back to top', qbTop:'Back to top', qbGo:'Go to question number', qbGoPh:'Go to #', qbGoErr:'Enter 1–{n}', resetPractice:'Clear answers',
+  statsLine:'{c} checked · {r} correct', clearTxt:'Clear', qbNav:'Question navigator', qbPos:'Question {k} of {n}', qbAns:'{a} answered', qbNext:'Next question', qbNextS:'Next', qbAllDone:'All done · back to top', qbTop:'Back to top', qbGo:'Go to question number', qbGoPh:'Go to #', qbGoErr:'Enter 1–{n}', resetPractice:'Clear answers',
   mockH:'Timed mock exam', mockList:['50 questions drawn at random, weighted like the real exam: D1 10 · D2 12 · D3 14 · D4 7 · D5 7.','Questions you have not seen yet are drawn first, so repeat mocks stay fresh.','A 90-minute timer that keeps running if you close or refresh the page. Answers are revealed only after you submit.','Your result is broken down by domain, and every miss is added to your Missed list.'],
   startMock:'Start mock exam', best:'Best mock score so far', timeLeft:'Time left', answered:'Answered', submit:'Submit exam', confirmSubmit:'{n} unanswered. Submit anyway?',
   result:'Your result', resultLine:'{c} of {n} correct', target:'Aim for 80% or more on mock exams before booking. The real exam reports a scaled score, so treat this percentage as a guide.', retake:'Start a new mock exam', byDomain:'By domain',
@@ -113,7 +113,7 @@ en: {
 zh: {
   overview:'总览', course:'课程', cards:'闪卡', exam:'模拟练习', services:'服务速查', glossary:'术语表', plan:'7 天计划',
   sub:'AWS 认证 AI 从业者 · 考纲 v1.1',
-  langBtn:'EN', langLabel:'Switch to English', openMenu:'打开菜单', closeMenu:'关闭菜单', toLight:'切换到浅色主题', toDark:'切换到深色主题',
+  langBtn:'EN', langLabel:'Switch to English', langCta:'Prefer English? Every lesson, question and flashcard is available in English.', langCtaLang:'en', openMenu:'打开菜单', closeMenu:'关闭菜单', toLight:'切换到浅色主题', toDark:'切换到深色主题',
   eyebrow:'AWS 认证 AI 从业者 · AIF-C01',
   heroH:'AIF-C01 考纲的每一个目标，<em>讲透并练熟</em>。',
   heroP:'14 节课与考纲 v1.1 的任务陈述一一对应；{q} 道题覆盖全部四种官方题型；{c} 张闪卡；还有 50 题快速模考和 65 题真实考试模拟。随时可在 English 与中文之间切换。',
@@ -164,7 +164,7 @@ zh: {
   practice:'按领域练习', mockMode:'快速模考 · 50', check:'核对答案', correct:'回答正确。', incorrect:'回答错误。', notAnswered:'未作答。',
   answerIs:'答案：', correctOrder:'正确顺序：', single:'单选', chooseN:'选择 {n} 项', orderT:'排序题', matchT:'匹配题',
   resetOrder:'重新排序', orderHint:'按正确顺序依次点击各项。', select:'请选择…',
-  statsLine:'已核对 {c} 题 · 答对 {r} 题', qbNav:'题目导航', qbPos:'第 {k} / {n} 题', qbAns:'已答 {a} 题', qbNext:'下一题', qbNextS:'下一题', qbAllDone:'全部完成 · 回到顶部', qbTop:'回到顶部', qbGo:'跳转到第几题', qbGoPh:'跳至题号', qbGoErr:'请输入 1–{n}', resetPractice:'清空答案',
+  statsLine:'已核对 {c} 题 · 答对 {r} 题', clearTxt:'清除', qbNav:'题目导航', qbPos:'第 {k} / {n} 题', qbAns:'已答 {a} 题', qbNext:'下一题', qbNextS:'下一题', qbAllDone:'全部完成 · 回到顶部', qbTop:'回到顶部', qbGo:'跳转到第几题', qbGoPh:'跳至题号', qbGoErr:'请输入 1–{n}', resetPractice:'清空答案',
   mockH:'限时模拟考试', mockList:['随机抽取 50 题，按真实考试权重分配：D1 10 · D2 12 · D3 14 · D4 7 · D5 7。','优先抽取你没做过的题，重复模考也能保持新鲜。','90 分钟计时，关闭或刷新页面后计时继续。交卷后才显示答案。','成绩按领域拆分，每道错题都会加入“错题”列表。'],
   startMock:'开始模拟考试', best:'目前最佳成绩', timeLeft:'剩余时间', answered:'已答', submit:'交卷', confirmSubmit:'还有 {n} 题未答，仍要交卷？',
   result:'你的成绩', resultLine:'答对 {c}/{n} 题', target:'建议模拟考试稳定在 80% 以上再报名。真实考试给出的是换算分，此百分比仅供参考。', retake:'开始新的模拟考试', byDomain:'各领域',
@@ -242,7 +242,7 @@ function updateThemeBtn(){
   var tb = document.getElementById('themeBtn'), dark = isDark(), tt = t();
   tb.innerHTML = dark ? SUN : MOON;
   tb.setAttribute('aria-label', dark ? tt.toLight : tt.toDark);
-  tb.title = dark ? tt.toLight : tt.toDark;
+  tb.setAttribute('data-hint', dark ? tt.toLight : tt.toDark);
 }
 var NAVICON = (function(){
   var p = {
@@ -282,17 +282,15 @@ function renderHeader(){
   document.getElementById('drawerNav').innerHTML = VIEWS.map(function(v){
     return '<button class="dlink" type="button" data-go="' + v + '"' + (S.view === v ? ' aria-current="page"' : '') + '>' + NAVICON[v] + '<span>' + tt[v] + '</span></button>';
   }).join('');
-  document.getElementById('drawerFoot').innerHTML = '<span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" title="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" title="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
-  var sb = document.getElementById('searchBtn'); sb.setAttribute('aria-label', tt.searchBtn); sb.title = tt.searchBtn + ' ( / )';
+  document.getElementById('drawerFoot').innerHTML = '<button type="button" class="dlink dlang" data-act="lang" lang="' + tt.langCtaLang + '">' + GLOBE + '<span>' + tt.langLabel + '</span></button><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
+  var sb = document.getElementById('searchBtn'); sb.setAttribute('aria-label', tt.searchBtn); sb.setAttribute('data-hint', tt.searchBtn + ' ( / )');
   paintSync();
   document.getElementById('skipLink').textContent = tt.skip;
   var mb = document.getElementById('menuBtn');
   mb.setAttribute('aria-label', menuOpen ? tt.closeMenu : tt.openMenu);
   document.getElementById('drawerClose').setAttribute('aria-label', tt.closeMenu);
-  var lb = document.getElementById('langBtn');
-  lb.textContent = tt.langBtn; lb.setAttribute('aria-label', tt.langLabel); lb.title = tt.langLabel;
   updateThemeBtn();
-  document.getElementById('foot').innerHTML = '<span class="credit">Craft by <b>Eyevuhn</b></span><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" title="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" title="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>';
+  document.getElementById('foot').innerHTML = '<span class="credit">Craft by <b>Eyevuhn</b></span><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>';
   fitNav();
 }
 /* Show the full tab bar only when it truly fits; otherwise hide the subtitle, then fall back to the burger. */
@@ -378,9 +376,9 @@ function vProgress(){
     var lastN = S.hist.slice(-3), avg = Math.round(lastN.reduce(function(s2, r){ return s2 + r.pct; }, 0) / lastN.length);
     chart = '<div class="chart-h"><h3>' + tt.chartT + '</h3><div class="legend"><span><i class="lg-f"></i>' + tt.legSim + '</span><span><i class="lg-h"></i>' + tt.legMock + '</span></div></div>' +
       '<p class="muted" style="margin:2px 0 8px;font-size:13.5px">' + fmt(tt.lastAvg, {n: lastN.length, p: avg}) + '</p><div class="prog-chart">' + progChart() + '</div>' +
-      '<details class="tview"><summary>' + tt.tableView + '</summary><div class="tw"><table><thead><tr><th>' + tt.colN + '</th><th>' + tt.colDate + '</th><th>' + tt.colMode + '</th><th>' + tt.colScore + '</th><th>' + tt.colEst + '</th></tr></thead><tbody>' +
+      '<div class="tview"><button type="button" class="tview-btn" data-act="tview" aria-expanded="false" aria-controls="tviewBody">' + CHEVRON + '<span>' + tt.tableView + '</span></button><div class="tw" id="tviewBody" hidden><table><thead><tr><th>' + tt.colN + '</th><th>' + tt.colDate + '</th><th>' + tt.colMode + '</th><th>' + tt.colScore + '</th><th>' + tt.colEst + '</th></tr></thead><tbody>' +
       S.hist.map(function(r, i){ return '<tr><td>' + (i + 1) + '</td><td>' + new Date(r.t).toLocaleString(l === 'zh' ? 'zh-CN' : 'en') + '</td><td>' + (r.m === 'sim' ? tt.legSim : tt.legMock) + '</td><td>' + r.pct + '%</td><td>' + (r.sc || '—') + '</td></tr>'; }).reverse().join('') +
-      '</tbody></table></div></details>';
+      '</tbody></table></div></div>';
   }
   var weakest = null;
   var rows = A.domains.map(function(d){
@@ -389,7 +387,7 @@ function vProgress(){
     return '<div class="acc" style="--c:' + dc(d.id) + '"><span class="acc-d">D' + d.n + '</span><span class="acc-t">' + esc(d.title[l]) + '</span><span class="acc-bar">' + (p != null ? '<i style="width:' + Math.max(p, 2) + '%"></i>' : '') + '</span><span class="acc-v">' + (p != null ? p + '% · ' + st[0] + '/' + st[1] : tt.accNone) + '</span></div>';
   }).join('');
   var focus = weakest ? '<div class="focus"><span>' + fmt(tt.focusNext, {n: weakest.d.n}) + ' · ' + esc(weakest.d.title[l]) + ' (' + weakest.p + '%)</span><button type="button" class="btn sm pri" data-act="focus-go" data-f="' + weakest.d.id + '">' + tt.practiceIt + '</button></div>' : '';
-  return '<section class="panel prog"><h2 class="ph">' + tt.progH + '</h2><p class="muted" style="margin:4px 0 0">' + tt.progP + '</p>' + syncCta() + stats +
+  return '<section class="panel prog"><h2 class="ph">' + tt.progH + '</h2><p class="muted" style="margin:4px 0 0">' + tt.progP + '</p>' + syncCta() + langCta() + stats +
     '<div class="prog-grid"><div class="prog-left">' + chart + '</div><div><h3>' + tt.accT + '</h3><p class="muted" style="margin:2px 0 10px;font-size:13.5px">' + tt.accP + '</p>' + rows + focus + '</div></div></section>';
 }
 
@@ -421,12 +419,11 @@ function railList(){
 function vCourse(){
   var tt = t(), l = L(), tk = A.tasks[S.task], d = DOM[tk.d], i = ORDER.indexOf(S.task);
   var prev = ORDER[i - 1], next = ORDER[i + 1], isDone = inArr(S.done, S.task), li = l === 'en' ? 0 : 1;
-  var opts = A.domains.map(function(dd){
-    return '<optgroup label="D' + dd.n + ' · ' + esc(dd.title[l]) + '">' + dd.tasks.map(function(id){ return '<option value="' + id + '"' + (id === S.task ? ' selected' : '') + '>' + id + ' · ' + esc(A.tasks[id].title[l]) + '</option>'; }).join('') + '</optgroup>';
-  }).join('');
+  var opts = [];
+  A.domains.forEach(function(dd){ dd.tasks.forEach(function(id){ opts.push({v: id, label: id + ' · ' + A.tasks[id].title[l], group: 'D' + dd.n + ' · ' + dd.title[l]}); }); });
   return '<div class="course">' +
-    '<aside class="rail" aria-label="' + tt.lessons + '"><input id="railSearch" class="field" type="search" placeholder="' + tt.search + '" value="' + esc(S.q) + '" aria-label="' + tt.search + '"><div id="railList">' + railList() + '</div></aside>' +
-    '<div class="mselect"><label class="eyebrow" for="taskSelect">' + tt.jump + '</label><select id="taskSelect" class="field" style="margin-top:6px">' + opts + '</select></div>' +
+    '<aside class="rail" aria-label="' + tt.lessons + '">' + '<div class="sfield">' + '<input id="railSearch" class="field" type="search" enterkeyhint="search" autocomplete="off" placeholder="' + tt.search + '" value="' + esc(S.q) + '" aria-label="' + tt.search + '">' + '<button type="button" class="sclear" data-act="sclear" aria-label="' + tt.clearTxt + '" data-hint="' + tt.clearTxt + '">' + XICON + '</button></div>' + '<div id="railList">' + railList() + '</div></aside>' +
+    '<div class="mselect"><span class="eyebrow" id="taskSelectL">' + tt.jump + '</span>' + ddHTML({id: 'taskSelect', labelledby: 'taskSelectL', value: S.task, options: opts, cls: 'dd-field', pick: openTask}) + '</div>' +
     '<article class="lesson" style="--c:' + dc(d.id) + '">' +
     '<div class="crumb"><span>' + tt.domain + ' ' + d.n + '</span><span class="sep">/</span><span>' + esc(d.title[l]) + '</span><span class="sep">/</span><span>' + d.w + '%</span></div>' +
     '<h2>' + tt.task + ' ' + S.task + ' · ' + esc(tk.title[l]) + '</h2>' +
@@ -543,8 +540,10 @@ function qHTML(qi, num){
     body = '<div class="opts">' + Q.o.map(function(p, i){
       var v = marr[i] == null ? -1 : marr[i], cls = 'mrow';
       if (rev) cls += v === i ? ' right' : ' wrong';
-      return '<div class="' + cls + '"><label for="m-' + qi + '-' + i + '">' + esc(p[0]) + '</label><select id="m-' + qi + '-' + i + '" data-act="match" data-q="' + qi + '" data-i="' + i + '"' + (rev ? ' disabled' : '') + '><option value="-1">' + tt.select + '</option>' +
-        mp.map(function(j){ return '<option value="' + j + '"' + (v === j ? ' selected' : '') + '>' + esc(Q.o[j][1]) + '</option>'; }).join('') + '</select></div>';
+      return '<div class="' + cls + '"><span id="ml-' + qi + '-' + i + '">' + esc(p[0]) + '</span>' +
+        ddHTML({id: 'm-' + qi + '-' + i, labelledby: 'ml-' + qi + '-' + i, value: v, placeholder: tt.select, disabled: rev,
+          options: mp.map(function(j){ return {v: j, label: Q.o[j][1]}; }),
+          pick: function(val){ pickMatch(qi, i, val); }}) + '</div>';
     }).join('') + '</div>';
   }
   var foot = '', btns = '';
@@ -675,6 +674,146 @@ function afterAnswer(){
   }
   paintQbar();
 }
+/* ---------------- our own UI parts: icons, dropdown, tooltips ---------------- */
+var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+var XICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+var TICK = '<svg class="dd-tick" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+function pickMatch(qi, i, val){
+  var n = A.qs[qi].en.o.length, arr = (getAns(qi) || Array.apply(null, {length: n}).map(function(){ return -1; })).slice();
+  arr[i] = val; setAns(qi, arr); saveExam(); reQ(qi); focusSel('#m-' + qi + '-' + i);
+}
+/* Dropdown: a button that opens a listbox. Options live in DD by id, filled while the HTML is built. */
+var DD = {}, ddOpen = null;
+function ddHTML(o){
+  DD[o.id] = o;
+  var cur = o.options.filter(function(x){ return x.v === o.value; })[0];
+  return '<div class="dd' + (o.cls ? ' ' + o.cls : '') + '"><button type="button" class="dd-btn" id="' + o.id + '" data-act="dd" aria-haspopup="listbox" aria-expanded="false"' +
+    (o.labelledby ? ' aria-labelledby="' + o.labelledby + ' ' + o.id + '"' : '') + (o.disabled ? ' disabled' : '') + '>' +
+    '<span class="dd-val' + (cur ? '' : ' dd-ph') + '">' + esc(cur ? cur.label : (o.placeholder || '')) + '</span>' + CHEVRON + '</button></div>';
+}
+function ddPlace(){
+  if (!ddOpen) return;
+  var b = document.getElementById(ddOpen.id), ls = document.getElementById('ddList');
+  if (!b || !ls) return ddClose(false);
+  var r = b.getBoundingClientRect(), vh = window.innerHeight, below = vh - r.bottom - 12, above = r.top - 12 - 64;
+  var up = below < 220 && above > below, room = Math.max(120, Math.min(320, up ? above : below));
+  ls.style.maxHeight = room + 'px';
+  ls.style.width = Math.min(window.innerWidth - 32, Math.max(r.width, 280)) + 'px';
+  var left = Math.min(Math.max(16, r.left), window.innerWidth - ls.offsetWidth - 16);
+  ls.style.left = left + 'px';
+  ls.style.top = (up ? r.top - 6 - Math.min(room, ls.scrollHeight) : r.bottom + 6) + 'px';
+  ls.classList.toggle('up', up);
+}
+function ddOpenList(id){
+  var o = DD[id], b = document.getElementById(id);
+  if (!o || !b || b.disabled) return;
+  ddClose(false);
+  hideHint();
+  var h = '', lastG = null, sel = -1;
+  o.options.forEach(function(x, k){
+    if (x.group && x.group !== lastG) { h += '<li class="dd-group" role="presentation">' + esc(x.group) + '</li>'; lastG = x.group; }
+    var on = x.v === o.value; if (on) sel = k;
+    h += '<li class="dd-opt' + (on ? ' on' : '') + '" role="option" id="ddo-' + k + '" data-k="' + k + '" aria-selected="' + on + '"><span>' + esc(x.label) + '</span>' + TICK + '</li>';
+  });
+  document.body.insertAdjacentHTML('beforeend', '<ul class="dd-list" id="ddList" role="listbox" tabindex="-1" aria-labelledby="' + (o.labelledby || id) + '">' + h + '</ul>');
+  ddOpen = {id: id, active: sel < 0 ? 0 : sel, typed: '', typedAt: 0};
+  b.setAttribute('aria-expanded', 'true');
+  ddPlace();
+  ddActive(ddOpen.active, true);
+  document.getElementById('ddList').focus({preventScroll: true});
+}
+function ddActive(k, center){
+  var ls = document.getElementById('ddList'); if (!ls || !ddOpen) return;
+  var n = DD[ddOpen.id].options.length; k = Math.max(0, Math.min(n - 1, k)); ddOpen.active = k;
+  Array.prototype.forEach.call(ls.querySelectorAll('.dd-opt.act'), function(x){ x.classList.remove('act'); });
+  var el = document.getElementById('ddo-' + k); if (!el) return;
+  el.classList.add('act'); ls.setAttribute('aria-activedescendant', el.id);
+  var top = el.offsetTop, bot = top + el.offsetHeight;
+  if (center) ls.scrollTop = top - ls.clientHeight / 2 + el.offsetHeight / 2;
+  else if (top < ls.scrollTop) ls.scrollTop = top - 4; else if (bot > ls.scrollTop + ls.clientHeight) ls.scrollTop = bot - ls.clientHeight + 4;
+}
+function ddClose(refocus){
+  var ls = document.getElementById('ddList'); if (ls) ls.parentNode.removeChild(ls);
+  if (!ddOpen) return;
+  var b = document.getElementById(ddOpen.id); ddOpen = null;
+  if (b) { b.setAttribute('aria-expanded', 'false'); if (refocus) b.focus({preventScroll: true}); }
+}
+function ddPick(k){
+  if (!ddOpen) return;
+  var o = DD[ddOpen.id], x = o.options[k];
+  ddClose(true);
+  if (x && x.v !== o.value) o.pick(x.v);
+}
+document.addEventListener('keydown', function(e){
+  var t2 = e.target;
+  // Enter and Space already click the button; arrows open it too
+  if (t2 && t2.classList && t2.classList.contains('dd-btn') && !ddOpen && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) { e.preventDefault(); ddOpenList(t2.id); return; }
+  if (!ddOpen || !t2 || t2.id !== 'ddList') return;
+  if (e.key !== 'Tab') e.stopPropagation(); // keys in the open list are for the list, not page shortcuts
+  var n = DD[ddOpen.id].options.length, k = ddOpen.active;
+  if (e.key === 'ArrowDown') { e.preventDefault(); ddActive(k + 1); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); ddActive(k - 1); }
+  else if (e.key === 'Home' || e.key === 'PageUp') { e.preventDefault(); ddActive(e.key === 'Home' ? 0 : k - 6); }
+  else if (e.key === 'End' || e.key === 'PageDown') { e.preventDefault(); ddActive(e.key === 'End' ? n - 1 : k + 6); }
+  else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ddPick(k); }
+  else if (e.key === 'Escape') { e.preventDefault(); ddClose(true); }
+  else if (e.key === 'Tab') { ddClose(true); }
+  else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+    // type to jump to an option
+    var now = Date.now(); ddOpen.typed = (now - ddOpen.typedAt > 700 ? '' : ddOpen.typed) + e.key.toLowerCase(); ddOpen.typedAt = now;
+    var opts = DD[ddOpen.id].options;
+    for (var j = 0; j < n; j++) { var c = (k + (ddOpen.typed.length > 1 ? 0 : 1) + j) % n; if (opts[c].label.toLowerCase().indexOf(ddOpen.typed) === 0) { ddActive(c); break; } }
+  }
+}, true);
+document.addEventListener('pointerdown', function(e){
+  if (!ddOpen) return;
+  var inList = e.target.closest && e.target.closest('#ddList'), onBtn = e.target.closest && e.target.closest('#' + ddOpen.id);
+  if (!inList && !onBtn) ddClose(false);
+});
+document.addEventListener('click', function(e){
+  var o = e.target.closest && e.target.closest('#ddList .dd-opt');
+  if (o) ddPick(+o.getAttribute('data-k'));
+});
+document.addEventListener('pointermove', function(e){
+  var o = ddOpen && e.target.closest && e.target.closest('#ddList .dd-opt');
+  if (o && +o.getAttribute('data-k') !== ddOpen.active) ddActive(+o.getAttribute('data-k'));
+});
+window.addEventListener('scroll', function(){ if (ddOpen) requestAnimationFrame(ddPlace); }, {passive: true});
+window.addEventListener('resize', function(){ ddClose(false); });
+
+/* Tooltips: shown on mouse hover (after a short pause) and on keyboard focus; never on touch */
+var hintEl = null, hintFor = null, hintTimer = null;
+function showHint(el){
+  var txt = el.getAttribute('data-hint'); if (!txt || ddOpen) return;
+  if (!hintEl) { hintEl = document.createElement('div'); hintEl.className = 'hint'; hintEl.setAttribute('aria-hidden', 'true'); document.body.appendChild(hintEl); }
+  hintEl.textContent = txt; hintFor = el;
+  var r = el.getBoundingClientRect(), tw = hintEl.offsetWidth, th = hintEl.offsetHeight;
+  var top = r.bottom + 8; if (top + th > window.innerHeight - 8) top = r.top - th - 8;
+  var left = Math.min(Math.max(8, r.left + r.width / 2 - tw / 2), window.innerWidth - tw - 8);
+  hintEl.style.left = Math.round(left) + 'px'; hintEl.style.top = Math.round(top) + 'px';
+  hintEl.classList.add('on');
+}
+function hideHint(){ clearTimeout(hintTimer); if (hintEl) hintEl.classList.remove('on'); hintFor = null; }
+document.addEventListener('pointerover', function(e){
+  if (e.pointerType === 'touch') return;
+  var el = e.target.closest && e.target.closest('[data-hint]');
+  if (!el || el === hintFor) return;
+  clearTimeout(hintTimer); hintTimer = setTimeout(function(){ if (el.isConnected && el.matches(':hover')) showHint(el); }, 400);
+});
+document.addEventListener('pointerout', function(e){
+  var el = e.target.closest && e.target.closest('[data-hint]');
+  if (el && !(e.relatedTarget && el.contains(e.relatedTarget))) hideHint();
+});
+document.addEventListener('focusin', function(e){
+  var el = e.target.closest && e.target.closest('[data-hint]');
+  hideHint();
+  if (el && el.matches(':focus-visible')) showHint(el);
+});
+document.addEventListener('focusout', hideHint);
+document.addEventListener('pointerdown', hideHint, true);
+window.addEventListener('scroll', hideHint, {passive: true});
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && hintFor) hideHint(); });
+
 /* ---------------- floating question bar (practice and quick mock) ---------------- */
 var ARROW_DN = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
 var ARROW_UP = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
@@ -685,8 +824,8 @@ function qbarHTML(){
   if (!qbarList().length) return '';
   return '<div class="qbar" id="qbar" role="region" aria-label="' + tt.qbNav + '"><div class="qbar-in">' +
     '<div class="qbar-info"><div class="qbar-line"><b id="qbPos"></b><span id="qbStats"></span><span class="qbar-err" id="qbErr" role="status"></span></div><div class="qbar-prog" aria-hidden="true"><i id="qbProg"></i></div></div>' +
-    '<form class="qbar-go" id="qbGo" novalidate><label for="qbGoIn" class="sr-only">' + tt.qbGo + '</label><input id="qbGoIn" class="field" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" enterkeyhint="go" placeholder="' + tt.qbGoPh + '" title="' + tt.qbGo + '"></form>' +
-    '<button type="button" class="ctl qbar-top" data-act="qb-top" aria-label="' + tt.qbTop + '" title="' + tt.qbTop + '">' + ARROW_UP + '</button>' +
+    '<form class="qbar-go" id="qbGo" novalidate><label for="qbGoIn" class="sr-only">' + tt.qbGo + '</label><input id="qbGoIn" class="field" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" enterkeyhint="go" placeholder="' + tt.qbGoPh + '" data-hint="' + tt.qbGo + '"></form>' +
+    '<button type="button" class="ctl qbar-top" data-act="qb-top" aria-label="' + tt.qbTop + '" data-hint="' + tt.qbTop + '">' + ARROW_UP + '</button>' +
     '<button type="button" class="btn pri qbar-next" id="qbNext" data-act="qb-next"></button></div></div>';
 }
 /* questions sit below the sticky header (and the mock's timer bar) */
@@ -880,7 +1019,7 @@ function vServices(){
   var tt = t();
   var cats = ['all','genai','ml','ai','infra','data','core','sec','gov'];
   return '<div class="sechead"><div><h2>' + tt.svcH + '</h2><p>' + tt.svcP + '</p></div></div>' +
-    '<div class="filters"><input id="svcSearch" class="field" type="search" placeholder="' + tt.svcSearch + '" aria-label="' + tt.svcSearch + '" value="' + esc(S.svcQ) + '"><div class="chips">' +
+    '<div class="filters">' + '<div class="sfield">' + '<input id="svcSearch" class="field" type="search" enterkeyhint="search" autocomplete="off" placeholder="' + tt.svcSearch + '" aria-label="' + tt.svcSearch + '" value="' + esc(S.svcQ) + '">' + '<button type="button" class="sclear" data-act="sclear" aria-label="' + tt.clearTxt + '" data-hint="' + tt.clearTxt + '">' + XICON + '</button></div>' + '<div class="chips">' +
     cats.map(function(c){ return '<button type="button" class="chip"' + (c !== 'all' ? ' style="--c:' + CATC[c] + '"' : '') + ' data-act="svccat" data-c="' + c + '" aria-pressed="' + (S.svcCat === c) + '">' + (c !== 'all' ? '<span class="dot"></span>' : '') + tt.cat[c] + '</button>'; }).join('') +
     '</div><label class="toggle" for="svcScope"><input type="checkbox" id="svcScope"' + (S.svcScope ? ' checked' : '') + '> ' + tt.scopeOnly + '</label></div><div id="svcTable">' + svcTable() + '</div>';
 }
@@ -896,7 +1035,7 @@ function glList(){
 function vGlossary(){
   var tt = t();
   return '<div class="sechead"><div><h2>' + tt.glH + '</h2><p>' + fmt(tt.glP, {n: A.gloss.length}) + '</p></div></div>' +
-    '<div class="filters"><input id="glSearch" class="field" type="search" placeholder="' + tt.glSearch + '" aria-label="' + tt.glSearch + '" value="' + esc(S.glQ) + '"></div><div id="glList">' + glList() + '</div>';
+    '<div class="filters">' + '<div class="sfield">' + '<input id="glSearch" class="field" type="search" enterkeyhint="search" autocomplete="off" placeholder="' + tt.glSearch + '" aria-label="' + tt.glSearch + '" value="' + esc(S.glQ) + '">' + '<button type="button" class="sclear" data-act="sclear" aria-label="' + tt.clearTxt + '" data-hint="' + tt.clearTxt + '">' + XICON + '</button></div>' + '</div><div id="glList">' + glList() + '</div>';
 }
 
 /* ---------------- plan ---------------- */
@@ -996,6 +1135,10 @@ document.addEventListener('click', function(e){
       else { var tl = qbarList(); scrollToQ(+to, true); announce(fmt(t().qbPos, {k: tl.indexOf(+to) + 1, n: tl.length})); }
       break; }
     case 'qb-top': window.scrollTo({top: 0, behavior: smoothScroll() ? 'smooth' : 'auto'}); break;
+    case 'dd': if (ddOpen && ddOpen.id === el.id) ddClose(true); else ddOpenList(el.id); break;
+    case 'sclear': { var si = el.parentNode.querySelector('input'); if (si) { si.value = ''; si.dispatchEvent(new Event('input', {bubbles: true})); si.focus(); } break; }
+    case 'tview': { var tb2 = document.getElementById('tviewBody'), open = el.getAttribute('aria-expanded') !== 'true'; el.setAttribute('aria-expanded', String(open)); tb2.hidden = !open; break; }
+    case 'lang': if (menuOpen) setMenu(false, false); switchLang(el); break;
     case 'reset-practice': clearAnswers(practiceList()); render(); break;
     case 'start-mock': startMock(); render(); window.scrollTo(0, 0); break;
     case 'sim-start': startSim(); render(); window.scrollTo(0, 0); break;
@@ -1034,14 +1177,8 @@ document.addEventListener('click', function(e){
 });
 document.addEventListener('change', function(e){
   var el = e.target;
-  if (el.id === 'taskSelect') openTask(el.value);
-  else if (el.id === 'svcScope') { S.svcScope = el.checked; document.getElementById('svcTable').innerHTML = svcTable(); }
+  if (el.id === 'svcScope') { S.svcScope = el.checked; document.getElementById('svcTable').innerHTML = svcTable(); }
   else if (el.id === 'hideKnown') { S.hideKnown = el.checked; store.set('hideKnown', S.hideKnown); S.cardIdx = 0; S.flip = false; render(); focusSel('#hideKnown'); }
-  else if (el.getAttribute('data-act') === 'match') {
-    var qi = +el.getAttribute('data-q'), i = +el.getAttribute('data-i'), n = A.qs[qi].en.o.length;
-    var arr = (getAns(qi) || Array.apply(null, {length: n}).map(function(){ return -1; })).slice();
-    arr[i] = +el.value; setAns(qi, arr); saveExam(); reQ(qi); focusSel('#m-' + qi + '-' + i);
-  }
   else if (el.getAttribute('data-act') === 'plan') {
     var k = el.getAttribute('data-k');
     if (el.checked) { if (!inArr(S.planDone, k)) S.planDone = S.planDone.concat([k]); } else S.planDone = S.planDone.filter(function(x){ return x !== k; });
@@ -1131,7 +1268,7 @@ function openSearch(from){
   var tt = t();
   document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back gs-back" id="gsDlg" data-act="gs-close"><div class="gs" role="dialog" aria-modal="true" aria-label="' + esc(tt.searchBtn) + '">' +
     '<div class="gs-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>' +
-    '<input id="gsInput" type="search" autocomplete="off" placeholder="' + esc(tt.searchPh) + '" aria-label="' + esc(tt.searchBtn) + '" value="' + esc(S.gsQ || '') + '"><button type="button" class="ctl gs-esc" data-act="gs-close" aria-label="Close">Esc</button></div>' +
+    '<input id="gsInput" type="search" enterkeyhint="search" autocomplete="off" placeholder="' + esc(tt.searchPh) + '" aria-label="' + esc(tt.searchBtn) + '" value="' + esc(S.gsQ || '') + '"><button type="button" class="sclear" data-act="sclear" aria-label="' + tt.clearTxt + '" data-hint="' + tt.clearTxt + '">' + XICON + '</button><button type="button" class="ctl gs-esc" data-act="gs-close" aria-label="Close">Esc</button></div>' +
     '<div class="gs-res" id="gsRes" aria-live="polite"></div></div></div>');
   document.body.style.overflow = 'hidden';
   runSearch(S.gsQ || '');
@@ -1253,7 +1390,7 @@ function paintSync(){
   b.className = 'ctl acct' + (syncUser ? ' is-' + syncState : '');
   var tt = t();
   b.setAttribute('aria-label', tt.syncBtn + (syncUser ? ' · ' + fmt(tt.signedAs, {e: syncUser.email}) : ''));
-  b.title = b.getAttribute('aria-label');
+  b.setAttribute('data-hint', b.getAttribute('aria-label'));
   if (document.getElementById('acctDlg')) paintAcct();
 }
 function acctHTML(){
@@ -1293,7 +1430,7 @@ function openAcct(from){
   acctDel = false;
   var tt = t(), b = document.getElementById('acctBtn');
   b.insertAdjacentHTML('afterend', '<div class="acct-pop" id="acctDlg" role="dialog" aria-labelledby="acctT"><div class="acct-pop-h"><h3 id="acctT">' + tt.syncT + '</h3>' +
-    '<button type="button" class="acct-x" data-act="acct-x" aria-label="' + tt.aboutClose + '" title="' + tt.aboutClose + '"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div id="acctBody">' + acctHTML() + '</div></div>');
+    '<button type="button" class="acct-x" data-act="acct-x" aria-label="' + tt.aboutClose + '" data-hint="' + tt.aboutClose + '"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div id="acctBody">' + acctHTML() + '</div></div>');
   b.setAttribute('aria-expanded', 'true');
   if (resendLeft() && !resendTimer) resendTimer = setInterval(tickResend, 1000);
   setTimeout(function(){ var f = document.getElementById('acctEmail') || document.getElementById('acctResend') || document.querySelector('#acctDlg button'); if (f) f.focus({preventScroll: true}); }, 30);
@@ -1350,6 +1487,12 @@ function otherEmail(){
   var prev = sentTo; sentTo = ''; acctMsg = ''; paintAcct();
   var em = document.getElementById('acctEmail'); if (em) { em.value = prev; em.focus({preventScroll: true}); em.select(); }
 }
+var GLOBE = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>';
+/* written in the language it offers, so the reader it is meant for can read it */
+function langCta(){
+  var tt = t();
+  return '<div class="sync-cta lang-cta" lang="' + tt.langCtaLang + '"><span class="lang-cta-t">' + GLOBE + '<span>' + tt.langCta + '</span></span><button type="button" class="btn sm" data-act="lang">' + tt.langLabel + '</button></div>';
+}
 function syncCta(){
   if (!syncEnabled() || syncUser) return '';
   var tt = t();
@@ -1379,6 +1522,8 @@ var CHANGELOG = [
     'After you ask for a link, a check-your-email screen shows where it went, with Resend.',
     'Sign-in emails arrive in English or Chinese to match your language.',
     'Practice and quick mock: a floating bar shows which question you are on, how many you have answered and your score, with a Next question button and a Go to # box to jump to any question number. Checking an answer brings that question to the top so its explanation is in view.',
+    'SenseiDoge’s own dropdowns, checkboxes, switches, search boxes and tooltips replace the browser’s built-in ones; header buttons are now plain icons.',
+    'The language switch moved from the header to a pinned notice under Your progress (and the side menu on phones).',
     'New lettering for the logo, and a Chinese name: <b>考汪</b> (a play on 考王, “exam king”).'
   ], zh: [
     '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
@@ -1387,6 +1532,8 @@ var CHANGELOG = [
     '发送登录链接后，会显示“查收你的邮箱”页面，并可重新发送。',
     '登录邮件会按你的界面语言以中文或英文发送。',
     '练习与快速模考：底部浮动栏显示当前题号、已答题数和得分，并提供“下一题”按钮和可跳转到任意题号的输入框；核对答案后，该题会移到页面顶部，方便查看解析。',
+    '下拉菜单、复选框、开关、搜索框和提示框改用本站自己的设计，不再使用浏览器自带样式；顶部按钮改为纯图标。',
+    '语言切换从顶部移到“学习进度”下方的置顶提示（手机上也可在侧边菜单中切换）。',
     '全新标志字体，并启用中文名<b>考汪</b>（谐音“考王”）。'
   ]},
   {v: '1.1', date: '2026-09-23', en: [
@@ -1484,7 +1631,10 @@ document.addEventListener('keydown', function(e){
   else if (e.key === 'ArrowLeft') { e.preventDefault(); cardMove(-1); }
   else if ((e.key === ' ' || e.key === 'Enter') && tag !== 'button' && tag !== 'a') { e.preventDefault(); S.flip = !S.flip; render(); }
 });
-document.getElementById('langBtn').addEventListener('click', function(){ S.lang = S.lang === 'en' ? 'zh' : 'en'; store.set('lang', S.lang); render(); saveEmailLang(); });
+function switchLang(from){
+  var sel = from && from.classList.contains('dlang') ? '#menuBtn' : '.lang-cta [data-act="lang"]';
+  S.lang = S.lang === 'en' ? 'zh' : 'en'; store.set('lang', S.lang); render(); saveEmailLang(); focusSel(sel);
+}
 document.getElementById('themeBtn').addEventListener('click', function(){ var next = isDark() ? 'light' : 'dark'; root.setAttribute('data-theme', next); store.set('theme', next); updateThemeBtn(); });
 try { var mq = window.matchMedia('(prefers-color-scheme: dark)'); if (mq.addEventListener) mq.addEventListener('change', updateThemeBtn); else if (mq.addListener) mq.addListener(updateThemeBtn); } catch (e) {}
 try { new MutationObserver(updateThemeBtn).observe(root, {attributes: true, attributeFilter: ['data-theme']}); } catch (e) {}
