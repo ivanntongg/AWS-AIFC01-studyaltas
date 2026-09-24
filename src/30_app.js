@@ -88,7 +88,7 @@ en: {
   practice:'Practice by domain', mockMode:'Quick mock · 50', check:'Check answer', correct:'Correct.', incorrect:'Not quite.', notAnswered:'Not answered.',
   answerIs:'Answer:', correctOrder:'Correct order:', single:'Choose ONE', chooseN:'Choose {n}', orderT:'Ordering', matchT:'Matching',
   resetOrder:'Reset order', orderHint:'Click the items in the correct order.', select:'Select…',
-  statsLine:'{c} checked · {r} correct', resetPractice:'Clear answers',
+  statsLine:'{c} checked · {r} correct', qbNav:'Question navigator', qbPos:'Question {k} of {n}', qbAns:'{a} answered', qbNext:'Next question', qbAllDone:'All done · back to top', qbTop:'Back to top', resetPractice:'Clear answers',
   mockH:'Timed mock exam', mockList:['50 questions drawn at random, weighted like the real exam: D1 10 · D2 12 · D3 14 · D4 7 · D5 7.','Questions you have not seen yet are drawn first, so repeat mocks stay fresh.','A 90-minute timer that keeps running if you close or refresh the page. Answers are revealed only after you submit.','Your result is broken down by domain, and every miss is added to your Missed list.'],
   startMock:'Start mock exam', best:'Best mock score so far', timeLeft:'Time left', answered:'Answered', submit:'Submit exam', confirmSubmit:'{n} unanswered. Submit anyway?',
   result:'Your result', resultLine:'{c} of {n} correct', target:'Aim for 80% or more on mock exams before booking. The real exam reports a scaled score, so treat this percentage as a guide.', retake:'Start a new mock exam', byDomain:'By domain',
@@ -164,7 +164,7 @@ zh: {
   practice:'按领域练习', mockMode:'快速模考 · 50', check:'核对答案', correct:'回答正确。', incorrect:'回答错误。', notAnswered:'未作答。',
   answerIs:'答案：', correctOrder:'正确顺序：', single:'单选', chooseN:'选择 {n} 项', orderT:'排序题', matchT:'匹配题',
   resetOrder:'重新排序', orderHint:'按正确顺序依次点击各项。', select:'请选择…',
-  statsLine:'已核对 {c} 题 · 答对 {r} 题', resetPractice:'清空答案',
+  statsLine:'已核对 {c} 题 · 答对 {r} 题', qbNav:'题目导航', qbPos:'第 {k} / {n} 题', qbAns:'已答 {a} 题', qbNext:'下一题', qbAllDone:'全部完成 · 回到顶部', qbTop:'回到顶部', resetPractice:'清空答案',
   mockH:'限时模拟考试', mockList:['随机抽取 50 题，按真实考试权重分配：D1 10 · D2 12 · D3 14 · D4 7 · D5 7。','优先抽取你没做过的题，重复模考也能保持新鲜。','90 分钟计时，关闭或刷新页面后计时继续。交卷后才显示答案。','成绩按领域拆分，每道错题都会加入“错题”列表。'],
   startMock:'开始模拟考试', best:'目前最佳成绩', timeLeft:'剩余时间', answered:'已答', submit:'交卷', confirmSubmit:'还有 {n} 题未答，仍要交卷？',
   result:'你的成绩', resultLine:'答对 {c}/{n} 题', target:'建议模拟考试稳定在 80% 以上再报名。真实考试给出的是换算分，此百分比仅供参考。', retake:'开始新的模拟考试', byDomain:'各领域',
@@ -623,7 +623,7 @@ function vExam(){
     var list = practiceList();
     var body = (f === 'missed' && !list.length) ? '<div class="panel empty" style="max-width:860px">' + tt.noMissed + '</div>' :
       '<div class="qlist">' + list.map(function(qi, k){ return qHTML(qi, k + 1); }).join('') + '</div>';
-    return head + '<div class="filters"><div class="chips">' + chips + '</div><span class="muted" id="pstats" style="font-size:13px">' + practiceStats() + '</span><button type="button" class="btn sm" data-act="reset-practice">' + tt.resetPractice + '</button></div>' + body;
+    return head + '<div class="filters"><div class="chips">' + chips + '</div><span class="muted" id="pstats" style="font-size:13px">' + practiceStats() + '</span><button type="button" class="btn sm" data-act="reset-practice">' + tt.resetPractice + '</button></div>' + body + qbarHTML();
   }
   if (!S.mock) {
     return head + '<section class="panel" style="max-width:860px"><h3 style="font-size:20px">' + tt.mockH + '</h3><ul class="plain">' + tt.mockList.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>' +
@@ -633,7 +633,7 @@ function vExam(){
   var list = '<div class="qlist">' + S.mock.set.map(function(qi, k){ return qHTML(qi, k + 1); }).join('') + '</div>';
   if (!S.mock.submitted) {
     var left = S.mock.end - Date.now();
-    return head + '<div class="exbar"><span class="muted">' + tt.timeLeft + '</span><span class="tm' + (left < 300000 ? ' low' : '') + '" id="timer">' + fmtTime(left) + '</span><span class="muted">' + tt.answered + ' <b id="ansCount" style="color:var(--ink)">' + mockAnswered() + '</b>/' + S.mock.set.length + '</span><span class="sp"></span><button type="button" class="btn sm pri" id="submitBtn" data-act="submit-mock">' + submitLabel() + '</button></div>' + list;
+    return head + '<div class="exbar"><span class="muted">' + tt.timeLeft + '</span><span class="tm' + (left < 300000 ? ' low' : '') + '" id="timer">' + fmtTime(left) + '</span><span class="muted">' + tt.answered + ' <b id="ansCount" style="color:var(--ink)">' + mockAnswered() + '</b>/' + S.mock.set.length + '</span><span class="sp"></span><button type="button" class="btn sm pri" id="submitBtn" data-act="submit-mock">' + submitLabel() + '</button></div>' + list + qbarHTML();
   }
   var r = S.mock.res, cls = r.pct >= 80 ? ' ok' : (r.pct < 70 ? ' no' : '');
   return head + '<section class="panel" style="max-width:860px;margin-bottom:16px"><div class="score"><div class="big' + cls + '">' + r.pct + '%</div><div><h3 style="font-size:20px">' + tt.result + '</h3><p class="muted" style="margin:4px 0">' + fmt(tt.resultLine, {c: r.c, n: r.n}) + '</p><p class="muted" style="margin:4px 0 10px;font-size:13.5px">' + tt.target + '</p>' +
@@ -673,7 +673,66 @@ function afterAnswer(){
   } else {
     var ps = document.getElementById('pstats'); if (ps) ps.textContent = practiceStats();
   }
+  paintQbar();
 }
+/* ---------------- floating question bar (practice and quick mock) ---------------- */
+var ARROW_DN = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
+var ARROW_UP = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
+function qbarList(){ return S.exMode === 'mock' ? S.mock.set : practiceList(); }
+function qbarDone(qi){ return S.exMode === 'mock' ? answered(A.qs[qi], S.mock.ans[qi]) : !!S.checked[qi]; }
+function qbarHTML(){
+  var tt = t();
+  if (!qbarList().length) return '';
+  return '<div class="qbar" id="qbar" role="region" aria-label="' + tt.qbNav + '"><div class="qbar-in">' +
+    '<div class="qbar-info"><div class="qbar-line"><b id="qbPos"></b><span id="qbStats"></span></div><div class="qbar-prog" aria-hidden="true"><i id="qbProg"></i></div></div>' +
+    '<button type="button" class="ctl qbar-top" data-act="qb-top" aria-label="' + tt.qbTop + '" title="' + tt.qbTop + '">' + ARROW_UP + '</button>' +
+    '<button type="button" class="btn pri qbar-next" id="qbNext" data-act="qb-next"></button></div></div>';
+}
+/* questions sit below the sticky header (and the mock's timer bar) */
+function qbarOffset(){
+  var h = document.querySelector('.top').getBoundingClientRect().bottom, eb = document.querySelector('.exbar');
+  if (eb) h = Math.max(h, (parseFloat(getComputedStyle(eb).top) || 0) + eb.offsetHeight); // where the timer bar sits once stuck
+  return h + 12;
+}
+/* the question at the top of the screen: the first one whose bottom is still below the header */
+function qbarCurrent(list){
+  var top = qbarOffset() + 40, lo = 0, hi = list.length - 1, at = list.length - 1;
+  while (lo <= hi) {
+    var mid = (lo + hi) >> 1, el = document.getElementById('q-' + list[mid]);
+    if (!el) return 0;
+    if (el.getBoundingClientRect().bottom > top) { at = mid; hi = mid - 1; } else lo = mid + 1;
+  }
+  return at;
+}
+function qbarNext(list, cur){
+  for (var k = 1; k <= list.length; k++) { var j = (cur + k) % list.length; if (!qbarDone(list[j])) return j; }
+  return -1;
+}
+function paintQbar(){
+  var bar = document.getElementById('qbar');
+  document.body.classList.toggle('has-qbar', !!bar);
+  if (!bar) return;
+  var tt = t(), list = qbarList(), cur = qbarCurrent(list), done = 0, right = 0;
+  list.forEach(function(qi){ if (qbarDone(qi)) { done++; if (S.exMode === 'practice' && correct(A.qs[qi], S.ans[qi])) right++; } });
+  document.getElementById('qbPos').textContent = fmt(tt.qbPos, {k: cur + 1, n: list.length});
+  document.getElementById('qbStats').textContent = S.exMode === 'mock' ? fmt(tt.qbAns, {a: done}) : fmt(tt.statsLine, {c: done, r: right});
+  document.getElementById('qbProg').style.width = (list.length ? done * 100 / list.length : 0) + '%';
+  var nx = qbarNext(list, cur), b = document.getElementById('qbNext');
+  b.setAttribute('data-to', nx < 0 ? '' : list[nx]);
+  var html = nx < 0 ? esc(tt.qbAllDone) : esc(tt.qbNext) + ARROW_DN;
+  if (b.innerHTML !== html) b.innerHTML = html;
+}
+function smoothScroll(){ return !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }
+function scrollToQ(qi, focus){
+  var el = document.getElementById('q-' + qi); if (!el) return;
+  // focus first: in Chrome, moving focus cancels a smooth scroll that is already running
+  if (focus) { el.setAttribute('tabindex', '-1'); el.focus({preventScroll: true}); }
+  window.scrollTo({top: Math.max(0, window.scrollY + el.getBoundingClientRect().top - qbarOffset()), behavior: smoothScroll() ? 'smooth' : 'auto'});
+}
+var qbTick = false;
+function queueQbar(){ if (qbTick) return; qbTick = true; requestAnimationFrame(function(){ qbTick = false; paintQbar(); }); }
+window.addEventListener('scroll', queueQbar, {passive: true});
+window.addEventListener('resize', queueQbar);
 function reQ(qi){ var el = document.getElementById('q-' + qi); if (!el) return; el.outerHTML = qHTML(qi, +el.getAttribute('data-num')); afterAnswer(); }
 
 /* ---------------- real exam simulation ---------------- */
@@ -842,7 +901,7 @@ function vPlan(){
 
 /* ---------------- render + events ---------------- */
 var VIEWFN = {overview: vOverview, course: vCourse, cards: vCards, exam: vExam, services: vServices, glossary: vGlossary, plan: vPlan};
-function render(){ renderHeader(); document.getElementById('app').innerHTML = VIEWFN[S.view](); }
+function render(){ renderHeader(); document.getElementById('app').innerHTML = VIEWFN[S.view](); paintQbar(); }
 function setView(v){
   if (menuOpen) setMenu(false, false);
   S.view = v;
@@ -915,8 +974,13 @@ document.addEventListener('click', function(e){
     }
     case 'ord': { var arr = (getAns(qi) || []).slice(); if (!inArr(arr, i)) arr.push(i); setAns(qi, arr); saveExam(); reQ(qi); break; }
     case 'ordreset': setAns(qi, []); saveExam(); reQ(qi); break;
-    case 'check': { var cq = A.qs[qi], cok = correct(cq, S.ans[qi]); S.checked[qi] = true; recordResult(qi, cok); saveExam(); reQ(qi);
+    case 'check': { var cq = A.qs[qi], cok = correct(cq, S.ans[qi]); S.checked[qi] = true; recordResult(qi, cok); saveExam(); reQ(qi); scrollToQ(qi, true);
       announce(cok ? t().liveOk : ((cq.t === 'single' || cq.t === 'multi') ? fmt(t().liveNo, {a: answerKey(qi, cq)}) : t().incorrect)); break; }
+    case 'qb-next': { var to = el.getAttribute('data-to');
+      if (to === '') window.scrollTo({top: 0, behavior: smoothScroll() ? 'smooth' : 'auto'});
+      else { var tl = qbarList(); scrollToQ(+to, true); announce(fmt(t().qbPos, {k: tl.indexOf(+to) + 1, n: tl.length})); }
+      break; }
+    case 'qb-top': window.scrollTo({top: 0, behavior: smoothScroll() ? 'smooth' : 'auto'}); break;
     case 'reset-practice': clearAnswers(practiceList()); render(); break;
     case 'start-mock': startMock(); render(); window.scrollTo(0, 0); break;
     case 'sim-start': startSim(); render(); window.scrollTo(0, 0); break;
@@ -1293,6 +1357,7 @@ var CHANGELOG = [
     'Account menu under the person icon: sync status, Sync now, Sign out and Delete account.',
     'After you ask for a link, a check-your-email screen shows where it went, with Resend.',
     'Sign-in emails arrive in English or Chinese to match your language.',
+    'Practice and quick mock: a floating bar shows which question you are on, how many you have answered and your score, with a Next question button. Checking an answer brings that question to the top so its explanation is in view.',
     'New lettering for the logo, and a Chinese name: <b>考汪</b> (a play on 考王, “exam king”).'
   ], zh: [
     '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
@@ -1300,6 +1365,7 @@ var CHANGELOG = [
     '人像图标下的账户菜单：同步状态、立即同步、退出登录和删除账户。',
     '发送登录链接后，会显示“查收你的邮箱”页面，并可重新发送。',
     '登录邮件会按你的界面语言以中文或英文发送。',
+    '练习与快速模考：底部浮动栏显示当前题号、已答题数和得分，并提供“下一题”按钮；核对答案后，该题会移到页面顶部，方便查看解析。',
     '全新标志字体，并启用中文名<b>考汪</b>（谐音“考王”）。'
   ]},
   {v: '1.1', date: '2026-09-23', en: [
