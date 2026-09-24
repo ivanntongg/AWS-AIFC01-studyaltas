@@ -1,9 +1,22 @@
 <title>SenseiDoge</title>
 <meta name="description" content="Bilingual (English / 简体中文) course for the AWS Certified AI Practitioner AIF-C01 exam, mapped to exam guide v1.1.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SenseiDoge">
+<meta property="og:title" content="SenseiDoge · 考汪: AWS AI Practitioner (AIF-C01) study app">
+<meta property="og:description" content="14 lessons, 240 practice questions, flashcards and a full exam simulation for AIF-C01. Free, in English and 中文.">
+<meta property="og:url" content="https://senseidoge.vercel.app/">
+<meta property="og:image" content="https://senseidoge.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SenseiDoge · 考汪, a study app for the AWS Certified AI Practitioner (AIF-C01) exam">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+15&text=SenseiDoge&display=swap">
 <style>
+/* 考汪 wordmark: Fusion Pixel Font by TakWolf, SIL Open Font License 1.1 (src/assets/fusion-pixel-OFL.txt) */
+@font-face{font-family:"Fusion Pixel 12";src:url(__BRANDZH__) format("woff2");font-display:block}
 :root{
   --bg:#F5F5F2; --surface:#FFFFFF; --surface2:#EDEDE8; --ink:#0B0F1E; --ink2:#33384A; --muted:#656A78; --line:#DDDDD6;
   --accent:#F3C302; --accent-ink:#0B0F1E; --accent-soft:#FDF4CC; --accent-text:#7A5C00;
@@ -51,17 +64,75 @@ code,.mono{font-family:var(--f-mono)}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex:none}
 .mark{width:38px;height:38px;border-radius:9px;display:block;object-fit:cover;flex:none;box-shadow:0 0 0 1px var(--line)}
 .bt{display:flex;flex-direction:column;line-height:1.15}
-.bt b{font:800 17px var(--f-display);letter-spacing:-.01em}
+.bt b,.drawer-h b{font:400 26px/1 "Jersey 15",var(--f-display);letter-spacing:.01em}
+/* pixel-font bold: repeat each stroke one font pixel (2px at 24px) to the right, which stays crisp */
+.bt b.brand-zh,.drawer-h b.brand-zh{font:400 24px/1 "Fusion Pixel 12",var(--f-display);letter-spacing:2px;text-shadow:2px 0 0 currentColor;padding-right:2px;-webkit-font-smoothing:none}
 .bt small{font-size:11.5px;color:var(--muted)}
 .tabs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:2px;width:max-content;white-space:nowrap}
 .tabs::-webkit-scrollbar{display:none}
 .tab{border:0;background:none;padding:8px 11px;border-radius:8px;color:var(--ink2);font-weight:500;font-size:14px;white-space:nowrap}
 .tab:hover{background:var(--surface2)}
 .tab[aria-current="page"]{background:var(--accent);color:var(--accent-ink);font-weight:600}
-.ctrls{display:flex;gap:6px;flex:none;margin-left:auto}
+.ctrls{position:relative;display:flex;gap:6px;flex:none;margin-left:auto}
 .ctl{border:1px solid var(--line);background:var(--surface);border-radius:8px;height:36px;min-width:36px;padding:0 10px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px}
 .ctl:hover{border-color:var(--ink)}
 .ctl svg{width:17px;height:17px}
+/* header and menu buttons: just the icon, no box; a soft highlight on hover */
+.top .ctl,.drawer-h .ctl{border-color:transparent;background:none}
+.top .ctl:hover,.drawer-h .ctl:hover{border-color:transparent;background:var(--surface2)}
+/* ---- our own controls instead of the browser's ---- */
+html{-webkit-tap-highlight-color:transparent}
+::selection{background:var(--accent);color:var(--accent-ink)}
+input,button,select,textarea{font:inherit;color:inherit}
+input[type="search"]{-webkit-appearance:none;appearance:none}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-results-button{-webkit-appearance:none;display:none}
+input::-ms-clear{display:none}
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 40px var(--surface) inset;-webkit-text-fill-color:var(--ink);caret-color:var(--ink)}
+/* checkbox */
+input[type="checkbox"]{-webkit-appearance:none;appearance:none;flex:none;width:18px;height:18px;margin:0;border:1.5px solid var(--muted);border-radius:5px;background:var(--surface);display:inline-grid;place-content:center;cursor:pointer;transition:background .12s,border-color .12s}
+input[type="checkbox"]::before{content:"";width:10px;height:10px;background:var(--accent-ink);clip-path:polygon(14% 44%,0 60%,40% 100%,100% 22%,86% 8%,39% 70%);transform:scale(0);transition:transform .12s}
+input[type="checkbox"]:checked{background:var(--accent);border-color:var(--accent)}
+input[type="checkbox"]:checked::before{transform:scale(1)}
+input[type="checkbox"]:hover{border-color:var(--ink)}
+input[type="checkbox"]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* switch */
+.toggle input[type="checkbox"]{width:36px;height:22px;border-radius:999px;border:0;background:var(--line);place-content:center start;padding:0 3px}
+.toggle input[type="checkbox"]::before{width:16px;height:16px;border-radius:50%;background:#fff;clip-path:none;transform:none;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+.toggle input[type="checkbox"]:checked{background:var(--accent)}
+.toggle input[type="checkbox"]:checked::before{transform:translateX(14px);background:var(--accent-ink)}
+/* search box with our clear button */
+.sfield{position:relative;flex:1 1 220px;min-width:0}
+.sfield .field{padding-right:36px}
+.sclear{position:absolute;top:50%;right:6px;transform:translateY(-50%);width:26px;height:26px;border:0;border-radius:6px;background:none;color:var(--muted);display:grid;place-items:center;cursor:pointer}
+.sclear:hover{background:var(--surface2);color:var(--ink)}
+.sfield input:placeholder-shown ~ .sclear,.gs-bar input:placeholder-shown ~ .sclear{display:none}
+.gs-bar .sclear{position:static;transform:none;flex:none}
+/* dropdown */
+.dd{position:relative;min-width:0}
+.dd-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 10px;font-size:13.5px;text-align:left;cursor:pointer;color:var(--ink)}
+.dd-btn:hover:not(:disabled){border-color:var(--ink)}
+.dd-btn[aria-expanded="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.dd-btn:disabled{cursor:default;opacity:1;color:var(--ink2)}
+.dd-btn:disabled .chev{display:none}
+.dd-btn .chev{flex:none;color:var(--muted);transition:transform .15s}
+.dd-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.dd-val{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dd-val.dd-ph{color:var(--muted)}
+.dd-field .dd-btn{padding:9px 12px;font-size:14px;border-radius:9px;margin-top:6px}
+.dd-list{position:fixed;z-index:95;margin:0;padding:6px;list-style:none;overflow-y:auto;overscroll-behavior:contain;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 6px rgba(8,12,18,.08),0 16px 40px rgba(8,12,18,.2);outline:none;animation:ddIn .12s ease-out}
+.dd-list.up{animation-name:ddUp}
+@keyframes ddIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@keyframes ddUp{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.dd-group{font:700 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px 10px 4px}
+.dd-group:first-child{padding-top:4px}
+.dd-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:8px;font-size:14px;line-height:1.35;color:var(--ink);cursor:pointer}
+.dd-opt.act{background:var(--surface2)}
+.dd-opt.on{font-weight:600}
+.dd-tick{flex:none;color:var(--accent-text);visibility:hidden}
+.dd-opt.on .dd-tick{visibility:visible}
+/* tooltip */
+.hint{position:fixed;top:0;left:0;z-index:99;max-width:260px;padding:6px 9px;border-radius:7px;background:var(--ink);color:var(--bg);font-size:12.5px;font-weight:500;line-height:1.35;pointer-events:none;opacity:0;transform:translateY(-2px);transition:opacity .12s,transform .12s}
+.hint.on{opacity:1;transform:none}
 /* hidden scrollbars, scrolling still works */
 html,body,*{scrollbar-width:none;-ms-overflow-style:none}
 ::-webkit-scrollbar{display:none;width:0;height:0}
@@ -71,6 +142,7 @@ html,body,*{scrollbar-width:none;-ms-overflow-style:none}
 .burger{display:none}
 .drawer,.drawer-back{display:none}
 .nav-tight .bt small{display:none}
+.nav-mini .bt{display:none}
 .nav-compact .top-in{gap:10px}
 .nav-compact .tabs{display:none}
 .nav-compact .burger{display:inline-flex}
@@ -87,7 +159,7 @@ html,body,*{scrollbar-width:none;-ms-overflow-style:none}
   html:not(.nav-measured) .bt small{display:none}
 }
 .drawer-h{display:flex;align-items:center;gap:10px;padding:2px 4px 14px;border-bottom:1px solid var(--line);margin-bottom:10px}
-.drawer-h b{font:800 17px var(--f-display);flex:1}
+.drawer-h b{flex:1}
 .drawer-nav{display:grid;gap:2px}
 .dlink{display:flex;align-items:center;gap:12px;width:100%;border:0;background:none;border-radius:10px;padding:11px 12px;font-size:15px;font-weight:500;color:var(--ink2);text-align:left}
 .dlink svg{width:19px;height:19px;flex:none;color:var(--muted)}
@@ -109,6 +181,19 @@ html,body,*{scrollbar-width:none;-ms-overflow-style:none}
 .dlg.about{width:min(540px,100%);max-height:calc(100vh - 32px);overflow-y:auto}
 .about-h{display:flex;align-items:center;gap:12px;margin-bottom:4px}
 .about-h h3{font-size:20px}
+.priv h4{font-family:var(--f-display);font-size:15px;margin:14px 0 2px;color:var(--ink)}
+.priv p{margin:0 0 4px!important}
+.about-checked{font-size:12.5px!important;color:var(--muted)!important;margin:4px 0 0!important}
+.log-dlg{width:min(560px,100%);max-height:calc(100dvh - 32px);display:flex;flex-direction:column}
+.log-list{overflow:auto;overscroll-behavior:contain;margin:6px -22px 0;padding:0 22px}
+.log-rel{padding:14px 0 4px;border-top:1px solid var(--line)}
+.log-rel:first-child{border-top:0}
+.log-rel h4{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--f-display);font-size:16px;margin:0 0 6px;color:var(--ink)}
+.log-rel time{margin-left:auto;font-family:var(--f-body);font-size:13px;font-weight:500;color:var(--muted)}
+.log-now{font-family:var(--f-body);font-size:11.5px;font-weight:700;letter-spacing:.02em;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:2px 8px}
+.log-rel ul{margin:0;padding-left:1.2em;color:var(--ink2);font-size:14px;line-height:1.55}
+.log-rel li{margin:0 0 6px}
+.log-rel li b{color:var(--ink)}
 .dlg.about p{margin:12px 0;font-size:14px;line-height:1.6}
 .dlg.about p b{color:var(--ink)}
 .dlg.about .about-ver{font:500 12.5px var(--f-mono);color:var(--muted);margin-top:16px}
@@ -126,6 +211,8 @@ html,body,*{scrollbar-width:none;-ms-overflow-style:none}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:500;color:var(--ink2);display:inline-flex;align-items:center;gap:6px}
 .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c,var(--muted))}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip-shuf{font-weight:600}
+.chip-shuf[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .field{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:9px 12px;font-size:14px}
 .field:focus{outline:2px solid var(--accent-text);outline-offset:0}
 .sechead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:16px}
@@ -187,7 +274,7 @@ ul.plain li{margin:5px 0}
 .rt .hits{font:500 11px var(--f-mono);color:var(--muted)}
 .mselect{display:none}
 @media (max-width:900px){
-  .course{grid-template-columns:1fr}
+  .course{grid-template-columns:minmax(0,1fr)}
   .rail{display:none}
   .mselect{display:block}
 }
@@ -274,6 +361,25 @@ ul.plain li{margin:5px 0}
 .seg button{border:0;background:none;padding:7px 14px;border-radius:7px;font-weight:600;font-size:13.5px;color:var(--ink2)}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 .qlist{display:grid;gap:16px;max-width:860px}
+.q:focus{outline:none}
+.q:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* sits in the question column and sticks to the bottom of the screen, so it is always as wide as the cards */
+.qbar{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:15;max-width:860px;margin-top:16px}
+.qbar-in{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 6px rgba(8,12,18,.06),0 14px 36px rgba(8,12,18,.18);padding:10px 10px 10px 16px}
+.qbar-info{flex:1;min-width:0}
+.qbar-line{display:flex;flex-wrap:wrap;gap:2px 10px;align-items:baseline;font-size:13px;color:var(--muted)}
+.qbar-line b{font:700 14px var(--f-display);color:var(--ink)}
+.qbar-prog{height:4px;border-radius:2px;background:var(--surface2);margin-top:7px;overflow:hidden}
+.qbar-prog i{display:block;height:100%;width:0;background:var(--accent);border-radius:2px;transition:width .3s}
+.qbar-next{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.qbar-top{flex:none}
+.qbar-go{flex:none;margin:0}
+.qbar-go .field{width:86px;height:36px;padding:0 10px;text-align:center;font-variant-numeric:tabular-nums}
+.qbar-go .field[aria-invalid="true"]{border-color:var(--bad);box-shadow:0 0 0 1px var(--bad)}
+.qbar-err{color:var(--bad);font-weight:600}
+.qbar-err:empty{display:none}
+.qbar .sm{display:none}
+@media (max-width:480px){.qbar .lg{display:none}.qbar .sm{display:inline}.qbar-in{padding-left:12px;gap:8px}.qbar-top{display:none}.qbar-go .field{width:64px;padding:0 6px}.qbar-next{padding-inline:12px}}
 .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
 .qh{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font:600 12px var(--f-mono);color:var(--muted)}
 .qh .qn{color:var(--ink)}
@@ -292,7 +398,6 @@ ul.plain li{margin:5px 0}
 .opt.wrong .L{background:var(--bad);border-color:var(--bad);color:var(--surface)}
 .opt:disabled{cursor:default}
 .mrow{display:grid;grid-template-columns:1fr minmax(0,1.1fr);gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:14px}
-.mrow select{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:7px;padding:6px 8px;font-size:13.5px}
 .mrow.right{border-color:var(--good)} .mrow.wrong{border-color:var(--bad)}
 @media (max-width:560px){.mrow{grid-template-columns:1fr}}
 .qact{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
@@ -343,7 +448,7 @@ ul.plain li{margin:5px 0}
 .day-h .pct{margin-left:auto}
 .day ul{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:4px}
 .day label{display:grid;grid-template-columns:20px 1fr;gap:8px;align-items:start;font-size:14px;color:var(--ink2);cursor:pointer;padding:3px 0}
-.day input{margin-top:4px;accent-color:var(--accent)}
+.day input{margin-top:2px}
 .day label.on span{text-decoration:line-through;color:var(--muted)}
 .link{border:0;background:none;padding:0;color:var(--accent-text);font-weight:600;font-size:13px;text-decoration:underline;text-underline-offset:2px}
 .fb .link{font-size:13.5px}
@@ -357,9 +462,15 @@ ul.plain li{margin:5px 0}
 .acct.is-synced .acct-dot{background:var(--good)}
 .acct.is-pending .acct-dot{background:var(--accent)}
 .acct.is-error .acct-dot,.acct.is-offline .acct-dot{background:var(--warn)}
-.acct-back{z-index:65}
-.acct-dlg{width:min(480px,100%)}
-.acct-dlg p{font-size:14px}
+.top .acct[aria-expanded="true"]{border-color:transparent;background:var(--surface2)}
+.acct-pop{position:absolute;top:calc(100% + 10px);right:0;z-index:30;width:min(380px,calc(100vw - 32px));max-height:calc(100dvh - 90px);overflow:auto;overscroll-behavior:contain;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 4px rgba(8,12,18,.06),0 16px 40px rgba(8,12,18,.18);padding:16px 18px 18px;animation:acctIn .14s ease-out}
+@keyframes acctIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.acct-pop-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-4px -6px 4px 0}
+.acct-pop h3{font-family:var(--f-display);font-size:16px;margin:0;color:var(--ink)}
+.acct-x{display:inline-grid;place-items:center;width:32px;height:32px;border:0;border-radius:8px;background:none;color:var(--muted);flex:none}
+.acct-x:hover{background:var(--surface2);color:var(--ink)}
+.acct-pop p{font-size:14px}
+.acct-pop .row{display:flex;flex-wrap:wrap;gap:8px}
 .acct-form label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin:10px 0 6px}
 .acct-row{display:flex;flex-wrap:wrap;gap:8px}
 .acct-row .field{flex:1 1 220px;min-width:0}
@@ -374,7 +485,22 @@ ul.plain li{margin:5px 0}
 .acct-danger{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
 .acct-danger p{margin:0 0 10px!important}
 .acct-del{color:var(--bad)!important;font-size:13px}
+.acct-sent{text-align:center;padding:4px 0 0}
+.acct-sent-ic{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--accent-soft);color:var(--accent-text);margin-top:6px}
+.acct-sent h4{font-family:var(--f-display);font-size:19px;margin:12px 0 6px;color:var(--ink);outline:none}
+.acct-sent-lead{margin:0 0 10px!important}
+.acct-sent-to{color:var(--ink);word-break:break-all}
+.acct-sent-how{color:var(--muted)!important;font-size:13.5px!important;max-width:36em;margin:0 auto!important}
+.acct-sent-act{justify-content:center;align-items:center;gap:16px;margin-top:16px}
+.acct-sent-act .btn{min-width:10.5em}
+.acct-sent .acct-msg{text-align:center}
 .sync-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;margin:14px 0 0;padding:10px 14px;border:1px dashed var(--line);border-radius:10px;font-size:13.5px;color:var(--ink2)}
+.cta-t{display:inline-flex;align-items:center;gap:10px}
+.cta-t svg{flex:none}
+/* missed questions: a pale-yellow notice that stands out from the dashed sync one */
+.miss-cta{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);border-left:4px solid var(--accent);padding:12px 14px;color:var(--ink);font-weight:600}
+.miss-cta .cta-t svg{color:var(--accent-text)}
+.sync-cta + .sync-cta{margin-top:8px}
 /* ---------- accessibility helpers ---------- */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip{position:fixed;left:12px;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:100;background:var(--ink);color:var(--bg);padding:9px 14px;border-radius:8px;font-weight:600;text-decoration:none;transform:translateY(-160%);transition:transform .15s}
@@ -414,7 +540,7 @@ ul.plain li{margin:5px 0}
 .pstats span{font-size:12.5px;color:var(--muted)}
 @media (max-width:640px){.pstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .prog-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px}
-@media (max-width:900px){.prog-grid{grid-template-columns:1fr}}
+@media (max-width:900px){.prog-grid{grid-template-columns:minmax(0,1fr)}}
 .chart-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px}
 .legend{display:flex;gap:14px;font-size:12.5px;color:var(--ink2)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
@@ -434,7 +560,10 @@ ul.plain li{margin:5px 0}
 .chit:focus{outline:none;stroke:var(--ink);stroke-width:1.5;fill:color-mix(in srgb,var(--accent) 18%,transparent)}
 .ctip{position:absolute;transform:translate(-50%,-100%);background:var(--ink);color:var(--bg);font-size:12.5px;padding:6px 10px;border-radius:7px;white-space:nowrap;pointer-events:none;box-shadow:var(--shadow);z-index:2}
 .tview{margin-top:10px}
-.tview summary{cursor:pointer;font-size:13px;color:var(--accent-text);font-weight:600}
+.tview-btn{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:4px 0;font-size:13px;color:var(--accent-text);font-weight:600;cursor:pointer}
+.tview-btn .chev{transform:rotate(-90deg);transition:transform .15s}
+.tview-btn[aria-expanded="true"] .chev{transform:none}
+.tview .tw{margin-top:8px}
 .acc{display:grid;grid-template-columns:30px minmax(0,1fr) 88px;grid-template-areas:"d t v" "d b b";gap:3px 10px;align-items:center;padding:7px 0;border-top:1px solid var(--line)}
 .acc:first-of-type{border-top:0}
 .acc-d{grid-area:d;font:700 12.5px var(--f-mono);color:var(--c)}
@@ -496,6 +625,36 @@ ul.plain li{margin:5px 0}
 .dlg-act{justify-content:flex-end;margin-top:18px}
 .verdict{display:inline-block;vertical-align:middle;margin-left:8px;font:600 12px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;border-radius:6px;padding:2px 8px;border:1px solid currentColor}
 .verdict.ok{color:var(--good)} .verdict.no{color:var(--bad)}
+
+/* ---- touch screens: every tap target at least 44x44px, 8px apart (desktop look unchanged) ---- */
+html{touch-action:manipulation}
+@media (pointer:coarse){
+  .ctl{min-height:44px;min-width:44px}
+  .ctrls{gap:4px}
+  .btn,.btn.sm{min-height:44px}
+  .btn.sm{padding-inline:14px}
+  .chip{min-height:44px;padding-inline:14px}
+  .chips{gap:8px}
+  .dd-btn,.dd-field .dd-btn{min-height:44px}
+  .dd-opt{min-height:44px}
+  .opt{min-height:48px}
+  .link{display:inline-flex;align-items:center;min-height:44px}
+  .foot .link,.drawer-foot .link{min-height:44px}
+  .tview-btn{min-height:44px}
+  .sclear{width:44px;height:44px;right:0}
+  .sfield .field{padding-right:46px}
+  .gs-bar .sclear{width:44px;height:44px}
+  .qbar-go .field{height:44px}
+  .qbar-next{min-height:44px}
+  .acct-x{width:44px;height:44px}
+  .day label{min-height:44px;align-items:center;padding:0}
+  .day input{margin-top:0}
+  .day label .link{min-height:44px;padding:0 6px}
+  .toggle{min-height:44px}
+  .field{min-height:44px}
+  .seg button{min-height:44px}
+  .brand{min-height:44px}
+}
 </style>
 
 <a class="skip" id="skipLink" href="#app" data-act="skip">Skip to content</a>
@@ -504,19 +663,19 @@ ul.plain li{margin:5px 0}
   <header class="top">
     <div class="top-in">
       <button class="ctl burger" id="menuBtn" type="button" aria-controls="drawer" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-      <a class="brand" href="#overview" data-go="overview"><img class="mark" src="__MARK__" alt="" width="38" height="38"><span class="bt"><b id="brandName">SenseiDoge</b></span></a>
+      <a class="brand" href="#overview" data-go="overview" aria-label="SenseiDoge"><img class="mark" src="__MARK__" alt="" width="38" height="38"><span class="bt"><b id="brandName">SenseiDoge</b></span></a>
       <nav class="tabs" id="tabs" aria-label="Sections"></nav>
       <div class="ctrls">
         <button class="ctl" id="searchBtn" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
-        <button class="ctl acct" id="acctBtn" type="button" aria-haspopup="dialog" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.3-3.6 4.2-5.4 7.5-5.4s6.2 1.8 7.5 5.4"/></svg><i class="acct-dot" aria-hidden="true"></i></button>
-        <button class="ctl" id="langBtn" type="button"></button>
+        <button class="ctl" id="langBtn" type="button" data-act="lang"></button>
         <button class="ctl" id="themeBtn" type="button"></button>
+        <button class="ctl acct" id="acctBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="acctDlg" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.3-3.6 4.2-5.4 7.5-5.4s6.2 1.8 7.5 5.4"/></svg><i class="acct-dot" aria-hidden="true"></i></button>
       </div>
     </div>
   </header>
   <div class="drawer-back" id="drawerBack"></div>
   <nav class="drawer" id="drawer" aria-label="Menu">
-    <div class="drawer-h"><img class="mark" src="__MARK__" alt="" width="38" height="38"><b>SenseiDoge</b><button class="ctl" id="drawerClose" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="drawer-h"><img class="mark" src="__MARK__" alt="" width="38" height="38"><b id="drawerName">SenseiDoge</b><button class="ctl" id="drawerClose" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
     <div class="drawer-nav" id="drawerNav"></div>
     <div class="drawer-foot" id="drawerFoot"></div>
   </nav>

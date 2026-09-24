@@ -8,8 +8,10 @@ const here = (p) => new URL(p, import.meta.url);
 const read = (f) => readFileSync(here(`./src/${f}`), 'utf8');
 
 const mark = 'data:image/webp;base64,' + readFileSync(here('./src/assets/mark-96.webp')).toString('base64');
-const shell = read('00_shell.html').replaceAll('__MARK__', mark);
-const data = ['10_d1.js', '11_d2.js', '12_d3.js', '13_d4.js', '14_d5.js', '20_questions.js', '22_questions2.js', '24_notes.js', '24_notes2.js', '25_questions3.js', '21_extras.js', '26_cards2.js', '23_services2.js', '31_merge.js'].map(read).join('\n');
+// Chinese wordmark 考汪: Fusion Pixel Font (SIL OFL 1.1), trimmed to those two characters
+const brandZh = 'data:font/woff2;base64,' + readFileSync(here('./src/assets/brand-zh.woff2')).toString('base64');
+const shell = read('00_shell.html').replaceAll('__MARK__', mark).replace('__BRANDZH__', brandZh);
+const data = ['10_d1.js', '11_d2.js', '12_d3.js', '13_d4.js', '14_d5.js', '20_questions.js', '22_questions2.js', '24_notes.js', '24_notes2.js', '25_questions3.js', '27_questions4.js', '21_extras.js', '26_cards2.js', '23_services2.js', '31_merge.js'].map(read).join('\n');
 const pkg = JSON.parse(readFileSync(here('./package.json'), 'utf8'));
 const appVersion = pkg.version.split('.').slice(0, 2).join('.');
 // "Sync my progress" is switched on when Supabase settings are present at build time (Vercel env vars).
@@ -95,7 +97,7 @@ mkdirSync(here('./dist/'), { recursive: true });
 writeFileSync(here('./dist/sw.js'), sw);
 writeFileSync(here('./dist/index.html'), full);
 writeFileSync(here('./dist/manifest.webmanifest'), JSON.stringify(manifest, null, 2));
-for (const f of ['favicon-32.png', 'favicon-64.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png']) {
+for (const f of ['favicon-32.png', 'favicon-64.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png']) {
   copyFileSync(here(`./src/assets/${f}`), here(`./dist/${f}`));
 }
 writeFileSync(here('./senseidoge-artifact.html'), shell + '\n' + scriptsNoSync);

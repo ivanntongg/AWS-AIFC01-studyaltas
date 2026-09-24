@@ -37,11 +37,11 @@ var T = {
 en: {
   overview:'Overview', course:'Course', cards:'Flashcards', exam:'Practice exam', services:'Services', glossary:'Glossary', plan:'7-day plan',
   sub:'AWS Certified AI Practitioner · exam guide v1.1',
-  langBtn:'中文', langLabel:'切换到中文', openMenu:'Open menu', closeMenu:'Close menu', toLight:'Switch to light theme', toDark:'Switch to dark theme',
+  langBtn:'中文', langLabel:'切换到中文', langCtaLang:'zh-CN', openMenu:'Open menu', closeMenu:'Close menu', toLight:'Switch to light theme', toDark:'Switch to dark theme',
   eyebrow:'AWS Certified AI Practitioner · AIF-C01',
   heroH:'Every objective in the AIF-C01 exam guide, <em>explained and drilled</em>.',
   heroP:'14 lessons mapped one-to-one to the task statements in exam guide v1.1, a {q}-question bank in all four official formats, {c} flashcards, a quick 50-question mock and a full 65-question exam simulation. Switch between English and 中文 at any time.',
-  reviewLesson:'Review lesson: Task', practiceTask:'Practice this lesson\'s {n} questions', missedChip:'Missed', practiceMissed:'Practice the {n} you missed', reviewMissed:'Review {n} missed questions',
+  reviewLesson:'Review lesson: Task', practiceTask:'Practice this lesson\'s {n} questions', missedChip:'Missed', practiceMissed:'Practice the {n} you missed', missCta1:'You missed 1 question. Go over it again while it’s fresh.', missCtaN:'You missed {n} questions. Go over them again while they’re fresh.', missCtaBtn:'Review missed', reviewMissed:'Review {n} missed questions',
   noMissed:'No missed questions yet. Anything you answer wrong in practice or a mock exam collects here until you get it right.', taskChip:'Task {k}',
   scopeL:'Listed in guide', scopeF:'Part of a listed service', scopeC:'Context only', scopeOnly:'Only services in the guide\'s scope',
   f1:'questions', f1s:'50 scored + 15 unscored', f2:'minutes', f2s:'one sitting', f3:'to pass', f3s:'scaled score, 100–1,000', f4:'task statements', f4s:'across 5 domains',
@@ -69,8 +69,8 @@ en: {
   stLessons:'lessons done', stCards:'cards mastered', stDue:'cards due today', stMissed:'missed questions',
   searchBtn:'Search everything', searchPh:'Search lessons, questions, flashcards, services, glossary…', sLessons:'Lessons', sQuestions:'Questions', sCards:'Flashcards', sServices:'Services', sGloss:'Glossary', sNone:'No results for “{q}”.', sHint:'Type at least 2 characters. Tip: press / anywhere to search.', sMore:'+{n} more', skip:'Skip to content',
   liveOk:'Correct.', liveNo:'Not quite. The answer is {a}.',
-  all:'All', hideKnown:'Hide known cards', question:'Question', answer:'Answer', tapFlip:'Tap, or press Space, to flip · ← → to move',
-  know:'I know this', learning:'Still learning', shuffle:'Shuffle', unshuffle:'Original order', knownOf:'{a} of {b} known',
+  all:'All', question:'Question', answer:'Answer', tapFlip:'Tap, or press Space, to flip · ← → to move',
+  know:'I know this', learning:'Still learning', shuffle:'Shuffle', unshuffle:'Original order', pShuffleHint:'Mix up the question order', pShuffled:'Questions shuffled', pOrdered:'Original question order', knownOf:'{a} of {b} known',
   noCards:'Every card in this set is marked as known. Turn off "Hide known cards" to review them again.',
   examH:'Practice exam', examP:'{n} original questions written against the exam guide, in all four official formats. Options are shuffled every session. Practice by domain or lesson, retry your missed questions, take a quick 50-question mock, or sit a full 65-question simulation of the real exam.',
   simMode:'Exam simulation · 65', simH:'Real exam simulation',
@@ -88,7 +88,7 @@ en: {
   practice:'Practice by domain', mockMode:'Quick mock · 50', check:'Check answer', correct:'Correct.', incorrect:'Not quite.', notAnswered:'Not answered.',
   answerIs:'Answer:', correctOrder:'Correct order:', single:'Choose ONE', chooseN:'Choose {n}', orderT:'Ordering', matchT:'Matching',
   resetOrder:'Reset order', orderHint:'Click the items in the correct order.', select:'Select…',
-  statsLine:'{c} checked · {r} correct', resetPractice:'Clear answers',
+  statsLine:'{c} checked · {r} correct', clearTxt:'Clear', qbNav:'Question navigator', qbPos:'Question {k} of {n}', qbAns:'{a} answered', qbNext:'Next question', qbNextS:'Next', qbAllDone:'All done · back to top', qbTop:'Back to top', qbGo:'Go to question number', qbGoPh:'Go to #', qbGoErr:'Enter 1–{n}', resetPractice:'Clear answers',
   mockH:'Timed mock exam', mockList:['50 questions drawn at random, weighted like the real exam: D1 10 · D2 12 · D3 14 · D4 7 · D5 7.','Questions you have not seen yet are drawn first, so repeat mocks stay fresh.','A 90-minute timer that keeps running if you close or refresh the page. Answers are revealed only after you submit.','Your result is broken down by domain, and every miss is added to your Missed list.'],
   startMock:'Start mock exam', best:'Best mock score so far', timeLeft:'Time left', answered:'Answered', submit:'Submit exam', confirmSubmit:'{n} unanswered. Submit anyway?',
   result:'Your result', resultLine:'{c} of {n} correct', target:'Aim for 80% or more on mock exams before booking. The real exam reports a scaled score, so treat this percentage as a guide.', retake:'Start a new mock exam', byDomain:'By domain',
@@ -97,14 +97,14 @@ en: {
   svcCol:['Service','What it does','Pick it when'],
   glH:'Glossary', glP:'{n} exam terms with short definitions. Search in English or Chinese.', glSearch:'Search terms…', none:'No matches.',
   planH:'7-day plan', planP:'A one-week sprint that follows the domain weights, with two days for Domain 3, the largest. Tick items as you finish them; each links to the right lesson or drill.', day:'Day', go:'Open',
-  foot:'Independent study material', ver:'Version {v}', aboutOpen:'About this site and disclaimer',
+  foot:'Independent study material', ver:'Version {v}', logOpen:'Version history', logT:'Version history', logNow:'Current', aboutOpen:'About this site and disclaimer',
   syncBtn:'Sync my progress', syncT:'Sync my progress', syncP:'Sign in with your email to keep your lessons, flashcards, missed questions and exam history in step on every device. No password: we email you a one-time sign-in link.',
-  emailL:'Email address', sendLink:'Email me a sign-in link', sending:'Sending…', linkSent:'Check your inbox for the sign-in link and open it on this device. It can take a minute to arrive; check spam too.', linkErr:'Could not send the link: {m}', badEmail:'Enter a valid email address.',
+  emailL:'Email address', sendLink:'Email me a sign-in link', sending:'Sending…', sentH:'Check your email', sentTo:'We sent a sign-in link to', sentHow:'Open the link on the device you want to sign in on. It can take a minute to arrive, so check spam or promotions too. The link works once and expires after an hour.', resend:'Resend link', resendIn:'Resend in {n}s', otherEmail:'Use a different email', resent:'A new link is on its way. Use the newest email; earlier links stop working.', waitN:'Please wait {n} seconds before sending another link.', tooMany:'Too many sign-in emails were sent recently. Please try again in a little while.', linkErr:'Could not send the link: {m}', badEmail:'Enter a valid email address.',
   syncPriv:'Only your email address and your study progress are stored, and only to sync them. You can delete both at any time.', signedAs:'Signed in as {e}', stSynced:'All changes synced · {t}', stPending:'Saving changes…', stErr:'Sync paused ({m}). Your progress is safe on this device and will sync when possible.', syncOffline:'You are offline. Changes are saved on this device and will sync when you reconnect.',
   justNow:'just now', minAgo:'{n} min ago', syncNow:'Sync now', signOut:'Sign out', signOutNote:'Signing out keeps your progress on this device.', delAcct:'Delete my account and synced data', delAsk:'This permanently deletes your account and the progress saved online. Progress on this device stays. Delete?', delYes:'Delete permanently', cancel:'Cancel', deleted:'Your account and synced data were deleted.',
   linkExpired:'That sign-in link did not work ({m}). Send yourself a new one.', syncCta:'Studying on more than one device? Keep your progress in step.', syncCtaBtn:'Sync my progress',
   aboutSync:'Your progress is stored in this browser. If you sign in to sync it, your email address and progress are also stored in our database (hosted by Supabase) so they follow you across devices. You can delete them at any time from "Sync my progress".',
-  aboutT:'About SenseiDoge', aboutClose:'Close',
+  brand:'SenseiDoge', privT:'Privacy', privLink:'Privacy', checked:'Content last checked against AIF-C01 exam guide v1.1 on {d}.', aboutT:'About SenseiDoge', aboutClose:'Close',
   aboutP:['SenseiDoge is <b>independent study material</b> for the AWS Certified AI Practitioner (AIF-C01) exam. It is <b>not affiliated with, endorsed by or sponsored by</b> Amazon Web Services (AWS) or Amazon.com, Inc.',
     'AWS, Amazon Web Services, AWS Certified AI Practitioner, Amazon Bedrock, Amazon SageMaker and all related names and logos are trademarks of Amazon.com, Inc. or its affiliates. They are used here only to identify the exam and the services being studied.',
     'Lessons follow the public AIF-C01 exam guide, version 1.1 (April 2026). All practice questions are original and are not taken from the real exam. Check the latest exam guide and AWS documentation before you sit the exam.',
@@ -113,11 +113,11 @@ en: {
 zh: {
   overview:'总览', course:'课程', cards:'闪卡', exam:'模拟练习', services:'服务速查', glossary:'术语表', plan:'7 天计划',
   sub:'AWS 认证 AI 从业者 · 考纲 v1.1',
-  langBtn:'EN', langLabel:'Switch to English', openMenu:'打开菜单', closeMenu:'关闭菜单', toLight:'切换到浅色主题', toDark:'切换到深色主题',
+  langBtn:'EN', langLabel:'Switch to English', langCtaLang:'en', openMenu:'打开菜单', closeMenu:'关闭菜单', toLight:'切换到浅色主题', toDark:'切换到深色主题',
   eyebrow:'AWS 认证 AI 从业者 · AIF-C01',
   heroH:'AIF-C01 考纲的每一个目标，<em>讲透并练熟</em>。',
   heroP:'14 节课与考纲 v1.1 的任务陈述一一对应；{q} 道题覆盖全部四种官方题型；{c} 张闪卡；还有 50 题快速模考和 65 题真实考试模拟。随时可在 English 与中文之间切换。',
-  reviewLesson:'复习课程：任务', practiceTask:'练习本课的 {n} 道题', missedChip:'错题', practiceMissed:'练习答错的 {n} 道题', reviewMissed:'复习 {n} 道错题',
+  reviewLesson:'复习课程：任务', practiceTask:'练习本课的 {n} 道题', missedChip:'错题', practiceMissed:'练习答错的 {n} 道题', missCta1:'你有 1 道错题，趁记忆犹新再练一遍。', missCtaN:'你有 {n} 道错题，趁记忆犹新再练一遍。', missCtaBtn:'复习错题', reviewMissed:'复习 {n} 道错题',
   noMissed:'暂无错题。练习或模拟考试中答错的题会汇总到这里，直到你答对为止。', taskChip:'任务 {k}',
   scopeL:'考纲列出', scopeF:'所列服务的功能', scopeC:'仅作背景', scopeOnly:'只看考纲范围内的服务',
   f1:'道题', f1s:'50 道计分 + 15 道不计分', f2:'分钟', f2s:'一次完成', f3:'分及格', f3s:'换算分 100–1,000', f4:'个任务陈述', f4s:'分布在 5 个领域',
@@ -145,8 +145,8 @@ zh: {
   stLessons:'课已完成', stCards:'张卡已掌握', stDue:'张卡今日待复习', stMissed:'道错题',
   searchBtn:'全站搜索', searchPh:'搜索课程、题目、闪卡、服务、术语……', sLessons:'课程', sQuestions:'题目', sCards:'闪卡', sServices:'服务', sGloss:'术语', sNone:'没有找到“{q}”的结果。', sHint:'至少输入 2 个字符。提示：在任意位置按 / 即可搜索。', sMore:'还有 {n} 条', skip:'跳到正文',
   liveOk:'回答正确。', liveNo:'回答错误。正确答案是 {a}。',
-  all:'全部', hideKnown:'隐藏已掌握', question:'问题', answer:'答案', tapFlip:'点击或按空格翻面 · ← → 切换',
-  know:'已掌握', learning:'还在学', shuffle:'打乱顺序', unshuffle:'恢复顺序', knownOf:'已掌握 {a}/{b}',
+  all:'全部', question:'问题', answer:'答案', tapFlip:'点击或按空格翻面 · ← → 切换',
+  know:'已掌握', learning:'还在学', shuffle:'打乱顺序', unshuffle:'恢复顺序', pShuffleHint:'随机打乱题目顺序', pShuffled:'题目已打乱', pOrdered:'已恢复原始顺序', knownOf:'已掌握 {a}/{b}',
   noCards:'本组所有卡片都已标记为已掌握。关闭“隐藏已掌握”即可重新复习。',
   examH:'模拟练习', examP:'{n} 道依据考纲原创的题目，覆盖全部四种官方题型，选项每次都会打乱。可按领域或课程练习、重做错题、做 50 题快速模考，或参加 65 题的真实考试模拟。',
   simMode:'真实考试模拟 · 65', simH:'真实考试模拟',
@@ -164,7 +164,7 @@ zh: {
   practice:'按领域练习', mockMode:'快速模考 · 50', check:'核对答案', correct:'回答正确。', incorrect:'回答错误。', notAnswered:'未作答。',
   answerIs:'答案：', correctOrder:'正确顺序：', single:'单选', chooseN:'选择 {n} 项', orderT:'排序题', matchT:'匹配题',
   resetOrder:'重新排序', orderHint:'按正确顺序依次点击各项。', select:'请选择…',
-  statsLine:'已核对 {c} 题 · 答对 {r} 题', resetPractice:'清空答案',
+  statsLine:'已核对 {c} 题 · 答对 {r} 题', clearTxt:'清除', qbNav:'题目导航', qbPos:'第 {k} / {n} 题', qbAns:'已答 {a} 题', qbNext:'下一题', qbNextS:'下一题', qbAllDone:'全部完成 · 回到顶部', qbTop:'回到顶部', qbGo:'跳转到第几题', qbGoPh:'跳至题号', qbGoErr:'请输入 1–{n}', resetPractice:'清空答案',
   mockH:'限时模拟考试', mockList:['随机抽取 50 题，按真实考试权重分配：D1 10 · D2 12 · D3 14 · D4 7 · D5 7。','优先抽取你没做过的题，重复模考也能保持新鲜。','90 分钟计时，关闭或刷新页面后计时继续。交卷后才显示答案。','成绩按领域拆分，每道错题都会加入“错题”列表。'],
   startMock:'开始模拟考试', best:'目前最佳成绩', timeLeft:'剩余时间', answered:'已答', submit:'交卷', confirmSubmit:'还有 {n} 题未答，仍要交卷？',
   result:'你的成绩', resultLine:'答对 {c}/{n} 题', target:'建议模拟考试稳定在 80% 以上再报名。真实考试给出的是换算分，此百分比仅供参考。', retake:'开始新的模拟考试', byDomain:'各领域',
@@ -173,15 +173,15 @@ zh: {
   svcCol:['服务','作用','何时选它'],
   glH:'术语表', glP:'{n} 个考试术语及简明定义，支持中英文搜索。', glSearch:'搜索术语…', none:'没有匹配结果。',
   planH:'7 天计划', planP:'按领域权重安排的一周冲刺计划，最大的领域 3 安排两天。完成一项勾选一项；每项都直接链接到对应课程或练习。', day:'第', go:'打开',
-  foot:'独立学习资料', ver:'版本 {v}', aboutOpen:'关于本站及免责声明',
+  foot:'独立学习资料', ver:'版本 {v}', logOpen:'版本记录', logT:'版本记录', logNow:'当前版本', aboutOpen:'关于本站及免责声明',
   syncBtn:'同步我的进度', syncT:'同步我的进度', syncP:'用邮箱登录后，你的课程、闪卡、错题和考试记录会在所有设备间保持同步。无需密码：我们会发送一次性登录链接到你的邮箱。',
-  emailL:'邮箱地址', sendLink:'发送登录链接', sending:'正在发送……', linkSent:'请查收邮箱中的登录链接，并在本设备上打开。邮件可能需要一分钟左右，也请检查垃圾邮件。', linkErr:'无法发送链接：{m}', badEmail:'请输入有效的邮箱地址。',
+  emailL:'邮箱地址', sendLink:'发送登录链接', sending:'正在发送……', sentH:'查收你的邮箱', sentTo:'我们已将登录链接发送至', sentHow:'请在需要登录的设备上打开该链接。邮件可能需要一分钟左右才能送达，也请查看垃圾邮件或推广邮件。链接只能使用一次，一小时后失效。', resend:'重新发送链接', resendIn:'{n} 秒后可重新发送', otherEmail:'换一个邮箱', resent:'新的链接已发送。请使用最新的邮件，之前的链接将失效。', waitN:'请等待 {n} 秒后再发送新的链接。', tooMany:'最近发送的登录邮件过多，请稍后再试。', linkErr:'无法发送链接：{m}', badEmail:'请输入有效的邮箱地址。',
   syncPriv:'我们只保存你的邮箱地址和学习进度，且仅用于同步。你可以随时删除。', signedAs:'已登录：{e}', stSynced:'所有更改已同步 · {t}', stPending:'正在保存更改……', stErr:'同步暂停（{m}）。你的进度仍安全保存在本设备上，恢复后会自动同步。', syncOffline:'你目前处于离线状态。更改已保存在本设备上，重新联网后会自动同步。',
   justNow:'刚刚', minAgo:'{n} 分钟前', syncNow:'立即同步', signOut:'退出登录', signOutNote:'退出登录后，本设备上的进度仍会保留。', delAcct:'删除我的账户和已同步数据', delAsk:'这将永久删除你的账户以及保存在网上的进度，本设备上的进度会保留。确定删除吗？', delYes:'永久删除', cancel:'取消', deleted:'你的账户和已同步数据已删除。',
   linkExpired:'该登录链接无效（{m}）。请重新发送一个。', syncCta:'在多台设备上学习？让进度保持同步。', syncCtaBtn:'同步我的进度',
   aboutSync:'你的学习进度保存在当前浏览器中。如果你登录并开启同步，你的邮箱地址和学习进度也会保存在我们的数据库（由 Supabase 托管）中，以便在不同设备间同步。你可以随时在“同步我的进度”中删除。',
-  aboutT:'关于 SenseiDoge', aboutClose:'关闭',
-  aboutP:['SenseiDoge 是 AWS 认证 AI 从业者 (AIF-C01) 考试的<b>独立学习资料</b>，与 Amazon Web Services (AWS) 或 Amazon.com, Inc. <b>无任何隶属、背书或赞助关系</b>。',
+  brand:'考汪', privT:'隐私说明', privLink:'隐私', checked:'内容最近一次对照 AIF-C01 考试指南 v1.1 核对于 {d}。', aboutT:'关于考汪', aboutClose:'关闭',
+  aboutP:['考汪是 AWS 认证 AI 从业者 (AIF-C01) 考试的<b>独立学习资料</b>，与 Amazon Web Services (AWS) 或 Amazon.com, Inc. <b>无任何隶属、背书或赞助关系</b>。',
     'AWS、Amazon Web Services、AWS Certified AI Practitioner、Amazon Bedrock、Amazon SageMaker 及所有相关名称和标志均为 Amazon.com, Inc. 或其关联公司的商标，本站仅用于指明所学习的考试和服务。',
     '课程内容依据公开的 AIF-C01 考纲 1.1 版（2026 年 4 月）编写。所有练习题均为原创，并非真实考题。参加考试前请查阅最新考纲和 AWS 文档。',
     '你的学习进度只保存在当前浏览器中，不会发送到任何服务器。']
@@ -196,7 +196,7 @@ var S = {
   task: store.get('task', '1.1'),
   done: store.get('done', []),
   q: '',
-  cardDomain: 'all', hideKnown: store.get('hideKnown', false), known: store.get('known', []), cardIdx: 0, flip: false, perm: null,
+  cardDomain: 'all', known: store.get('known', []), cardIdx: 0, flip: false, perm: null,
   exMode: 'practice', exFilter: 'all', ans: {}, checked: {}, qperm: {}, mock: null, confirmSubmit: false,
   best: store.get('best', null), missed: store.get('missed', []), seen: store.get('seen', []),
   srs: store.get('srs', {}), cardMode: store.get('cardMode', 'due'), queue: null, qTotal: 0, hist: store.get('hist', []), stats: store.get('stats', {}), gsQ: '',
@@ -205,7 +205,7 @@ var S = {
 };
 (function(){
   var ex = store.get('exam', null);
-  if (!ex || ex.n !== A.qs.length) return;
+  if (!ex || ex.n > A.qs.length) return; // questions are only ever appended, so older saves stay valid
   S.ans = ex.ans || {}; S.checked = ex.checked || {}; S.qperm = ex.qperm || {}; S.mock = ex.mock || null; S.sim = ex.sim || null;
   if (ex.mode === 'mock' || ex.mode === 'practice' || ex.mode === 'sim') S.exMode = ex.mode;
 })();
@@ -242,7 +242,7 @@ function updateThemeBtn(){
   var tb = document.getElementById('themeBtn'), dark = isDark(), tt = t();
   tb.innerHTML = dark ? SUN : MOON;
   tb.setAttribute('aria-label', dark ? tt.toLight : tt.toDark);
-  tb.title = dark ? tt.toLight : tt.toDark;
+  tb.setAttribute('data-hint', dark ? tt.toLight : tt.toDark);
 }
 var NAVICON = (function(){
   var p = {
@@ -272,23 +272,27 @@ function setMenu(open, restoreFocus){
 function renderHeader(){
   var tt = t();
   root.lang = S.lang === 'zh' ? 'zh-CN' : 'en';
+  var bn = tt.brand;
+  ['brandName', 'drawerName'].forEach(function(id){ var el = document.getElementById(id); el.textContent = bn; el.classList.toggle('brand-zh', S.lang === 'zh'); });
+  document.querySelector('.brand').setAttribute('aria-label', bn);
+  document.title = bn;
   document.getElementById('tabs').innerHTML = VIEWS.map(function(v){
     return '<button class="tab" type="button" data-go="' + v + '"' + (S.view === v ? ' aria-current="page"' : '') + '>' + tt[v] + '</button>';
   }).join('');
   document.getElementById('drawerNav').innerHTML = VIEWS.map(function(v){
     return '<button class="dlink" type="button" data-go="' + v + '"' + (S.view === v ? ' aria-current="page"' : '') + '>' + NAVICON[v] + '<span>' + tt[v] + '</span></button>';
   }).join('');
-  document.getElementById('drawerFoot').innerHTML = '<span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" title="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
-  var sb = document.getElementById('searchBtn'); sb.setAttribute('aria-label', tt.searchBtn); sb.title = tt.searchBtn + ' ( / )';
+  document.getElementById('drawerFoot').innerHTML = '<span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · <button type="button" class="link foot-about" data-act="privacy" aria-haspopup="dialog">' + esc(tt.privLink) + '</button>' + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
+  var sb = document.getElementById('searchBtn'); sb.setAttribute('aria-label', tt.searchBtn); sb.setAttribute('data-hint', tt.searchBtn + ' ( / )');
   paintSync();
   document.getElementById('skipLink').textContent = tt.skip;
   var mb = document.getElementById('menuBtn');
   mb.setAttribute('aria-label', menuOpen ? tt.closeMenu : tt.openMenu);
   document.getElementById('drawerClose').setAttribute('aria-label', tt.closeMenu);
   var lb = document.getElementById('langBtn');
-  lb.textContent = tt.langBtn; lb.setAttribute('aria-label', tt.langLabel); lb.title = tt.langLabel;
+  lb.textContent = tt.langBtn; lb.setAttribute('lang', tt.langCtaLang); lb.setAttribute('aria-label', tt.langLabel); lb.setAttribute('data-hint', tt.langLabel);
   updateThemeBtn();
-  document.getElementById('foot').innerHTML = '<span class="credit">Craft by <b>Eyevuhn</b></span><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" title="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</span>';
+  document.getElementById('foot').innerHTML = '<span class="credit">Craft by <b>Eyevuhn</b></span><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · <button type="button" class="link foot-about" data-act="privacy" aria-haspopup="dialog">' + esc(tt.privLink) + '</button>' + '</span>';
   fitNav();
 }
 /* Show the full tab bar only when it truly fits; otherwise hide the subtitle, then fall back to the burger. */
@@ -301,11 +305,13 @@ function tabsOverflow(){
 }
 function fitNav(){
   root.classList.add('nav-measured');
-  root.classList.remove('nav-compact', 'nav-tight');
+  root.classList.remove('nav-compact', 'nav-tight', 'nav-mini');
   if (tabsOverflow()) {
     root.classList.add('nav-tight');
     if (tabsOverflow()) root.classList.add('nav-compact');
   }
+  // on the narrowest screens keep just the dog mark when the name would run under the buttons
+  if (document.getElementById('brandName').getBoundingClientRect().right > document.querySelector('.ctrls').getBoundingClientRect().left - 8) root.classList.add('nav-mini');
   if (menuOpen && !root.classList.contains('nav-compact')) setMenu(false, false);
 }
 
@@ -319,7 +325,7 @@ function vOverview(){
     '<p class="eyebrow">' + tt.eyebrow + '</p><h1>' + tt.heroH + '</h1><p class="lede">' + fmt(tt.heroP, {q: A.qs.length, c: A.cards.length}) + '</p>' +
     '<div class="row"><button class="btn pri" type="button" data-act="open-task" data-task="' + (next || '1.1') + '">' + label + '</button>' +
     '<button class="btn" type="button" data-go="exam" data-mode="sim">' + tt.mock + '</button>' +
-    (S.missed.length ? '<button class="btn" type="button" data-act="practice-missed">' + fmt(tt.reviewMissed, {n: S.missed.length}) + '</button>' : '') + '</div></div>' +
+    '</div></div>' +
     '<div class="facts">' + facts.map(function(f){ return '<div class="fact"><b>' + f[0] + '</b><span>' + f[1] + '<br>' + f[2] + '</span></div>'; }).join('') + '</div></section>' +
     '<div class="stack">' + vProgress() +
     '<section class="panel"><h2 class="ph">' + tt.weights + '</h2><p class="muted" style="margin:4px 0 0">' + tt.weightsP + '</p>' +
@@ -372,9 +378,9 @@ function vProgress(){
     var lastN = S.hist.slice(-3), avg = Math.round(lastN.reduce(function(s2, r){ return s2 + r.pct; }, 0) / lastN.length);
     chart = '<div class="chart-h"><h3>' + tt.chartT + '</h3><div class="legend"><span><i class="lg-f"></i>' + tt.legSim + '</span><span><i class="lg-h"></i>' + tt.legMock + '</span></div></div>' +
       '<p class="muted" style="margin:2px 0 8px;font-size:13.5px">' + fmt(tt.lastAvg, {n: lastN.length, p: avg}) + '</p><div class="prog-chart">' + progChart() + '</div>' +
-      '<details class="tview"><summary>' + tt.tableView + '</summary><div class="tw"><table><thead><tr><th>' + tt.colN + '</th><th>' + tt.colDate + '</th><th>' + tt.colMode + '</th><th>' + tt.colScore + '</th><th>' + tt.colEst + '</th></tr></thead><tbody>' +
+      '<div class="tview"><button type="button" class="tview-btn" data-act="tview" aria-expanded="false" aria-controls="tviewBody">' + CHEVRON + '<span>' + tt.tableView + '</span></button><div class="tw" id="tviewBody" hidden><table><thead><tr><th>' + tt.colN + '</th><th>' + tt.colDate + '</th><th>' + tt.colMode + '</th><th>' + tt.colScore + '</th><th>' + tt.colEst + '</th></tr></thead><tbody>' +
       S.hist.map(function(r, i){ return '<tr><td>' + (i + 1) + '</td><td>' + new Date(r.t).toLocaleString(l === 'zh' ? 'zh-CN' : 'en') + '</td><td>' + (r.m === 'sim' ? tt.legSim : tt.legMock) + '</td><td>' + r.pct + '%</td><td>' + (r.sc || '—') + '</td></tr>'; }).reverse().join('') +
-      '</tbody></table></div></details>';
+      '</tbody></table></div></div>';
   }
   var weakest = null;
   var rows = A.domains.map(function(d){
@@ -383,7 +389,7 @@ function vProgress(){
     return '<div class="acc" style="--c:' + dc(d.id) + '"><span class="acc-d">D' + d.n + '</span><span class="acc-t">' + esc(d.title[l]) + '</span><span class="acc-bar">' + (p != null ? '<i style="width:' + Math.max(p, 2) + '%"></i>' : '') + '</span><span class="acc-v">' + (p != null ? p + '% · ' + st[0] + '/' + st[1] : tt.accNone) + '</span></div>';
   }).join('');
   var focus = weakest ? '<div class="focus"><span>' + fmt(tt.focusNext, {n: weakest.d.n}) + ' · ' + esc(weakest.d.title[l]) + ' (' + weakest.p + '%)</span><button type="button" class="btn sm pri" data-act="focus-go" data-f="' + weakest.d.id + '">' + tt.practiceIt + '</button></div>' : '';
-  return '<section class="panel prog"><h2 class="ph">' + tt.progH + '</h2><p class="muted" style="margin:4px 0 0">' + tt.progP + '</p>' + syncCta() + stats +
+  return '<section class="panel prog"><h2 class="ph">' + tt.progH + '</h2><p class="muted" style="margin:4px 0 0">' + tt.progP + '</p>' + syncCta() + missCta() + stats +
     '<div class="prog-grid"><div class="prog-left">' + chart + '</div><div><h3>' + tt.accT + '</h3><p class="muted" style="margin:2px 0 10px;font-size:13.5px">' + tt.accP + '</p>' + rows + focus + '</div></div></section>';
 }
 
@@ -415,12 +421,11 @@ function railList(){
 function vCourse(){
   var tt = t(), l = L(), tk = A.tasks[S.task], d = DOM[tk.d], i = ORDER.indexOf(S.task);
   var prev = ORDER[i - 1], next = ORDER[i + 1], isDone = inArr(S.done, S.task), li = l === 'en' ? 0 : 1;
-  var opts = A.domains.map(function(dd){
-    return '<optgroup label="D' + dd.n + ' · ' + esc(dd.title[l]) + '">' + dd.tasks.map(function(id){ return '<option value="' + id + '"' + (id === S.task ? ' selected' : '') + '>' + id + ' · ' + esc(A.tasks[id].title[l]) + '</option>'; }).join('') + '</optgroup>';
-  }).join('');
+  var opts = [];
+  A.domains.forEach(function(dd){ dd.tasks.forEach(function(id){ opts.push({v: id, label: id + ' · ' + A.tasks[id].title[l], group: 'D' + dd.n + ' · ' + dd.title[l]}); }); });
   return '<div class="course">' +
-    '<aside class="rail" aria-label="' + tt.lessons + '"><input id="railSearch" class="field" type="search" placeholder="' + tt.search + '" value="' + esc(S.q) + '" aria-label="' + tt.search + '"><div id="railList">' + railList() + '</div></aside>' +
-    '<div class="mselect"><label class="eyebrow" for="taskSelect">' + tt.jump + '</label><select id="taskSelect" class="field" style="margin-top:6px">' + opts + '</select></div>' +
+    '<aside class="rail" aria-label="' + tt.lessons + '">' + '<div class="sfield">' + '<input id="railSearch" class="field" type="search" enterkeyhint="search" autocomplete="off" placeholder="' + tt.search + '" value="' + esc(S.q) + '" aria-label="' + tt.search + '">' + '<button type="button" class="sclear" data-act="sclear" aria-label="' + tt.clearTxt + '" data-hint="' + tt.clearTxt + '">' + XICON + '</button></div>' + '<div id="railList">' + railList() + '</div></aside>' +
+    '<div class="mselect"><span class="eyebrow" id="taskSelectL">' + tt.jump + '</span>' + ddHTML({id: 'taskSelect', labelledby: 'taskSelectL', value: S.task, options: opts, cls: 'dd-field', pick: openTask}) + '</div>' +
     '<article class="lesson" style="--c:' + dc(d.id) + '">' +
     '<div class="crumb"><span>' + tt.domain + ' ' + d.n + '</span><span class="sep">/</span><span>' + esc(d.title[l]) + '</span><span class="sep">/</span><span>' + d.w + '%</span></div>' +
     '<h2>' + tt.task + ' ' + S.task + ' · ' + esc(tk.title[l]) + '</h2>' +
@@ -537,8 +542,10 @@ function qHTML(qi, num){
     body = '<div class="opts">' + Q.o.map(function(p, i){
       var v = marr[i] == null ? -1 : marr[i], cls = 'mrow';
       if (rev) cls += v === i ? ' right' : ' wrong';
-      return '<div class="' + cls + '"><label for="m-' + qi + '-' + i + '">' + esc(p[0]) + '</label><select id="m-' + qi + '-' + i + '" data-act="match" data-q="' + qi + '" data-i="' + i + '"' + (rev ? ' disabled' : '') + '><option value="-1">' + tt.select + '</option>' +
-        mp.map(function(j){ return '<option value="' + j + '"' + (v === j ? ' selected' : '') + '>' + esc(Q.o[j][1]) + '</option>'; }).join('') + '</select></div>';
+      return '<div class="' + cls + '"><span id="ml-' + qi + '-' + i + '">' + esc(p[0]) + '</span>' +
+        ddHTML({id: 'm-' + qi + '-' + i, labelledby: 'ml-' + qi + '-' + i, value: v, placeholder: tt.select, disabled: rev,
+          options: mp.map(function(j){ return {v: j, label: Q.o[j][1]}; }),
+          pick: function(val){ pickMatch(qi, i, val); }}) + '</div>';
     }).join('') + '</div>';
   }
   var foot = '', btns = '';
@@ -579,15 +586,28 @@ function whyWrongHTML(qi, q, a){
 }
 function answerKey(qi, q){ var p = getPerm(qi, q.en.o.length); return q.a.map(function(i){ return LET[p.indexOf(i)]; }).sort().join(', '); }
 function announce(msg){ var lv = document.getElementById('live'); if (lv) { lv.textContent = ''; setTimeout(function(){ lv.textContent = msg; }, 30); } }
+/* Practice order: bank order, or a saved shuffle (kept on this device until switched off) */
+var pOrder = store.get('porder', null), pRank = null;
+if (!pOrder || pOrder.length > A.qs.length) pOrder = null;
+else if (pOrder.length < A.qs.length) pOrder = pOrder.concat(shuffle(A.qs.map(function(_, i){ return i; }).slice(pOrder.length))); // new questions join the shuffle
+function setShuffle(on){
+  pOrder = on ? shuffle(A.qs.map(function(_, i){ return i; })) : null; pRank = null;
+  store.set('porder', pOrder);
+}
 function practiceList(){
   var f = S.exFilter;
-  return A.qs.map(function(_, i){ return i; }).filter(function(i){
+  var list = A.qs.map(function(_, i){ return i; }).filter(function(i){
     if (f === 'all') return true;
     if (f === 'missed') return inArr(S.missed, i);
     if (f.indexOf('t:') === 0) return A.qs[i].k === f.slice(2);
     if (f.indexOf('q:') === 0) return i === +f.slice(2);
     return A.qs[i].d === f;
   });
+  if (pOrder) {
+    if (!pRank) { pRank = []; pOrder.forEach(function(qi, k){ pRank[qi] = k; }); }
+    list.sort(function(a, b){ return pRank[a] - pRank[b]; });
+  }
+  return list;
 }
 function clearAnswers(list){ list.forEach(function(k){ delete S.ans[k]; delete S.checked[k]; delete S.qperm[k]; }); saveExam(); }
 function goPracticeMissed(){ S.exMode = 'practice'; S.exFilter = 'missed'; clearAnswers(S.missed.slice()); setView('exam'); }
@@ -617,7 +637,7 @@ function vExam(){
     var list = practiceList();
     var body = (f === 'missed' && !list.length) ? '<div class="panel empty" style="max-width:860px">' + tt.noMissed + '</div>' :
       '<div class="qlist">' + list.map(function(qi, k){ return qHTML(qi, k + 1); }).join('') + '</div>';
-    return head + '<div class="filters"><div class="chips">' + chips + '</div><span class="muted" id="pstats" style="font-size:13px">' + practiceStats() + '</span><button type="button" class="btn sm" data-act="reset-practice">' + tt.resetPractice + '</button></div>' + body;
+    return head + '<div class="filters"><div class="chips">' + chips + '</div><button type="button" class="chip chip-shuf" data-act="pshuffle" aria-pressed="' + !!pOrder + '" data-hint="' + (pOrder ? tt.unshuffle : tt.pShuffleHint) + '">' + SHUF + tt.shuffle + '</button><span class="muted" id="pstats" style="font-size:13px">' + practiceStats() + '</span><button type="button" class="btn sm" data-act="reset-practice">' + tt.resetPractice + '</button></div>' + body + qbarHTML();
   }
   if (!S.mock) {
     return head + '<section class="panel" style="max-width:860px"><h3 style="font-size:20px">' + tt.mockH + '</h3><ul class="plain">' + tt.mockList.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>' +
@@ -627,7 +647,7 @@ function vExam(){
   var list = '<div class="qlist">' + S.mock.set.map(function(qi, k){ return qHTML(qi, k + 1); }).join('') + '</div>';
   if (!S.mock.submitted) {
     var left = S.mock.end - Date.now();
-    return head + '<div class="exbar"><span class="muted">' + tt.timeLeft + '</span><span class="tm' + (left < 300000 ? ' low' : '') + '" id="timer">' + fmtTime(left) + '</span><span class="muted">' + tt.answered + ' <b id="ansCount" style="color:var(--ink)">' + mockAnswered() + '</b>/' + S.mock.set.length + '</span><span class="sp"></span><button type="button" class="btn sm pri" id="submitBtn" data-act="submit-mock">' + submitLabel() + '</button></div>' + list;
+    return head + '<div class="exbar"><span class="muted">' + tt.timeLeft + '</span><span class="tm' + (left < 300000 ? ' low' : '') + '" id="timer">' + fmtTime(left) + '</span><span class="muted">' + tt.answered + ' <b id="ansCount" style="color:var(--ink)">' + mockAnswered() + '</b>/' + S.mock.set.length + '</span><span class="sp"></span><button type="button" class="btn sm pri" id="submitBtn" data-act="submit-mock">' + submitLabel() + '</button></div>' + list + qbarHTML();
   }
   var r = S.mock.res, cls = r.pct >= 80 ? ' ok' : (r.pct < 70 ? ' no' : '');
   return head + '<section class="panel" style="max-width:860px;margin-bottom:16px"><div class="score"><div class="big' + cls + '">' + r.pct + '%</div><div><h3 style="font-size:20px">' + tt.result + '</h3><p class="muted" style="margin:4px 0">' + fmt(tt.resultLine, {c: r.c, n: r.n}) + '</p><p class="muted" style="margin:4px 0 10px;font-size:13.5px">' + tt.target + '</p>' +
@@ -667,7 +687,225 @@ function afterAnswer(){
   } else {
     var ps = document.getElementById('pstats'); if (ps) ps.textContent = practiceStats();
   }
+  paintQbar();
 }
+/* ---------------- our own UI parts: icons, dropdown, tooltips ---------------- */
+var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+var XICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+var TICK = '<svg class="dd-tick" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+function pickMatch(qi, i, val){
+  var n = A.qs[qi].en.o.length, arr = (getAns(qi) || Array.apply(null, {length: n}).map(function(){ return -1; })).slice();
+  arr[i] = val; setAns(qi, arr); saveExam(); reQ(qi); focusSel('#m-' + qi + '-' + i);
+}
+/* Dropdown: a button that opens a listbox. Options live in DD by id, filled while the HTML is built. */
+var DD = {}, ddOpen = null;
+function ddHTML(o){
+  DD[o.id] = o;
+  var cur = o.options.filter(function(x){ return x.v === o.value; })[0];
+  return '<div class="dd' + (o.cls ? ' ' + o.cls : '') + '"><button type="button" class="dd-btn" id="' + o.id + '" data-act="dd" aria-haspopup="listbox" aria-expanded="false"' +
+    (o.labelledby ? ' aria-labelledby="' + o.labelledby + ' ' + o.id + '"' : '') + (o.disabled ? ' disabled' : '') + '>' +
+    '<span class="dd-val' + (cur ? '' : ' dd-ph') + '">' + esc(cur ? cur.label : (o.placeholder || '')) + '</span>' + CHEVRON + '</button></div>';
+}
+function ddPlace(){
+  if (!ddOpen) return;
+  var b = document.getElementById(ddOpen.id), ls = document.getElementById('ddList');
+  if (!b || !ls) return ddClose(false);
+  var r = b.getBoundingClientRect(), vh = window.innerHeight, below = vh - r.bottom - 12, above = r.top - 12 - 64;
+  var up = below < 220 && above > below, room = Math.max(120, Math.min(320, up ? above : below));
+  ls.style.maxHeight = room + 'px';
+  ls.style.width = Math.min(window.innerWidth - 32, Math.max(r.width, 280)) + 'px';
+  var left = Math.min(Math.max(16, r.left), window.innerWidth - ls.offsetWidth - 16);
+  ls.style.left = left + 'px';
+  ls.style.top = (up ? r.top - 6 - Math.min(room, ls.scrollHeight) : r.bottom + 6) + 'px';
+  ls.classList.toggle('up', up);
+}
+function ddOpenList(id){
+  var o = DD[id], b = document.getElementById(id);
+  if (!o || !b || b.disabled) return;
+  ddClose(false);
+  hideHint();
+  var h = '', lastG = null, sel = -1;
+  o.options.forEach(function(x, k){
+    if (x.group && x.group !== lastG) { h += '<li class="dd-group" role="presentation">' + esc(x.group) + '</li>'; lastG = x.group; }
+    var on = x.v === o.value; if (on) sel = k;
+    h += '<li class="dd-opt' + (on ? ' on' : '') + '" role="option" id="ddo-' + k + '" data-k="' + k + '" aria-selected="' + on + '"><span>' + esc(x.label) + '</span>' + TICK + '</li>';
+  });
+  document.body.insertAdjacentHTML('beforeend', '<ul class="dd-list" id="ddList" role="listbox" tabindex="-1" aria-labelledby="' + (o.labelledby || id) + '">' + h + '</ul>');
+  ddOpen = {id: id, active: sel < 0 ? 0 : sel, typed: '', typedAt: 0};
+  b.setAttribute('aria-expanded', 'true');
+  ddPlace();
+  ddActive(ddOpen.active, true);
+  document.getElementById('ddList').focus({preventScroll: true});
+}
+function ddActive(k, center){
+  var ls = document.getElementById('ddList'); if (!ls || !ddOpen) return;
+  var n = DD[ddOpen.id].options.length; k = Math.max(0, Math.min(n - 1, k)); ddOpen.active = k;
+  Array.prototype.forEach.call(ls.querySelectorAll('.dd-opt.act'), function(x){ x.classList.remove('act'); });
+  var el = document.getElementById('ddo-' + k); if (!el) return;
+  el.classList.add('act'); ls.setAttribute('aria-activedescendant', el.id);
+  var top = el.offsetTop, bot = top + el.offsetHeight;
+  if (center) ls.scrollTop = top - ls.clientHeight / 2 + el.offsetHeight / 2;
+  else if (top < ls.scrollTop) ls.scrollTop = top - 4; else if (bot > ls.scrollTop + ls.clientHeight) ls.scrollTop = bot - ls.clientHeight + 4;
+}
+function ddClose(refocus){
+  var ls = document.getElementById('ddList'); if (ls) ls.parentNode.removeChild(ls);
+  if (!ddOpen) return;
+  var b = document.getElementById(ddOpen.id); ddOpen = null;
+  if (b) { b.setAttribute('aria-expanded', 'false'); if (refocus) b.focus({preventScroll: true}); }
+}
+function ddPick(k){
+  if (!ddOpen) return;
+  var o = DD[ddOpen.id], x = o.options[k];
+  ddClose(true);
+  if (x && x.v !== o.value) o.pick(x.v);
+}
+document.addEventListener('keydown', function(e){
+  var t2 = e.target;
+  // Enter and Space already click the button; arrows open it too
+  if (t2 && t2.classList && t2.classList.contains('dd-btn') && !ddOpen && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) { e.preventDefault(); ddOpenList(t2.id); return; }
+  if (!ddOpen || !t2 || t2.id !== 'ddList') return;
+  if (e.key !== 'Tab') e.stopPropagation(); // keys in the open list are for the list, not page shortcuts
+  var n = DD[ddOpen.id].options.length, k = ddOpen.active;
+  if (e.key === 'ArrowDown') { e.preventDefault(); ddActive(k + 1); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); ddActive(k - 1); }
+  else if (e.key === 'Home' || e.key === 'PageUp') { e.preventDefault(); ddActive(e.key === 'Home' ? 0 : k - 6); }
+  else if (e.key === 'End' || e.key === 'PageDown') { e.preventDefault(); ddActive(e.key === 'End' ? n - 1 : k + 6); }
+  else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ddPick(k); }
+  else if (e.key === 'Escape') { e.preventDefault(); ddClose(true); }
+  else if (e.key === 'Tab') { ddClose(true); }
+  else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+    // type to jump to an option
+    var now = Date.now(); ddOpen.typed = (now - ddOpen.typedAt > 700 ? '' : ddOpen.typed) + e.key.toLowerCase(); ddOpen.typedAt = now;
+    var opts = DD[ddOpen.id].options;
+    for (var j = 0; j < n; j++) { var c = (k + (ddOpen.typed.length > 1 ? 0 : 1) + j) % n; if (opts[c].label.toLowerCase().indexOf(ddOpen.typed) === 0) { ddActive(c); break; } }
+  }
+}, true);
+document.addEventListener('pointerdown', function(e){
+  if (!ddOpen) return;
+  var inList = e.target.closest && e.target.closest('#ddList'), onBtn = e.target.closest && e.target.closest('#' + ddOpen.id);
+  if (!inList && !onBtn) ddClose(false);
+});
+document.addEventListener('click', function(e){
+  var o = e.target.closest && e.target.closest('#ddList .dd-opt');
+  if (o) ddPick(+o.getAttribute('data-k'));
+});
+document.addEventListener('pointermove', function(e){
+  var o = ddOpen && e.target.closest && e.target.closest('#ddList .dd-opt');
+  if (o && +o.getAttribute('data-k') !== ddOpen.active) ddActive(+o.getAttribute('data-k'));
+});
+window.addEventListener('scroll', function(){ if (ddOpen) requestAnimationFrame(ddPlace); }, {passive: true});
+window.addEventListener('resize', function(){ ddClose(false); });
+
+/* Tooltips: shown on mouse hover (after a short pause) and on keyboard focus; never on touch */
+var hintEl = null, hintFor = null, hintTimer = null;
+function showHint(el){
+  var txt = el.getAttribute('data-hint'); if (!txt || ddOpen) return;
+  if (!hintEl) { hintEl = document.createElement('div'); hintEl.className = 'hint'; hintEl.setAttribute('aria-hidden', 'true'); document.body.appendChild(hintEl); }
+  hintEl.textContent = txt; hintFor = el;
+  var r = el.getBoundingClientRect(), tw = hintEl.offsetWidth, th = hintEl.offsetHeight;
+  var top = r.bottom + 8; if (top + th > window.innerHeight - 8) top = r.top - th - 8;
+  var left = Math.min(Math.max(8, r.left + r.width / 2 - tw / 2), window.innerWidth - tw - 8);
+  hintEl.style.left = Math.round(left) + 'px'; hintEl.style.top = Math.round(top) + 'px';
+  hintEl.classList.add('on');
+}
+function hideHint(){
+  clearTimeout(hintTimer); hintFor = null;
+  if (hintEl) { hintEl.classList.remove('on'); hintTimer = setTimeout(function(){ if (!hintFor) { hintEl.style.left = '0px'; hintEl.style.top = '0px'; } }, 200); }
+}
+document.addEventListener('pointerover', function(e){
+  if (e.pointerType === 'touch') return;
+  var el = e.target.closest && e.target.closest('[data-hint]');
+  if (!el || el === hintFor) return;
+  clearTimeout(hintTimer); hintTimer = setTimeout(function(){ if (el.isConnected && el.matches(':hover')) showHint(el); }, 400);
+});
+document.addEventListener('pointerout', function(e){
+  var el = e.target.closest && e.target.closest('[data-hint]');
+  if (el && !(e.relatedTarget && el.contains(e.relatedTarget))) hideHint();
+});
+document.addEventListener('focusin', function(e){
+  var el = e.target.closest && e.target.closest('[data-hint]');
+  hideHint();
+  if (el && el.matches(':focus-visible')) showHint(el);
+});
+document.addEventListener('focusout', hideHint);
+document.addEventListener('pointerdown', hideHint, true);
+window.addEventListener('scroll', hideHint, {passive: true});
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && hintFor) hideHint(); });
+
+/* ---------------- floating question bar (practice and quick mock) ---------------- */
+var SHUF = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>';
+var ARROW_DN = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
+var ARROW_UP = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
+function qbarList(){ return S.exMode === 'mock' ? S.mock.set : practiceList(); }
+function qbarDone(qi){ return S.exMode === 'mock' ? answered(A.qs[qi], S.mock.ans[qi]) : !!S.checked[qi]; }
+function qbarHTML(){
+  var tt = t();
+  if (!qbarList().length) return '';
+  return '<div class="qbar" id="qbar" role="region" aria-label="' + tt.qbNav + '"><div class="qbar-in">' +
+    '<div class="qbar-info"><div class="qbar-line"><b id="qbPos"></b><span id="qbStats"></span><span class="qbar-err" id="qbErr" role="status"></span></div><div class="qbar-prog" aria-hidden="true"><i id="qbProg"></i></div></div>' +
+    '<form class="qbar-go" id="qbGo" novalidate><label for="qbGoIn" class="sr-only">' + tt.qbGo + '</label><input id="qbGoIn" class="field" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" enterkeyhint="go" placeholder="' + tt.qbGoPh + '" data-hint="' + tt.qbGo + '"></form>' +
+    '<button type="button" class="ctl qbar-top" data-act="qb-top" aria-label="' + tt.qbTop + '" data-hint="' + tt.qbTop + '">' + ARROW_UP + '</button>' +
+    '<button type="button" class="btn pri qbar-next" id="qbNext" data-act="qb-next"></button></div></div>';
+}
+/* questions sit below the sticky header (and the mock's timer bar) */
+function qbarOffset(){
+  var h = document.querySelector('.top').getBoundingClientRect().bottom, eb = document.querySelector('.exbar');
+  if (eb) h = Math.max(h, (parseFloat(getComputedStyle(eb).top) || 0) + eb.offsetHeight); // where the timer bar sits once stuck
+  return h + 12;
+}
+/* the question at the top of the screen: the first one whose bottom is still below the header */
+function qbarCurrent(list){
+  var top = qbarOffset() + 40, lo = 0, hi = list.length - 1, at = list.length - 1;
+  while (lo <= hi) {
+    var mid = (lo + hi) >> 1, el = document.getElementById('q-' + list[mid]);
+    if (!el) return 0;
+    if (el.getBoundingClientRect().bottom > top) { at = mid; hi = mid - 1; } else lo = mid + 1;
+  }
+  return at;
+}
+function qbarNext(list, cur){
+  for (var k = 1; k <= list.length; k++) { var j = (cur + k) % list.length; if (!qbarDone(list[j])) return j; }
+  return -1;
+}
+function paintQbar(){
+  var bar = document.getElementById('qbar');
+  document.body.classList.toggle('has-qbar', !!bar);
+  if (!bar) return;
+  var tt = t(), list = qbarList(), cur = qbarCurrent(list), done = 0, right = 0;
+  list.forEach(function(qi){ if (qbarDone(qi)) { done++; if (S.exMode === 'practice' && correct(A.qs[qi], S.ans[qi])) right++; } });
+  // long labels on wide screens, short ones on phones (CSS picks which shows)
+  var pos = '<span class="lg">' + esc(fmt(tt.qbPos, {k: cur + 1, n: list.length})) + '</span><span class="sm" aria-hidden="true">' + (cur + 1) + ' / ' + list.length + '</span>', pe = document.getElementById('qbPos');
+  if (pe.innerHTML !== pos) pe.innerHTML = pos;
+  document.getElementById('qbStats').textContent = S.exMode === 'mock' ? fmt(tt.qbAns, {a: done}) : fmt(tt.statsLine, {c: done, r: right});
+  document.getElementById('qbProg').style.width = (list.length ? done * 100 / list.length : 0) + '%';
+  var nx = qbarNext(list, cur), b = document.getElementById('qbNext');
+  b.setAttribute('data-to', nx < 0 ? '' : list[nx]);
+  var html = nx < 0 ? esc(tt.qbAllDone) : '<span class="lg">' + esc(tt.qbNext) + '</span><span class="sm">' + esc(tt.qbNextS) + '</span>' + ARROW_DN;
+  if (b.innerHTML !== html) b.innerHTML = html;
+}
+function goToQ(){
+  var inp = document.getElementById('qbGoIn'), err = document.getElementById('qbErr'), list = qbarList();
+  var n = parseInt((inp.value || '').replace(/\D/g, ''), 10);
+  if (!(n >= 1 && n <= list.length)) {
+    var m = fmt(t().qbGoErr, {n: list.length});
+    inp.setAttribute('aria-invalid', 'true'); err.textContent = m; inp.select();
+    return;
+  }
+  inp.value = ''; inp.removeAttribute('aria-invalid'); err.textContent = '';
+  scrollToQ(list[n - 1], true);
+  announce(fmt(t().qbPos, {k: n, n: list.length}));
+}
+function smoothScroll(){ return !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }
+function scrollToQ(qi, focus){
+  var el = document.getElementById('q-' + qi); if (!el) return;
+  // focus first: in Chrome, moving focus cancels a smooth scroll that is already running
+  if (focus) { el.setAttribute('tabindex', '-1'); el.focus({preventScroll: true}); }
+  window.scrollTo({top: Math.max(0, window.scrollY + el.getBoundingClientRect().top - qbarOffset()), behavior: smoothScroll() ? 'smooth' : 'auto'});
+}
+var qbTick = false;
+function queueQbar(){ if (qbTick) return; qbTick = true; requestAnimationFrame(function(){ qbTick = false; paintQbar(); }); }
+window.addEventListener('scroll', queueQbar, {passive: true});
+window.addEventListener('resize', queueQbar);
 function reQ(qi){ var el = document.getElementById('q-' + qi); if (!el) return; el.outerHTML = qHTML(qi, +el.getAttribute('data-num')); afterAnswer(); }
 
 /* ---------------- real exam simulation ---------------- */
@@ -800,7 +1038,7 @@ function vServices(){
   var tt = t();
   var cats = ['all','genai','ml','ai','infra','data','core','sec','gov'];
   return '<div class="sechead"><div><h2>' + tt.svcH + '</h2><p>' + tt.svcP + '</p></div></div>' +
-    '<div class="filters"><input id="svcSearch" class="field" type="search" placeholder="' + tt.svcSearch + '" aria-label="' + tt.svcSearch + '" value="' + esc(S.svcQ) + '"><div class="chips">' +
+    '<div class="filters">' + '<div class="sfield">' + '<input id="svcSearch" class="field" type="search" enterkeyhint="search" autocomplete="off" placeholder="' + tt.svcSearch + '" aria-label="' + tt.svcSearch + '" value="' + esc(S.svcQ) + '">' + '<button type="button" class="sclear" data-act="sclear" aria-label="' + tt.clearTxt + '" data-hint="' + tt.clearTxt + '">' + XICON + '</button></div>' + '<div class="chips">' +
     cats.map(function(c){ return '<button type="button" class="chip"' + (c !== 'all' ? ' style="--c:' + CATC[c] + '"' : '') + ' data-act="svccat" data-c="' + c + '" aria-pressed="' + (S.svcCat === c) + '">' + (c !== 'all' ? '<span class="dot"></span>' : '') + tt.cat[c] + '</button>'; }).join('') +
     '</div><label class="toggle" for="svcScope"><input type="checkbox" id="svcScope"' + (S.svcScope ? ' checked' : '') + '> ' + tt.scopeOnly + '</label></div><div id="svcTable">' + svcTable() + '</div>';
 }
@@ -816,7 +1054,7 @@ function glList(){
 function vGlossary(){
   var tt = t();
   return '<div class="sechead"><div><h2>' + tt.glH + '</h2><p>' + fmt(tt.glP, {n: A.gloss.length}) + '</p></div></div>' +
-    '<div class="filters"><input id="glSearch" class="field" type="search" placeholder="' + tt.glSearch + '" aria-label="' + tt.glSearch + '" value="' + esc(S.glQ) + '"></div><div id="glList">' + glList() + '</div>';
+    '<div class="filters">' + '<div class="sfield">' + '<input id="glSearch" class="field" type="search" enterkeyhint="search" autocomplete="off" placeholder="' + tt.glSearch + '" aria-label="' + tt.glSearch + '" value="' + esc(S.glQ) + '">' + '<button type="button" class="sclear" data-act="sclear" aria-label="' + tt.clearTxt + '" data-hint="' + tt.clearTxt + '">' + XICON + '</button></div>' + '</div><div id="glList">' + glList() + '</div>';
 }
 
 /* ---------------- plan ---------------- */
@@ -836,7 +1074,7 @@ function vPlan(){
 
 /* ---------------- render + events ---------------- */
 var VIEWFN = {overview: vOverview, course: vCourse, cards: vCards, exam: vExam, services: vServices, glossary: vGlossary, plan: vPlan};
-function render(){ renderHeader(); document.getElementById('app').innerHTML = VIEWFN[S.view](); }
+function render(){ renderHeader(); document.getElementById('app').innerHTML = VIEWFN[S.view](); paintQbar(); }
 function setView(v){
   if (menuOpen) setMenu(false, false);
   S.view = v;
@@ -855,9 +1093,13 @@ document.addEventListener('click', function(e){
   var act = el.getAttribute('data-act'), qi = +el.getAttribute('data-q'), i = +el.getAttribute('data-i');
   switch (act) {
     case 'about': openAbout(el); break;
-    case 'acct': openAcct(el); break;
-    case 'acct-close': if (e.target === el || el.tagName === 'BUTTON') closeAcct(); break;
+    case 'log': openLog(el); break;
+    case 'privacy': openPrivacy(el); break;
+    case 'acct': openAcct(); break;
+    case 'acct-x': closeAcct(true); break;
     case 'acct-sync': safePull(); break;
+    case 'acct-resend': resendLink(); break;
+    case 'acct-other': otherEmail(); break;
     case 'acct-out': sbc.auth.signOut().then(function(){ acctMsg = ''; paintSync(); render(); }); break;
     case 'acct-del': acctDel = true; paintAcct(); focusSel('[data-act="acct-del-no"]'); break;
     case 'acct-del-no': acctDel = false; paintAcct(); focusSel('.acct-del'); break;
@@ -906,8 +1148,18 @@ document.addEventListener('click', function(e){
     }
     case 'ord': { var arr = (getAns(qi) || []).slice(); if (!inArr(arr, i)) arr.push(i); setAns(qi, arr); saveExam(); reQ(qi); break; }
     case 'ordreset': setAns(qi, []); saveExam(); reQ(qi); break;
-    case 'check': { var cq = A.qs[qi], cok = correct(cq, S.ans[qi]); S.checked[qi] = true; recordResult(qi, cok); saveExam(); reQ(qi);
+    case 'check': { var cq = A.qs[qi], cok = correct(cq, S.ans[qi]); S.checked[qi] = true; recordResult(qi, cok); saveExam(); reQ(qi); scrollToQ(qi, true);
       announce(cok ? t().liveOk : ((cq.t === 'single' || cq.t === 'multi') ? fmt(t().liveNo, {a: answerKey(qi, cq)}) : t().incorrect)); break; }
+    case 'qb-next': { var to = el.getAttribute('data-to');
+      if (to === '') window.scrollTo({top: 0, behavior: smoothScroll() ? 'smooth' : 'auto'});
+      else { var tl = qbarList(); scrollToQ(+to, true); announce(fmt(t().qbPos, {k: tl.indexOf(+to) + 1, n: tl.length})); }
+      break; }
+    case 'qb-top': window.scrollTo({top: 0, behavior: smoothScroll() ? 'smooth' : 'auto'}); break;
+    case 'dd': if (ddOpen && ddOpen.id === el.id) ddClose(true); else ddOpenList(el.id); break;
+    case 'sclear': { var si = el.parentNode.querySelector('input'); if (si) { si.value = ''; si.dispatchEvent(new Event('input', {bubbles: true})); si.focus(); } break; }
+    case 'tview': { var tb2 = document.getElementById('tviewBody'), open = el.getAttribute('aria-expanded') !== 'true'; el.setAttribute('aria-expanded', String(open)); tb2.hidden = !open; break; }
+    case 'lang': if (menuOpen) setMenu(false, false); switchLang(el); break;
+    case 'pshuffle': setShuffle(!pOrder); render(); window.scrollTo({top: 0, behavior: smoothScroll() ? 'smooth' : 'auto'}); focusSel('[data-act="pshuffle"]'); announce(pOrder ? t().pShuffled : t().pOrdered); break;
     case 'reset-practice': clearAnswers(practiceList()); render(); break;
     case 'start-mock': startMock(); render(); window.scrollTo(0, 0); break;
     case 'sim-start': startSim(); render(); window.scrollTo(0, 0); break;
@@ -946,14 +1198,7 @@ document.addEventListener('click', function(e){
 });
 document.addEventListener('change', function(e){
   var el = e.target;
-  if (el.id === 'taskSelect') openTask(el.value);
-  else if (el.id === 'svcScope') { S.svcScope = el.checked; document.getElementById('svcTable').innerHTML = svcTable(); }
-  else if (el.id === 'hideKnown') { S.hideKnown = el.checked; store.set('hideKnown', S.hideKnown); S.cardIdx = 0; S.flip = false; render(); focusSel('#hideKnown'); }
-  else if (el.getAttribute('data-act') === 'match') {
-    var qi = +el.getAttribute('data-q'), i = +el.getAttribute('data-i'), n = A.qs[qi].en.o.length;
-    var arr = (getAns(qi) || Array.apply(null, {length: n}).map(function(){ return -1; })).slice();
-    arr[i] = +el.value; setAns(qi, arr); saveExam(); reQ(qi); focusSel('#m-' + qi + '-' + i);
-  }
+  if (el.id === 'svcScope') { S.svcScope = el.checked; document.getElementById('svcTable').innerHTML = svcTable(); }
   else if (el.getAttribute('data-act') === 'plan') {
     var k = el.getAttribute('data-k');
     if (el.checked) { if (!inArr(S.planDone, k)) S.planDone = S.planDone.concat([k]); } else S.planDone = S.planDone.filter(function(x){ return x !== k; });
@@ -969,8 +1214,17 @@ document.addEventListener('input', function(e){
 });
 document.getElementById('menuBtn').addEventListener('click', function(){ setMenu(!menuOpen, true); });
 document.getElementById('searchBtn').addEventListener('click', function(){ openSearch(this); });
-document.getElementById('acctBtn').addEventListener('click', function(){ openAcct(this); });
-document.addEventListener('submit', function(e){ if (e.target && e.target.id === 'acctForm') { e.preventDefault(); sendLink(); } });
+document.getElementById('acctBtn').addEventListener('click', function(){ if (document.getElementById('acctDlg')) closeAcct(false); else openAcct(); });
+function outsideAcct(el){ return el && el.nodeType === 1 && !el.closest('#acctDlg, #acctBtn, [data-act="acct"]'); }
+document.addEventListener('pointerdown', function(e){ if (document.getElementById('acctDlg') && outsideAcct(e.target)) closeAcct(false); });
+document.addEventListener('focusin', function(e){ if (document.getElementById('acctDlg') && outsideAcct(e.target)) closeAcct(false); });
+document.addEventListener('submit', function(e){
+  if (e.target && e.target.id === 'acctForm') { e.preventDefault(); sendLink(); }
+  else if (e.target && e.target.id === 'qbGo') { e.preventDefault(); goToQ(); }
+});
+document.addEventListener('input', function(e){
+  if (e.target && e.target.id === 'qbGoIn') { e.target.value = e.target.value.replace(/\D/g, ''); e.target.removeAttribute('aria-invalid'); var er = document.getElementById('qbErr'); if (er) er.textContent = ''; }
+});
 document.getElementById('drawerClose').addEventListener('click', function(){ setMenu(false, true); });
 document.getElementById('drawerBack').addEventListener('click', function(){ setMenu(false, true); });
 var fitQueued = false;
@@ -1034,7 +1288,7 @@ function openSearch(from){
   var tt = t();
   document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back gs-back" id="gsDlg" data-act="gs-close"><div class="gs" role="dialog" aria-modal="true" aria-label="' + esc(tt.searchBtn) + '">' +
     '<div class="gs-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>' +
-    '<input id="gsInput" type="search" autocomplete="off" placeholder="' + esc(tt.searchPh) + '" aria-label="' + esc(tt.searchBtn) + '" value="' + esc(S.gsQ || '') + '"><button type="button" class="ctl gs-esc" data-act="gs-close" aria-label="Close">Esc</button></div>' +
+    '<input id="gsInput" type="search" enterkeyhint="search" autocomplete="off" placeholder="' + esc(tt.searchPh) + '" aria-label="' + esc(tt.searchBtn) + '" value="' + esc(S.gsQ || '') + '"><button type="button" class="sclear" data-act="sclear" aria-label="' + tt.clearTxt + '" data-hint="' + tt.clearTxt + '">' + XICON + '</button><button type="button" class="ctl gs-esc" data-act="gs-close" aria-label="Close">Esc</button></div>' +
     '<div class="gs-res" id="gsRes" aria-live="polite"></div></div></div>');
   document.body.style.overflow = 'hidden';
   runSearch(S.gsQ || '');
@@ -1058,6 +1312,7 @@ function searchGo(kind, id){
 /* ---------------- sync my progress (Supabase, email sign-in link) ---------------- */
 var SYNC_CFG = {url: '__SB_URL__', key: '__SB_KEY__'};
 var SB_JS = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.1/dist/umd/supabase.js';
+var sentTo = '', resendAt = 0, resendTimer = null;
 var sbc = null, syncUser = null, syncState = 'off', syncErr = '', lastSync = 0, lastPull = 0, pushTimer = null, syncBusy = false, acctMsg = '', acctDel = false;
 function syncEnabled(){ return SYNC_CFG.url.indexOf('https://') === 0 && SYNC_CFG.key.length > 20; }
 function localSnapshot(){
@@ -1076,11 +1331,17 @@ function hydrate(){
   S.srs = store.get('srs', {}); S.missed = store.get('missed', []); S.seen = store.get('seen', []);
   S.stats = store.get('stats', {}); S.hist = store.get('hist', []); S.best = store.get('best', null); S.planDone = store.get('plan', []);
   var ex = store.get('exam', null);
-  if (ex && ex.n === A.qs.length) { S.ans = ex.ans || {}; S.checked = ex.checked || {}; S.qperm = ex.qperm || {}; S.mock = ex.mock || null; S.sim = ex.sim || null; }
+  if (ex && ex.n <= A.qs.length) { S.ans = ex.ans || {}; S.checked = ex.checked || {}; S.qperm = ex.qperm || {}; S.mock = ex.mock || null; S.sim = ex.sim || null; }
   var lg = store.get('lang', S.lang); if (lg === 'en' || lg === 'zh') S.lang = lg;
   var cm = store.get('cardMode', S.cardMode); if (cm === 'due' || cm === 'all') S.cardMode = cm;
   S.queue = null;
   if (!document.getElementById('gsDlg') && !S.simDlg) render();
+  saveEmailLang();
+}
+/* sign-in emails are sent in the learner's language (Supabase reads user_metadata.lang) */
+function saveEmailLang(){
+  if (!syncUser || !sbc || (syncUser.user_metadata || {}).lang === S.lang) return;
+  sbc.auth.updateUser({data: {lang: S.lang}}).then(function(r){ if (!r.error && r.data && r.data.user) syncUser = r.data.user; });
 }
 function setSync(state, err){ syncState = state; syncErr = err || ''; if (state === 'synced') lastSync = Date.now(); paintSync(); }
 function syncDirty(){
@@ -1126,7 +1387,7 @@ function initSync(){
     sbc.auth.onAuthStateChange(function(ev, session){
       var before = syncUser && syncUser.id;
       syncUser = session ? session.user : null;
-      if (syncUser && syncUser.id !== before) { acctMsg = ''; safePull(); }
+      if (syncUser && syncUser.id !== before) { acctMsg = ''; sentTo = ''; safePull(); saveEmailLang(); }
       if (!syncUser) setSync('off');
       paintSync();
       if (/access_token=|error_description=/.test(location.hash || '')) { try { history.replaceState(null, '', location.pathname + location.search + '#' + S.view); } catch (e) {} }
@@ -1149,16 +1410,23 @@ function paintSync(){
   b.className = 'ctl acct' + (syncUser ? ' is-' + syncState : '');
   var tt = t();
   b.setAttribute('aria-label', tt.syncBtn + (syncUser ? ' · ' + fmt(tt.signedAs, {e: syncUser.email}) : ''));
-  b.title = b.getAttribute('aria-label');
+  b.setAttribute('data-hint', b.getAttribute('aria-label'));
   if (document.getElementById('acctDlg')) paintAcct();
 }
 function acctHTML(){
   var tt = t();
   if (!sbc) return '<p class="muted">' + (syncState === 'error' ? esc(fmt(tt.stErr, {m: syncErr})) : tt.sending) + '</p>';
+  if (!syncUser && sentTo) {
+    return '<div class="acct-sent"><span class="acct-sent-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>' +
+      '<h4 id="acctSentH" tabindex="-1">' + tt.sentH + '</h4><p class="acct-sent-lead">' + tt.sentTo + '<br><b class="acct-sent-to">' + esc(sentTo) + '</b></p>' +
+      '<p class="acct-sent-how">' + tt.sentHow + '</p>' +
+      '<div class="row acct-sent-act"><button type="button" class="btn" id="acctResend" data-act="acct-resend"' + (resendLeft() ? ' disabled' : '') + '>' + resendLabel() + '</button><button type="button" class="link" data-act="acct-other">' + tt.otherEmail + '</button></div>' +
+      '<p class="acct-msg" id="acctMsg" role="status">' + esc(acctMsg) + '</p></div>';
+  }
   if (!syncUser) {
     return '<p>' + tt.syncP + '</p><form id="acctForm" class="acct-form" novalidate><label for="acctEmail">' + tt.emailL + '</label>' +
       '<div class="acct-row"><input id="acctEmail" class="field" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"><button type="submit" class="btn pri" id="acctSend">' + tt.sendLink + '</button></div></form>' +
-      '<p class="acct-msg" id="acctMsg" role="status">' + esc(acctMsg) + '</p><p class="acct-priv">' + tt.syncPriv + '</p>';
+      '<p class="acct-msg" id="acctMsg" role="status">' + esc(acctMsg) + '</p><p class="acct-priv">' + tt.syncPriv + ' <button type="button" class="link" data-act="privacy">' + tt.privLink + '</button></p>';
   }
   var st = syncState === 'synced' ? fmt(tt.stSynced, {t: ago(lastSync)}) : syncState === 'pending' ? tt.stPending : syncState === 'offline' ? tt.syncOffline : syncState === 'error' ? fmt(tt.stErr, {m: syncErr}) : '';
   return '<p class="acct-who">' + esc(fmt(tt.signedAs, {e: syncUser.email || ''})) + '</p>' +
@@ -1176,32 +1444,74 @@ function paintAcct(){
   var em = document.getElementById('acctEmail'); if (em && emailVal) em.value = emailVal;
   if (focusId && document.getElementById(focusId)) document.getElementById(focusId).focus({preventScroll: true});
 }
-var acctReturn = null;
 function openAcct(from){
   if (document.getElementById('acctDlg') || !syncEnabled()) return;
   if (menuOpen) setMenu(false, false);
-  acctReturn = from || document.activeElement; acctDel = false;
-  var tt = t();
-  document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back acct-back" id="acctDlg" data-act="acct-close"><div class="dlg acct-dlg" role="dialog" aria-modal="true" aria-labelledby="acctT">' +
-    '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="acctT">' + tt.syncT + '</h3></div>' +
-    '<div id="acctBody">' + acctHTML() + '</div><div class="row dlg-act"><button type="button" class="btn" id="acctClose" data-act="acct-close">' + tt.aboutClose + '</button></div></div></div>');
-  document.body.style.overflow = 'hidden';
-  setTimeout(function(){ var f = document.getElementById('acctEmail') || document.getElementById('acctClose'); if (f) f.focus({preventScroll: true}); }, 30);
+  acctDel = false;
+  var tt = t(), b = document.getElementById('acctBtn');
+  b.insertAdjacentHTML('afterend', '<div class="acct-pop" id="acctDlg" role="dialog" aria-labelledby="acctT"><div class="acct-pop-h"><h3 id="acctT">' + tt.syncT + '</h3>' +
+    '<button type="button" class="acct-x" data-act="acct-x" aria-label="' + tt.aboutClose + '" data-hint="' + tt.aboutClose + '"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div id="acctBody">' + acctHTML() + '</div></div>');
+  b.setAttribute('aria-expanded', 'true');
+  if (resendLeft() && !resendTimer) resendTimer = setInterval(tickResend, 1000);
+  setTimeout(function(){ var f = document.getElementById('acctEmail') || document.getElementById('acctResend') || document.querySelector('#acctDlg button'); if (f) f.focus({preventScroll: true}); }, 30);
 }
-function closeAcct(){
+function closeAcct(refocus){
   var d = document.getElementById('acctDlg'); if (!d) return;
-  d.parentNode.removeChild(d); document.body.style.overflow = '';
-  if (acctReturn && document.body.contains(acctReturn)) acctReturn.focus({preventScroll: true});
+  d.parentNode.removeChild(d);
+  var b = document.getElementById('acctBtn'); b.setAttribute('aria-expanded', 'false');
+  if (refocus) b.focus({preventScroll: true});
+}
+var RESEND_WAIT = 60;
+function resendLeft(){ return Math.max(0, Math.ceil((resendAt - Date.now()) / 1000)); }
+function resendLabel(){ var n = resendLeft(); return n ? fmt(t().resendIn, {n: n}) : t().resend; }
+function tickResend(){
+  var b = document.getElementById('acctResend');
+  if (b && !b.getAttribute('data-busy')) { b.textContent = resendLabel(); b.disabled = resendLeft() > 0; }
+  if (!resendLeft() || !document.getElementById('acctDlg')) { clearInterval(resendTimer); resendTimer = null; }
+}
+function startResendWait(sec){ resendAt = Date.now() + sec * 1000; if (!resendTimer) resendTimer = setInterval(tickResend, 1000); tickResend(); }
+function sendErr(e){
+  var m = errText(e), wait = m.match(/after (\d+) seconds?/i);
+  if (wait) { startResendWait(+wait[1]); return fmt(t().waitN, {n: wait[1]}); }
+  if (/rate limit|too many/i.test(m) || (e && e.status === 429)) return t().tooMany;
+  return fmt(t().linkErr, {m: m});
+}
+function requestLink(email){
+  return sbc.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname, shouldCreateUser: true, data: {lang: S.lang}}})
+    .then(function(r){ if (r.error) throw r.error; }, function(e){ throw e; });
 }
 function sendLink(){
   var tt = t(), em = document.getElementById('acctEmail'), msg = document.getElementById('acctMsg'), btn = document.getElementById('acctSend');
   var email = (em.value || '').trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { acctMsg = tt.badEmail; msg.textContent = acctMsg; em.focus(); return; }
-  btn.disabled = true; btn.textContent = tt.sending;
-  sbc.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname, shouldCreateUser: true}}).then(function(r){
-    acctMsg = r.error ? fmt(tt.linkErr, {m: errText(r.error)}) : tt.linkSent;
-    btn.disabled = false; btn.textContent = tt.sendLink; msg.textContent = acctMsg;
+  btn.disabled = true; btn.textContent = tt.sending; acctMsg = ''; msg.textContent = '';
+  requestLink(email).then(function(){
+    sentTo = email; acctMsg = ''; startResendWait(RESEND_WAIT); paintAcct();
+    var h = document.getElementById('acctSentH'); if (h) h.focus({preventScroll: true});
+    announce(t().sentH + '. ' + t().sentTo + ' ' + email);
+  }, function(e){
+    acctMsg = sendErr(e); btn.disabled = false; btn.textContent = tt.sendLink; msg.textContent = acctMsg;
   });
+}
+function resendLink(){
+  var b = document.getElementById('acctResend'), msg = document.getElementById('acctMsg');
+  if (!b || resendLeft()) return;
+  b.disabled = true; b.setAttribute('data-busy', '1'); b.textContent = t().sending; acctMsg = ''; msg.textContent = '';
+  requestLink(sentTo).then(function(){ acctMsg = t().resent; startResendWait(RESEND_WAIT); }, function(e){ acctMsg = sendErr(e); })
+    .then(function(){
+      b.removeAttribute('data-busy'); msg.textContent = acctMsg; tickResend();
+      if (!resendLeft()) b.disabled = false;
+    });
+}
+function otherEmail(){
+  var prev = sentTo; sentTo = ''; acctMsg = ''; paintAcct();
+  var em = document.getElementById('acctEmail'); if (em) { em.value = prev; em.focus({preventScroll: true}); em.select(); }
+}
+var REDO = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>';
+function missCta(){
+  var n = S.missed.length; if (!n) return '';
+  var tt = t();
+  return '<div class="sync-cta miss-cta"><span class="cta-t">' + REDO + '<span>' + (n === 1 ? tt.missCta1 : fmt(tt.missCtaN, {n: n})) + '</span></span><button type="button" class="btn sm pri" data-act="practice-missed">' + tt.missCtaBtn + '</button></div>';
 }
 function syncCta(){
   if (!syncEnabled() || syncUser) return '';
@@ -1210,6 +1520,22 @@ function syncCta(){
 }
 
 /* ---------------- about / disclaimer dialog ---------------- */
+var CHECKED = '2026-09-24'; // last full check of the content against the official exam guide
+var PRIV = {en: [["On this device", "Your progress (lessons, answers, flashcards, scores and settings) is saved in this browser. Nothing leaves your device unless you turn on Sync my progress."], ["If you sign in to sync", "Your email address and your study progress are stored with Supabase, the database service behind sync, so your devices can share them. Your language is saved too, so sign-in emails arrive in it. Sign-in emails are sent through Supabase.", "sync"], ["What we don’t do", "No ads, no tracking and no analytics. Your data is never sold or used for marketing."], ["Other services", "Fonts load from Google Fonts{sb}. Like any web request, these services see your IP address."], ["Your choices", "Delete my account and synced data, in the Sync my progress menu, permanently removes your email address and synced progress. To clear progress on one device, clear this site’s data in your browser.", "sync"]],
+  zh: [["本设备上", "你的学习进度（课程、答案、闪卡、成绩和设置）保存在当前浏览器中。除非你开启“同步我的进度”，否则这些数据不会离开你的设备。"], ["登录并同步时", "你的邮箱地址和学习进度会保存在同步所用的数据库服务 Supabase 中，以便在你的设备之间共享。系统也会保存你的界面语言，让登录邮件使用该语言。登录邮件通过 Supabase 发送。", "sync"], ["我们不会做的事", "没有广告、没有跟踪、没有统计分析。你的数据绝不会被出售或用于营销。"], ["其他服务", "字体从 Google Fonts 加载{sb}。与任何网页请求一样，这些服务会看到你的 IP 地址。"], ["你的选择", "在“同步我的进度”菜单中选择“删除我的账户和已同步数据”，即可永久删除你的邮箱地址和已同步的进度。如需清除某台设备上的进度，请在浏览器中清除本站数据。", "sync"]]};
+function openPrivacy(from){
+  closeAbout(true); if (document.getElementById('acctDlg')) closeAcct(false);
+  aboutReturn = from || null;
+  if (menuOpen) setMenu(false, false);
+  var tt = t(), sb = syncEnabled() ? (S.lang === 'zh' ? '，登录功能的代码从 jsDelivr CDN 加载' : ', and the sign-in code loads from the jsDelivr CDN') : '';
+  var body = PRIV[S.lang].filter(function(x){ return x[2] !== 'sync' || syncEnabled(); }).map(function(x){ return '<h4>' + x[0] + '</h4><p>' + x[1].replace('{sb}', sb) + '</p>'; }).join('');
+  document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back about-back" id="aboutDlg" data-act="about-close"><div class="dlg about log-dlg priv" role="dialog" aria-modal="true" aria-labelledby="aboutT">' +
+    '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="aboutT">' + tt.privT + '</h3></div>' +
+    '<div class="log-list">' + body + '</div>' +
+    '<div class="row dlg-act"><button type="button" class="btn pri" id="aboutClose" data-act="about-close">' + tt.aboutClose + '</button></div></div></div>');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
+}
 var aboutReturn = null;
 function openAbout(from){
   closeAbout(true);
@@ -1219,7 +1545,73 @@ function openAbout(from){
   document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back about-back" id="aboutDlg" data-act="about-close"><div class="dlg about" role="dialog" aria-modal="true" aria-labelledby="aboutT">' +
     '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="aboutT">' + tt.aboutT + '</h3></div>' +
     (syncEnabled() ? tt.aboutP.slice(0, -1).concat([tt.aboutSync]) : tt.aboutP).map(function(x){ return '<p>' + x + '</p>'; }).join('') +
-    '<p class="about-ver">' + esc(fmt(tt.ver, {v: APP_VERSION})) + ' · Craft by Eyevuhn</p>' +
+    '<p class="about-ver"><button type="button" class="link foot-about" data-act="log">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · Craft by Eyevuhn · <button type="button" class="link foot-about" data-act="privacy">' + tt.privLink + '</button></p>' +
+    '<p class="about-checked">' + fmt(tt.checked, {d: fmtDate(CHECKED)}) + '</p>' +
+    '<div class="row dlg-act"><button type="button" class="btn pri" id="aboutClose" data-act="about-close">' + tt.aboutClose + '</button></div></div></div>');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
+}
+var CHANGELOG = [
+  {v: '1.2', date: '2026-09-24', en: [
+    '<b>Sync my progress</b>: sign in with an email link to keep lessons, flashcards, missed questions and exam history in step on every device. No password.',
+    'Progress still saves on the device first and syncs in the background; two devices combine without losing lessons, flashcard levels or scores.',
+    'Account menu under the person icon: sync status, Sync now, Sign out and Delete account.',
+    'After you ask for a link, a check-your-email screen shows where it went, with Resend.',
+    'Sign-in emails arrive in English or Chinese to match your language.',
+    'Practice and quick mock: a floating bar shows which question you are on, how many you have answered and your score, with a Next question button and a Go to # box to jump to any question number. Checking an answer brings that question to the top so its explanation is in view.',
+    'SenseiDoge’s own dropdowns, checkboxes, switches, search boxes and tooltips replace the browser’s built-in ones; header buttons are now plain icons.',
+    'Missed questions now show as a notice under Your progress, with a button to review them.',
+    'Practice has a Shuffle option that mixes up the question order.',
+    '25 new questions (240 in total) cover every example term in the exam guide that was not yet tested, such as one-shot prompting, cross-Region inference, Amazon Inspector and user engagement metrics.',
+    'On phones and tablets every button, chip and link is at least 44 × 44 px, so it is easy to tap.',
+    'A privacy note (footer, About and the sync menu) explains what is stored and where; About shows when the content was last checked against the exam guide; shared links now show a preview card.',
+    'New lettering for the logo, and a Chinese name: <b>考汪</b> (a play on 考王, “exam king”).'
+  ], zh: [
+    '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
+    '进度仍先保存在本设备，并在后台同步；两台设备的进度会合并，不会丢失课程、闪卡等级或成绩。',
+    '人像图标下的账户菜单：同步状态、立即同步、退出登录和删除账户。',
+    '发送登录链接后，会显示“查收你的邮箱”页面，并可重新发送。',
+    '登录邮件会按你的界面语言以中文或英文发送。',
+    '练习与快速模考：底部浮动栏显示当前题号、已答题数和得分，并提供“下一题”按钮和可跳转到任意题号的输入框；核对答案后，该题会移到页面顶部，方便查看解析。',
+    '下拉菜单、复选框、开关、搜索框和提示框改用本站自己的设计，不再使用浏览器自带样式；顶部按钮改为纯图标。',
+    '错题提醒移到“学习进度”下方，并附“复习错题”按钮。',
+    '练习模式新增“打乱顺序”，可随机排列题目。',
+    '新增 25 道题（共 240 道），覆盖考试指南中此前未考到的全部示例术语，例如单样本提示、跨区域推理、Amazon Inspector 和用户参与度指标。',
+    '在手机和平板上，所有按钮、标签和链接都至少 44 × 44 像素，更容易点按。',
+    '新增隐私说明（页脚、关于和同步菜单），说明保存了哪些数据以及存放位置；“关于”中显示内容最近一次对照考试指南核对的日期；分享链接时会显示预览卡片。',
+    '全新标志字体，并启用中文名<b>考汪</b>（谐音“考王”）。'
+  ]},
+  {v: '1.1', date: '2026-09-23', en: [
+    'First release: 14 lessons, one for each task statement in the AIF-C01 exam guide v1.1, in English and 简体中文.',
+    '215 practice questions in all four exam formats, with a note on why every wrong option is wrong.',
+    'Full exam simulation: 65 questions in 90 minutes, flag for review, review screen and an estimated scaled score.',
+    '135 flashcards with spaced repetition, plus a progress page with score history and accuracy by domain.',
+    'Search, service map, glossary and a 7-day plan; light and dark themes; works offline once visited.'
+  ], zh: [
+    '首个版本：14 节课程，与 AIF-C01 考试指南 v1.1 的每个任务说明一一对应，提供英文和简体中文。',
+    '215 道练习题，覆盖全部四种考试题型，并说明每个错误选项错在哪里。',
+    '完整模拟考试：90 分钟 65 道题，可标记复查，设有复查页面并估算换算分数。',
+    '135 张闪卡，采用间隔重复；进度页面显示成绩记录和各领域正确率。',
+    '搜索、服务地图、术语表和 7 天学习计划；浅色与深色主题；访问过后可离线使用。'
+  ]}
+];
+function fmtDate(iso){
+  var d = iso.split('-');
+  return S.lang === 'zh' ? (+d[0]) + ' 年 ' + (+d[1]) + ' 月 ' + (+d[2]) + ' 日'
+    : (+d[2]) + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+d[1] - 1] + ' ' + d[0];
+}
+function openLog(from){
+  closeAbout(true);
+  aboutReturn = from || null;
+  if (menuOpen) setMenu(false, false);
+  var tt = t();
+  var list = CHANGELOG.map(function(r){
+    return '<section class="log-rel"><h4>' + esc(fmt(tt.ver, {v: r.v})) + (r.v === APP_VERSION ? ' <span class="log-now">' + tt.logNow + '</span>' : '') +
+      '<time datetime="' + r.date + '">' + fmtDate(r.date) + '</time></h4><ul>' + r[S.lang].map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></section>';
+  }).join('');
+  document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back about-back" id="aboutDlg" data-act="about-close"><div class="dlg about log-dlg" role="dialog" aria-modal="true" aria-labelledby="aboutT">' +
+    '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="aboutT">' + tt.logT + '</h3></div>' +
+    '<div class="log-list">' + list + '</div>' +
     '<div class="row dlg-act"><button type="button" class="btn pri" id="aboutClose" data-act="about-close">' + tt.aboutClose + '</button></div></div></div>');
   document.body.style.overflow = 'hidden';
   setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
@@ -1234,14 +1626,7 @@ function closeAbout(silent){
   if (back) back.focus({preventScroll: true});
 }
 document.addEventListener('keydown', function(e){
-  if (document.getElementById('acctDlg')) {
-    if (e.key === 'Escape') { e.preventDefault(); closeAcct(); }
-    else if (e.key === 'Tab') {
-      var ai = Array.prototype.slice.call(document.querySelectorAll('#acctDlg input, #acctDlg button')).filter(function(x){ return !x.disabled; });
-      var aa = ai.indexOf(document.activeElement); e.preventDefault(); ai[(aa + (e.shiftKey ? ai.length - 1 : 1) + ai.length) % ai.length].focus();
-    }
-    return;
-  }
+  if (document.getElementById('acctDlg') && e.key === 'Escape') { e.preventDefault(); closeAcct(true); return; }
   if (document.getElementById('gsDlg')) {
     if (e.key === 'Escape') { e.preventDefault(); closeSearch(); }
     else if (e.key === 'Tab') {
@@ -1291,7 +1676,9 @@ document.addEventListener('keydown', function(e){
   else if (e.key === 'ArrowLeft') { e.preventDefault(); cardMove(-1); }
   else if ((e.key === ' ' || e.key === 'Enter') && tag !== 'button' && tag !== 'a') { e.preventDefault(); S.flip = !S.flip; render(); }
 });
-document.getElementById('langBtn').addEventListener('click', function(){ S.lang = S.lang === 'en' ? 'zh' : 'en'; store.set('lang', S.lang); render(); });
+function switchLang(from){
+  S.lang = S.lang === 'en' ? 'zh' : 'en'; store.set('lang', S.lang); render(); saveEmailLang(); focusSel('#langBtn');
+}
 document.getElementById('themeBtn').addEventListener('click', function(){ var next = isDark() ? 'light' : 'dark'; root.setAttribute('data-theme', next); store.set('theme', next); updateThemeBtn(); });
 try { var mq = window.matchMedia('(prefers-color-scheme: dark)'); if (mq.addEventListener) mq.addEventListener('change', updateThemeBtn); else if (mq.addListener) mq.addListener(updateThemeBtn); } catch (e) {}
 try { new MutationObserver(updateThemeBtn).observe(root, {attributes: true, attributeFilter: ['data-theme']}); } catch (e) {}

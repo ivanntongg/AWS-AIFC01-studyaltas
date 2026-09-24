@@ -1,0 +1,1 @@
+{{ if eq (printf "%v" .Data.lang) "zh" }}你的考汪登录链接{{ else }}Your SenseiDoge sign-in link{{ end }}

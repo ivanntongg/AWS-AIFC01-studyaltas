@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const DATA = ['10_d1.js', '11_d2.js', '12_d3.js', '13_d4.js', '14_d5.js', '20_questions.js', '22_questions2.js',
-  '24_notes.js', '24_notes2.js', '25_questions3.js', '21_extras.js', '26_cards2.js', '23_services2.js', '31_merge.js'];
+  '24_notes.js', '24_notes2.js', '25_questions3.js', '27_questions4.js', '21_extras.js', '26_cards2.js', '23_services2.js', '31_merge.js'];
 const ctx = { window: {} };
 ctx.window = ctx;
 vm.createContext(ctx);
