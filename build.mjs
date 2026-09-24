@@ -9,15 +9,21 @@ const read = (f) => readFileSync(here(`./src/${f}`), 'utf8');
 
 const mark = 'data:image/webp;base64,' + readFileSync(here('./src/assets/mark-96.webp')).toString('base64');
 const shell = read('00_shell.html').replaceAll('__MARK__', mark);
-const data = ['10_d1.js', '11_d2.js', '12_d3.js', '13_d4.js', '14_d5.js', '20_questions.js', '22_questions2.js', '24_notes.js', '24_notes2.js', '25_questions3.js', '21_extras.js', '26_cards2.js', '23_services2.js'].map(read).join('\n');
+const data = ['10_d1.js', '11_d2.js', '12_d3.js', '13_d4.js', '14_d5.js', '20_questions.js', '22_questions2.js', '24_notes.js', '24_notes2.js', '25_questions3.js', '21_extras.js', '26_cards2.js', '23_services2.js', '31_merge.js'].map(read).join('\n');
 const pkg = JSON.parse(readFileSync(here('./package.json'), 'utf8'));
 const appVersion = pkg.version.split('.').slice(0, 2).join('.');
-const app = read('30_app.js').replace('__APP_VERSION__', appVersion);
+// "Sync my progress" is switched on when Supabase settings are present at build time (Vercel env vars).
+const sbUrl = (process.env.SUPABASE_URL || '').trim(), sbKey = (process.env.SUPABASE_ANON_KEY || '').trim();
+if (/service_role/.test(sbKey)) throw new Error('SUPABASE_ANON_KEY looks like a service_role key. Use the anon (public) key only.');
+const appSrc = read('30_app.js').replace('__APP_VERSION__', appVersion);
+const app = appSrc.replace('__SB_URL__', sbUrl).replace('__SB_KEY__', sbKey);
+const appNoSync = appSrc.replace('__SB_URL__', '').replace('__SB_KEY__', ''); // Claude artifact preview cannot reach Supabase
 
 for (const src of [data, app]) {
   if (src.includes('</script')) throw new Error('A source file contains "</script", which would break the inline script.');
 }
 const scripts = `<script>\n${data}\n</script>\n<script>\n${app}\n</script>\n`;
+const scriptsNoSync = `<script>\n${data}\n</script>\n<script>\n${appNoSync}\n</script>\n`;
 
 const cut = shell.indexOf('<div class="shell">');
 if (cut < 0) throw new Error('Could not find the shell markup in src/00_shell.html.');
@@ -92,5 +98,5 @@ writeFileSync(here('./dist/manifest.webmanifest'), JSON.stringify(manifest, null
 for (const f of ['favicon-32.png', 'favicon-64.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png']) {
   copyFileSync(here(`./src/assets/${f}`), here(`./dist/${f}`));
 }
-writeFileSync(here('./senseidoge-artifact.html'), shell + '\n' + scripts);
-console.log(`Built dist/index.html (${(full.length / 1024).toFixed(0)} KB) with icons and manifest, and senseidoge-artifact.html`);
+writeFileSync(here('./senseidoge-artifact.html'), shell + '\n' + scriptsNoSync);
+console.log(`Built dist/index.html (${(full.length / 1024).toFixed(0)} KB) with icons and manifest, and senseidoge-artifact.html · sync ${sbUrl && sbKey ? 'ON' : 'off (no SUPABASE_URL / SUPABASE_ANON_KEY)'}`);
