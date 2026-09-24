@@ -1423,7 +1423,7 @@ function acctHTML(){
       '<h4 id="acctSentH" tabindex="-1">' + tt.sentH + '</h4><p class="acct-sent-lead">' + tt.sentTo + '<br><b class="acct-sent-to">' + esc(sentTo) + '</b></p>' +
       '<p class="acct-sent-how">' + tt.sentHow + '</p>' +
       '<form id="acctCodeForm" class="acct-code" novalidate><label for="acctCode">' + tt.codeL + '</label><div class="acct-row">' +
-      '<input id="acctCode" class="field code-in" type="text" inputmode="numeric" autocomplete="one-time-code" enterkeyhint="go" maxlength="10" placeholder="123456">' +
+      '<input id="acctCode" class="field code-in" type="text" inputmode="numeric" autocomplete="one-time-code" enterkeyhint="go" maxlength="10" placeholder="12345678">' +
       '<button type="submit" class="btn pri" id="acctVerify">' + tt.codeBtn + '</button></div></form>' +
       '<div class="row acct-sent-act"><button type="button" class="btn" id="acctResend" data-act="acct-resend"' + (resendLeft() ? ' disabled' : '') + '>' + resendLabel() + '</button><button type="button" class="link" data-act="acct-other">' + tt.otherEmail + '</button></div>' +
       '<p class="acct-msg" id="acctMsg" role="status">' + esc(acctMsg) + '</p></div>';
@@ -1583,7 +1583,7 @@ var CHANGELOG = [
     'Account menu under the person icon: sync status, Sync now, Sign out and Delete account.',
     'After you ask for a link, a check-your-email screen shows where it went, with Resend.',
     'Sign-in emails arrive in English or Chinese to match your language.',
-    'Sign in with the 6-digit code from the email, right in the tab you are using, or click the button in the email.',
+    'Sign in with the code from the email, right in the tab you are using, or click the button in the email.',
     'Practice and quick mock: a floating bar shows which question you are on, how many you have answered and your score, with a Next question button and a Go to # box to jump to any question number. Checking an answer brings that question to the top so its explanation is in view.',
     'SenseiDoge’s own dropdowns, checkboxes, switches, search boxes and tooltips replace the browser’s built-in ones; header buttons are now plain icons.',
     'Missed questions now show as a notice under Your progress, with a button to review them.',
@@ -1598,7 +1598,7 @@ var CHANGELOG = [
     '人像图标下的账户菜单：同步状态、立即同步、退出登录和删除账户。',
     '发送登录链接后，会显示“查收你的邮箱”页面，并可重新发送。',
     '登录邮件会按你的界面语言以中文或英文发送。',
-    '可以直接在当前页面输入邮件中的 6 位验证码登录，也可以点击邮件中的按钮。',
+    '可以直接在当前页面输入邮件中的验证码登录，也可以点击邮件中的按钮。',
     '练习与快速模考：底部浮动栏显示当前题号、已答题数和得分，并提供“下一题”按钮和可跳转到任意题号的输入框；核对答案后，该题会移到页面顶部，方便查看解析。',
     '下拉菜单、复选框、开关、搜索框和提示框改用本站自己的设计，不再使用浏览器自带样式；顶部按钮改为纯图标。',
     '错题提醒移到“学习进度”下方，并附“复习错题”按钮。',
