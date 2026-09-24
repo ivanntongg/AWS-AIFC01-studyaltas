@@ -21,7 +21,8 @@ Learners can sign in with an email link to keep progress in step across devices.
 
 1. Create a Supabase project and run `supabase/schema.sql` in its SQL Editor (creates the `progress` table with row-level security and a `delete_my_account` function).
 2. In Supabase → Authentication → URL Configuration, set the Site URL to `https://senseidoge.vercel.app` and add redirect URLs for `https://senseidoge.vercel.app/**` and your preview domains.
-3. Set `SUPABASE_URL` and `SUPABASE_ANON_KEY` (the anon/public key, never the service_role key) as Vercel environment variables, then redeploy.
+3. Optional: in Authentication → Emails, paste `supabase/email-templates/magic-link.html` into the **Magic Link** template and `confirm-signup.html` into **Confirm signup** for SenseiDoge-branded emails.
+4. Set `SUPABASE_URL` and `SUPABASE_ANON_KEY` (the anon/public key, never the service_role key) as Vercel environment variables, then redeploy.
 
 Progress still works fully without signing in; syncing merges devices safely (union of completed lessons, higher flashcard levels, combined score history).
 

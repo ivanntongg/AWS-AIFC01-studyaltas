@@ -99,7 +99,7 @@ en: {
   planH:'7-day plan', planP:'A one-week sprint that follows the domain weights, with two days for Domain 3, the largest. Tick items as you finish them; each links to the right lesson or drill.', day:'Day', go:'Open',
   foot:'Independent study material', ver:'Version {v}', aboutOpen:'About this site and disclaimer',
   syncBtn:'Sync my progress', syncT:'Sync my progress', syncP:'Sign in with your email to keep your lessons, flashcards, missed questions and exam history in step on every device. No password: we email you a one-time sign-in link.',
-  emailL:'Email address', sendLink:'Email me a sign-in link', sending:'Sending…', linkSent:'Check your inbox for the sign-in link and open it on this device. It can take a minute to arrive; check spam too.', linkErr:'Could not send the link: {m}', badEmail:'Enter a valid email address.',
+  emailL:'Email address', sendLink:'Email me a sign-in link', sending:'Sending…', sentH:'Check your email', sentTo:'We sent a sign-in link to', sentHow:'Open the link on the device you want to sign in on. It can take a minute to arrive, so check spam or promotions too. The link works once and expires after an hour.', resend:'Resend link', resendIn:'Resend in {n}s', otherEmail:'Use a different email', resent:'A new link is on its way. Use the newest email; earlier links stop working.', waitN:'Please wait {n} seconds before sending another link.', tooMany:'Too many sign-in emails were sent recently. Please try again in a little while.', linkErr:'Could not send the link: {m}', badEmail:'Enter a valid email address.',
   syncPriv:'Only your email address and your study progress are stored, and only to sync them. You can delete both at any time.', signedAs:'Signed in as {e}', stSynced:'All changes synced · {t}', stPending:'Saving changes…', stErr:'Sync paused ({m}). Your progress is safe on this device and will sync when possible.', syncOffline:'You are offline. Changes are saved on this device and will sync when you reconnect.',
   justNow:'just now', minAgo:'{n} min ago', syncNow:'Sync now', signOut:'Sign out', signOutNote:'Signing out keeps your progress on this device.', delAcct:'Delete my account and synced data', delAsk:'This permanently deletes your account and the progress saved online. Progress on this device stays. Delete?', delYes:'Delete permanently', cancel:'Cancel', deleted:'Your account and synced data were deleted.',
   linkExpired:'That sign-in link did not work ({m}). Send yourself a new one.', syncCta:'Studying on more than one device? Keep your progress in step.', syncCtaBtn:'Sync my progress',
@@ -175,7 +175,7 @@ zh: {
   planH:'7 天计划', planP:'按领域权重安排的一周冲刺计划，最大的领域 3 安排两天。完成一项勾选一项；每项都直接链接到对应课程或练习。', day:'第', go:'打开',
   foot:'独立学习资料', ver:'版本 {v}', aboutOpen:'关于本站及免责声明',
   syncBtn:'同步我的进度', syncT:'同步我的进度', syncP:'用邮箱登录后，你的课程、闪卡、错题和考试记录会在所有设备间保持同步。无需密码：我们会发送一次性登录链接到你的邮箱。',
-  emailL:'邮箱地址', sendLink:'发送登录链接', sending:'正在发送……', linkSent:'请查收邮箱中的登录链接，并在本设备上打开。邮件可能需要一分钟左右，也请检查垃圾邮件。', linkErr:'无法发送链接：{m}', badEmail:'请输入有效的邮箱地址。',
+  emailL:'邮箱地址', sendLink:'发送登录链接', sending:'正在发送……', sentH:'查收你的邮箱', sentTo:'我们已将登录链接发送至', sentHow:'请在需要登录的设备上打开该链接。邮件可能需要一分钟左右才能送达，也请查看垃圾邮件或推广邮件。链接只能使用一次，一小时后失效。', resend:'重新发送链接', resendIn:'{n} 秒后可重新发送', otherEmail:'换一个邮箱', resent:'新的链接已发送。请使用最新的邮件，之前的链接将失效。', waitN:'请等待 {n} 秒后再发送新的链接。', tooMany:'最近发送的登录邮件过多，请稍后再试。', linkErr:'无法发送链接：{m}', badEmail:'请输入有效的邮箱地址。',
   syncPriv:'我们只保存你的邮箱地址和学习进度，且仅用于同步。你可以随时删除。', signedAs:'已登录：{e}', stSynced:'所有更改已同步 · {t}', stPending:'正在保存更改……', stErr:'同步暂停（{m}）。你的进度仍安全保存在本设备上，恢复后会自动同步。', syncOffline:'你目前处于离线状态。更改已保存在本设备上，重新联网后会自动同步。',
   justNow:'刚刚', minAgo:'{n} 分钟前', syncNow:'立即同步', signOut:'退出登录', signOutNote:'退出登录后，本设备上的进度仍会保留。', delAcct:'删除我的账户和已同步数据', delAsk:'这将永久删除你的账户以及保存在网上的进度，本设备上的进度会保留。确定删除吗？', delYes:'永久删除', cancel:'取消', deleted:'你的账户和已同步数据已删除。',
   linkExpired:'该登录链接无效（{m}）。请重新发送一个。', syncCta:'在多台设备上学习？让进度保持同步。', syncCtaBtn:'同步我的进度',
@@ -855,9 +855,11 @@ document.addEventListener('click', function(e){
   var act = el.getAttribute('data-act'), qi = +el.getAttribute('data-q'), i = +el.getAttribute('data-i');
   switch (act) {
     case 'about': openAbout(el); break;
-    case 'acct': openAcct(el); break;
-    case 'acct-close': if (e.target === el || el.tagName === 'BUTTON') closeAcct(); break;
+    case 'acct': openAcct(); break;
+    case 'acct-x': closeAcct(true); break;
     case 'acct-sync': safePull(); break;
+    case 'acct-resend': resendLink(); break;
+    case 'acct-other': otherEmail(); break;
     case 'acct-out': sbc.auth.signOut().then(function(){ acctMsg = ''; paintSync(); render(); }); break;
     case 'acct-del': acctDel = true; paintAcct(); focusSel('[data-act="acct-del-no"]'); break;
     case 'acct-del-no': acctDel = false; paintAcct(); focusSel('.acct-del'); break;
@@ -969,7 +971,10 @@ document.addEventListener('input', function(e){
 });
 document.getElementById('menuBtn').addEventListener('click', function(){ setMenu(!menuOpen, true); });
 document.getElementById('searchBtn').addEventListener('click', function(){ openSearch(this); });
-document.getElementById('acctBtn').addEventListener('click', function(){ openAcct(this); });
+document.getElementById('acctBtn').addEventListener('click', function(){ if (document.getElementById('acctDlg')) closeAcct(false); else openAcct(); });
+function outsideAcct(el){ return el && el.nodeType === 1 && !el.closest('#acctDlg, #acctBtn, [data-act="acct"]'); }
+document.addEventListener('pointerdown', function(e){ if (document.getElementById('acctDlg') && outsideAcct(e.target)) closeAcct(false); });
+document.addEventListener('focusin', function(e){ if (document.getElementById('acctDlg') && outsideAcct(e.target)) closeAcct(false); });
 document.addEventListener('submit', function(e){ if (e.target && e.target.id === 'acctForm') { e.preventDefault(); sendLink(); } });
 document.getElementById('drawerClose').addEventListener('click', function(){ setMenu(false, true); });
 document.getElementById('drawerBack').addEventListener('click', function(){ setMenu(false, true); });
@@ -1058,6 +1063,7 @@ function searchGo(kind, id){
 /* ---------------- sync my progress (Supabase, email sign-in link) ---------------- */
 var SYNC_CFG = {url: '__SB_URL__', key: '__SB_KEY__'};
 var SB_JS = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.1/dist/umd/supabase.js';
+var sentTo = '', resendAt = 0, resendTimer = null;
 var sbc = null, syncUser = null, syncState = 'off', syncErr = '', lastSync = 0, lastPull = 0, pushTimer = null, syncBusy = false, acctMsg = '', acctDel = false;
 function syncEnabled(){ return SYNC_CFG.url.indexOf('https://') === 0 && SYNC_CFG.key.length > 20; }
 function localSnapshot(){
@@ -1126,7 +1132,7 @@ function initSync(){
     sbc.auth.onAuthStateChange(function(ev, session){
       var before = syncUser && syncUser.id;
       syncUser = session ? session.user : null;
-      if (syncUser && syncUser.id !== before) { acctMsg = ''; safePull(); }
+      if (syncUser && syncUser.id !== before) { acctMsg = ''; sentTo = ''; safePull(); }
       if (!syncUser) setSync('off');
       paintSync();
       if (/access_token=|error_description=/.test(location.hash || '')) { try { history.replaceState(null, '', location.pathname + location.search + '#' + S.view); } catch (e) {} }
@@ -1155,6 +1161,13 @@ function paintSync(){
 function acctHTML(){
   var tt = t();
   if (!sbc) return '<p class="muted">' + (syncState === 'error' ? esc(fmt(tt.stErr, {m: syncErr})) : tt.sending) + '</p>';
+  if (!syncUser && sentTo) {
+    return '<div class="acct-sent"><span class="acct-sent-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>' +
+      '<h4 id="acctSentH" tabindex="-1">' + tt.sentH + '</h4><p class="acct-sent-lead">' + tt.sentTo + '<br><b class="acct-sent-to">' + esc(sentTo) + '</b></p>' +
+      '<p class="acct-sent-how">' + tt.sentHow + '</p>' +
+      '<div class="row acct-sent-act"><button type="button" class="btn" id="acctResend" data-act="acct-resend"' + (resendLeft() ? ' disabled' : '') + '>' + resendLabel() + '</button><button type="button" class="link" data-act="acct-other">' + tt.otherEmail + '</button></div>' +
+      '<p class="acct-msg" id="acctMsg" role="status">' + esc(acctMsg) + '</p></div>';
+  }
   if (!syncUser) {
     return '<p>' + tt.syncP + '</p><form id="acctForm" class="acct-form" novalidate><label for="acctEmail">' + tt.emailL + '</label>' +
       '<div class="acct-row"><input id="acctEmail" class="field" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"><button type="submit" class="btn pri" id="acctSend">' + tt.sendLink + '</button></div></form>' +
@@ -1176,32 +1189,68 @@ function paintAcct(){
   var em = document.getElementById('acctEmail'); if (em && emailVal) em.value = emailVal;
   if (focusId && document.getElementById(focusId)) document.getElementById(focusId).focus({preventScroll: true});
 }
-var acctReturn = null;
 function openAcct(from){
   if (document.getElementById('acctDlg') || !syncEnabled()) return;
   if (menuOpen) setMenu(false, false);
-  acctReturn = from || document.activeElement; acctDel = false;
-  var tt = t();
-  document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back acct-back" id="acctDlg" data-act="acct-close"><div class="dlg acct-dlg" role="dialog" aria-modal="true" aria-labelledby="acctT">' +
-    '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="acctT">' + tt.syncT + '</h3></div>' +
-    '<div id="acctBody">' + acctHTML() + '</div><div class="row dlg-act"><button type="button" class="btn" id="acctClose" data-act="acct-close">' + tt.aboutClose + '</button></div></div></div>');
-  document.body.style.overflow = 'hidden';
-  setTimeout(function(){ var f = document.getElementById('acctEmail') || document.getElementById('acctClose'); if (f) f.focus({preventScroll: true}); }, 30);
+  acctDel = false;
+  var tt = t(), b = document.getElementById('acctBtn');
+  b.insertAdjacentHTML('afterend', '<div class="acct-pop" id="acctDlg" role="dialog" aria-labelledby="acctT"><div class="acct-pop-h"><h3 id="acctT">' + tt.syncT + '</h3>' +
+    '<button type="button" class="acct-x" data-act="acct-x" aria-label="' + tt.aboutClose + '" title="' + tt.aboutClose + '"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div id="acctBody">' + acctHTML() + '</div></div>');
+  b.setAttribute('aria-expanded', 'true');
+  if (resendLeft() && !resendTimer) resendTimer = setInterval(tickResend, 1000);
+  setTimeout(function(){ var f = document.getElementById('acctEmail') || document.getElementById('acctResend') || document.querySelector('#acctDlg button'); if (f) f.focus({preventScroll: true}); }, 30);
 }
-function closeAcct(){
+function closeAcct(refocus){
   var d = document.getElementById('acctDlg'); if (!d) return;
-  d.parentNode.removeChild(d); document.body.style.overflow = '';
-  if (acctReturn && document.body.contains(acctReturn)) acctReturn.focus({preventScroll: true});
+  d.parentNode.removeChild(d);
+  var b = document.getElementById('acctBtn'); b.setAttribute('aria-expanded', 'false');
+  if (refocus) b.focus({preventScroll: true});
+}
+var RESEND_WAIT = 60;
+function resendLeft(){ return Math.max(0, Math.ceil((resendAt - Date.now()) / 1000)); }
+function resendLabel(){ var n = resendLeft(); return n ? fmt(t().resendIn, {n: n}) : t().resend; }
+function tickResend(){
+  var b = document.getElementById('acctResend');
+  if (b && !b.getAttribute('data-busy')) { b.textContent = resendLabel(); b.disabled = resendLeft() > 0; }
+  if (!resendLeft() || !document.getElementById('acctDlg')) { clearInterval(resendTimer); resendTimer = null; }
+}
+function startResendWait(sec){ resendAt = Date.now() + sec * 1000; if (!resendTimer) resendTimer = setInterval(tickResend, 1000); tickResend(); }
+function sendErr(e){
+  var m = errText(e), wait = m.match(/after (\d+) seconds?/i);
+  if (wait) { startResendWait(+wait[1]); return fmt(t().waitN, {n: wait[1]}); }
+  if (/rate limit|too many/i.test(m) || (e && e.status === 429)) return t().tooMany;
+  return fmt(t().linkErr, {m: m});
+}
+function requestLink(email){
+  return sbc.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname, shouldCreateUser: true}})
+    .then(function(r){ if (r.error) throw r.error; }, function(e){ throw e; });
 }
 function sendLink(){
   var tt = t(), em = document.getElementById('acctEmail'), msg = document.getElementById('acctMsg'), btn = document.getElementById('acctSend');
   var email = (em.value || '').trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { acctMsg = tt.badEmail; msg.textContent = acctMsg; em.focus(); return; }
-  btn.disabled = true; btn.textContent = tt.sending;
-  sbc.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname, shouldCreateUser: true}}).then(function(r){
-    acctMsg = r.error ? fmt(tt.linkErr, {m: errText(r.error)}) : tt.linkSent;
-    btn.disabled = false; btn.textContent = tt.sendLink; msg.textContent = acctMsg;
+  btn.disabled = true; btn.textContent = tt.sending; acctMsg = ''; msg.textContent = '';
+  requestLink(email).then(function(){
+    sentTo = email; acctMsg = ''; startResendWait(RESEND_WAIT); paintAcct();
+    var h = document.getElementById('acctSentH'); if (h) h.focus({preventScroll: true});
+    announce(t().sentH + '. ' + t().sentTo + ' ' + email);
+  }, function(e){
+    acctMsg = sendErr(e); btn.disabled = false; btn.textContent = tt.sendLink; msg.textContent = acctMsg;
   });
+}
+function resendLink(){
+  var b = document.getElementById('acctResend'), msg = document.getElementById('acctMsg');
+  if (!b || resendLeft()) return;
+  b.disabled = true; b.setAttribute('data-busy', '1'); b.textContent = t().sending; acctMsg = ''; msg.textContent = '';
+  requestLink(sentTo).then(function(){ acctMsg = t().resent; startResendWait(RESEND_WAIT); }, function(e){ acctMsg = sendErr(e); })
+    .then(function(){
+      b.removeAttribute('data-busy'); msg.textContent = acctMsg; tickResend();
+      if (!resendLeft()) b.disabled = false;
+    });
+}
+function otherEmail(){
+  var prev = sentTo; sentTo = ''; acctMsg = ''; paintAcct();
+  var em = document.getElementById('acctEmail'); if (em) { em.value = prev; em.focus({preventScroll: true}); em.select(); }
 }
 function syncCta(){
   if (!syncEnabled() || syncUser) return '';
@@ -1234,14 +1283,7 @@ function closeAbout(silent){
   if (back) back.focus({preventScroll: true});
 }
 document.addEventListener('keydown', function(e){
-  if (document.getElementById('acctDlg')) {
-    if (e.key === 'Escape') { e.preventDefault(); closeAcct(); }
-    else if (e.key === 'Tab') {
-      var ai = Array.prototype.slice.call(document.querySelectorAll('#acctDlg input, #acctDlg button')).filter(function(x){ return !x.disabled; });
-      var aa = ai.indexOf(document.activeElement); e.preventDefault(); ai[(aa + (e.shiftKey ? ai.length - 1 : 1) + ai.length) % ai.length].focus();
-    }
-    return;
-  }
+  if (document.getElementById('acctDlg') && e.key === 'Escape') { e.preventDefault(); closeAcct(true); return; }
   if (document.getElementById('gsDlg')) {
     if (e.key === 'Escape') { e.preventDefault(); closeSearch(); }
     else if (e.key === 'Tab') {
