@@ -5,7 +5,7 @@
 SenseiDoge is a bilingual (English / 简体中文) study app for the **AWS Certified AI Practitioner (AIF-C01)** exam, mapped to the official exam guide **v1.1 (April 2026)**.
 
 - 14 lessons, one per task statement in the exam guide, each listing the objectives it covers
-- 215 practice questions in all four official formats (154 multiple choice, 21 multiple response, 18 ordering, 22 matching), each tagged to its lesson, with an explanation for the right answer and a note on why every wrong option is wrong
+- 240 practice questions in all four official formats (175 multiple choice, 23 multiple response, 19 ordering, 23 matching), each tagged to its lesson, with an explanation for the right answer and a note on why every wrong option is wrong
 - Practice by domain, lesson or single question; retry missed questions; timed 50-question quick mock
 - Real exam simulation: 65 questions (50 scored + 15 unscored) in 90 minutes, one question per screen, flag for review, review screen, End exam with confirmation, and an estimated 100–1,000 scaled score
 - Progress page: score history chart, accuracy by domain and a "focus next" suggestion
@@ -62,7 +62,7 @@ To deploy manually from your machine instead: `npx vercel deploy --prod`.
 - Version history (footer → Version x.x): `CHANGELOG` in `src/30_app.js`; add a new entry at the top for each release
 
 - Lessons: `src/10_d1.js` … `src/14_d5.js` (each task has `en` and `zh` HTML)
-- Questions: `src/20_questions.js`, `src/22_questions2.js`, `src/25_questions3.js` (wrong-option notes: `src/24_notes*.js`)
+- Questions: `src/20_questions.js`, `src/22_questions2.js`, `src/25_questions3.js`, `src/27_questions4.js` (wrong-option notes: `src/24_notes*.js`)
 - Flashcards, glossary, services, plan: `src/21_extras.js`, `src/23_services2.js`
 
 Run `npm test` to check the content, then `npm run build`. Saved progress is keyed by question position, so only ever add new questions and flashcards at the end of the last file to keep existing progress valid.

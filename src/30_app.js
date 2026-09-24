@@ -205,7 +205,7 @@ var S = {
 };
 (function(){
   var ex = store.get('exam', null);
-  if (!ex || ex.n !== A.qs.length) return;
+  if (!ex || ex.n > A.qs.length) return; // questions are only ever appended, so older saves stay valid
   S.ans = ex.ans || {}; S.checked = ex.checked || {}; S.qperm = ex.qperm || {}; S.mock = ex.mock || null; S.sim = ex.sim || null;
   if (ex.mode === 'mock' || ex.mode === 'practice' || ex.mode === 'sim') S.exMode = ex.mode;
 })();
@@ -588,7 +588,8 @@ function answerKey(qi, q){ var p = getPerm(qi, q.en.o.length); return q.a.map(fu
 function announce(msg){ var lv = document.getElementById('live'); if (lv) { lv.textContent = ''; setTimeout(function(){ lv.textContent = msg; }, 30); } }
 /* Practice order: bank order, or a saved shuffle (kept on this device until switched off) */
 var pOrder = store.get('porder', null), pRank = null;
-if (!pOrder || pOrder.length !== A.qs.length) pOrder = null;
+if (!pOrder || pOrder.length > A.qs.length) pOrder = null;
+else if (pOrder.length < A.qs.length) pOrder = pOrder.concat(shuffle(A.qs.map(function(_, i){ return i; }).slice(pOrder.length))); // new questions join the shuffle
 function setShuffle(on){
   pOrder = on ? shuffle(A.qs.map(function(_, i){ return i; })) : null; pRank = null;
   store.set('porder', pOrder);
@@ -1327,7 +1328,7 @@ function hydrate(){
   S.srs = store.get('srs', {}); S.missed = store.get('missed', []); S.seen = store.get('seen', []);
   S.stats = store.get('stats', {}); S.hist = store.get('hist', []); S.best = store.get('best', null); S.planDone = store.get('plan', []);
   var ex = store.get('exam', null);
-  if (ex && ex.n === A.qs.length) { S.ans = ex.ans || {}; S.checked = ex.checked || {}; S.qperm = ex.qperm || {}; S.mock = ex.mock || null; S.sim = ex.sim || null; }
+  if (ex && ex.n <= A.qs.length) { S.ans = ex.ans || {}; S.checked = ex.checked || {}; S.qperm = ex.qperm || {}; S.mock = ex.mock || null; S.sim = ex.sim || null; }
   var lg = store.get('lang', S.lang); if (lg === 'en' || lg === 'zh') S.lang = lg;
   var cm = store.get('cardMode', S.cardMode); if (cm === 'due' || cm === 'all') S.cardMode = cm;
   S.queue = null;
@@ -1541,6 +1542,8 @@ var CHANGELOG = [
     'SenseiDoge’s own dropdowns, checkboxes, switches, search boxes and tooltips replace the browser’s built-in ones; header buttons are now plain icons.',
     'Missed questions now show as a notice under Your progress, with a button to review them.',
     'Practice has a Shuffle option that mixes up the question order.',
+    '25 new questions (240 in total) cover every example term in the exam guide that was not yet tested, such as one-shot prompting, cross-Region inference, Amazon Inspector and user engagement metrics.',
+    'On phones and tablets every button, chip and link is at least 44 × 44 px, so it is easy to tap.',
     'New lettering for the logo, and a Chinese name: <b>考汪</b> (a play on 考王, “exam king”).'
   ], zh: [
     '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
@@ -1552,6 +1555,8 @@ var CHANGELOG = [
     '下拉菜单、复选框、开关、搜索框和提示框改用本站自己的设计，不再使用浏览器自带样式；顶部按钮改为纯图标。',
     '错题提醒移到“学习进度”下方，并附“复习错题”按钮。',
     '练习模式新增“打乱顺序”，可随机排列题目。',
+    '新增 25 道题（共 240 道），覆盖考试指南中此前未考到的全部示例术语，例如单样本提示、跨区域推理、Amazon Inspector 和用户参与度指标。',
+    '在手机和平板上，所有按钮、标签和链接都至少 44 × 44 像素，更容易点按。',
     '全新标志字体，并启用中文名<b>考汪</b>（谐音“考王”）。'
   ]},
   {v: '1.1', date: '2026-09-23', en: [

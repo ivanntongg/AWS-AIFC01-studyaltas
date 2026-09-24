@@ -612,6 +612,36 @@ ul.plain li{margin:5px 0}
 .dlg-act{justify-content:flex-end;margin-top:18px}
 .verdict{display:inline-block;vertical-align:middle;margin-left:8px;font:600 12px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;border-radius:6px;padding:2px 8px;border:1px solid currentColor}
 .verdict.ok{color:var(--good)} .verdict.no{color:var(--bad)}
+
+/* ---- touch screens: every tap target at least 44x44px, 8px apart (desktop look unchanged) ---- */
+html{touch-action:manipulation}
+@media (pointer:coarse){
+  .ctl{min-height:44px;min-width:44px}
+  .ctrls{gap:4px}
+  .btn,.btn.sm{min-height:44px}
+  .btn.sm{padding-inline:14px}
+  .chip{min-height:44px;padding-inline:14px}
+  .chips{gap:8px}
+  .dd-btn,.dd-field .dd-btn{min-height:44px}
+  .dd-opt{min-height:44px}
+  .opt{min-height:48px}
+  .link{display:inline-flex;align-items:center;min-height:44px}
+  .foot .link,.drawer-foot .link{min-height:44px}
+  .tview-btn{min-height:44px}
+  .sclear{width:44px;height:44px;right:0}
+  .sfield .field{padding-right:46px}
+  .gs-bar .sclear{width:44px;height:44px}
+  .qbar-go .field{height:44px}
+  .qbar-next{min-height:44px}
+  .acct-x{width:44px;height:44px}
+  .day label{min-height:44px;align-items:center;padding:0}
+  .day input{margin-top:0}
+  .day label .link{min-height:44px;padding:0 6px}
+  .toggle{min-height:44px}
+  .field{min-height:44px}
+  .seg button{min-height:44px}
+  .brand{min-height:44px}
+}
 </style>
 
 <a class="skip" id="skipLink" href="#app" data-act="skip">Skip to content</a>
