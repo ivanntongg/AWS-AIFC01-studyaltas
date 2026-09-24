@@ -99,7 +99,7 @@ en: {
   planH:'7-day plan', planP:'A one-week sprint that follows the domain weights, with two days for Domain 3, the largest. Tick items as you finish them; each links to the right lesson or drill.', day:'Day', go:'Open',
   foot:'Independent study material', ver:'Version {v}', logOpen:'Version history', logT:'Version history', logNow:'Current', aboutOpen:'About this site and disclaimer',
   syncBtn:'Sync my progress', syncT:'Sync my progress', syncP:'Sign in with your email to keep your lessons, flashcards, missed questions and exam history in step on every device. No password: we email you a one-time sign-in link.',
-  emailL:'Email address', sendLink:'Email me a sign-in link', sending:'Sending…', sentH:'Check your email', sentTo:'We sent a sign-in link to', sentHow:'Open the link on the device you want to sign in on. It can take a minute to arrive, so check spam or promotions too. The link works once and expires after an hour.', resend:'Resend link', resendIn:'Resend in {n}s', otherEmail:'Use a different email', resent:'A new link is on its way. Use the newest email; earlier links stop working.', waitN:'Please wait {n} seconds before sending another link.', tooMany:'Too many sign-in emails were sent recently. Please try again in a little while.', linkErr:'Could not send the link: {m}', badEmail:'Enter a valid email address.',
+  emailL:'Email address', sendLink:'Email me a sign-in link', sending:'Sending…', sentH:'Check your email', sentTo:'We sent a sign-in code and link to', sentHow:'Type the code from the email here to sign in on this device, or click the button in the email. It can take a minute to arrive, so check spam too. The code and button work once and expire after an hour.', codeL:'Sign-in code', codeBtn:'Sign in', verifying:'Checking…', codeBad:'Enter the code from the email (numbers only).', codeErr:'That code is wrong or has expired. Use the code in the newest email, or send a new one.', codeFail:'Could not sign in: {m}', resend:'Resend link', resendIn:'Resend in {n}s', otherEmail:'Use a different email', resent:'A new link is on its way. Use the newest email; earlier links stop working.', waitN:'Please wait {n} seconds before sending another link.', tooMany:'Too many sign-in emails were sent recently. Please try again in a little while.', linkErr:'Could not send the link: {m}', badEmail:'Enter a valid email address.',
   syncPriv:'Only your email address and your study progress are stored, and only to sync them. You can delete both at any time.', signedAs:'Signed in as {e}', stSynced:'All changes synced · {t}', stPending:'Saving changes…', stErr:'Sync paused ({m}). Your progress is safe on this device and will sync when possible.', syncOffline:'You are offline. Changes are saved on this device and will sync when you reconnect.',
   justNow:'just now', minAgo:'{n} min ago', syncNow:'Sync now', signOut:'Sign out', signOutNote:'Signing out keeps your progress on this device.', delAcct:'Delete my account and synced data', delAsk:'This permanently deletes your account and the progress saved online. Progress on this device stays. Delete?', delYes:'Delete permanently', cancel:'Cancel', deleted:'Your account and synced data were deleted.',
   linkExpired:'That sign-in link did not work ({m}). Send yourself a new one.', syncCta:'Studying on more than one device? Keep your progress in step.', syncCtaBtn:'Sync my progress',
@@ -175,7 +175,7 @@ zh: {
   planH:'7 天计划', planP:'按领域权重安排的一周冲刺计划，最大的领域 3 安排两天。完成一项勾选一项；每项都直接链接到对应课程或练习。', day:'第', go:'打开',
   foot:'独立学习资料', ver:'版本 {v}', logOpen:'版本记录', logT:'版本记录', logNow:'当前版本', aboutOpen:'关于本站及免责声明',
   syncBtn:'同步我的进度', syncT:'同步我的进度', syncP:'用邮箱登录后，你的课程、闪卡、错题和考试记录会在所有设备间保持同步。无需密码：我们会发送一次性登录链接到你的邮箱。',
-  emailL:'邮箱地址', sendLink:'发送登录链接', sending:'正在发送……', sentH:'查收你的邮箱', sentTo:'我们已将登录链接发送至', sentHow:'请在需要登录的设备上打开该链接。邮件可能需要一分钟左右才能送达，也请查看垃圾邮件或推广邮件。链接只能使用一次，一小时后失效。', resend:'重新发送链接', resendIn:'{n} 秒后可重新发送', otherEmail:'换一个邮箱', resent:'新的链接已发送。请使用最新的邮件，之前的链接将失效。', waitN:'请等待 {n} 秒后再发送新的链接。', tooMany:'最近发送的登录邮件过多，请稍后再试。', linkErr:'无法发送链接：{m}', badEmail:'请输入有效的邮箱地址。',
+  emailL:'邮箱地址', sendLink:'发送登录链接', sending:'正在发送……', sentH:'查收你的邮箱', sentTo:'我们已将登录验证码和链接发送至', sentHow:'在这里输入邮件中的验证码即可在本设备登录，也可以点击邮件中的按钮。邮件可能需要一分钟左右才能送达，也请查看垃圾邮件。验证码和按钮只能使用一次，一小时后失效。', codeL:'登录验证码', codeBtn:'登录', verifying:'正在验证……', codeBad:'请输入邮件中的验证码（仅数字）。', codeErr:'验证码错误或已过期。请使用最新邮件中的验证码，或重新发送。', codeFail:'无法登录：{m}', resend:'重新发送链接', resendIn:'{n} 秒后可重新发送', otherEmail:'换一个邮箱', resent:'新的链接已发送。请使用最新的邮件，之前的链接将失效。', waitN:'请等待 {n} 秒后再发送新的链接。', tooMany:'最近发送的登录邮件过多，请稍后再试。', linkErr:'无法发送链接：{m}', badEmail:'请输入有效的邮箱地址。',
   syncPriv:'我们只保存你的邮箱地址和学习进度，且仅用于同步。你可以随时删除。', signedAs:'已登录：{e}', stSynced:'所有更改已同步 · {t}', stPending:'正在保存更改……', stErr:'同步暂停（{m}）。你的进度仍安全保存在本设备上，恢复后会自动同步。', syncOffline:'你目前处于离线状态。更改已保存在本设备上，重新联网后会自动同步。',
   justNow:'刚刚', minAgo:'{n} 分钟前', syncNow:'立即同步', signOut:'退出登录', signOutNote:'退出登录后，本设备上的进度仍会保留。', delAcct:'删除我的账户和已同步数据', delAsk:'这将永久删除你的账户以及保存在网上的进度，本设备上的进度会保留。确定删除吗？', delYes:'永久删除', cancel:'取消', deleted:'你的账户和已同步数据已删除。',
   linkExpired:'该登录链接无效（{m}）。请重新发送一个。', syncCta:'在多台设备上学习？让进度保持同步。', syncCtaBtn:'同步我的进度',
@@ -1220,9 +1220,11 @@ document.addEventListener('pointerdown', function(e){ if (document.getElementByI
 document.addEventListener('focusin', function(e){ if (document.getElementById('acctDlg') && outsideAcct(e.target)) closeAcct(false); });
 document.addEventListener('submit', function(e){
   if (e.target && e.target.id === 'acctForm') { e.preventDefault(); sendLink(); }
+  else if (e.target && e.target.id === 'acctCodeForm') { e.preventDefault(); verifyCode(); }
   else if (e.target && e.target.id === 'qbGo') { e.preventDefault(); goToQ(); }
 });
 document.addEventListener('input', function(e){
+  if (e.target && e.target.id === 'acctCode') { e.target.value = e.target.value.replace(/\D/g, ''); e.target.removeAttribute('aria-invalid'); }
   if (e.target && e.target.id === 'qbGoIn') { e.target.value = e.target.value.replace(/\D/g, ''); e.target.removeAttribute('aria-invalid'); var er = document.getElementById('qbErr'); if (er) er.textContent = ''; }
 });
 document.getElementById('drawerClose').addEventListener('click', function(){ setMenu(false, true); });
@@ -1420,6 +1422,9 @@ function acctHTML(){
     return '<div class="acct-sent"><span class="acct-sent-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>' +
       '<h4 id="acctSentH" tabindex="-1">' + tt.sentH + '</h4><p class="acct-sent-lead">' + tt.sentTo + '<br><b class="acct-sent-to">' + esc(sentTo) + '</b></p>' +
       '<p class="acct-sent-how">' + tt.sentHow + '</p>' +
+      '<form id="acctCodeForm" class="acct-code" novalidate><label for="acctCode">' + tt.codeL + '</label><div class="acct-row">' +
+      '<input id="acctCode" class="field code-in" type="text" inputmode="numeric" autocomplete="one-time-code" enterkeyhint="go" maxlength="10" placeholder="12345678">' +
+      '<button type="submit" class="btn pri" id="acctVerify">' + tt.codeBtn + '</button></div></form>' +
       '<div class="row acct-sent-act"><button type="button" class="btn" id="acctResend" data-act="acct-resend"' + (resendLeft() ? ' disabled' : '') + '>' + resendLabel() + '</button><button type="button" class="link" data-act="acct-other">' + tt.otherEmail + '</button></div>' +
       '<p class="acct-msg" id="acctMsg" role="status">' + esc(acctMsg) + '</p></div>';
   }
@@ -1439,9 +1444,10 @@ function acctHTML(){
 }
 function paintAcct(){
   var body = document.getElementById('acctBody'); if (!body) return;
-  var focusId = document.activeElement && document.activeElement.id, emailVal = (document.getElementById('acctEmail') || {}).value;
+  var focusId = document.activeElement && document.activeElement.id, emailVal = (document.getElementById('acctEmail') || {}).value, codeVal = (document.getElementById('acctCode') || {}).value;
   body.innerHTML = acctHTML();
   var em = document.getElementById('acctEmail'); if (em && emailVal) em.value = emailVal;
+  var cd = document.getElementById('acctCode'); if (cd && codeVal) cd.value = codeVal;
   if (focusId && document.getElementById(focusId)) document.getElementById(focusId).focus({preventScroll: true});
 }
 function openAcct(from){
@@ -1453,7 +1459,7 @@ function openAcct(from){
     '<button type="button" class="acct-x" data-act="acct-x" aria-label="' + tt.aboutClose + '" data-hint="' + tt.aboutClose + '"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div id="acctBody">' + acctHTML() + '</div></div>');
   b.setAttribute('aria-expanded', 'true');
   if (resendLeft() && !resendTimer) resendTimer = setInterval(tickResend, 1000);
-  setTimeout(function(){ var f = document.getElementById('acctEmail') || document.getElementById('acctResend') || document.querySelector('#acctDlg button'); if (f) f.focus({preventScroll: true}); }, 30);
+  setTimeout(function(){ var f = document.getElementById('acctEmail') || document.getElementById('acctCode') || document.getElementById('acctResend') || document.querySelector('#acctDlg button'); if (f) f.focus({preventScroll: true}); }, 30);
 }
 function closeAcct(refocus){
   var d = document.getElementById('acctDlg'); if (!d) return;
@@ -1487,7 +1493,7 @@ function sendLink(){
   btn.disabled = true; btn.textContent = tt.sending; acctMsg = ''; msg.textContent = '';
   requestLink(email).then(function(){
     sentTo = email; acctMsg = ''; startResendWait(RESEND_WAIT); paintAcct();
-    var h = document.getElementById('acctSentH'); if (h) h.focus({preventScroll: true});
+    var h = document.getElementById('acctCode') || document.getElementById('acctSentH'); if (h) h.focus({preventScroll: true});
     announce(t().sentH + '. ' + t().sentTo + ' ' + email);
   }, function(e){
     acctMsg = sendErr(e); btn.disabled = false; btn.textContent = tt.sendLink; msg.textContent = acctMsg;
@@ -1502,6 +1508,25 @@ function resendLink(){
       b.removeAttribute('data-busy'); msg.textContent = acctMsg; tickResend();
       if (!resendLeft()) b.disabled = false;
     });
+}
+/* Sign in with the one-time code from the email, right in this tab (no new tab from the email link) */
+function verifyCode(){
+  var tt = t(), inp = document.getElementById('acctCode'), btn = document.getElementById('acctVerify'), msg = document.getElementById('acctMsg');
+  var code = (inp.value || '').replace(/\D/g, '');
+  if (code.length < 6) { acctMsg = tt.codeBad; msg.textContent = acctMsg; inp.setAttribute('aria-invalid', 'true'); inp.focus(); return; }
+  btn.disabled = true; btn.textContent = tt.verifying; acctMsg = ''; msg.textContent = '';
+  sbc.auth.verifyOtp({email: sentTo, token: code, type: 'email'}).then(function(r){
+    if (r.error) throw r.error;
+    // onAuthStateChange takes over: marks us signed in and starts syncing
+    announce(fmt(tt.signedAs, {e: sentTo}));
+  }).catch(function(e){
+    var m = errText(e);
+    acctMsg = /expired|invalid|not found/i.test(m) ? tt.codeErr : /rate limit|too many/i.test(m) ? tt.tooMany : fmt(tt.codeFail, {m: m});
+    var b = document.getElementById('acctVerify'), ms = document.getElementById('acctMsg'), i = document.getElementById('acctCode');
+    if (b) { b.disabled = false; b.textContent = tt.codeBtn; }
+    if (ms) ms.textContent = acctMsg;
+    if (i) { i.setAttribute('aria-invalid', 'true'); i.focus(); i.select(); }
+  });
 }
 function otherEmail(){
   var prev = sentTo; sentTo = ''; acctMsg = ''; paintAcct();
@@ -1558,6 +1583,7 @@ var CHANGELOG = [
     'Account menu under the person icon: sync status, Sync now, Sign out and Delete account.',
     'After you ask for a link, a check-your-email screen shows where it went, with Resend.',
     'Sign-in emails arrive in English or Chinese to match your language.',
+    'Sign in with the code from the email, right in the tab you are using, or click the button in the email.',
     'Practice and quick mock: a floating bar shows which question you are on, how many you have answered and your score, with a Next question button and a Go to # box to jump to any question number. Checking an answer brings that question to the top so its explanation is in view.',
     'SenseiDoge’s own dropdowns, checkboxes, switches, search boxes and tooltips replace the browser’s built-in ones; header buttons are now plain icons.',
     'Missed questions now show as a notice under Your progress, with a button to review them.',
@@ -1572,6 +1598,7 @@ var CHANGELOG = [
     '人像图标下的账户菜单：同步状态、立即同步、退出登录和删除账户。',
     '发送登录链接后，会显示“查收你的邮箱”页面，并可重新发送。',
     '登录邮件会按你的界面语言以中文或英文发送。',
+    '可以直接在当前页面输入邮件中的验证码登录，也可以点击邮件中的按钮。',
     '练习与快速模考：底部浮动栏显示当前题号、已答题数和得分，并提供“下一题”按钮和可跳转到任意题号的输入框；核对答案后，该题会移到页面顶部，方便查看解析。',
     '下拉菜单、复选框、开关、搜索框和提示框改用本站自己的设计，不再使用浏览器自带样式；顶部按钮改为纯图标。',
     '错题提醒移到“学习进度”下方，并附“复习错题”按钮。',
