@@ -70,7 +70,7 @@ en: {
   searchBtn:'Search everything', searchPh:'Search lessons, questions, flashcards, services, glossary…', sLessons:'Lessons', sQuestions:'Questions', sCards:'Flashcards', sServices:'Services', sGloss:'Glossary', sNone:'No results for “{q}”.', sHint:'Type at least 2 characters. Tip: press / anywhere to search.', sMore:'+{n} more', skip:'Skip to content',
   liveOk:'Correct.', liveNo:'Not quite. The answer is {a}.',
   all:'All', hideKnown:'Hide known cards', question:'Question', answer:'Answer', tapFlip:'Tap, or press Space, to flip · ← → to move',
-  know:'I know this', learning:'Still learning', shuffle:'Shuffle', unshuffle:'Original order', knownOf:'{a} of {b} known',
+  know:'I know this', learning:'Still learning', shuffle:'Shuffle', unshuffle:'Original order', pShuffleHint:'Mix up the question order', pShuffled:'Questions shuffled', pOrdered:'Original question order', knownOf:'{a} of {b} known',
   noCards:'Every card in this set is marked as known. Turn off "Hide known cards" to review them again.',
   examH:'Practice exam', examP:'{n} original questions written against the exam guide, in all four official formats. Options are shuffled every session. Practice by domain or lesson, retry your missed questions, take a quick 50-question mock, or sit a full 65-question simulation of the real exam.',
   simMode:'Exam simulation · 65', simH:'Real exam simulation',
@@ -146,7 +146,7 @@ zh: {
   searchBtn:'全站搜索', searchPh:'搜索课程、题目、闪卡、服务、术语……', sLessons:'课程', sQuestions:'题目', sCards:'闪卡', sServices:'服务', sGloss:'术语', sNone:'没有找到“{q}”的结果。', sHint:'至少输入 2 个字符。提示：在任意位置按 / 即可搜索。', sMore:'还有 {n} 条', skip:'跳到正文',
   liveOk:'回答正确。', liveNo:'回答错误。正确答案是 {a}。',
   all:'全部', hideKnown:'隐藏已掌握', question:'问题', answer:'答案', tapFlip:'点击或按空格翻面 · ← → 切换',
-  know:'已掌握', learning:'还在学', shuffle:'打乱顺序', unshuffle:'恢复顺序', knownOf:'已掌握 {a}/{b}',
+  know:'已掌握', learning:'还在学', shuffle:'打乱顺序', unshuffle:'恢复顺序', pShuffleHint:'随机打乱题目顺序', pShuffled:'题目已打乱', pOrdered:'已恢复原始顺序', knownOf:'已掌握 {a}/{b}',
   noCards:'本组所有卡片都已标记为已掌握。关闭“隐藏已掌握”即可重新复习。',
   examH:'模拟练习', examP:'{n} 道依据考纲原创的题目，覆盖全部四种官方题型，选项每次都会打乱。可按领域或课程练习、重做错题、做 50 题快速模考，或参加 65 题的真实考试模拟。',
   simMode:'真实考试模拟 · 65', simH:'真实考试模拟',
@@ -586,15 +586,27 @@ function whyWrongHTML(qi, q, a){
 }
 function answerKey(qi, q){ var p = getPerm(qi, q.en.o.length); return q.a.map(function(i){ return LET[p.indexOf(i)]; }).sort().join(', '); }
 function announce(msg){ var lv = document.getElementById('live'); if (lv) { lv.textContent = ''; setTimeout(function(){ lv.textContent = msg; }, 30); } }
+/* Practice order: bank order, or a saved shuffle (kept on this device until switched off) */
+var pOrder = store.get('porder', null), pRank = null;
+if (!pOrder || pOrder.length !== A.qs.length) pOrder = null;
+function setShuffle(on){
+  pOrder = on ? shuffle(A.qs.map(function(_, i){ return i; })) : null; pRank = null;
+  store.set('porder', pOrder);
+}
 function practiceList(){
   var f = S.exFilter;
-  return A.qs.map(function(_, i){ return i; }).filter(function(i){
+  var list = A.qs.map(function(_, i){ return i; }).filter(function(i){
     if (f === 'all') return true;
     if (f === 'missed') return inArr(S.missed, i);
     if (f.indexOf('t:') === 0) return A.qs[i].k === f.slice(2);
     if (f.indexOf('q:') === 0) return i === +f.slice(2);
     return A.qs[i].d === f;
   });
+  if (pOrder) {
+    if (!pRank) { pRank = []; pOrder.forEach(function(qi, k){ pRank[qi] = k; }); }
+    list.sort(function(a, b){ return pRank[a] - pRank[b]; });
+  }
+  return list;
 }
 function clearAnswers(list){ list.forEach(function(k){ delete S.ans[k]; delete S.checked[k]; delete S.qperm[k]; }); saveExam(); }
 function goPracticeMissed(){ S.exMode = 'practice'; S.exFilter = 'missed'; clearAnswers(S.missed.slice()); setView('exam'); }
@@ -624,7 +636,7 @@ function vExam(){
     var list = practiceList();
     var body = (f === 'missed' && !list.length) ? '<div class="panel empty" style="max-width:860px">' + tt.noMissed + '</div>' :
       '<div class="qlist">' + list.map(function(qi, k){ return qHTML(qi, k + 1); }).join('') + '</div>';
-    return head + '<div class="filters"><div class="chips">' + chips + '</div><span class="muted" id="pstats" style="font-size:13px">' + practiceStats() + '</span><button type="button" class="btn sm" data-act="reset-practice">' + tt.resetPractice + '</button></div>' + body + qbarHTML();
+    return head + '<div class="filters"><div class="chips">' + chips + '</div><button type="button" class="chip chip-shuf" data-act="pshuffle" aria-pressed="' + !!pOrder + '" data-hint="' + (pOrder ? tt.unshuffle : tt.pShuffleHint) + '">' + SHUF + tt.shuffle + '</button><span class="muted" id="pstats" style="font-size:13px">' + practiceStats() + '</span><button type="button" class="btn sm" data-act="reset-practice">' + tt.resetPractice + '</button></div>' + body + qbarHTML();
   }
   if (!S.mock) {
     return head + '<section class="panel" style="max-width:860px"><h3 style="font-size:20px">' + tt.mockH + '</h3><ul class="plain">' + tt.mockList.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>' +
@@ -817,6 +829,7 @@ window.addEventListener('scroll', hideHint, {passive: true});
 document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && hintFor) hideHint(); });
 
 /* ---------------- floating question bar (practice and quick mock) ---------------- */
+var SHUF = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>';
 var ARROW_DN = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
 var ARROW_UP = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
 function qbarList(){ return S.exMode === 'mock' ? S.mock.set : practiceList(); }
@@ -1141,6 +1154,7 @@ document.addEventListener('click', function(e){
     case 'sclear': { var si = el.parentNode.querySelector('input'); if (si) { si.value = ''; si.dispatchEvent(new Event('input', {bubbles: true})); si.focus(); } break; }
     case 'tview': { var tb2 = document.getElementById('tviewBody'), open = el.getAttribute('aria-expanded') !== 'true'; el.setAttribute('aria-expanded', String(open)); tb2.hidden = !open; break; }
     case 'lang': if (menuOpen) setMenu(false, false); switchLang(el); break;
+    case 'pshuffle': setShuffle(!pOrder); render(); window.scrollTo({top: 0, behavior: smoothScroll() ? 'smooth' : 'auto'}); focusSel('[data-act="pshuffle"]'); announce(pOrder ? t().pShuffled : t().pOrdered); break;
     case 'reset-practice': clearAnswers(practiceList()); render(); break;
     case 'start-mock': startMock(); render(); window.scrollTo(0, 0); break;
     case 'sim-start': startSim(); render(); window.scrollTo(0, 0); break;
@@ -1526,6 +1540,7 @@ var CHANGELOG = [
     'Practice and quick mock: a floating bar shows which question you are on, how many you have answered and your score, with a Next question button and a Go to # box to jump to any question number. Checking an answer brings that question to the top so its explanation is in view.',
     'SenseiDoge’s own dropdowns, checkboxes, switches, search boxes and tooltips replace the browser’s built-in ones; header buttons are now plain icons.',
     'Missed questions now show as a notice under Your progress, with a button to review them.',
+    'Practice has a Shuffle option that mixes up the question order.',
     'New lettering for the logo, and a Chinese name: <b>考汪</b> (a play on 考王, “exam king”).'
   ], zh: [
     '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
@@ -1536,6 +1551,7 @@ var CHANGELOG = [
     '练习与快速模考：底部浮动栏显示当前题号、已答题数和得分，并提供“下一题”按钮和可跳转到任意题号的输入框；核对答案后，该题会移到页面顶部，方便查看解析。',
     '下拉菜单、复选框、开关、搜索框和提示框改用本站自己的设计，不再使用浏览器自带样式；顶部按钮改为纯图标。',
     '错题提醒移到“学习进度”下方，并附“复习错题”按钮。',
+    '练习模式新增“打乱顺序”，可随机排列题目。',
     '全新标志字体，并启用中文名<b>考汪</b>（谐音“考王”）。'
   ]},
   {v: '1.1', date: '2026-09-23', en: [
