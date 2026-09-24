@@ -1423,7 +1423,7 @@ function acctHTML(){
       '<h4 id="acctSentH" tabindex="-1">' + tt.sentH + '</h4><p class="acct-sent-lead">' + tt.sentTo + '<br><b class="acct-sent-to">' + esc(sentTo) + '</b></p>' +
       '<p class="acct-sent-how">' + tt.sentHow + '</p>' +
       '<form id="acctCodeForm" class="acct-code" novalidate><label for="acctCode">' + tt.codeL + '</label><div class="acct-row">' +
-      '<input id="acctCode" class="field code-in" type="text" inputmode="numeric" autocomplete="one-time-code" enterkeyhint="go" maxlength="10" placeholder="12345678">' +
+      '<input id="acctCode" class="field code-in" type="text" inputmode="numeric" autocomplete="one-time-code" enterkeyhint="go" maxlength="10" placeholder="123456">' +
       '<button type="submit" class="btn pri" id="acctVerify">' + tt.codeBtn + '</button></div></form>' +
       '<div class="row acct-sent-act"><button type="button" class="btn" id="acctResend" data-act="acct-resend"' + (resendLeft() ? ' disabled' : '') + '>' + resendLabel() + '</button><button type="button" class="link" data-act="acct-other">' + tt.otherEmail + '</button></div>' +
       '<p class="acct-msg" id="acctMsg" role="status">' + esc(acctMsg) + '</p></div>';
