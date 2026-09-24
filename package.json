@@ -1,6 +1,6 @@
 {
   "name": "senseidoge",
-  "version": "1.2.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Bilingual (English / 简体中文) study app for the AWS Certified AI Practitioner (AIF-C01) exam, mapped to exam guide v1.1.",
   "type": "module",
