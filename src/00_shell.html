@@ -3,6 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+15&text=SenseiDoge&display=swap">
 <style>
 :root{
   --bg:#F5F5F2; --surface:#FFFFFF; --surface2:#EDEDE8; --ink:#0B0F1E; --ink2:#33384A; --muted:#656A78; --line:#DDDDD6;
@@ -51,7 +52,7 @@ code,.mono{font-family:var(--f-mono)}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex:none}
 .mark{width:38px;height:38px;border-radius:9px;display:block;object-fit:cover;flex:none;box-shadow:0 0 0 1px var(--line)}
 .bt{display:flex;flex-direction:column;line-height:1.15}
-.bt b{font:800 17px var(--f-display);letter-spacing:-.01em}
+.bt b,.drawer-h b{font:400 26px/1 "Jersey 15",var(--f-display);letter-spacing:.01em}
 .bt small{font-size:11.5px;color:var(--muted)}
 .tabs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:2px;width:max-content;white-space:nowrap}
 .tabs::-webkit-scrollbar{display:none}
@@ -71,6 +72,7 @@ html,body,*{scrollbar-width:none;-ms-overflow-style:none}
 .burger{display:none}
 .drawer,.drawer-back{display:none}
 .nav-tight .bt small{display:none}
+.nav-mini .bt{display:none}
 .nav-compact .top-in{gap:10px}
 .nav-compact .tabs{display:none}
 .nav-compact .burger{display:inline-flex}
@@ -87,7 +89,7 @@ html,body,*{scrollbar-width:none;-ms-overflow-style:none}
   html:not(.nav-measured) .bt small{display:none}
 }
 .drawer-h{display:flex;align-items:center;gap:10px;padding:2px 4px 14px;border-bottom:1px solid var(--line);margin-bottom:10px}
-.drawer-h b{font:800 17px var(--f-display);flex:1}
+.drawer-h b{flex:1}
 .drawer-nav{display:grid;gap:2px}
 .dlink{display:flex;align-items:center;gap:12px;width:100%;border:0;background:none;border-radius:10px;padding:11px 12px;font-size:15px;font-weight:500;color:var(--ink2);text-align:left}
 .dlink svg{width:19px;height:19px;flex:none;color:var(--muted)}
@@ -529,7 +531,7 @@ ul.plain li{margin:5px 0}
   <header class="top">
     <div class="top-in">
       <button class="ctl burger" id="menuBtn" type="button" aria-controls="drawer" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-      <a class="brand" href="#overview" data-go="overview"><img class="mark" src="__MARK__" alt="" width="38" height="38"><span class="bt"><b id="brandName">SenseiDoge</b></span></a>
+      <a class="brand" href="#overview" data-go="overview" aria-label="SenseiDoge"><img class="mark" src="__MARK__" alt="" width="38" height="38"><span class="bt"><b id="brandName">SenseiDoge</b></span></a>
       <nav class="tabs" id="tabs" aria-label="Sections"></nav>
       <div class="ctrls">
         <button class="ctl" id="searchBtn" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>

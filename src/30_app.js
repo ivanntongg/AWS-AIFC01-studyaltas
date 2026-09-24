@@ -301,11 +301,13 @@ function tabsOverflow(){
 }
 function fitNav(){
   root.classList.add('nav-measured');
-  root.classList.remove('nav-compact', 'nav-tight');
+  root.classList.remove('nav-compact', 'nav-tight', 'nav-mini');
   if (tabsOverflow()) {
     root.classList.add('nav-tight');
     if (tabsOverflow()) root.classList.add('nav-compact');
   }
+  // on the narrowest screens keep just the dog mark when the name would run under the buttons
+  if (document.getElementById('brandName').getBoundingClientRect().right > document.querySelector('.ctrls').getBoundingClientRect().left - 8) root.classList.add('nav-mini');
   if (menuOpen && !root.classList.contains('nav-compact')) setMenu(false, false);
 }
 
