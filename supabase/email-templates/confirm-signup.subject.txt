@@ -1,1 +1,1 @@
-{{ if eq (printf "%v" .Data.lang) "zh" }}确认你的 SenseiDoge 邮箱{{ else }}Confirm your email for SenseiDoge{{ end }}
+{{ if eq (printf "%v" .Data.lang) "zh" }}确认你的考汪邮箱{{ else }}Confirm your email for SenseiDoge{{ end }}

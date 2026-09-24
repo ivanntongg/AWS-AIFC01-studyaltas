@@ -71,6 +71,9 @@ Run `npm test` to check the content, then `npm run build`. Saved progress is key
 
 Craft by Eyevuhn.
 
+- Chinese name **考汪** (a play on 考王, "exam king") is set in [Fusion Pixel Font](https://github.com/TakWolf/fusion-pixel-font) by TakWolf, SIL Open Font License 1.1 (`src/assets/fusion-pixel-OFL.txt`). Only the two characters are embedded (`src/assets/brand-zh.woff2`).
+- The English wordmark uses [Jersey 15](https://fonts.google.com/specimen/Jersey+15) from Google Fonts (SIL Open Font License 1.1).
+
 ## Disclaimer
 
 Independent study material, not affiliated with or endorsed by Amazon Web Services. Always check the latest exam guide and AWS documentation before your exam.

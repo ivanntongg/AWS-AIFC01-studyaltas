@@ -104,7 +104,7 @@ en: {
   justNow:'just now', minAgo:'{n} min ago', syncNow:'Sync now', signOut:'Sign out', signOutNote:'Signing out keeps your progress on this device.', delAcct:'Delete my account and synced data', delAsk:'This permanently deletes your account and the progress saved online. Progress on this device stays. Delete?', delYes:'Delete permanently', cancel:'Cancel', deleted:'Your account and synced data were deleted.',
   linkExpired:'That sign-in link did not work ({m}). Send yourself a new one.', syncCta:'Studying on more than one device? Keep your progress in step.', syncCtaBtn:'Sync my progress',
   aboutSync:'Your progress is stored in this browser. If you sign in to sync it, your email address and progress are also stored in our database (hosted by Supabase) so they follow you across devices. You can delete them at any time from "Sync my progress".',
-  aboutT:'About SenseiDoge', aboutClose:'Close',
+  brand:'SenseiDoge', aboutT:'About SenseiDoge', aboutClose:'Close',
   aboutP:['SenseiDoge is <b>independent study material</b> for the AWS Certified AI Practitioner (AIF-C01) exam. It is <b>not affiliated with, endorsed by or sponsored by</b> Amazon Web Services (AWS) or Amazon.com, Inc.',
     'AWS, Amazon Web Services, AWS Certified AI Practitioner, Amazon Bedrock, Amazon SageMaker and all related names and logos are trademarks of Amazon.com, Inc. or its affiliates. They are used here only to identify the exam and the services being studied.',
     'Lessons follow the public AIF-C01 exam guide, version 1.1 (April 2026). All practice questions are original and are not taken from the real exam. Check the latest exam guide and AWS documentation before you sit the exam.',
@@ -180,8 +180,8 @@ zh: {
   justNow:'刚刚', minAgo:'{n} 分钟前', syncNow:'立即同步', signOut:'退出登录', signOutNote:'退出登录后，本设备上的进度仍会保留。', delAcct:'删除我的账户和已同步数据', delAsk:'这将永久删除你的账户以及保存在网上的进度，本设备上的进度会保留。确定删除吗？', delYes:'永久删除', cancel:'取消', deleted:'你的账户和已同步数据已删除。',
   linkExpired:'该登录链接无效（{m}）。请重新发送一个。', syncCta:'在多台设备上学习？让进度保持同步。', syncCtaBtn:'同步我的进度',
   aboutSync:'你的学习进度保存在当前浏览器中。如果你登录并开启同步，你的邮箱地址和学习进度也会保存在我们的数据库（由 Supabase 托管）中，以便在不同设备间同步。你可以随时在“同步我的进度”中删除。',
-  aboutT:'关于 SenseiDoge', aboutClose:'关闭',
-  aboutP:['SenseiDoge 是 AWS 认证 AI 从业者 (AIF-C01) 考试的<b>独立学习资料</b>，与 Amazon Web Services (AWS) 或 Amazon.com, Inc. <b>无任何隶属、背书或赞助关系</b>。',
+  brand:'考汪', aboutT:'关于考汪', aboutClose:'关闭',
+  aboutP:['考汪是 AWS 认证 AI 从业者 (AIF-C01) 考试的<b>独立学习资料</b>，与 Amazon Web Services (AWS) 或 Amazon.com, Inc. <b>无任何隶属、背书或赞助关系</b>。',
     'AWS、Amazon Web Services、AWS Certified AI Practitioner、Amazon Bedrock、Amazon SageMaker 及所有相关名称和标志均为 Amazon.com, Inc. 或其关联公司的商标，本站仅用于指明所学习的考试和服务。',
     '课程内容依据公开的 AIF-C01 考纲 1.1 版（2026 年 4 月）编写。所有练习题均为原创，并非真实考题。参加考试前请查阅最新考纲和 AWS 文档。',
     '你的学习进度只保存在当前浏览器中，不会发送到任何服务器。']
@@ -272,6 +272,10 @@ function setMenu(open, restoreFocus){
 function renderHeader(){
   var tt = t();
   root.lang = S.lang === 'zh' ? 'zh-CN' : 'en';
+  var bn = tt.brand;
+  ['brandName', 'drawerName'].forEach(function(id){ var el = document.getElementById(id); el.textContent = bn; el.classList.toggle('brand-zh', S.lang === 'zh'); });
+  document.querySelector('.brand').setAttribute('aria-label', bn);
+  document.title = bn;
   document.getElementById('tabs').innerHTML = VIEWS.map(function(v){
     return '<button class="tab" type="button" data-go="' + v + '"' + (S.view === v ? ' aria-current="page"' : '') + '>' + tt[v] + '</button>';
   }).join('');
@@ -1288,13 +1292,15 @@ var CHANGELOG = [
     'Progress still saves on the device first and syncs in the background; two devices combine without losing lessons, flashcard levels or scores.',
     'Account menu under the person icon: sync status, Sync now, Sign out and Delete account.',
     'After you ask for a link, a check-your-email screen shows where it went, with Resend.',
-    'Sign-in emails arrive in English or Chinese to match your language.'
+    'Sign-in emails arrive in English or Chinese to match your language.',
+    'New lettering for the logo, and a Chinese name: <b>考汪</b> (a play on 考王, “exam king”).'
   ], zh: [
     '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
     '进度仍先保存在本设备，并在后台同步；两台设备的进度会合并，不会丢失课程、闪卡等级或成绩。',
     '人像图标下的账户菜单：同步状态、立即同步、退出登录和删除账户。',
     '发送登录链接后，会显示“查收你的邮箱”页面，并可重新发送。',
-    '登录邮件会按你的界面语言以中文或英文发送。'
+    '登录邮件会按你的界面语言以中文或英文发送。',
+    '全新标志字体，并启用中文名<b>考汪</b>（谐音“考王”）。'
   ]},
   {v: '1.1', date: '2026-09-23', en: [
     'First release: 14 lessons, one for each task statement in the AIF-C01 exam guide v1.1, in English and 简体中文.',

@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+15&text=SenseiDoge&display=swap">
 <style>
+/* 考汪 wordmark: Fusion Pixel Font by TakWolf, SIL Open Font License 1.1 (src/assets/fusion-pixel-OFL.txt) */
+@font-face{font-family:"Fusion Pixel 12";src:url(__BRANDZH__) format("woff2");font-display:block}
 :root{
   --bg:#F5F5F2; --surface:#FFFFFF; --surface2:#EDEDE8; --ink:#0B0F1E; --ink2:#33384A; --muted:#656A78; --line:#DDDDD6;
   --accent:#F3C302; --accent-ink:#0B0F1E; --accent-soft:#FDF4CC; --accent-text:#7A5C00;
@@ -53,6 +55,8 @@ code,.mono{font-family:var(--f-mono)}
 .mark{width:38px;height:38px;border-radius:9px;display:block;object-fit:cover;flex:none;box-shadow:0 0 0 1px var(--line)}
 .bt{display:flex;flex-direction:column;line-height:1.15}
 .bt b,.drawer-h b{font:400 26px/1 "Jersey 15",var(--f-display);letter-spacing:.01em}
+/* pixel-font bold: repeat each stroke one font pixel (2px at 24px) to the right, which stays crisp */
+.bt b.brand-zh,.drawer-h b.brand-zh{font:400 24px/1 "Fusion Pixel 12",var(--f-display);letter-spacing:2px;text-shadow:2px 0 0 currentColor;padding-right:2px;-webkit-font-smoothing:none}
 .bt small{font-size:11.5px;color:var(--muted)}
 .tabs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:2px;width:max-content;white-space:nowrap}
 .tabs::-webkit-scrollbar{display:none}
@@ -543,7 +547,7 @@ ul.plain li{margin:5px 0}
   </header>
   <div class="drawer-back" id="drawerBack"></div>
   <nav class="drawer" id="drawer" aria-label="Menu">
-    <div class="drawer-h"><img class="mark" src="__MARK__" alt="" width="38" height="38"><b>SenseiDoge</b><button class="ctl" id="drawerClose" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="drawer-h"><img class="mark" src="__MARK__" alt="" width="38" height="38"><b id="drawerName">SenseiDoge</b><button class="ctl" id="drawerClose" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
     <div class="drawer-nav" id="drawerNav"></div>
     <div class="drawer-foot" id="drawerFoot"></div>
   </nav>
