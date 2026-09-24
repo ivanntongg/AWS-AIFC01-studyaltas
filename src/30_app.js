@@ -97,7 +97,7 @@ en: {
   svcCol:['Service','What it does','Pick it when'],
   glH:'Glossary', glP:'{n} exam terms with short definitions. Search in English or Chinese.', glSearch:'Search terms…', none:'No matches.',
   planH:'7-day plan', planP:'A one-week sprint that follows the domain weights, with two days for Domain 3, the largest. Tick items as you finish them; each links to the right lesson or drill.', day:'Day', go:'Open',
-  foot:'Independent study material', ver:'Version {v}', aboutOpen:'About this site and disclaimer',
+  foot:'Independent study material', ver:'Version {v}', logOpen:'Version history', logT:'Version history', logNow:'Current', aboutOpen:'About this site and disclaimer',
   syncBtn:'Sync my progress', syncT:'Sync my progress', syncP:'Sign in with your email to keep your lessons, flashcards, missed questions and exam history in step on every device. No password: we email you a one-time sign-in link.',
   emailL:'Email address', sendLink:'Email me a sign-in link', sending:'Sending…', sentH:'Check your email', sentTo:'We sent a sign-in link to', sentHow:'Open the link on the device you want to sign in on. It can take a minute to arrive, so check spam or promotions too. The link works once and expires after an hour.', resend:'Resend link', resendIn:'Resend in {n}s', otherEmail:'Use a different email', resent:'A new link is on its way. Use the newest email; earlier links stop working.', waitN:'Please wait {n} seconds before sending another link.', tooMany:'Too many sign-in emails were sent recently. Please try again in a little while.', linkErr:'Could not send the link: {m}', badEmail:'Enter a valid email address.',
   syncPriv:'Only your email address and your study progress are stored, and only to sync them. You can delete both at any time.', signedAs:'Signed in as {e}', stSynced:'All changes synced · {t}', stPending:'Saving changes…', stErr:'Sync paused ({m}). Your progress is safe on this device and will sync when possible.', syncOffline:'You are offline. Changes are saved on this device and will sync when you reconnect.',
@@ -173,7 +173,7 @@ zh: {
   svcCol:['服务','作用','何时选它'],
   glH:'术语表', glP:'{n} 个考试术语及简明定义，支持中英文搜索。', glSearch:'搜索术语…', none:'没有匹配结果。',
   planH:'7 天计划', planP:'按领域权重安排的一周冲刺计划，最大的领域 3 安排两天。完成一项勾选一项；每项都直接链接到对应课程或练习。', day:'第', go:'打开',
-  foot:'独立学习资料', ver:'版本 {v}', aboutOpen:'关于本站及免责声明',
+  foot:'独立学习资料', ver:'版本 {v}', logOpen:'版本记录', logT:'版本记录', logNow:'当前版本', aboutOpen:'关于本站及免责声明',
   syncBtn:'同步我的进度', syncT:'同步我的进度', syncP:'用邮箱登录后，你的课程、闪卡、错题和考试记录会在所有设备间保持同步。无需密码：我们会发送一次性登录链接到你的邮箱。',
   emailL:'邮箱地址', sendLink:'发送登录链接', sending:'正在发送……', sentH:'查收你的邮箱', sentTo:'我们已将登录链接发送至', sentHow:'请在需要登录的设备上打开该链接。邮件可能需要一分钟左右才能送达，也请查看垃圾邮件或推广邮件。链接只能使用一次，一小时后失效。', resend:'重新发送链接', resendIn:'{n} 秒后可重新发送', otherEmail:'换一个邮箱', resent:'新的链接已发送。请使用最新的邮件，之前的链接将失效。', waitN:'请等待 {n} 秒后再发送新的链接。', tooMany:'最近发送的登录邮件过多，请稍后再试。', linkErr:'无法发送链接：{m}', badEmail:'请输入有效的邮箱地址。',
   syncPriv:'我们只保存你的邮箱地址和学习进度，且仅用于同步。你可以随时删除。', signedAs:'已登录：{e}', stSynced:'所有更改已同步 · {t}', stPending:'正在保存更改……', stErr:'同步暂停（{m}）。你的进度仍安全保存在本设备上，恢复后会自动同步。', syncOffline:'你目前处于离线状态。更改已保存在本设备上，重新联网后会自动同步。',
@@ -278,7 +278,7 @@ function renderHeader(){
   document.getElementById('drawerNav').innerHTML = VIEWS.map(function(v){
     return '<button class="dlink" type="button" data-go="' + v + '"' + (S.view === v ? ' aria-current="page"' : '') + '>' + NAVICON[v] + '<span>' + tt[v] + '</span></button>';
   }).join('');
-  document.getElementById('drawerFoot').innerHTML = '<span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" title="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
+  document.getElementById('drawerFoot').innerHTML = '<span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" title="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" title="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
   var sb = document.getElementById('searchBtn'); sb.setAttribute('aria-label', tt.searchBtn); sb.title = tt.searchBtn + ' ( / )';
   paintSync();
   document.getElementById('skipLink').textContent = tt.skip;
@@ -288,7 +288,7 @@ function renderHeader(){
   var lb = document.getElementById('langBtn');
   lb.textContent = tt.langBtn; lb.setAttribute('aria-label', tt.langLabel); lb.title = tt.langLabel;
   updateThemeBtn();
-  document.getElementById('foot').innerHTML = '<span class="credit">Craft by <b>Eyevuhn</b></span><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" title="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</span>';
+  document.getElementById('foot').innerHTML = '<span class="credit">Craft by <b>Eyevuhn</b></span><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" title="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" title="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>';
   fitNav();
 }
 /* Show the full tab bar only when it truly fits; otherwise hide the subtitle, then fall back to the burger. */
@@ -855,6 +855,7 @@ document.addEventListener('click', function(e){
   var act = el.getAttribute('data-act'), qi = +el.getAttribute('data-q'), i = +el.getAttribute('data-i');
   switch (act) {
     case 'about': openAbout(el); break;
+    case 'log': openLog(el); break;
     case 'acct': openAcct(); break;
     case 'acct-x': closeAcct(true); break;
     case 'acct-sync': safePull(); break;
@@ -1087,6 +1088,12 @@ function hydrate(){
   var cm = store.get('cardMode', S.cardMode); if (cm === 'due' || cm === 'all') S.cardMode = cm;
   S.queue = null;
   if (!document.getElementById('gsDlg') && !S.simDlg) render();
+  saveEmailLang();
+}
+/* sign-in emails are sent in the learner's language (Supabase reads user_metadata.lang) */
+function saveEmailLang(){
+  if (!syncUser || !sbc || (syncUser.user_metadata || {}).lang === S.lang) return;
+  sbc.auth.updateUser({data: {lang: S.lang}}).then(function(r){ if (!r.error && r.data && r.data.user) syncUser = r.data.user; });
 }
 function setSync(state, err){ syncState = state; syncErr = err || ''; if (state === 'synced') lastSync = Date.now(); paintSync(); }
 function syncDirty(){
@@ -1132,7 +1139,7 @@ function initSync(){
     sbc.auth.onAuthStateChange(function(ev, session){
       var before = syncUser && syncUser.id;
       syncUser = session ? session.user : null;
-      if (syncUser && syncUser.id !== before) { acctMsg = ''; sentTo = ''; safePull(); }
+      if (syncUser && syncUser.id !== before) { acctMsg = ''; sentTo = ''; safePull(); saveEmailLang(); }
       if (!syncUser) setSync('off');
       paintSync();
       if (/access_token=|error_description=/.test(location.hash || '')) { try { history.replaceState(null, '', location.pathname + location.search + '#' + S.view); } catch (e) {} }
@@ -1222,7 +1229,7 @@ function sendErr(e){
   return fmt(t().linkErr, {m: m});
 }
 function requestLink(email){
-  return sbc.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname, shouldCreateUser: true}})
+  return sbc.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname, shouldCreateUser: true, data: {lang: S.lang}}})
     .then(function(r){ if (r.error) throw r.error; }, function(e){ throw e; });
 }
 function sendLink(){
@@ -1268,7 +1275,56 @@ function openAbout(from){
   document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back about-back" id="aboutDlg" data-act="about-close"><div class="dlg about" role="dialog" aria-modal="true" aria-labelledby="aboutT">' +
     '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="aboutT">' + tt.aboutT + '</h3></div>' +
     (syncEnabled() ? tt.aboutP.slice(0, -1).concat([tt.aboutSync]) : tt.aboutP).map(function(x){ return '<p>' + x + '</p>'; }).join('') +
-    '<p class="about-ver">' + esc(fmt(tt.ver, {v: APP_VERSION})) + ' · Craft by Eyevuhn</p>' +
+    '<p class="about-ver"><button type="button" class="link foot-about" data-act="log">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · Craft by Eyevuhn</p>' +
+    '<div class="row dlg-act"><button type="button" class="btn pri" id="aboutClose" data-act="about-close">' + tt.aboutClose + '</button></div></div></div>');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
+}
+var CHANGELOG = [
+  {v: '1.2', date: '2026-09-24', en: [
+    '<b>Sync my progress</b>: sign in with an email link to keep lessons, flashcards, missed questions and exam history in step on every device. No password.',
+    'Progress still saves on the device first and syncs in the background; two devices combine without losing lessons, flashcard levels or scores.',
+    'Account menu under the person icon: sync status, Sync now, Sign out and Delete account.',
+    'After you ask for a link, a check-your-email screen shows where it went, with Resend.',
+    'Sign-in emails arrive in English or Chinese to match your language.'
+  ], zh: [
+    '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
+    '进度仍先保存在本设备，并在后台同步；两台设备的进度会合并，不会丢失课程、闪卡等级或成绩。',
+    '人像图标下的账户菜单：同步状态、立即同步、退出登录和删除账户。',
+    '发送登录链接后，会显示“查收你的邮箱”页面，并可重新发送。',
+    '登录邮件会按你的界面语言以中文或英文发送。'
+  ]},
+  {v: '1.1', date: '2026-09-23', en: [
+    'First release: 14 lessons, one for each task statement in the AIF-C01 exam guide v1.1, in English and 简体中文.',
+    '215 practice questions in all four exam formats, with a note on why every wrong option is wrong.',
+    'Full exam simulation: 65 questions in 90 minutes, flag for review, review screen and an estimated scaled score.',
+    '135 flashcards with spaced repetition, plus a progress page with score history and accuracy by domain.',
+    'Search, service map, glossary and a 7-day plan; light and dark themes; works offline once visited.'
+  ], zh: [
+    '首个版本：14 节课程，与 AIF-C01 考试指南 v1.1 的每个任务说明一一对应，提供英文和简体中文。',
+    '215 道练习题，覆盖全部四种考试题型，并说明每个错误选项错在哪里。',
+    '完整模拟考试：90 分钟 65 道题，可标记复查，设有复查页面并估算换算分数。',
+    '135 张闪卡，采用间隔重复；进度页面显示成绩记录和各领域正确率。',
+    '搜索、服务地图、术语表和 7 天学习计划；浅色与深色主题；访问过后可离线使用。'
+  ]}
+];
+function fmtDate(iso){
+  var d = iso.split('-');
+  return S.lang === 'zh' ? (+d[0]) + ' 年 ' + (+d[1]) + ' 月 ' + (+d[2]) + ' 日'
+    : (+d[2]) + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+d[1] - 1] + ' ' + d[0];
+}
+function openLog(from){
+  closeAbout(true);
+  aboutReturn = from || null;
+  if (menuOpen) setMenu(false, false);
+  var tt = t();
+  var list = CHANGELOG.map(function(r){
+    return '<section class="log-rel"><h4>' + esc(fmt(tt.ver, {v: r.v})) + (r.v === APP_VERSION ? ' <span class="log-now">' + tt.logNow + '</span>' : '') +
+      '<time datetime="' + r.date + '">' + fmtDate(r.date) + '</time></h4><ul>' + r[S.lang].map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></section>';
+  }).join('');
+  document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back about-back" id="aboutDlg" data-act="about-close"><div class="dlg about log-dlg" role="dialog" aria-modal="true" aria-labelledby="aboutT">' +
+    '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="aboutT">' + tt.logT + '</h3></div>' +
+    '<div class="log-list">' + list + '</div>' +
     '<div class="row dlg-act"><button type="button" class="btn pri" id="aboutClose" data-act="about-close">' + tt.aboutClose + '</button></div></div></div>');
   document.body.style.overflow = 'hidden';
   setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
@@ -1333,7 +1389,7 @@ document.addEventListener('keydown', function(e){
   else if (e.key === 'ArrowLeft') { e.preventDefault(); cardMove(-1); }
   else if ((e.key === ' ' || e.key === 'Enter') && tag !== 'button' && tag !== 'a') { e.preventDefault(); S.flip = !S.flip; render(); }
 });
-document.getElementById('langBtn').addEventListener('click', function(){ S.lang = S.lang === 'en' ? 'zh' : 'en'; store.set('lang', S.lang); render(); });
+document.getElementById('langBtn').addEventListener('click', function(){ S.lang = S.lang === 'en' ? 'zh' : 'en'; store.set('lang', S.lang); render(); saveEmailLang(); });
 document.getElementById('themeBtn').addEventListener('click', function(){ var next = isDark() ? 'light' : 'dark'; root.setAttribute('data-theme', next); store.set('theme', next); updateThemeBtn(); });
 try { var mq = window.matchMedia('(prefers-color-scheme: dark)'); if (mq.addEventListener) mq.addEventListener('change', updateThemeBtn); else if (mq.addListener) mq.addListener(updateThemeBtn); } catch (e) {}
 try { new MutationObserver(updateThemeBtn).observe(root, {attributes: true, attributeFilter: ['data-theme']}); } catch (e) {}

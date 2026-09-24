@@ -21,7 +21,7 @@ Learners can sign in with an email link to keep progress in step across devices.
 
 1. Create a Supabase project and run `supabase/schema.sql` in its SQL Editor (creates the `progress` table with row-level security and a `delete_my_account` function).
 2. In Supabase → Authentication → URL Configuration, set the Site URL to `https://senseidoge.vercel.app` and add redirect URLs for `https://senseidoge.vercel.app/**` and your preview domains.
-3. Optional: in Authentication → Emails, paste `supabase/email-templates/magic-link.html` into the **Magic Link** template and `confirm-signup.html` into **Confirm signup** for SenseiDoge-branded emails.
+3. Optional: in Authentication → Emails, use the SenseiDoge templates in `supabase/email-templates/`. Paste `magic-link.html` into **Magic Link** and `confirm-signup.html` into **Confirm signup**, and the matching `*.subject.txt` into each Subject. Each sends only the English or only the Chinese version, based on the learner's language (the app stores it as `lang` in the user's metadata). The `.en.html` / `.zh.html` files are the single-language versions for previewing and editing.
 4. Set `SUPABASE_URL` and `SUPABASE_ANON_KEY` (the anon/public key, never the service_role key) as Vercel environment variables, then redeploy.
 
 Progress still works fully without signing in; syncing merges devices safely (union of completed lessons, higher flashcard levels, combined score history).
@@ -58,6 +58,8 @@ The site is hosted on Vercel (project `senseidoge`) and connected to this GitHub
 To deploy manually from your machine instead: `npx vercel deploy --prod`.
 
 ## Editing content
+
+- Version history (footer → Version x.x): `CHANGELOG` in `src/30_app.js`; add a new entry at the top for each release
 
 - Lessons: `src/10_d1.js` … `src/14_d5.js` (each task has `en` and `zh` HTML)
 - Questions: `src/20_questions.js`, `src/22_questions2.js`, `src/25_questions3.js` (wrong-option notes: `src/24_notes*.js`)
