@@ -37,11 +37,11 @@ var T = {
 en: {
   overview:'Overview', course:'Course', cards:'Flashcards', exam:'Practice exam', services:'Services', glossary:'Glossary', plan:'7-day plan',
   sub:'AWS Certified AI Practitioner · exam guide v1.1',
-  langBtn:'中文', langLabel:'切换到中文', langCta:'阅读中文版：课程、练习题和闪卡都有完整的简体中文。', langCtaLang:'zh-CN', openMenu:'Open menu', closeMenu:'Close menu', toLight:'Switch to light theme', toDark:'Switch to dark theme',
+  langBtn:'中文', langLabel:'切换到中文', langCtaLang:'zh-CN', openMenu:'Open menu', closeMenu:'Close menu', toLight:'Switch to light theme', toDark:'Switch to dark theme',
   eyebrow:'AWS Certified AI Practitioner · AIF-C01',
   heroH:'Every objective in the AIF-C01 exam guide, <em>explained and drilled</em>.',
   heroP:'14 lessons mapped one-to-one to the task statements in exam guide v1.1, a {q}-question bank in all four official formats, {c} flashcards, a quick 50-question mock and a full 65-question exam simulation. Switch between English and 中文 at any time.',
-  reviewLesson:'Review lesson: Task', practiceTask:'Practice this lesson\'s {n} questions', missedChip:'Missed', practiceMissed:'Practice the {n} you missed', reviewMissed:'Review {n} missed questions',
+  reviewLesson:'Review lesson: Task', practiceTask:'Practice this lesson\'s {n} questions', missedChip:'Missed', practiceMissed:'Practice the {n} you missed', missCta1:'You missed 1 question. Go over it again while it’s fresh.', missCtaN:'You missed {n} questions. Go over them again while they’re fresh.', missCtaBtn:'Review missed', reviewMissed:'Review {n} missed questions',
   noMissed:'No missed questions yet. Anything you answer wrong in practice or a mock exam collects here until you get it right.', taskChip:'Task {k}',
   scopeL:'Listed in guide', scopeF:'Part of a listed service', scopeC:'Context only', scopeOnly:'Only services in the guide\'s scope',
   f1:'questions', f1s:'50 scored + 15 unscored', f2:'minutes', f2s:'one sitting', f3:'to pass', f3s:'scaled score, 100–1,000', f4:'task statements', f4s:'across 5 domains',
@@ -113,11 +113,11 @@ en: {
 zh: {
   overview:'总览', course:'课程', cards:'闪卡', exam:'模拟练习', services:'服务速查', glossary:'术语表', plan:'7 天计划',
   sub:'AWS 认证 AI 从业者 · 考纲 v1.1',
-  langBtn:'EN', langLabel:'Switch to English', langCta:'Prefer English? Every lesson, question and flashcard is available in English.', langCtaLang:'en', openMenu:'打开菜单', closeMenu:'关闭菜单', toLight:'切换到浅色主题', toDark:'切换到深色主题',
+  langBtn:'EN', langLabel:'Switch to English', langCtaLang:'en', openMenu:'打开菜单', closeMenu:'关闭菜单', toLight:'切换到浅色主题', toDark:'切换到深色主题',
   eyebrow:'AWS 认证 AI 从业者 · AIF-C01',
   heroH:'AIF-C01 考纲的每一个目标，<em>讲透并练熟</em>。',
   heroP:'14 节课与考纲 v1.1 的任务陈述一一对应；{q} 道题覆盖全部四种官方题型；{c} 张闪卡；还有 50 题快速模考和 65 题真实考试模拟。随时可在 English 与中文之间切换。',
-  reviewLesson:'复习课程：任务', practiceTask:'练习本课的 {n} 道题', missedChip:'错题', practiceMissed:'练习答错的 {n} 道题', reviewMissed:'复习 {n} 道错题',
+  reviewLesson:'复习课程：任务', practiceTask:'练习本课的 {n} 道题', missedChip:'错题', practiceMissed:'练习答错的 {n} 道题', missCta1:'你有 1 道错题，趁记忆犹新再练一遍。', missCtaN:'你有 {n} 道错题，趁记忆犹新再练一遍。', missCtaBtn:'复习错题', reviewMissed:'复习 {n} 道错题',
   noMissed:'暂无错题。练习或模拟考试中答错的题会汇总到这里，直到你答对为止。', taskChip:'任务 {k}',
   scopeL:'考纲列出', scopeF:'所列服务的功能', scopeC:'仅作背景', scopeOnly:'只看考纲范围内的服务',
   f1:'道题', f1s:'50 道计分 + 15 道不计分', f2:'分钟', f2s:'一次完成', f3:'分及格', f3s:'换算分 100–1,000', f4:'个任务陈述', f4s:'分布在 5 个领域',
@@ -282,7 +282,7 @@ function renderHeader(){
   document.getElementById('drawerNav').innerHTML = VIEWS.map(function(v){
     return '<button class="dlink" type="button" data-go="' + v + '"' + (S.view === v ? ' aria-current="page"' : '') + '>' + NAVICON[v] + '<span>' + tt[v] + '</span></button>';
   }).join('');
-  document.getElementById('drawerFoot').innerHTML = '<button type="button" class="dlink dlang" data-act="lang" lang="' + tt.langCtaLang + '">' + GLOBE + '<span>' + tt.langLabel + '</span></button><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
+  document.getElementById('drawerFoot').innerHTML = '<span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
   var sb = document.getElementById('searchBtn'); sb.setAttribute('aria-label', tt.searchBtn); sb.setAttribute('data-hint', tt.searchBtn + ' ( / )');
   paintSync();
   document.getElementById('skipLink').textContent = tt.skip;
@@ -325,7 +325,7 @@ function vOverview(){
     '<p class="eyebrow">' + tt.eyebrow + '</p><h1>' + tt.heroH + '</h1><p class="lede">' + fmt(tt.heroP, {q: A.qs.length, c: A.cards.length}) + '</p>' +
     '<div class="row"><button class="btn pri" type="button" data-act="open-task" data-task="' + (next || '1.1') + '">' + label + '</button>' +
     '<button class="btn" type="button" data-go="exam" data-mode="sim">' + tt.mock + '</button>' +
-    (S.missed.length ? '<button class="btn" type="button" data-act="practice-missed">' + fmt(tt.reviewMissed, {n: S.missed.length}) + '</button>' : '') + '</div></div>' +
+    '</div></div>' +
     '<div class="facts">' + facts.map(function(f){ return '<div class="fact"><b>' + f[0] + '</b><span>' + f[1] + '<br>' + f[2] + '</span></div>'; }).join('') + '</div></section>' +
     '<div class="stack">' + vProgress() +
     '<section class="panel"><h2 class="ph">' + tt.weights + '</h2><p class="muted" style="margin:4px 0 0">' + tt.weightsP + '</p>' +
@@ -389,7 +389,7 @@ function vProgress(){
     return '<div class="acc" style="--c:' + dc(d.id) + '"><span class="acc-d">D' + d.n + '</span><span class="acc-t">' + esc(d.title[l]) + '</span><span class="acc-bar">' + (p != null ? '<i style="width:' + Math.max(p, 2) + '%"></i>' : '') + '</span><span class="acc-v">' + (p != null ? p + '% · ' + st[0] + '/' + st[1] : tt.accNone) + '</span></div>';
   }).join('');
   var focus = weakest ? '<div class="focus"><span>' + fmt(tt.focusNext, {n: weakest.d.n}) + ' · ' + esc(weakest.d.title[l]) + ' (' + weakest.p + '%)</span><button type="button" class="btn sm pri" data-act="focus-go" data-f="' + weakest.d.id + '">' + tt.practiceIt + '</button></div>' : '';
-  return '<section class="panel prog"><h2 class="ph">' + tt.progH + '</h2><p class="muted" style="margin:4px 0 0">' + tt.progP + '</p>' + syncCta() + langCta() + stats +
+  return '<section class="panel prog"><h2 class="ph">' + tt.progH + '</h2><p class="muted" style="margin:4px 0 0">' + tt.progP + '</p>' + syncCta() + missCta() + stats +
     '<div class="prog-grid"><div class="prog-left">' + chart + '</div><div><h3>' + tt.accT + '</h3><p class="muted" style="margin:2px 0 10px;font-size:13.5px">' + tt.accP + '</p>' + rows + focus + '</div></div></section>';
 }
 
@@ -1489,11 +1489,11 @@ function otherEmail(){
   var prev = sentTo; sentTo = ''; acctMsg = ''; paintAcct();
   var em = document.getElementById('acctEmail'); if (em) { em.value = prev; em.focus({preventScroll: true}); em.select(); }
 }
-var GLOBE = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>';
-/* written in the language it offers, so the reader it is meant for can read it */
-function langCta(){
+var REDO = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>';
+function missCta(){
+  var n = S.missed.length; if (!n) return '';
   var tt = t();
-  return '<div class="sync-cta lang-cta" lang="' + tt.langCtaLang + '"><span class="lang-cta-t">' + GLOBE + '<span>' + tt.langCta + '</span></span><button type="button" class="btn sm" data-act="lang">' + tt.langLabel + '</button></div>';
+  return '<div class="sync-cta miss-cta"><span class="cta-t">' + REDO + '<span>' + (n === 1 ? tt.missCta1 : fmt(tt.missCtaN, {n: n})) + '</span></span><button type="button" class="btn sm" data-act="practice-missed">' + tt.missCtaBtn + '</button></div>';
 }
 function syncCta(){
   if (!syncEnabled() || syncUser) return '';
@@ -1525,7 +1525,7 @@ var CHANGELOG = [
     'Sign-in emails arrive in English or Chinese to match your language.',
     'Practice and quick mock: a floating bar shows which question you are on, how many you have answered and your score, with a Next question button and a Go to # box to jump to any question number. Checking an answer brings that question to the top so its explanation is in view.',
     'SenseiDoge’s own dropdowns, checkboxes, switches, search boxes and tooltips replace the browser’s built-in ones; header buttons are now plain icons.',
-    'A pinned notice under Your progress (and the side menu on phones) also offers the other language.',
+    'Missed questions now show as a notice under Your progress, with a button to review them.',
     'New lettering for the logo, and a Chinese name: <b>考汪</b> (a play on 考王, “exam king”).'
   ], zh: [
     '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
@@ -1535,7 +1535,7 @@ var CHANGELOG = [
     '登录邮件会按你的界面语言以中文或英文发送。',
     '练习与快速模考：底部浮动栏显示当前题号、已答题数和得分，并提供“下一题”按钮和可跳转到任意题号的输入框；核对答案后，该题会移到页面顶部，方便查看解析。',
     '下拉菜单、复选框、开关、搜索框和提示框改用本站自己的设计，不再使用浏览器自带样式；顶部按钮改为纯图标。',
-    '“学习进度”下方新增语言切换提示（手机上也可在侧边菜单中切换）。',
+    '错题提醒移到“学习进度”下方，并附“复习错题”按钮。',
     '全新标志字体，并启用中文名<b>考汪</b>（谐音“考王”）。'
   ]},
   {v: '1.1', date: '2026-09-23', en: [
@@ -1634,8 +1634,7 @@ document.addEventListener('keydown', function(e){
   else if ((e.key === ' ' || e.key === 'Enter') && tag !== 'button' && tag !== 'a') { e.preventDefault(); S.flip = !S.flip; render(); }
 });
 function switchLang(from){
-  var sel = from && from.id === 'langBtn' ? '#langBtn' : from && from.classList.contains('dlang') ? '#menuBtn' : '.lang-cta [data-act="lang"]';
-  S.lang = S.lang === 'en' ? 'zh' : 'en'; store.set('lang', S.lang); render(); saveEmailLang(); focusSel(sel);
+  S.lang = S.lang === 'en' ? 'zh' : 'en'; store.set('lang', S.lang); render(); saveEmailLang(); focusSel('#langBtn');
 }
 document.getElementById('themeBtn').addEventListener('click', function(){ var next = isDark() ? 'light' : 'dark'; root.setAttribute('data-theme', next); store.set('theme', next); updateThemeBtn(); });
 try { var mq = window.matchMedia('(prefers-color-scheme: dark)'); if (mq.addEventListener) mq.addEventListener('change', updateThemeBtn); else if (mq.addListener) mq.addListener(updateThemeBtn); } catch (e) {}
