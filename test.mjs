@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const DATA = ['10_d1.js', '11_d2.js', '12_d3.js', '13_d4.js', '14_d5.js', '20_questions.js', '22_questions2.js',
-  '24_notes.js', '24_notes2.js', '25_questions3.js', '21_extras.js', '26_cards2.js', '23_services2.js'];
+  '24_notes.js', '24_notes2.js', '25_questions3.js', '21_extras.js', '26_cards2.js', '23_services2.js', '31_merge.js'];
 const ctx = { window: {} };
 ctx.window = ctx;
 vm.createContext(ctx);
@@ -82,7 +82,27 @@ A.plan.forEach((day, di) => day.items.forEach((it) => {
 }));
 function DOMAIN(id) { return A.domains.some((d) => d.id === id); }
 
+// Sync merge rules: progress from two devices must combine without losing anything
+(() => {
+  const M = ctx.SDMerge.merge;
+  const t0 = 1000, t1 = 2000;
+  const a = { data: { done: ['1.1', '2.1'], srs: { 3: { b: 2, due: 50 }, 4: { b: 0, due: 10 } }, hist: [{ t: 1, pct: 50 }], stats: { d1: [3, 5] }, best: 60, task: '2.1', missed: [1, 2] }, ts: { task: t0, missed: t1 } };
+  const b = { data: { done: ['1.1', '3.1'], srs: { 3: { b: 1, due: 90 }, 5: { b: 4, due: 70 } }, hist: [{ t: 1, pct: 50 }, { t: 2, pct: 70 }], stats: { d1: [6, 9], d2: [1, 2] }, best: 72, task: '3.4', missed: [9] }, ts: { task: t1, missed: t0 } };
+  const m = M(a, b);
+  const eq = (x, y) => JSON.stringify(x) === JSON.stringify(y);
+  if (!eq([...m.data.done].sort(), ['1.1', '2.1', '3.1'])) fail('merge: lessons done should be the union');
+  if (m.data.srs[3].b !== 2 || m.data.srs[5].b !== 4 || !m.data.srs[4]) fail('merge: flashcards should keep the higher level from either device');
+  if (m.data.hist.length !== 2) fail('merge: score history should be combined without duplicates');
+  if (!eq(m.data.stats.d1, [6, 9]) || !m.data.stats.d2) fail('merge: domain stats should keep the fuller record');
+  if (m.data.best !== 72) fail('merge: best score should be the maximum');
+  if (m.data.task !== '3.4') fail('merge: last lesson should follow the most recent change');
+  if (!eq(m.data.missed, [1, 2])) fail('merge: missed list should follow the most recent change');
+  if (!eq(M({ data: {}, ts: {} }, b).data, b.data)) fail('merge: an empty device should adopt the synced copy');
+  if (!eq(M(a, { data: {}, ts: {} }).data, a.data)) fail('merge: an empty synced copy should adopt this device');
+  if (!eq(M(m, m).data, m.data)) fail('merge: merging identical copies must change nothing');
+})();
+
 console.log(`Lessons ${taskIds.length} · questions ${A.qs.length} ${JSON.stringify(types)} · per domain ${JSON.stringify(perDomain)}`);
 console.log(`Flashcards ${A.cards.length} · services ${A.svc.length} · glossary ${A.gloss.length}`);
 if (errors.length) { console.error(`\n${errors.length} problem(s):\n- ` + errors.join('\n- ')); process.exit(1); }
-console.log('All content checks passed.');
+console.log('All content and sync-merge checks passed.');

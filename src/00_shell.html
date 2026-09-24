@@ -351,6 +351,30 @@ ul.plain li{margin:5px 0}
 .badge.in{border-color:color-mix(in srgb,var(--good) 45%,var(--line));color:var(--good)}
 .badge.part{border-color:color-mix(in srgb,var(--accent) 40%,var(--line));color:var(--accent-text)}
 [hidden]{display:none!important}
+/* ---------- sync my progress ---------- */
+.acct{position:relative}
+.acct-dot{position:absolute;top:5px;right:5px;width:8px;height:8px;border-radius:50%;background:transparent;box-shadow:0 0 0 2px var(--surface)}
+.acct.is-synced .acct-dot{background:var(--good)}
+.acct.is-pending .acct-dot{background:var(--accent)}
+.acct.is-error .acct-dot,.acct.is-offline .acct-dot{background:var(--warn)}
+.acct-back{z-index:65}
+.acct-dlg{width:min(480px,100%)}
+.acct-dlg p{font-size:14px}
+.acct-form label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin:10px 0 6px}
+.acct-row{display:flex;flex-wrap:wrap;gap:8px}
+.acct-row .field{flex:1 1 220px;min-width:0}
+.acct-msg{min-height:1.2em;margin:10px 0 0!important;color:var(--ink)!important}
+.acct-priv{font-size:12.5px!important;color:var(--muted)!important;margin:12px 0 0!important}
+.acct-who{font-weight:600;color:var(--ink)!important;margin:8px 0 4px!important}
+.acct-state{display:flex;align-items:center;gap:8px;margin:0 0 14px!important}
+.acct-state i{width:9px;height:9px;border-radius:50%;background:var(--muted);flex:none}
+.acct-state.is-synced i{background:var(--good)}
+.acct-state.is-pending i{background:var(--accent)}
+.acct-state.is-error i,.acct-state.is-offline i{background:var(--warn)}
+.acct-danger{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.acct-danger p{margin:0 0 10px!important}
+.acct-del{color:var(--bad)!important;font-size:13px}
+.sync-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;margin:14px 0 0;padding:10px 14px;border:1px dashed var(--line);border-radius:10px;font-size:13.5px;color:var(--ink2)}
 /* ---------- accessibility helpers ---------- */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip{position:fixed;left:12px;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:100;background:var(--ink);color:var(--bg);padding:9px 14px;border-radius:8px;font-weight:600;text-decoration:none;transform:translateY(-160%);transition:transform .15s}
@@ -484,6 +508,7 @@ ul.plain li{margin:5px 0}
       <nav class="tabs" id="tabs" aria-label="Sections"></nav>
       <div class="ctrls">
         <button class="ctl" id="searchBtn" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
+        <button class="ctl acct" id="acctBtn" type="button" aria-haspopup="dialog" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.3-3.6 4.2-5.4 7.5-5.4s6.2 1.8 7.5 5.4"/></svg><i class="acct-dot" aria-hidden="true"></i></button>
         <button class="ctl" id="langBtn" type="button"></button>
         <button class="ctl" id="themeBtn" type="button"></button>
       </div>
