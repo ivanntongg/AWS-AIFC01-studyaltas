@@ -69,7 +69,7 @@ en: {
   stLessons:'lessons done', stCards:'cards mastered', stDue:'cards due today', stMissed:'missed questions',
   searchBtn:'Search everything', searchPh:'Search lessons, questions, flashcards, services, glossary…', sLessons:'Lessons', sQuestions:'Questions', sCards:'Flashcards', sServices:'Services', sGloss:'Glossary', sNone:'No results for “{q}”.', sHint:'Type at least 2 characters. Tip: press / anywhere to search.', sMore:'+{n} more', skip:'Skip to content',
   liveOk:'Correct.', liveNo:'Not quite. The answer is {a}.',
-  all:'All', hideKnown:'Hide known cards', question:'Question', answer:'Answer', tapFlip:'Tap, or press Space, to flip · ← → to move',
+  all:'All', question:'Question', answer:'Answer', tapFlip:'Tap, or press Space, to flip · ← → to move',
   know:'I know this', learning:'Still learning', shuffle:'Shuffle', unshuffle:'Original order', pShuffleHint:'Mix up the question order', pShuffled:'Questions shuffled', pOrdered:'Original question order', knownOf:'{a} of {b} known',
   noCards:'Every card in this set is marked as known. Turn off "Hide known cards" to review them again.',
   examH:'Practice exam', examP:'{n} original questions written against the exam guide, in all four official formats. Options are shuffled every session. Practice by domain or lesson, retry your missed questions, take a quick 50-question mock, or sit a full 65-question simulation of the real exam.',
@@ -104,7 +104,7 @@ en: {
   justNow:'just now', minAgo:'{n} min ago', syncNow:'Sync now', signOut:'Sign out', signOutNote:'Signing out keeps your progress on this device.', delAcct:'Delete my account and synced data', delAsk:'This permanently deletes your account and the progress saved online. Progress on this device stays. Delete?', delYes:'Delete permanently', cancel:'Cancel', deleted:'Your account and synced data were deleted.',
   linkExpired:'That sign-in link did not work ({m}). Send yourself a new one.', syncCta:'Studying on more than one device? Keep your progress in step.', syncCtaBtn:'Sync my progress',
   aboutSync:'Your progress is stored in this browser. If you sign in to sync it, your email address and progress are also stored in our database (hosted by Supabase) so they follow you across devices. You can delete them at any time from "Sync my progress".',
-  brand:'SenseiDoge', aboutT:'About SenseiDoge', aboutClose:'Close',
+  brand:'SenseiDoge', privT:'Privacy', privLink:'Privacy', checked:'Content last checked against AIF-C01 exam guide v1.1 on {d}.', aboutT:'About SenseiDoge', aboutClose:'Close',
   aboutP:['SenseiDoge is <b>independent study material</b> for the AWS Certified AI Practitioner (AIF-C01) exam. It is <b>not affiliated with, endorsed by or sponsored by</b> Amazon Web Services (AWS) or Amazon.com, Inc.',
     'AWS, Amazon Web Services, AWS Certified AI Practitioner, Amazon Bedrock, Amazon SageMaker and all related names and logos are trademarks of Amazon.com, Inc. or its affiliates. They are used here only to identify the exam and the services being studied.',
     'Lessons follow the public AIF-C01 exam guide, version 1.1 (April 2026). All practice questions are original and are not taken from the real exam. Check the latest exam guide and AWS documentation before you sit the exam.',
@@ -145,7 +145,7 @@ zh: {
   stLessons:'课已完成', stCards:'张卡已掌握', stDue:'张卡今日待复习', stMissed:'道错题',
   searchBtn:'全站搜索', searchPh:'搜索课程、题目、闪卡、服务、术语……', sLessons:'课程', sQuestions:'题目', sCards:'闪卡', sServices:'服务', sGloss:'术语', sNone:'没有找到“{q}”的结果。', sHint:'至少输入 2 个字符。提示：在任意位置按 / 即可搜索。', sMore:'还有 {n} 条', skip:'跳到正文',
   liveOk:'回答正确。', liveNo:'回答错误。正确答案是 {a}。',
-  all:'全部', hideKnown:'隐藏已掌握', question:'问题', answer:'答案', tapFlip:'点击或按空格翻面 · ← → 切换',
+  all:'全部', question:'问题', answer:'答案', tapFlip:'点击或按空格翻面 · ← → 切换',
   know:'已掌握', learning:'还在学', shuffle:'打乱顺序', unshuffle:'恢复顺序', pShuffleHint:'随机打乱题目顺序', pShuffled:'题目已打乱', pOrdered:'已恢复原始顺序', knownOf:'已掌握 {a}/{b}',
   noCards:'本组所有卡片都已标记为已掌握。关闭“隐藏已掌握”即可重新复习。',
   examH:'模拟练习', examP:'{n} 道依据考纲原创的题目，覆盖全部四种官方题型，选项每次都会打乱。可按领域或课程练习、重做错题、做 50 题快速模考，或参加 65 题的真实考试模拟。',
@@ -180,7 +180,7 @@ zh: {
   justNow:'刚刚', minAgo:'{n} 分钟前', syncNow:'立即同步', signOut:'退出登录', signOutNote:'退出登录后，本设备上的进度仍会保留。', delAcct:'删除我的账户和已同步数据', delAsk:'这将永久删除你的账户以及保存在网上的进度，本设备上的进度会保留。确定删除吗？', delYes:'永久删除', cancel:'取消', deleted:'你的账户和已同步数据已删除。',
   linkExpired:'该登录链接无效（{m}）。请重新发送一个。', syncCta:'在多台设备上学习？让进度保持同步。', syncCtaBtn:'同步我的进度',
   aboutSync:'你的学习进度保存在当前浏览器中。如果你登录并开启同步，你的邮箱地址和学习进度也会保存在我们的数据库（由 Supabase 托管）中，以便在不同设备间同步。你可以随时在“同步我的进度”中删除。',
-  brand:'考汪', aboutT:'关于考汪', aboutClose:'关闭',
+  brand:'考汪', privT:'隐私说明', privLink:'隐私', checked:'内容最近一次对照 AIF-C01 考试指南 v1.1 核对于 {d}。', aboutT:'关于考汪', aboutClose:'关闭',
   aboutP:['考汪是 AWS 认证 AI 从业者 (AIF-C01) 考试的<b>独立学习资料</b>，与 Amazon Web Services (AWS) 或 Amazon.com, Inc. <b>无任何隶属、背书或赞助关系</b>。',
     'AWS、Amazon Web Services、AWS Certified AI Practitioner、Amazon Bedrock、Amazon SageMaker 及所有相关名称和标志均为 Amazon.com, Inc. 或其关联公司的商标，本站仅用于指明所学习的考试和服务。',
     '课程内容依据公开的 AIF-C01 考纲 1.1 版（2026 年 4 月）编写。所有练习题均为原创，并非真实考题。参加考试前请查阅最新考纲和 AWS 文档。',
@@ -196,7 +196,7 @@ var S = {
   task: store.get('task', '1.1'),
   done: store.get('done', []),
   q: '',
-  cardDomain: 'all', hideKnown: store.get('hideKnown', false), known: store.get('known', []), cardIdx: 0, flip: false, perm: null,
+  cardDomain: 'all', known: store.get('known', []), cardIdx: 0, flip: false, perm: null,
   exMode: 'practice', exFilter: 'all', ans: {}, checked: {}, qperm: {}, mock: null, confirmSubmit: false,
   best: store.get('best', null), missed: store.get('missed', []), seen: store.get('seen', []),
   srs: store.get('srs', {}), cardMode: store.get('cardMode', 'due'), queue: null, qTotal: 0, hist: store.get('hist', []), stats: store.get('stats', {}), gsQ: '',
@@ -282,7 +282,7 @@ function renderHeader(){
   document.getElementById('drawerNav').innerHTML = VIEWS.map(function(v){
     return '<button class="dlink" type="button" data-go="' + v + '"' + (S.view === v ? ' aria-current="page"' : '') + '>' + NAVICON[v] + '<span>' + tt[v] + '</span></button>';
   }).join('');
-  document.getElementById('drawerFoot').innerHTML = '<span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
+  document.getElementById('drawerFoot').innerHTML = '<span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · <button type="button" class="link foot-about" data-act="privacy" aria-haspopup="dialog">' + esc(tt.privLink) + '</button>' + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
   var sb = document.getElementById('searchBtn'); sb.setAttribute('aria-label', tt.searchBtn); sb.setAttribute('data-hint', tt.searchBtn + ' ( / )');
   paintSync();
   document.getElementById('skipLink').textContent = tt.skip;
@@ -292,7 +292,7 @@ function renderHeader(){
   var lb = document.getElementById('langBtn');
   lb.textContent = tt.langBtn; lb.setAttribute('lang', tt.langCtaLang); lb.setAttribute('aria-label', tt.langLabel); lb.setAttribute('data-hint', tt.langLabel);
   updateThemeBtn();
-  document.getElementById('foot').innerHTML = '<span class="credit">Craft by <b>Eyevuhn</b></span><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>';
+  document.getElementById('foot').innerHTML = '<span class="credit">Craft by <b>Eyevuhn</b></span><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · <button type="button" class="link foot-about" data-act="privacy" aria-haspopup="dialog">' + esc(tt.privLink) + '</button>' + '</span>';
   fitNav();
 }
 /* Show the full tab bar only when it truly fits; otherwise hide the subtitle, then fall back to the burger. */
@@ -808,7 +808,10 @@ function showHint(el){
   hintEl.style.left = Math.round(left) + 'px'; hintEl.style.top = Math.round(top) + 'px';
   hintEl.classList.add('on');
 }
-function hideHint(){ clearTimeout(hintTimer); if (hintEl) hintEl.classList.remove('on'); hintFor = null; }
+function hideHint(){
+  clearTimeout(hintTimer); hintFor = null;
+  if (hintEl) { hintEl.classList.remove('on'); hintTimer = setTimeout(function(){ if (!hintFor) { hintEl.style.left = '0px'; hintEl.style.top = '0px'; } }, 200); }
+}
 document.addEventListener('pointerover', function(e){
   if (e.pointerType === 'touch') return;
   var el = e.target.closest && e.target.closest('[data-hint]');
@@ -1091,6 +1094,7 @@ document.addEventListener('click', function(e){
   switch (act) {
     case 'about': openAbout(el); break;
     case 'log': openLog(el); break;
+    case 'privacy': openPrivacy(el); break;
     case 'acct': openAcct(); break;
     case 'acct-x': closeAcct(true); break;
     case 'acct-sync': safePull(); break;
@@ -1195,7 +1199,6 @@ document.addEventListener('click', function(e){
 document.addEventListener('change', function(e){
   var el = e.target;
   if (el.id === 'svcScope') { S.svcScope = el.checked; document.getElementById('svcTable').innerHTML = svcTable(); }
-  else if (el.id === 'hideKnown') { S.hideKnown = el.checked; store.set('hideKnown', S.hideKnown); S.cardIdx = 0; S.flip = false; render(); focusSel('#hideKnown'); }
   else if (el.getAttribute('data-act') === 'plan') {
     var k = el.getAttribute('data-k');
     if (el.checked) { if (!inArr(S.planDone, k)) S.planDone = S.planDone.concat([k]); } else S.planDone = S.planDone.filter(function(x){ return x !== k; });
@@ -1423,7 +1426,7 @@ function acctHTML(){
   if (!syncUser) {
     return '<p>' + tt.syncP + '</p><form id="acctForm" class="acct-form" novalidate><label for="acctEmail">' + tt.emailL + '</label>' +
       '<div class="acct-row"><input id="acctEmail" class="field" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"><button type="submit" class="btn pri" id="acctSend">' + tt.sendLink + '</button></div></form>' +
-      '<p class="acct-msg" id="acctMsg" role="status">' + esc(acctMsg) + '</p><p class="acct-priv">' + tt.syncPriv + '</p>';
+      '<p class="acct-msg" id="acctMsg" role="status">' + esc(acctMsg) + '</p><p class="acct-priv">' + tt.syncPriv + ' <button type="button" class="link" data-act="privacy">' + tt.privLink + '</button></p>';
   }
   var st = syncState === 'synced' ? fmt(tt.stSynced, {t: ago(lastSync)}) : syncState === 'pending' ? tt.stPending : syncState === 'offline' ? tt.syncOffline : syncState === 'error' ? fmt(tt.stErr, {m: syncErr}) : '';
   return '<p class="acct-who">' + esc(fmt(tt.signedAs, {e: syncUser.email || ''})) + '</p>' +
@@ -1517,6 +1520,22 @@ function syncCta(){
 }
 
 /* ---------------- about / disclaimer dialog ---------------- */
+var CHECKED = '2026-09-24'; // last full check of the content against the official exam guide
+var PRIV = {en: [["On this device", "Your progress (lessons, answers, flashcards, scores and settings) is saved in this browser. Nothing leaves your device unless you turn on Sync my progress."], ["If you sign in to sync", "Your email address and your study progress are stored with Supabase, the database service behind sync, so your devices can share them. Your language is saved too, so sign-in emails arrive in it. Sign-in emails are sent through Supabase.", "sync"], ["What we don’t do", "No ads, no tracking and no analytics. Your data is never sold or used for marketing."], ["Other services", "Fonts load from Google Fonts{sb}. Like any web request, these services see your IP address."], ["Your choices", "Delete my account and synced data, in the Sync my progress menu, permanently removes your email address and synced progress. To clear progress on one device, clear this site’s data in your browser.", "sync"]],
+  zh: [["本设备上", "你的学习进度（课程、答案、闪卡、成绩和设置）保存在当前浏览器中。除非你开启“同步我的进度”，否则这些数据不会离开你的设备。"], ["登录并同步时", "你的邮箱地址和学习进度会保存在同步所用的数据库服务 Supabase 中，以便在你的设备之间共享。系统也会保存你的界面语言，让登录邮件使用该语言。登录邮件通过 Supabase 发送。", "sync"], ["我们不会做的事", "没有广告、没有跟踪、没有统计分析。你的数据绝不会被出售或用于营销。"], ["其他服务", "字体从 Google Fonts 加载{sb}。与任何网页请求一样，这些服务会看到你的 IP 地址。"], ["你的选择", "在“同步我的进度”菜单中选择“删除我的账户和已同步数据”，即可永久删除你的邮箱地址和已同步的进度。如需清除某台设备上的进度，请在浏览器中清除本站数据。", "sync"]]};
+function openPrivacy(from){
+  closeAbout(true); if (document.getElementById('acctDlg')) closeAcct(false);
+  aboutReturn = from || null;
+  if (menuOpen) setMenu(false, false);
+  var tt = t(), sb = syncEnabled() ? (S.lang === 'zh' ? '，登录功能的代码从 jsDelivr CDN 加载' : ', and the sign-in code loads from the jsDelivr CDN') : '';
+  var body = PRIV[S.lang].filter(function(x){ return x[2] !== 'sync' || syncEnabled(); }).map(function(x){ return '<h4>' + x[0] + '</h4><p>' + x[1].replace('{sb}', sb) + '</p>'; }).join('');
+  document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back about-back" id="aboutDlg" data-act="about-close"><div class="dlg about log-dlg priv" role="dialog" aria-modal="true" aria-labelledby="aboutT">' +
+    '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="aboutT">' + tt.privT + '</h3></div>' +
+    '<div class="log-list">' + body + '</div>' +
+    '<div class="row dlg-act"><button type="button" class="btn pri" id="aboutClose" data-act="about-close">' + tt.aboutClose + '</button></div></div></div>');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
+}
 var aboutReturn = null;
 function openAbout(from){
   closeAbout(true);
@@ -1526,7 +1545,8 @@ function openAbout(from){
   document.body.insertAdjacentHTML('beforeend', '<div class="dlg-back about-back" id="aboutDlg" data-act="about-close"><div class="dlg about" role="dialog" aria-modal="true" aria-labelledby="aboutT">' +
     '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="aboutT">' + tt.aboutT + '</h3></div>' +
     (syncEnabled() ? tt.aboutP.slice(0, -1).concat([tt.aboutSync]) : tt.aboutP).map(function(x){ return '<p>' + x + '</p>'; }).join('') +
-    '<p class="about-ver"><button type="button" class="link foot-about" data-act="log">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · Craft by Eyevuhn</p>' +
+    '<p class="about-ver"><button type="button" class="link foot-about" data-act="log">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · Craft by Eyevuhn · <button type="button" class="link foot-about" data-act="privacy">' + tt.privLink + '</button></p>' +
+    '<p class="about-checked">' + fmt(tt.checked, {d: fmtDate(CHECKED)}) + '</p>' +
     '<div class="row dlg-act"><button type="button" class="btn pri" id="aboutClose" data-act="about-close">' + tt.aboutClose + '</button></div></div></div>');
   document.body.style.overflow = 'hidden';
   setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
@@ -1544,6 +1564,7 @@ var CHANGELOG = [
     'Practice has a Shuffle option that mixes up the question order.',
     '25 new questions (240 in total) cover every example term in the exam guide that was not yet tested, such as one-shot prompting, cross-Region inference, Amazon Inspector and user engagement metrics.',
     'On phones and tablets every button, chip and link is at least 44 × 44 px, so it is easy to tap.',
+    'A privacy note (footer, About and the sync menu) explains what is stored and where; About shows when the content was last checked against the exam guide; shared links now show a preview card.',
     'New lettering for the logo, and a Chinese name: <b>考汪</b> (a play on 考王, “exam king”).'
   ], zh: [
     '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
@@ -1557,6 +1578,7 @@ var CHANGELOG = [
     '练习模式新增“打乱顺序”，可随机排列题目。',
     '新增 25 道题（共 240 道），覆盖考试指南中此前未考到的全部示例术语，例如单样本提示、跨区域推理、Amazon Inspector 和用户参与度指标。',
     '在手机和平板上，所有按钮、标签和链接都至少 44 × 44 像素，更容易点按。',
+    '新增隐私说明（页脚、关于和同步菜单），说明保存了哪些数据以及存放位置；“关于”中显示内容最近一次对照考试指南核对的日期；分享链接时会显示预览卡片。',
     '全新标志字体，并启用中文名<b>考汪</b>（谐音“考王”）。'
   ]},
   {v: '1.1', date: '2026-09-23', en: [

@@ -97,7 +97,7 @@ mkdirSync(here('./dist/'), { recursive: true });
 writeFileSync(here('./dist/sw.js'), sw);
 writeFileSync(here('./dist/index.html'), full);
 writeFileSync(here('./dist/manifest.webmanifest'), JSON.stringify(manifest, null, 2));
-for (const f of ['favicon-32.png', 'favicon-64.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png']) {
+for (const f of ['favicon-32.png', 'favicon-64.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png']) {
   copyFileSync(here(`./src/assets/${f}`), here(`./dist/${f}`));
 }
 writeFileSync(here('./senseidoge-artifact.html'), shell + '\n' + scriptsNoSync);
