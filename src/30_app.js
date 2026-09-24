@@ -289,6 +289,8 @@ function renderHeader(){
   var mb = document.getElementById('menuBtn');
   mb.setAttribute('aria-label', menuOpen ? tt.closeMenu : tt.openMenu);
   document.getElementById('drawerClose').setAttribute('aria-label', tt.closeMenu);
+  var lb = document.getElementById('langBtn');
+  lb.textContent = tt.langBtn; lb.setAttribute('lang', tt.langCtaLang); lb.setAttribute('aria-label', tt.langLabel); lb.setAttribute('data-hint', tt.langLabel);
   updateThemeBtn();
   document.getElementById('foot').innerHTML = '<span class="credit">Craft by <b>Eyevuhn</b></span><span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button>' + '</span>';
   fitNav();
@@ -1523,7 +1525,7 @@ var CHANGELOG = [
     'Sign-in emails arrive in English or Chinese to match your language.',
     'Practice and quick mock: a floating bar shows which question you are on, how many you have answered and your score, with a Next question button and a Go to # box to jump to any question number. Checking an answer brings that question to the top so its explanation is in view.',
     'SenseiDoge’s own dropdowns, checkboxes, switches, search boxes and tooltips replace the browser’s built-in ones; header buttons are now plain icons.',
-    'The language switch moved from the header to a pinned notice under Your progress (and the side menu on phones).',
+    'A pinned notice under Your progress (and the side menu on phones) also offers the other language.',
     'New lettering for the logo, and a Chinese name: <b>考汪</b> (a play on 考王, “exam king”).'
   ], zh: [
     '<b>同步我的进度</b>：用邮箱链接登录，课程、闪卡、错题和考试记录在所有设备间保持同步，无需密码。',
@@ -1533,7 +1535,7 @@ var CHANGELOG = [
     '登录邮件会按你的界面语言以中文或英文发送。',
     '练习与快速模考：底部浮动栏显示当前题号、已答题数和得分，并提供“下一题”按钮和可跳转到任意题号的输入框；核对答案后，该题会移到页面顶部，方便查看解析。',
     '下拉菜单、复选框、开关、搜索框和提示框改用本站自己的设计，不再使用浏览器自带样式；顶部按钮改为纯图标。',
-    '语言切换从顶部移到“学习进度”下方的置顶提示（手机上也可在侧边菜单中切换）。',
+    '“学习进度”下方新增语言切换提示（手机上也可在侧边菜单中切换）。',
     '全新标志字体，并启用中文名<b>考汪</b>（谐音“考王”）。'
   ]},
   {v: '1.1', date: '2026-09-23', en: [
@@ -1632,7 +1634,7 @@ document.addEventListener('keydown', function(e){
   else if ((e.key === ' ' || e.key === 'Enter') && tag !== 'button' && tag !== 'a') { e.preventDefault(); S.flip = !S.flip; render(); }
 });
 function switchLang(from){
-  var sel = from && from.classList.contains('dlang') ? '#menuBtn' : '.lang-cta [data-act="lang"]';
+  var sel = from && from.id === 'langBtn' ? '#langBtn' : from && from.classList.contains('dlang') ? '#menuBtn' : '.lang-cta [data-act="lang"]';
   S.lang = S.lang === 'en' ? 'zh' : 'en'; store.set('lang', S.lang); render(); saveEmailLang(); focusSel(sel);
 }
 document.getElementById('themeBtn').addEventListener('click', function(){ var next = isDark() ? 'light' : 'dark'; root.setAttribute('data-theme', next); store.set('theme', next); updateThemeBtn(); });
