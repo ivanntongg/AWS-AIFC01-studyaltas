@@ -1493,7 +1493,7 @@ var REDO = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="
 function missCta(){
   var n = S.missed.length; if (!n) return '';
   var tt = t();
-  return '<div class="sync-cta miss-cta"><span class="cta-t">' + REDO + '<span>' + (n === 1 ? tt.missCta1 : fmt(tt.missCtaN, {n: n})) + '</span></span><button type="button" class="btn sm" data-act="practice-missed">' + tt.missCtaBtn + '</button></div>';
+  return '<div class="sync-cta miss-cta"><span class="cta-t">' + REDO + '<span>' + (n === 1 ? tt.missCta1 : fmt(tt.missCtaN, {n: n})) + '</span></span><button type="button" class="btn sm pri" data-act="practice-missed">' + tt.missCtaBtn + '</button></div>';
 }
 function syncCta(){
   if (!syncEnabled() || syncUser) return '';
