@@ -27,8 +27,8 @@ Q('d1','single',[1],
  ['Precision','Recall','Accuracy','RMSE'],
  'Recall = TP / (TP + FN). It measures how many real cases are caught, so it is the metric to maximize when false negatives are costly. Accuracy is misleading for rare classes; RMSE is a regression metric.'],
 ['医院构建模型来筛查一种罕见病。漏诊病人的后果远比多做一次检查的误报严重。团队应优先关注哪个指标？',
- ['精确率','召回率','准确率','RMSE'],
- '召回率 = TP / (TP + FN)，衡量真实病例被抓到多少，漏报代价高时应最大化召回率。罕见类别下准确率有误导性；RMSE 是回归指标。']);
+ ['查准率','查全率','准确率','RMSE'],
+ '查全率 = TP / (TP + FN)，衡量真实病例被抓到多少，漏报代价高时应最大化查全率。罕见类别下准确率有误导性；RMSE 是回归指标。']);
 
 Q('d1','single',[2],
 ['A media company runs inference on video files of up to 800 MB. Each file takes about 20 minutes to process, and users can be notified when results are ready. Which SageMaker AI inference option fits best?',
@@ -43,7 +43,7 @@ Q('d1','single',[2],
  ['Train a regression model on past payslips','Use a foundation model with few-shot examples','Use deterministic rules-based code instead of ML','Use reinforcement learning'],
  'When a specific, exact outcome defined by rules is required, ML (which returns predictions) is not appropriate. Ordinary code is cheaper and always correct.'],
 ['工资系统必须严格按照固定劳动法规计算加班费。最佳做法是什么？',
- ['用历史工资单训练回归模型','使用基础模型加少样本示例','使用确定性的规则代码，而不是 ML','使用强化学习'],
+ ['用历史工资单训练回归模型','使用基础模型加少量样本示例','使用确定性的规则代码，而不是 ML','使用强化学习'],
  '需要由规则确定的精确结果时，不适合用输出预测值的 ML。普通代码更便宜且始终正确。']);
 
 Q('d1','multi',[0,2],
@@ -74,9 +74,9 @@ Q('d1','order',[],
 ['Put these ML pipeline stages in the correct order.',
  ['Collect data','Prepare data and engineer features','Train and tune the model','Evaluate the model','Deploy and monitor'],
  'The pipeline runs: data collection → preparation and feature engineering → training and tuning → evaluation → deployment and monitoring, with monitoring feeding re-training.'],
-['请把以下 ML 流水线阶段按正确顺序排列。',
+['请把以下 ML 管道阶段按正确顺序排列。',
  ['收集数据','准备数据并做特征工程','训练并调优模型','评估模型','部署并监控'],
- '流水线顺序：数据收集 → 数据准备与特征工程 → 训练与调优 → 评估 → 部署与监控，监控结果再反馈到再训练。']);
+ '管道顺序：数据收集 → 数据准备与特征工程 → 训练与调优 → 评估 → 部署与监控，监控结果再反馈到再训练。']);
 
 Q('d1','single',[1],
 ['A fraud model\'s performance declined over six months because fraudsters changed their techniques. The distribution of input features looks unchanged. What is this, and which service can detect it?',
@@ -106,9 +106,9 @@ Q('d1','single',[1],
 ['A spam filter produced these results: TP = 90, FP = 10, FN = 30, TN = 870. What is its precision?',
  ['75%','90%','96%','69%'],
  'Precision = TP / (TP + FP) = 90 / 100 = 90%. (Recall would be 90 / 120 = 75%.)'],
-['某垃圾邮件过滤器的结果为：TP = 90，FP = 10，FN = 30，TN = 870。它的精确率是多少？',
+['某垃圾邮件过滤器的结果为：TP = 90，FP = 10，FN = 30，TN = 870。它的查准率是多少？',
  ['75%','90%','96%','69%'],
- '精确率 = TP / (TP + FP) = 90 / 100 = 90%。（召回率为 90 / 120 = 75%。）']);
+ '查准率 = TP / (TP + FP) = 90 / 100 = 90%。（查全率为 90 / 120 = 75%。）']);
 
 Q('d1','single',[0],
 ['Business analysts with no coding experience want to build a demand-prediction model from spreadsheet data. Which option fits?',
@@ -116,7 +116,7 @@ Q('d1','single',[0],
  'SageMaker Canvas is a no-code interface for building ML models. Ground Truth is for labeling; Macie finds sensitive data; the Glue Data Catalog stores metadata.'],
 ['没有编程经验的业务分析师想用表格数据构建需求预测模型。哪个选项合适？',
  ['Amazon SageMaker Canvas','Amazon SageMaker Ground Truth','Amazon Macie','AWS Glue Data Catalog'],
- 'SageMaker Canvas 是无代码的 ML 建模界面。Ground Truth 用于标注；Macie 发现敏感数据；Glue Data Catalog 存储元数据。']);
+ 'SageMaker Canvas 是无代码的 ML 建模界面。Ground Truth 用于标记；Macie 发现敏感数据；Glue Data Catalog 存储元数据。']);
 
 /* ---------------- Domain 2 ---------------- */
 Q('d2','single',[2],
@@ -148,8 +148,8 @@ Q('d2','multi',[0,1],
  ['Hallucinations','Nondeterministic outputs','One model can handle many tasks','Natural-language interface','Low barrier to entry'],
  'Hallucinations and nondeterminism are limitations. Adaptability, conversational interfaces and a low barrier to entry are advantages.'],
 ['以下哪些是生成式 AI 的劣势？（选择两项）',
- ['幻觉','输出具有非确定性','一个模型可完成多种任务','自然语言交互界面','上手门槛低'],
- '幻觉和非确定性是局限；适应性、对话式交互和低门槛都是优势。']);
+ ['幻觉','输出具有不确定性','一个模型可完成多种任务','自然语言交互界面','上手门槛低'],
+ '幻觉和不确定性是局限；适应性、对话式交互和低门槛都是优势。']);
 
 Q('d2','single',[1],
 ['A chatbot\'s Amazon Bedrock bill is too high. Every request includes the full 30-turn conversation history and 10 retrieved documents. What will reduce cost most without changing the model?',
@@ -172,7 +172,7 @@ Q('d2','single',[1],
  ['Swarm','Supervisor / orchestrator (hierarchical)','Single agent','Sequential pipeline'],
  'A central agent that delegates to specialists and merges results is the supervisor (hierarchical) pattern, as in Bedrock multi-agent collaboration.'],
 ['主智能体把客户请求拆成子任务，分派给账单、物流和退货等专业智能体，再汇总它们的回答。这是哪种多智能体模式？',
- ['蜂群','主管 / 编排者（层级式）','单智能体','顺序流水线'],
+ ['蜂群','主管 / 编排者（层级式）','单智能体','顺序管道'],
  '由中央智能体分派任务给专家并汇总结果，就是主管（层级式）模式，例如 Bedrock 多智能体协作。']);
 
 Q('d2','single',[1],
@@ -293,7 +293,7 @@ Q('d3','single',[1],
  ['Fine-tuning with labeled prompt-response pairs','Continued pre-training','Few-shot prompting','Model distillation'],
  'Continued pre-training adapts a model to a domain using unlabeled text. Fine-tuning needs labeled pairs.'],
 ['一家律所拥有大量无标签的法律文档，希望模型更好地理解法律术语。应采用哪种方式？',
- ['用有标签的提示-回答对微调','持续预训练','少样本提示','模型蒸馏'],
+ ['用有标签的提示-回答对微调','持续预训练','少量样本提示','模型蒸馏'],
  '持续预训练用无标签文本让模型适应特定领域；微调需要有标签的数据对。']);
 
 Q('d3','single',[0],
@@ -357,8 +357,8 @@ Q('d3','multi',[0,2],
  ['Fine-tuning with prompt-response pairs','Continued pre-training','Instruction tuning','Self-supervised pre-training','Clustering'],
  'Fine-tuning and instruction tuning train on labeled input→output examples. Continued pre-training and self-supervised pre-training use unlabeled text; clustering is unsupervised.'],
 ['以下哪些方法需要有标签数据？（选择两项）',
- ['用提示-回答对微调','持续预训练','指令微调','自监督预训练','聚类'],
- '微调和指令微调用有标签的“输入 → 输出”示例训练。持续预训练和自监督预训练使用无标签文本；聚类是无监督的。']);
+ ['用提示-回答对微调','持续预训练','指令优化','自监督预训练','聚类'],
+ '微调和指令优化用有标签的“输入 → 输出”示例训练。持续预训练和自监督预训练使用无标签文本；聚类是无监督的。']);
 
 Q('d3','single',[1],
 ['What is the main purpose of reinforcement learning from human feedback (RLHF)?',
@@ -373,7 +373,7 @@ Q('d3','match',[],
  [['Zero-shot','Asks for the task with no examples'],['Few-shot','Includes several input-output examples'],['Prompt template','Reusable prompt with variables'],['Negative prompt','States what the output must not include']],
  'These are the core constructs named in Task 3.2.'],
 ['将每个提示工程概念或技术与其描述匹配。',
- [['零样本','不给示例，直接提出任务'],['少样本','包含若干输入-输出示例'],['提示模板','带变量的可复用提示'],['否定提示','说明输出中不得包含的内容']],
+ [['零样本','不给示例，直接提出任务'],['少量样本','包含若干输入-输出示例'],['提示模板','带变量的可复用提示'],['否定提示','说明输出中不得包含的内容']],
  '这些是任务 3.2 中列出的核心概念。']);
 
 Q('d3','single',[1],
@@ -616,5 +616,5 @@ Q('d5','single',[0],
  'Data lineage records the origin and transformations of data through the pipeline; it supports source citation and audits.'],
 ['团队必须能够说明每条训练数据来自哪里，以及对它做过的每一次转换。这叫什么？',
  ['数据血缘','数据增强','模型蒸馏','分词'],
- '数据血缘记录数据在流水线中的来源和转换过程，支持来源引用和审计。']);
+ '数据血缘记录数据在管道中的来源和转换过程，支持来源引用和审计。']);
 })();

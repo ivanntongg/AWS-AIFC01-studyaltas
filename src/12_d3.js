@@ -146,7 +146,7 @@ zh:`
 
 <h3>定制方式的成本阶梯</h3>
 <div class="ladder">
-<div><span class="n">1</span><span><b>提示工程 / 上下文学习</b>：在提示中给出指令和少样本示例。无需训练，权重不变。</span><span class="cost">$</span></div>
+<div><span class="n">1</span><span><b>提示工程 / 上下文学习</b>：在提示中给出指令和少量样本示例。无需训练，权重不变。</span><span class="cost">$</span></div>
 <div><span class="n">2</span><span><b>RAG</b>：查询时检索你的文档。权重不变。成本：嵌入、向量库、更长的提示。</span><span class="cost">$$</span></div>
 <div><span class="n">3</span><span><b>微调</b>：用有标签的“提示–回答”对训练。权重改变。用于风格、格式、专门任务。</span><span class="cost">$$$</span></div>
 <div><span class="n">4</span><span><b>持续预训练</b>：用大量无标签领域文本训练。权重改变。让模型掌握领域词汇。</span><span class="cost">$$$$</span></div>
@@ -155,7 +155,7 @@ zh:`
 <div class="box def"><p><b>模型蒸馏 (Distillation)</b>：由大型“教师”模型生成回答，用来训练较小的“学生”模型。学生模型在你的场景中准确率接近教师，但运行更快更便宜（Amazon Bedrock 模型蒸馏）。它降低的是<i>推理</i>成本，不是添加新知识的方法。</p></div>
 <div class="tw"><table><thead><tr><th>场景</th><th>最佳方式</th></tr></thead><tbody>
 <tr><td>答案必须反映每天变化的文档，并附引用</td><td>RAG</td></tr>
-<tr><td>快速原型；几个示例就能说明输出格式</td><td>少样本提示</td></tr>
+<tr><td>快速原型；几个示例就能说明输出格式</td><td>少量样本提示</td></tr>
 <tr><td>输出必须始终符合品牌语气和固定格式，而提示词不够可靠</td><td>微调</td></tr>
 <tr><td>模型不懂专业词汇；你有大量无标签领域文本</td><td>持续预训练</td></tr>
 <tr><td>大模型效果好，但规模化后太慢太贵</td><td>蒸馏</td></tr>
@@ -179,7 +179,7 @@ AIF.tasks['3.2'] = {d:'d3',
 title:{en:'Choose effective prompt engineering techniques', zh:'选择有效的提示工程技术'},
 obj:[
  ['Define prompt constructs: context, instruction, negative prompts','定义提示的组成：上下文、指令、否定提示'],
- ['Define techniques: chain-of-thought, zero-shot, single-shot, few-shot, prompt templates','定义技术：思维链、零样本、单样本、少样本、提示模板'],
+ ['Define techniques: chain-of-thought, zero-shot, single-shot, few-shot, prompt templates','定义技术：思维链、零样本、单样本、少量样本、提示模板'],
  ['Describe benefits and best practices: quality, experimentation, guardrails, discovery, specificity and concision, multiple comments','描述好处与最佳实践：提升回答质量、实验、护栏、探索发现、具体简洁、多轮说明'],
  ['Define risks and limitations: exposure, poisoning, hijacking, jailbreaking','定义风险与局限：信息暴露、投毒、劫持、越狱'],
  ['Describe prompt versioning and management with Amazon Bedrock Prompt Management','描述使用 Amazon Bedrock Prompt Management 进行提示版本管理与管理策略']
@@ -271,16 +271,16 @@ zh:`
 <div class="tw"><table><thead><tr><th>技术</th><th>做法</th><th>适用</th></tr></thead><tbody>
 <tr><td>零样本 (Zero-shot)</td><td>直接提问，不给示例。</td><td>简单常见的任务。</td></tr>
 <tr><td>单样本 (Single/One-shot)</td><td>只给一个示例。</td><td>展示一次格式。</td></tr>
-<tr><td>少样本 (Few-shot)</td><td>给几个示例（通常 2–5 个）。</td><td>要求格式、风格或标注一致。</td></tr>
+<tr><td>少量样本 (Few-shot)</td><td>给几个示例（通常 2–5 个）。</td><td>要求格式、风格或标记一致。</td></tr>
 <tr><td>思维链 (CoT)</td><td>让模型先逐步推理再给最终答案。</td><td>数学、逻辑、多步推理。</td></tr>
 <tr><td>提示模板</td><td>带变量的可复用提示，如 {{customer_name}}、{{question}}。</td><td>应用中可重复、一致、可版本化的提示。</td></tr>
 </tbody></table></div>
-<p>零样本、单样本和少样本都属于<b>上下文学习 (in-context learning)</b>：模型从提示中学习，而不是通过训练。<b>ReAct</b>（推理 + 行动）在思维链基础上加入工具调用，是大多数智能体的基础。</p>
+<p>零样本、单样本和少量样本都属于<b>上下文学习 (in-context learning)</b>：模型从提示中学习，而不是通过训练。<b>ReAct</b>（推理 + 行动）在思维链基础上加入工具调用，是大多数智能体的基础。</p>
 <div class="box ex"><p><b>任务：判断“配送晚了，但产品很棒。”的情感</b></p>
 <ul>
 <li><b>零样本：</b>“将情感分类为正面、负面或混合。”</li>
 <li><b>单样本：</b>加上“示例：‘客服太差，再也不来了。’→ 负面”。</li>
-<li><b>少样本：</b>加上三个已标注示例，其中一个是混合。</li>
+<li><b>少量样本：</b>加上三个已标记示例，其中一个是混合。</li>
 <li><b>思维链：</b>“先列出正面和负面要点，再下结论。”→ 晚到（负面）+ 很棒（正面）→ 混合。</li>
 <li><b>模板：</b>“判断以下评论的情感：{{review}}。只回答一个词。”</li>
 </ul></div>
@@ -302,10 +302,10 @@ zh:`
 <div class="tw"><table><thead><tr><th>风险</th><th>表现</th><th>防御</th></tr></thead><tbody>
 <tr><td>提示注入 / 劫持</td><td>用户输入或检索内容中的恶意指令接管模型：“忽略之前的所有指令并……”。<b>间接</b>注入把指令藏在模型读取的文档、网页或邮件中。</td><td>护栏提示攻击过滤、隔离并标记不可信数据、工具最小权限、执行前校验输出。</td></tr>
 <tr><td>越狱 (Jailbreaking)</td><td>通过角色扮演或假设情境让模型无视安全规则。</td><td>护栏内容过滤与提示攻击过滤、强健的系统提示、持续监控。</td></tr>
-<tr><td>信息暴露 / 提示泄露</td><td>模型泄露系统提示、机密数据或其他用户的数据。</td><td>不在提示中放密钥、PII 过滤、输出过滤、对检索数据做访问控制。</td></tr>
+<tr><td>信息暴露 / 提示暴露</td><td>模型泄露系统提示、机密数据或其他用户的数据。</td><td>不在提示中放密钥、PII 过滤、输出过滤、对检索数据做访问控制。</td></tr>
 <tr><td>投毒 (Poisoning)</td><td>在训练数据或知识库中植入恶意或错误数据以污染答案。</td><td>审核并管控数据源、数据血缘、限制写入权限、持续评估。</td></tr>
 </tbody></table></div>
-<p><b>局限：</b>提示无法补充模型不具备的知识（要用 RAG）；输出仍是非确定性的；长提示会触及上下文上限且更贵；提示很脆弱，措辞稍改结果就可能不同。</p>
+<p><b>局限：</b>提示无法补充模型不具备的知识（要用 RAG）；输出仍是不确定性的；长提示会触及上下文上限且更贵；提示很脆弱，措辞稍改结果就可能不同。</p>
 
 <h3>Amazon Bedrock Prompt Management（提示管理）</h3>
 <ul>
@@ -322,8 +322,8 @@ AIF.tasks['3.3'] = {d:'d3',
 title:{en:'Describe the training and fine-tuning process for foundation models', zh:'描述基础模型的训练与微调过程'},
 obj:[
  ['Describe key elements of training an FM: pre-training, fine-tuning, continuous pre-training, distillation','描述训练 FM 的关键要素：预训练、微调、持续预训练、蒸馏'],
- ['Define fine-tuning methods: instruction tuning, domain adaptation, transfer learning, continuous pre-training','定义微调方法：指令微调、领域适配、迁移学习、持续预训练'],
- ['Describe data preparation: curation, governance, size, labeling, representativeness, RLHF','描述微调数据准备：数据筛选、治理、规模、标注、代表性、RLHF']
+ ['Define fine-tuning methods: instruction tuning, domain adaptation, transfer learning, continuous pre-training','定义微调方法：指令优化、领域适配、迁移学习、持续预训练'],
+ ['Describe data preparation: curation, governance, size, labeling, representativeness, RLHF','描述微调数据准备：数据筛选、治理、规模、标记、代表性、RLHF']
 ],
 en:`
 <h3>Training methods compared</h3>
@@ -366,7 +366,7 @@ zh:`
 <tr><td>预训练</td><td>海量无标签语料（数万亿 Token），自监督</td><td>从零学习</td><td>通用语言与世界知识</td></tr>
 <tr><td>持续预训练</td><td>大量<b>无标签</b>领域文本（医学论文、法律文书）</td><td>更新</td><td>领域词汇与知识</td></tr>
 <tr><td>微调（监督式）</td><td><b>有标签</b>的“提示 → 回答”对（数百到数千条）</td><td>更新</td><td>特定任务、风格或输出格式</td></tr>
-<tr><td>指令微调</td><td>覆盖多种任务的有标签“指令 → 回答”示例</td><td>更新</td><td>可靠地遵循指令</td></tr>
+<tr><td>指令优化</td><td>覆盖多种任务的有标签“指令 → 回答”示例</td><td>更新</td><td>可靠地遵循指令</td></tr>
 <tr><td>领域适配</td><td>特定领域数据（有标签或无标签）</td><td>更新</td><td>把通用模型变成某领域专家</td></tr>
 <tr><td>迁移学习</td><td>预训练模型 + 较小的任务数据集</td><td>复用后更新</td><td>把已学知识用于新任务；微调是最常见形式</td></tr>
 <tr><td>蒸馏</td><td>提示 + 教师模型的回答</td><td>训练学生模型</td><td>更小、更快、更便宜的模型</td></tr>
@@ -380,7 +380,7 @@ zh:`
 <tr><td>数据筛选 (Curation)</td><td>高质量、相关、去重；去除错误和有害内容。</td></tr>
 <tr><td>治理</td><td>拥有使用数据的权利与授权；PII 已删除或脱敏；记录数据血缘。</td></tr>
 <tr><td>规模</td><td>示例足以覆盖任务。质量胜过数量：几千条干净样本胜过百万条噪声数据。</td></tr>
-<tr><td>标注</td><td>标签准确一致，有清晰的标注指南；衡量标注员间一致性。<b>SageMaker Ground Truth</b> 提供标注工作流和标注人员。</td></tr>
+<tr><td>标记</td><td>标签准确一致，有清晰的标记指南；衡量标记人员间一致性。<b>SageMaker Ground Truth</b> 提供标记工作流和标记人员。</td></tr>
 <tr><td>代表性</td><td>覆盖模型将服务的真实用户、语言、边界情况和群体，避免偏见。</td></tr>
 <tr><td>格式</td><td>Bedrock 要求：存放在 S3 中的 JSONL 文件，包含 prompt/completion（或对话）记录，另附验证集。</td></tr>
 </tbody></table></div>
@@ -390,7 +390,7 @@ zh:`
 <p>聊天模型正是通过 RLHF 学会偏好人们认为有用且安全的回答。人工排序是成本最高的部分，可用 SageMaker Ground Truth 收集。</p>
 <div class="box rem"><ul>
 <li>新的领域词汇、大量原始文本 → <b>持续预训练</b>。</li>
-<li>特定任务或格式、有标注示例 → <b>微调</b> / 指令微调。</li>
+<li>特定任务或格式、有标记示例 → <b>微调</b> / 指令优化。</li>
 <li>符合人类偏好、语气、安全性 → <b>RLHF</b>。</li>
 <li>更小更便宜、在单一任务上质量不变 → <b>蒸馏</b>。</li>
 </ul></div>
@@ -400,7 +400,7 @@ zh:`
 AIF.tasks['3.4'] = {d:'d3',
 title:{en:'Describe methods to evaluate foundation model performance', zh:'描述评估基础模型性能的方法'},
 obj:[
- ['Determine evaluation approaches: human-in-the-loop, benchmark datasets, Amazon Bedrock Model Evaluation','确定评估方法：人在回路评估、基准数据集、Amazon Bedrock 模型评估'],
+ ['Determine evaluation approaches: human-in-the-loop, benchmark datasets, Amazon Bedrock Model Evaluation','确定评估方法：人工参与评估、基准数据集、Amazon Bedrock 模型评估'],
  ['Identify metrics: ROUGE, BLEU, BERTScore, LLM-as-a-judge','识别评估指标：ROUGE、BLEU、BERTScore、LLM 作为评审'],
  ['Determine whether an FM meets business objectives: productivity, user engagement, task engineering','判断 FM 是否达成业务目标：生产力、用户参与度、任务设计'],
  ['Identify how to evaluate FM-based applications: RAG, agents, workflows','识别评估基于 FM 的应用的方法：RAG、智能体、工作流'],
@@ -449,15 +449,15 @@ en:`
 zh:`
 <h3>三种评估方法</h3>
 <div class="tw"><table><thead><tr><th>方法</th><th>做法</th><th>优缺点</th></tr></thead><tbody>
-<tr><td>人在回路评估</td><td>领域专家或用户对答案的正确性、有用性、语气和风格打分。</td><td>最适合主观、细微的质量判断；速度慢、难以规模化、成本高。</td></tr>
+<tr><td>人工参与评估</td><td>领域专家或用户对答案的正确性、有用性、语气和风格打分。</td><td>最适合主观、细微的质量判断；速度慢、难以规模化、成本高。</td></tr>
 <tr><td>基准数据集</td><td>标准测试集（MMLU、HELM、GLUE/SuperGLUE）或你自己带参考答案的“黄金”问题集。</td><td>可重复，能跨模型比较；公开基准可能与你的任务不符。</td></tr>
 <tr><td>Amazon Bedrock 模型评估</td><td>托管的评估任务：<b>自动评估</b>（内置或自定义数据集；准确性、鲁棒性、毒性等指标）、<b>人工评估</b>（你的团队或 AWS 托管团队）、<b>LLM 作为评审</b>，以及针对知识库的 <b>RAG 评估</b>。</td><td>无需自建工具即可并排比较模型和参数。</td></tr>
 </tbody></table></div>
 
 <h3>评估指标</h3>
 <div class="tw"><table><thead><tr><th>指标</th><th>衡量什么</th><th>典型用途</th></tr></thead><tbody>
-<tr><td>ROUGE</td><td>输出与参考文本之间词语 / n-gram 的重合度，侧重<b>召回率</b>：覆盖了多少参考内容。</td><td><b>文本摘要</b></td></tr>
-<tr><td>BLEU</td><td>相对参考译文的 n-gram <b>精确率</b>，对过短的输出有惩罚。</td><td><b>机器翻译</b></td></tr>
+<tr><td>ROUGE</td><td>输出与参考文本之间词语 / n-gram 的重合度，侧重<b>查全率</b>：覆盖了多少参考内容。</td><td><b>文本摘要</b></td></tr>
+<tr><td>BLEU</td><td>相对参考译文的 n-gram <b>查准率</b>，对过短的输出有惩罚。</td><td><b>机器翻译</b></td></tr>
 <tr><td>BERTScore</td><td>用上下文嵌入衡量语义相似度，意思相同的改写也能得高分。</td><td>重语义而非字面的生成任务</td></tr>
 <tr><td>LLM 作为评审</td><td>由强模型按标准（正确性、完整性、有用性、有害性）给回答打分。</td><td>可规模化地近似人工判断</td></tr>
 <tr><td>困惑度 (Perplexity)</td><td>语言模型预测文本的能力；越低越好。</td><td>比较语言模型</td></tr>
@@ -465,7 +465,7 @@ zh:`
 </tbody></table></div>
 <div class="box ex"><p><b>参考答案：</b>“会议改到周五下午 3 点。” <b>模型输出：</b>“会议改期至周五 15:00。”</p>
 <p>BLEU 和 ROUGE 较低（相同 n-gram 很少），BERTScore 很高（意思相同），LLM 评审判为正确。要选与任务真正关心的内容相匹配的指标。</p></div>
-<div class="box rem"><p><b>R</b>OUGE = <b>R</b>ecall（召回）= 摘要 (summa<b>R</b>ization)。BLEU = 精确率 = 翻译（记住“Bilingual 双语”）。</p></div>
+<div class="box rem"><p><b>R</b>OUGE = <b>R</b>ecall（召回）= 摘要 (summa<b>R</b>ization)。BLEU = 查准率 = 翻译（记住“Bilingual 双语”）。</p></div>
 
 <h3>是否达成业务目标？</h3>
 <p>基准分数高不是目的。要看 FM 是否提升了<b>生产力</b>（每项任务节省的时间、每小时完成的任务数）、<b>用户参与度</b>（活跃用户、重复使用、会话时长），以及<b>任务设计</b>是否合理：模型、工具和人之间的分工是否恰当？</p>

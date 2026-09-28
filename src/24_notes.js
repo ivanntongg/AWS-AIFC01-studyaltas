@@ -9,7 +9,7 @@ W(0,['Needs labels; the retailer has none.','Predicts a number, not groups.','',
 W(1,['Underfitting means poor scores on BOTH sets; here training is excellent.','','Drift is a change over time in production, not a train/test gap.','Test set size does not cause a 37-point gap.'],
     ['欠拟合是两个数据集都差；这里训练集表现极好。','','漂移是生产中随时间发生的变化，不是训练/测试差距。','测试集大小不会造成 37 个百分点的差距。']);
 W(2,['Precision guards against false alarms; here missed cases are the bigger danger.','','Misleading for rare diseases: predicting "healthy" for everyone scores high.','A regression metric; this is a classification problem.'],
-    ['精确率防的是误报；这里漏报才是更大的危险。','','对罕见病有误导性：全部预测“健康”也能得高分。','这是回归指标，而这是分类问题。']);
+    ['查准率防的是误报；这里漏报才是更大的危险。','','对罕见病有误导性：全部预测“健康”也能得高分。','这是回归指标，而这是分类问题。']);
 W(3,['Payload and time limits are far too small (about 6 MB, 60 seconds).','Also limited to small payloads and short processing.','','For scoring whole datasets offline, not per-request notifications.'],
     ['负载和时长上限太小（约 6 MB、60 秒）。','同样只支持小负载、短处理时间。','','用于离线对整个数据集打分，而不是按请求通知。']);
 W(4,['Would learn approximate patterns and could produce wrong pay.','Adds cost and nondeterminism to a fixed calculation.','','Trial-and-error learning is irrelevant to a known formula.'],
@@ -21,13 +21,13 @@ W(6,['Polly turns text INTO speech; the need is speech to text.','','Translate c
 W(7,['LLM decisions are hard to explain to regulators.','','Diffusion models generate images; irrelevant here.','Prompting an FM does not give traceable, auditable reasons.'],
     ['LLM 的决策难以向监管机构解释。','','扩散模型用于生成图像，与此无关。','对 FM 做提示工程无法给出可追溯、可审计的理由。']);
 W(9,['Inputs have not changed, so it is not data drift; Clarify is for bias.','','The model worked before, so it was not too simple; Ground Truth is labeling.','Overfitting is a training issue; Feature Store stores features.'],
-    ['输入没有变化，所以不是数据漂移；Clarify 用于偏差分析。','','模型之前表现正常，不是太简单；Ground Truth 用于标注。','过拟合是训练问题；Feature Store 用于存储特征。']);
+    ['输入没有变化，所以不是数据漂移；Clarify 用于偏差分析。','','模型之前表现正常，不是太简单；Ground Truth 用于标记。','过拟合是训练问题；Feature Store 用于存储特征。']);
 W(11,['There are no labeled right answers, only rewards.','It is not finding structure in unlabeled data.','','Self-supervised learning creates labels from the data itself, not from rewards.'],
-    ['没有标注好的正确答案，只有奖励。','并不是在无标签数据中找结构。','','自监督学习的标签来自数据本身，而非奖励。']);
+    ['没有标记好的正确答案，只有奖励。','并不是在无标签数据中找结构。','','自监督学习的标签来自数据本身，而非奖励。']);
 W(12,['That is recall: 90 / (90 + 30).','','That is accuracy: (90 + 870) / 1000.','TP ÷ (TP + FP + FN); that is not precision.'],
-    ['这是召回率：90 / (90 + 30)。','','这是准确率：(90 + 870) / 1000。','TP ÷ (TP + FP + FN)，不是精确率。']);
+    ['这是查全率：90 / (90 + 30)。','','这是准确率：(90 + 870) / 1000。','TP ÷ (TP + FP + FN)，不是查准率。']);
 W(13,['','Ground Truth labels data; it does not build models.','Macie finds sensitive data in S3.','The Glue Data Catalog stores metadata about datasets.'],
-    ['','Ground Truth 用于标注数据，不用于建模。','Macie 用于在 S3 中查找敏感数据。','Glue Data Catalog 存储数据集的元数据。']);
+    ['','Ground Truth 用于标记数据，不用于建模。','Macie 用于在 S3 中查找敏感数据。','Glue Data Catalog 存储数据集的元数据。']);
 
 /* ---------- original set: Domain 2 ---------- */
 W(14,['That would be 0.75 tokens per word; it is the other way round.','Tokens and words are not one-to-one.','','Far too many; that would be 4 tokens per word.'],
@@ -43,7 +43,7 @@ W(18,['Changes randomness, not the number of tokens billed.','','A different bil
 W(19,['That describes parameter-efficient fine-tuning, not MCP.','','MCP is a connection protocol, not encryption.','Summaries are measured with ROUGE, not MCP.'],
      ['这描述的是参数高效微调，不是 MCP。','','MCP 是连接协议，不是加密。','摘要用 ROUGE 衡量，与 MCP 无关。']);
 W(20,['A swarm has no central lead agent.','','There are several agents, not one.','A pipeline passes work along in a fixed order; nobody combines results.'],
-     ['蜂群没有中央主智能体。','','这里有多个智能体，不是一个。','流水线按固定顺序传递工作，没有汇总环节。']);
+     ['蜂群没有中央主智能体。','','这里有多个智能体，不是一个。','管道按固定顺序传递工作，没有汇总环节。']);
 W(21,['A full ML platform where you manage models and instances.','','Virtual servers; you would host models yourself.','An image and video analysis service, not an FM platform.'],
      ['完整的 ML 平台，需要自己管理模型和实例。','','虚拟服务器，需要自己托管模型。','图像和视频分析服务，不是 FM 平台。']);
 W(22,['Full price per token for a job that does not need real-time answers.','','Paying for reserved capacity around the clock is wasteful for a monthly job.','Always-on endpoint for an occasional offline job.'],

@@ -120,7 +120,7 @@ Q('1.3','single',[0],
  'SageMaker Pipelines orchestrates ML workflows as repeatable CI/CD pipelines, a core MLOps practice.'],
 ['每当有新数据进入 S3，团队希望以可重复的方式自动执行数据准备、训练、评估和模型注册。应该使用什么？',
  ['SageMaker Pipelines','Amazon Polly','AWS Artifact','Amazon Macie'],
- 'SageMaker Pipelines 把 ML 工作流编排成可重复的 CI/CD 流水线，是 MLOps 的核心实践。']);
+ 'SageMaker Pipelines 把 ML 工作流编排成可重复的 CI/CD 管道，是 MLOps 的核心实践。']);
 Q('1.3','single',[0],
 ['Where should a team keep versions of trained models along with their approval status before deployment?',
  ['SageMaker Model Registry','Amazon S3 Glacier','AWS Trusted Advisor','Amazon CloudFront'],
@@ -146,7 +146,7 @@ Q('1.3','single',[0],
 ['A classifier has precision 0.60 and recall 0.90. What is its F1 score?',
  ['0.72','0.75','0.54','0.90'],
  'F1 = 2 × P × R / (P + R) = 2 × 0.54 / 1.5 = 0.72.'],
-['某分类器精确率为 0.60，召回率为 0.90。它的 F1 分数是多少？',
+['某分类器查准率为 0.60，查全率为 0.90。它的 F1 分数是多少？',
  ['0.72','0.75','0.54','0.90'],
  'F1 = 2 × P × R / (P + R) = 2 × 0.54 / 1.5 = 0.72。']);
 Q('1.3','single',[0],
@@ -236,7 +236,7 @@ Q('2.2','single',[0],
  'Nondeterminism is reduced by lower temperature and structured, templated prompts.'],
 ['客服团队反映同一个客户问题每次得到的回答差异明显。哪种调整最有帮助？',
  ['调低温度，并使用固定输出格式的提示模板','调高温度','去掉系统提示','调高 Top-K'],
- '调低温度并使用结构化的模板提示，可以减少非确定性。']);
+ '调低温度并使用结构化的模板提示，可以减少不确定性。']);
 Q('2.2','multi',[0,1],
 ['Which are advantages of generative AI? (Choose TWO.)',
  ['One model adapts to many tasks through prompts','A natural, conversational interface','Guaranteed factual accuracy','Full interpretability of every answer','Identical output for identical input'],
@@ -414,7 +414,7 @@ Q('3.1','single',[0],
  ['In-context learning (few-shot prompting)','Fine-tuning','Continued pre-training','Pre-training from scratch'],
  'In-context learning puts examples in the prompt, so the cost appears as extra input tokens on each request.'],
 ['哪种定制方式完全不需要训练，主要通过每次调用时更长的提示增加成本？',
- ['上下文学习（少样本提示）','微调','持续预训练','从零预训练'],
+ ['上下文学习（少量样本提示）','微调','持续预训练','从零预训练'],
  '上下文学习把示例放在提示中，所以成本体现为每次请求额外的输入 Token。']);
 
 /* ===== 3.2 ===== */
@@ -430,7 +430,7 @@ Q('3.2','single',[0],
  ['A negative prompt','Chain-of-thought prompting','Few-shot prompting','Model distillation'],
  'Negative prompts state what the output must not contain. Back them up with Guardrails denied topics.'],
 ['某健康险聊天机器人有时会给出医疗诊断。团队加入“不要提供医疗诊断或治疗建议。”这属于哪种技术？',
- ['否定提示','思维链提示','少样本提示','模型蒸馏'],
+ ['否定提示','思维链提示','少量样本提示','模型蒸馏'],
  '否定提示说明输出中不得包含的内容，可再用护栏的拒绝话题兜底。']);
 Q('3.2','single',[0],
 ['A retailer generates thousands of product descriptions with the same structure, changing only the product name and features each time. What should it use?',
@@ -458,8 +458,8 @@ Q('3.2','single',[0],
  ['Prompt leaking (exposure)','Underfitting','Data drift','Nondeterminism'],
  'Exposure or prompt leaking reveals system prompts or confidential data. Keep secrets out of prompts and filter outputs.'],
 ['用户诱使聊天机器人输出了隐藏的系统指令，其中包含内部定价规则。这属于哪种风险？',
- ['提示泄露（信息暴露）','欠拟合','数据漂移','非确定性'],
- '信息暴露或提示泄露会泄出系统提示或机密数据。不要在提示中放机密信息，并过滤输出。']);
+ ['提示暴露（信息暴露）','欠拟合','数据漂移','不确定性'],
+ '信息暴露或提示暴露会泄出系统提示或机密数据。不要在提示中放机密信息，并过滤输出。']);
 Q('3.2','single',[0],
 ['An attacker adds a fake "refund policy" page to the internal wiki that feeds a RAG knowledge base. Customers then receive the false policy. Which risk is this?',
  ['Poisoning','Jailbreaking','Hallucination caused by temperature','Overfitting'],
@@ -472,24 +472,24 @@ Q('3.2','match',[],
  [['Prompt injection','Guardrails prompt-attack filter and tagging untrusted content'],['Poisoning','Vetting and restricting who can change data sources'],['Prompt leaking','Keeping secrets out of prompts and filtering outputs'],['Jailbreaking','Content filters plus a firm system prompt']],
  'Each risk has a primary control; in practice they are layered together.'],
 ['将每种提示风险与最直接的防御措施匹配。',
- [['提示注入','护栏提示攻击过滤，并标记不可信内容'],['投毒','审核并限制谁能修改数据源'],['提示泄露','不在提示中放机密信息，并过滤输出'],['越狱','内容过滤加上严格的系统提示']],
+ [['提示注入','护栏提示攻击过滤，并标记不可信内容'],['投毒','审核并限制谁能修改数据源'],['提示暴露','不在提示中放机密信息，并过滤输出'],['越狱','内容过滤加上严格的系统提示']],
  '每种风险都有主要控制措施，实际中会多层叠加使用。']);
 Q('3.2','single',[0],
 ['A model\'s output format is inconsistent, and the team has several good examples of the desired output. What is the quickest improvement?',
  ['Few-shot prompting with those examples','Pre-training a new model','Increasing Top-K','Buying Provisioned Throughput'],
  'Few-shot examples show the model the exact format, with no training needed.'],
 ['模型的输出格式不一致，而团队手头有几个理想输出的好例子。最快的改进方法是什么？',
- ['用这些例子做少样本提示','预训练一个新模型','调高 Top-K','购买预置吞吐量'],
- '少样本示例能直接向模型展示格式，无需训练。']);
+ ['用这些例子做少量样本提示','预训练一个新模型','调高 Top-K','购买预置吞吐量'],
+ '少量样本示例能直接向模型展示格式，无需训练。']);
 
 /* ===== 3.3 ===== */
 Q('3.3','single',[0],
 ['What is instruction tuning?',
  ['Fine-tuning a model on many instruction → response examples so it follows instructions reliably','Adding instructions to the system prompt at run time','Training a reward model from human rankings','Compressing a model into a smaller one'],
  'Instruction tuning is a form of supervised fine-tuning on labeled instruction-response pairs across many tasks.'],
-['什么是指令微调？',
+['什么是指令优化？',
  ['用大量“指令 → 回答”示例微调模型，使其可靠地遵循指令','在运行时把指令加入系统提示','根据人类排序训练奖励模型','把模型压缩成更小的模型'],
- '指令微调是一种监督微调，使用覆盖多种任务的有标签指令-回答对。']);
+ '指令优化是一种监督微调，使用覆盖多种任务的有标签指令-回答对。']);
 Q('3.3','single',[0],
 ['How must training data for an Amazon Bedrock fine-tuning job be provided?',
  ['As JSONL files of prompt-completion records stored in Amazon S3','As a PDF uploaded in the console chat window','As rows in an Amazon DynamoDB table','As embeddings in OpenSearch'],
@@ -502,13 +502,13 @@ Q('3.3','multi',[0,1],
  ['Remove duplicates, errors and toxic examples','Make sure examples represent all the user groups the model will serve','Add as much unfiltered web text as possible','Keep customer PII to improve personalization','Let each labeler use their own labeling rules'],
  'Curated, representative data with consistent labels and no PII makes a better, fairer model.'],
 ['哪些做法能改进微调数据集？（选择两项）',
- ['去除重复、错误和有害的示例','确保示例覆盖模型将服务的所有用户群体','尽可能多地加入未经筛选的网络文本','保留客户 PII 以改善个性化','让每位标注员按自己的规则标注'],
- '经过筛选、有代表性、标注一致且不含 PII 的数据，能训练出更好、更公平的模型。']);
+ ['去除重复、错误和有害的示例','确保示例覆盖模型将服务的所有用户群体','尽可能多地加入未经筛选的网络文本','保留客户 PII 以改善个性化','让每位标记人员按自己的规则标记'],
+ '经过筛选、有代表性、标记一致且不含 PII 的数据，能训练出更好、更公平的模型。']);
 Q('3.3','single',[0],
 ['A factory takes a model pre-trained on millions of general images and trains it further on 2,000 labeled photos of its own product defects. What is this?',
  ['Transfer learning','Unsupervised clustering','Reinforcement learning','Pre-training from scratch'],
  'Reusing a pre-trained model\'s knowledge and adapting it with a smaller task dataset is transfer learning.'],
-['一家工厂把在数百万张通用图片上预训练的模型，再用 2,000 张自家产品缺陷的标注照片继续训练。这是什么？',
+['一家工厂把在数百万张通用图片上预训练的模型，再用 2,000 张自家产品缺陷的标记照片继续训练。这是什么？',
  ['迁移学习','无监督聚类','强化学习','从零预训练'],
  '复用预训练模型的知识，再用较小的任务数据集进行适配，就是迁移学习。']);
 Q('3.3','order',[],
@@ -529,9 +529,9 @@ Q('3.3','single',[0],
 ['Which AWS service provides workflows and a human workforce to label training data and collect human preference rankings?',
  ['Amazon SageMaker Ground Truth','Amazon Macie','AWS Glue Data Catalog','Amazon Inspector'],
  'Ground Truth supports data labeling and human feedback collection, including for RLHF.'],
-['哪个 AWS 服务提供标注训练数据、收集人类偏好排序的工作流和人工团队？',
+['哪个 AWS 服务提供标记训练数据、收集人类偏好排序的工作流和人工团队？',
  ['Amazon SageMaker Ground Truth','Amazon Macie','AWS Glue Data Catalog','Amazon Inspector'],
- 'Ground Truth 支持数据标注和人类反馈收集，也可用于 RLHF。']);
+ 'Ground Truth 支持数据标记和人类反馈收集，也可用于 RLHF。']);
 
 /* ===== 3.4 ===== */
 Q('3.4','single',[0],
@@ -540,7 +540,7 @@ Q('3.4','single',[0],
  'BLEU measures n-gram precision against reference translations.'],
 ['团队正在评估把英文产品手册翻译成日文的系统。传统上使用哪个自动指标？',
  ['BLEU','ROUGE','RMSE','AUC-ROC'],
- 'BLEU 衡量与参考译文的 n-gram 精确率。']);
+ 'BLEU 衡量与参考译文的 n-gram 查准率。']);
 Q('3.4','single',[0],
 ['Answers that correctly paraphrase the reference get low scores from an n-gram metric. The team wants a metric based on meaning. Which should it use?',
  ['BERTScore','BLEU','Word count','Perplexity'],
@@ -625,14 +625,14 @@ Q('4.1','single',[0],
  ['Subgroup analysis','Chunking','Hyperparameter tuning','Distillation'],
  'Subgroup analysis reveals whether some groups get worse results, a key bias check.'],
 ['团队分别计算模型在各年龄段上的准确率并进行比较。这种方法叫什么？',
- ['子群体分析','分块','超参数调优','蒸馏'],
- '子群体分析能发现某些群体是否得到更差的结果，是关键的偏见检查。']);
+ ['亚组分析','分块','超参数调优','蒸馏'],
+ '亚组分析能发现某些群体是否得到更差的结果，是关键的偏见检查。']);
 Q('4.1','single',[0],
 ['Reviewers find that different annotators often gave the same example different labels. What should the team perform?',
  ['Label quality analysis, then clearer labeling guidelines','Increase the temperature','Add more epochs','Switch to batch inference'],
  'Inconsistent labels teach the model noise and can embed bias. Measure agreement and fix the guidelines.'],
-['评审发现不同标注员经常给同一个样本打不同的标签。团队应该做什么？',
- ['进行标注质量分析，再制定更清晰的标注指南','调高温度','增加训练轮数','改用批量推理'],
+['评审发现不同标记人员经常给同一个样本打不同的标签。团队应该做什么？',
+ ['进行标记质量分析，再制定更清晰的标记指南','调高温度','增加训练轮数','改用批量推理'],
  '不一致的标签会让模型学到噪声，还可能引入偏见。应衡量一致性并修订指南。']);
 Q('4.1','single',[0],
 ['An airline\'s chatbot invents a bereavement refund policy, and a court orders the airline to honor it. Which legal risk does this illustrate?',

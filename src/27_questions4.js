@@ -35,10 +35,10 @@ Q('1.3','single',[0],
  ['Cost per user: total monthly running cost divided by active users','F1 score of the model','Recall of the model','Training loss at the end of fine-tuning'],
  'Cost per user is a business metric that compares running costs fairly, whatever the number of users.'],
 ['一家公司为 2 万名员工提供 AI 助手。财务部想知道它的运行成本是否比替代的旧工具更低。哪个指标最直接回答这个问题？',
- ['人均成本：每月总运行成本除以活跃用户数','模型的 F1 分数','模型的召回率','微调结束时的训练损失'],
+ ['人均成本：每月总运行成本除以活跃用户数','模型的 F1 分数','模型的查全率','微调结束时的训练损失'],
  '人均成本是一项业务指标，无论用户多少都能公平比较运行成本。'],
 ['F1 measures model quality, not cost.','Recall measures how many positives the model finds, not cost.','Training loss describes training progress, not running cost.'],
-['F1 衡量模型质量，不是成本。','召回率衡量模型找到多少正例，不是成本。','训练损失描述训练过程，不是运行成本。']);
+['F1 衡量模型质量，不是成本。','查全率衡量模型找到多少正例，不是成本。','训练损失描述训练过程，不是运行成本。']);
 
 /* ---------- 2.1 code generation ---------- */
 Q('2.1','single',[0],
@@ -57,10 +57,10 @@ Q('2.2','multi',[0,1],
  ['Hallucinations: confident answers that are wrong','Nondeterminism: the same prompt can give different answers','It cannot handle conversational input','It always needs labeled training data before it can be used','It can only produce text in English'],
  'Hallucinations and nondeterministic output are the classic limitations. Conversation, zero-setup use and many languages are strengths.'],
 ['以下哪两项是生成式 AI 解决方案的缺点？（选择两项）',
- ['幻觉：自信地给出错误答案','非确定性：同一个提示可能得到不同的回答','无法处理对话式输入','使用前总是需要带标签的训练数据','只能生成英文文本'],
+ ['幻觉：自信地给出错误答案','不确定性：同一个提示可能得到不同的回答','无法处理对话式输入','使用前总是需要已标记的训练数据','只能生成英文文本'],
  '幻觉和输出不确定是典型的局限；对话能力、开箱即用和多语言支持都是优势。'],
 ['Conversation is one of GenAI\'s strengths.','Foundation models work from prompts without new labeled data.','Many foundation models support dozens of languages.'],
-['对话能力正是生成式 AI 的优势之一。','基础模型可以直接通过提示使用，无需新的标注数据。','许多基础模型支持数十种语言。']);
+['对话能力正是生成式 AI 的优势之一。','基础模型可以直接通过提示使用，无需新的标记数据。','许多基础模型支持数十种语言。']);
 
 Q('2.2','single',[0],
 ['A tax firm needs answers that are exactly the same every time for the same input, and auditors must be able to trace how each answer was reached. What is the main concern with using a generative AI model here?',
@@ -77,10 +77,10 @@ Q('2.2','single',[0],
  ['Conversion rate on pages with generated descriptions compared with pages without them','ROUGE score of the descriptions','Number of tokens generated per day','The temperature setting used'],
  'Business value shows up in business outcomes such as conversion rate, not in technical measures.'],
 ['一家网店加入了 AI 生成的商品描述。哪个指标最能说明这是否带来了业务价值？',
- ['比较有生成描述与没有生成描述的页面的转化率','描述的 ROUGE 分数','每天生成的 token 数量','所用的温度（temperature）设置'],
+ ['比较有生成描述与没有生成描述的页面的转化率','描述的 ROUGE 分数','每天生成的令牌数量','所用的温度（temperature）设置'],
  '业务价值体现在转化率等业务结果上，而不是技术指标。'],
 ['ROUGE measures text overlap, not sales.','More tokens means more cost, not more value.','Temperature is a setting, not an outcome.'],
-['ROUGE 衡量文本重合度，与销售无关。','更多 token 意味着更高成本，而非更多价值。','温度是一个参数设置，不是结果。']);
+['ROUGE 衡量文本重合度，与销售无关。','更多令牌意味着更高成本，而非更多价值。','温度是一个参数设置，不是结果。']);
 
 Q('2.2','single',[0],
 ['One foundation model summarizes emails, drafts replies and answers FAQs, with no separate training for each task. Which advantage of generative AI does this show?',
@@ -90,7 +90,7 @@ Q('2.2','single',[0],
  ['适应性：一个模型通过提示就能完成多种任务','确定性：总是给出相同的答案','在每项任务上都保证准确','运行完全免费'],
  '只需改变提示，基础模型就能适应多种任务。'],
 ['GenAI output is nondeterministic.','No model guarantees accuracy; hallucinations happen.','Inference is billed, usually per token.'],
-['生成式 AI 的输出是非确定性的。','没有模型能保证准确，幻觉时有发生。','推理是收费的，通常按 token 计费。']);
+['生成式 AI 的输出是不确定性的。','没有模型能保证准确，幻觉时有发生。','推理是收费的，通常按令牌计费。']);
 
 /* ---------- 2.3 speed to market, availability ---------- */
 Q('2.3','single',[0],
@@ -119,7 +119,7 @@ Q('3.1','single',[0],
  ['Modality: the model must accept both image and text input','Only the maximum output length','The lowest price per token, whatever inputs it accepts','Support for exactly one language'],
  'If the model cannot take images as input, nothing else matters. Check modality first.'],
 ['一家保险公司需要一个模型，同时读取受损车辆的照片和理赔员的文字记录，并写出理赔摘要。哪项模型选择标准最重要？',
- ['模态：模型必须能同时接收图像和文本输入','只看最大输出长度','只看每个 token 的最低价格，不管它接受什么输入','只支持一种语言'],
+ ['模态：模型必须能同时接收图像和文本输入','只看最大输出长度','只看每个令牌的最低价格，不管它接受什么输入','只支持一种语言'],
  '如果模型不能接收图像输入，其他条件都无关紧要，所以首先要看模态。'],
 ['Output length matters less than whether it can read images at all.','A cheap text-only model cannot do the job.','Language support is not the deciding factor here.'],
 ['输出长度远不如能否读取图像重要。','便宜的纯文本模型无法完成这项工作。','语言支持在这里不是决定因素。']);
@@ -140,18 +140,18 @@ Q('3.2','single',[0],
  ['One-shot (single-shot) prompting','Zero-shot prompting','Few-shot prompting','Chain-of-thought prompting'],
  'One example is one-shot; none is zero-shot; several is few-shot.'],
 ['一个提示先给出恰好一个期望答案格式的示例，再给出新的输入。这是哪种提示工程技术？',
- ['单样本（one-shot）提示','零样本提示','少样本提示','思维链提示'],
- '一个示例是单样本；没有示例是零样本；多个示例是少样本。'],
+ ['单样本（one-shot）提示','零样本提示','少量样本提示','思维链提示'],
+ '一个示例是单样本；没有示例是零样本；多个示例是少量样本。'],
 ['Zero-shot gives no examples at all.','Few-shot gives several examples, not one.','Chain-of-thought asks the model to reason step by step.'],
-['零样本完全不提供示例。','少样本提供多个示例，而不是一个。','思维链是让模型逐步推理。']);
+['零样本完全不提供示例。','少量样本提供多个示例，而不是一个。','思维链是让模型逐步推理。']);
 
 Q('3.2','match',[],
 ['Match each prompt to the technique it uses.',
  [['Only the instruction, with no examples','Zero-shot'],['One example, then the new input','One-shot'],['Several examples, then the new input','Few-shot'],['"Think through this step by step before answering"','Chain-of-thought'],['A saved prompt with placeholders filled in at run time','Prompt template']],
  'The number of examples separates zero-, one- and few-shot; chain-of-thought asks for reasoning; templates make prompts reusable.'],
 ['将每个提示与其使用的技术配对。',
- [['只有指令，没有示例','零样本'],['一个示例，然后是新输入','单样本'],['多个示例，然后是新输入','少样本'],['“回答前请一步一步思考”','思维链'],['保存好的提示，运行时填入占位符','提示模板']],
- '示例数量区分零样本、单样本和少样本；思维链要求推理过程；模板让提示可以复用。']);
+ [['只有指令，没有示例','零样本'],['一个示例，然后是新输入','单样本'],['多个示例，然后是新输入','少量样本'],['“回答前请一步一步思考”','思维链'],['保存好的提示，运行时填入占位符','提示模板']],
+ '示例数量区分零样本、单样本和少量样本；思维链要求推理过程；模板让提示可以复用。']);
 
 /* ---------- 3.3 training and fine-tuning ---------- */
 Q('3.3','order',[],
@@ -159,18 +159,18 @@ Q('3.3','order',[],
  ['Curate labeled prompt and response examples','Upload the training data to Amazon S3','Create a fine-tuning job in Amazon Bedrock','Set up inference for the custom model (for example, Provisioned Throughput)','Evaluate the custom model against the base model before rolling it out'],
  'Data first, then the training job. A custom model can only be called once inference is set up, so provision it, then evaluate it before real users see it.'],
 ['按顺序排列在 Amazon Bedrock 中定制模型的步骤。',
- ['整理带标签的提示与回答示例','把训练数据上传到 Amazon S3','在 Amazon Bedrock 中创建微调任务','为定制模型配置推理（例如预置吞吐量）','上线前将定制模型与基础模型进行对比评估'],
+ ['整理已标记的提示与回答示例','把训练数据上传到 Amazon S3','在 Amazon Bedrock 中创建微调任务','为定制模型配置推理（例如预置吞吐量）','上线前将定制模型与基础模型进行对比评估'],
  '先准备数据，再运行训练任务。定制模型只有配置好推理后才能调用，因此要先配置，再在真实用户使用前进行评估。']);
 
 Q('3.3','single',[0],
 ['A research company has millions of unlabeled internal papers and wants a model to learn its specialist vocabulary. Which method fits?',
  ['Continued pre-training on the unlabeled domain text','Instruction fine-tuning','Reinforcement learning from human feedback (RLHF)','Zero-shot prompting only'],
  'Continued pre-training learns from large amounts of unlabeled domain text; fine-tuning needs labeled examples.'],
-['一家研究公司有数百万篇未标注的内部论文，希望模型学会其专业词汇。哪种方法合适？',
- ['在未标注的领域文本上进行继续预训练','指令微调','基于人类反馈的强化学习（RLHF）','只使用零样本提示'],
- '继续预训练从大量未标注的领域文本中学习；微调则需要带标签的示例。'],
+['一家研究公司有数百万篇未标记的内部论文，希望模型学会其专业词汇。哪种方法合适？',
+ ['在未标记的领域文本上进行继续预训练','指令优化','基于人类反馈的强化学习（RLHF）','只使用零样本提示'],
+ '继续预训练从大量未标记的领域文本中学习；微调则需要已标记的示例。'],
 ['Instruction fine-tuning needs labeled prompt and response pairs.','RLHF needs people to rank model answers.','Prompting alone does not teach the model new vocabulary.'],
-['指令微调需要带标签的提示与回答对。','RLHF 需要人工对模型回答进行排序。','仅靠提示无法让模型学会新词汇。']);
+['指令优化需要已标记的提示与回答对。','RLHF 需要人工对模型回答进行排序。','仅靠提示无法让模型学会新词汇。']);
 
 Q('3.3','single',[0],
 ['Human reviewers rank several model answers to the same prompt so the model learns which kinds of response people prefer. What is this technique called?',
