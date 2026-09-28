@@ -13,7 +13,7 @@ Q('3.1','single',[0],
  'Low temperature makes the model pick the most likely tokens, giving consistent, predictable output.'],
 ['一个数据提取应用必须对同一文档稳定地返回相同的 JSON 字段。哪种温度设置最合适？',
  ['较低的温度，例如 0 到 0.2','较高的温度，例如 1.0 或更高','较高的温度加上 top-p 为 1','温度不影响输出'],
- '低温度让模型选择最可能的 token，使输出一致、可预测。'],
+ '低温度让模型选择最可能的令牌，使输出一致、可预测。'],
 ['High temperature adds randomness, which hurts consistency.','That combination maximizes variety, the opposite of what is needed.','Temperature directly controls randomness.'],
 ['高温度会增加随机性，损害一致性。','这种组合会最大化多样性，与需求相反。','温度直接控制随机性。']);
 
@@ -22,20 +22,20 @@ Q('3.1','single',[0],
  ['The model chooses each next token only from the 5 most likely tokens','The model returns 5 different answers','The response is limited to 5 words','The knowledge base retrieves 5 documents'],
  'Top-k limits sampling to the k most probable tokens, reducing unlikely word choices.'],
 ['把 top-k 设为 5 有什么作用？',
- ['模型在选择每个下一个 token 时，只从最可能的 5 个 token 中挑选','模型返回 5 个不同的答案','回答限制为 5 个词','知识库检索 5 篇文档'],
- 'top-k 把采样限制在概率最高的 k 个 token 中，减少不太可能的用词。'],
+ ['模型在选择每个下一个令牌时，只从最可能的 5 个令牌中挑选','模型返回 5 个不同的答案','回答限制为 5 个词','知识库检索 5 篇文档'],
+ 'top-k 把采样限制在概率最高的 k 个令牌中，减少不太可能的用词。'],
 ['It shapes one response; it does not create several.','Length is controlled by maximum tokens.','Retrieval count is a separate knowledge base setting.'],
-['它影响的是单个回答，不会生成多个回答。','长度由最大 token 数控制。','检索数量是知识库的另一个设置。']);
+['它影响的是单个回答，不会生成多个回答。','长度由最大令牌数控制。','检索数量是知识库的另一个设置。']);
 
 Q('3.1','single',[0],
 ['A prompt uses 7,500 tokens, the model’s context window is 8,000 tokens, and the request asks for up to 1,000 output tokens. What is likely to happen?',
  ['The request exceeds the context window, so it fails or the output is cut short; shorten the input or the output','The model compresses the input automatically with no loss','Nothing, because output tokens do not count','The model switches to a larger context window by itself'],
  'Input and output together must fit in the context window.'],
-['某提示使用 7,500 个 token，模型的上下文窗口是 8,000 个 token，而请求要求最多输出 1,000 个 token。可能会发生什么？',
- ['请求超出上下文窗口，因此会失败或输出被截断；应缩短输入或输出','模型会自动无损压缩输入','不会有问题，因为输出 token 不计入','模型会自动切换到更大的上下文窗口'],
+['某提示使用 7,500 个令牌，模型的上下文窗口是 8,000 个令牌，而请求要求最多输出 1,000 个令牌。可能会发生什么？',
+ ['请求超出上下文窗口，因此会失败或输出被截断；应缩短输入或输出','模型会自动无损压缩输入','不会有问题，因为输出令牌不计入','模型会自动切换到更大的上下文窗口'],
  '输入和输出加起来必须在上下文窗口之内。'],
 ['Models do not silently compress input without loss.','Output tokens do count toward the window.','The context window is fixed for each model.'],
-['模型不会悄悄地无损压缩输入。','输出 token 同样计入上下文窗口。','每个模型的上下文窗口是固定的。']);
+['模型不会悄悄地无损压缩输入。','输出令牌同样计入上下文窗口。','每个模型的上下文窗口是固定的。']);
 
 Q('3.1','single',[0],
 ['A company expects to fine-tune its model later. What should it check when choosing a foundation model now?',
@@ -142,10 +142,10 @@ Q('3.1','single',[0],
  ['At very high request volume, when the extra input tokens on every call cost more than a one-time fine-tune and its hosting','Never, because in-context learning is free','Only when the model is small','Only when the examples are images'],
  'In-context learning has no training cost, but it adds tokens to every single request.'],
 ['一个团队在每个提示中加入 20 个示例（上下文学习）。什么时候这可能比微调更贵？',
- ['请求量非常大时，每次调用增加的输入 token 费用会超过一次性微调及其托管的费用','永远不会，因为上下文学习是免费的','只有模型很小时','只有示例是图像时'],
- '上下文学习没有训练成本，但每一次请求都会增加 token。'],
+ ['请求量非常大时，每次调用增加的输入令牌费用会超过一次性微调及其托管的费用','永远不会，因为上下文学习是免费的','只有模型很小时','只有示例是图像时'],
+ '上下文学习没有训练成本，但每一次请求都会增加令牌。'],
 ['Every extra token in the prompt is billed.','Cost depends on volume and prompt length, not model size alone.','Text examples add tokens too.'],
-['提示中每个额外的 token 都要计费。','成本取决于调用量和提示长度，而不只是模型大小。','文本示例同样会增加 token。']);
+['提示中每个额外的令牌都要计费。','成本取决于调用量和提示长度，而不只是模型大小。','文本示例同样会增加令牌。']);
 
 Q('3.1','single',[0],
 ['What role does an AI agent play in an application?',
@@ -162,10 +162,10 @@ Q('3.1','single',[0],
  ['Action groups, described with an OpenAPI schema or function details and usually backed by AWS Lambda','Guardrails','Knowledge bases','Prompt templates alone'],
  'Action groups tell the agent which operations exist and how to call them.'],
 ['在 Amazon Bedrock Agents 中，由什么定义智能体可以调用的操作（API）？',
- ['操作组：用 OpenAPI 架构或函数详情描述，通常由 AWS Lambda 实现','防护栏','知识库','仅靠提示模板'],
+ ['操作组：用 OpenAPI 架构或函数详情描述，通常由 AWS Lambda 实现','防护机制','知识库','仅靠提示模板'],
  '操作组告诉智能体有哪些操作可用以及如何调用。'],
 ['Guardrails filter content; they do not define actions.','Knowledge bases supply information for RAG.','Templates shape prompts but do not register callable APIs.'],
-['防护栏过滤内容，不定义操作。','知识库为 RAG 提供信息。','模板用于组织提示，但不会注册可调用的 API。']);
+['防护机制过滤内容，不定义操作。','知识库为 RAG 提供信息。','模板用于组织提示，但不会注册可调用的 API。']);
 
 Q('3.1','multi',[0,1],
 ['Which TWO model selection criteria matter most for a customer chat app used worldwide? (Choose TWO.)',
@@ -183,16 +183,16 @@ Q('3.1','multi',[0,1],
  'Fewer tokens and cached repeated context both cut cost.'],
 ['以下哪两项措施可以降低 RAG 应用的成本？（选择两项）',
  ['检索更少但更相关的文本块，让提示更短','对重复出现的长系统提示使用提示缓存','把所有文档都放进每个提示','对所有问题都使用最大的模型','设置非常高的最大输出'],
- '减少 token 和缓存重复上下文都能降低成本。'],
+ '减少令牌和缓存重复上下文都能降低成本。'],
 ['That makes every prompt huge and expensive.','The largest model costs the most per token.','Longer outputs cost more.'],
-['这会让每个提示都变得庞大又昂贵。','最大的模型每个 token 最贵。','更长的输出成本更高。']);
+['这会让每个提示都变得庞大又昂贵。','最大的模型每个令牌最贵。','更长的输出成本更高。']);
 
 Q('3.1','match',[],
 ['Match each way of customizing a foundation model to its description.',
  [['Pre-training','Train a model from scratch on massive data'],['Fine-tuning','Train an existing model further on labeled examples'],['In-context learning','Put examples in the prompt, with no training'],['Retrieval augmented generation','Fetch relevant documents at question time'],['Distillation','Train a smaller model to imitate a larger one']],
  'These range from no training at all to training from scratch.'],
 ['将每种定制基础模型的方式与其描述配对。',
- [['预训练','在海量数据上从头训练模型'],['微调','在带标签的示例上继续训练现有模型'],['上下文学习','把示例放在提示中，无需训练'],['检索增强生成','在提问时获取相关文档'],['蒸馏','训练较小的模型去模仿较大的模型']],
+ [['预训练','在海量数据上从头训练模型'],['微调','在已标记的示例上继续训练现有模型'],['上下文学习','把示例放在提示中，无需训练'],['检索增强生成','在提问时获取相关文档'],['蒸馏','训练较小的模型去模仿较大的模型']],
  '这些方式从完全不训练到从头训练不等。']);
 
 Q('3.1','single',[0],
@@ -200,7 +200,7 @@ Q('3.1','single',[0],
  ['Fine-tune the model on examples of on-brand writing','RAG over the brand guidelines only','A higher temperature','A lower maximum token setting'],
  'Fine-tuning shapes style and tone; RAG mainly adds facts.'],
 ['一家公司希望成千上万条生成内容都保持其独特的品牌语气，但仅靠提示中的指令还不够。哪种方法合适？',
- ['用符合品牌风格的写作示例微调模型','只对品牌指南做 RAG','调高温度','调低最大 token 数'],
+ ['用符合品牌风格的写作示例微调模型','只对品牌指南做 RAG','调高温度','调低最大令牌数'],
  '微调能塑造风格和语气；RAG 主要是补充事实。'],
 ['RAG supplies information but is weaker at enforcing a consistent style.','Higher temperature makes output less consistent.','Shorter outputs do not change the voice.'],
 ['RAG 能提供信息，但在保持一致风格方面较弱。','调高温度会让输出更不一致。','更短的输出不会改变语气。']);
@@ -211,10 +211,10 @@ Q('3.2','single',[0],
  ['Negative prompting','Chain-of-thought prompting','Few-shot prompting','A system role'],
  'A negative prompt tells the model what to leave out.'],
 ['在图像生成提示中加入“不要文字、不要水印、不要模糊背景”属于什么？',
- ['负面提示','思维链提示','少样本提示','系统角色'],
+ ['负面提示','思维链提示','少量样本提示','系统角色'],
  '负面提示告诉模型要避免哪些内容。'],
 ['Chain-of-thought asks for step-by-step reasoning.','Few-shot gives examples.','A system role sets the model’s persona.'],
-['思维链要求逐步推理。','少样本是提供示例。','系统角色设定模型的身份。']);
+['思维链要求逐步推理。','少量样本是提供示例。','系统角色设定模型的身份。']);
 
 Q('3.2','single',[0],
 ['In the prompt “Summarize the email below in three bullet points,” followed by the email, which part is the instruction?',
@@ -264,7 +264,7 @@ Q('3.2','single',[0],
  ['常见且定义明确的任务，例如翻译一个句子或判断简单情感','输出必须遵循不寻常的自定义格式时','任务使用模型从未见过的公司专用标签时','之前的尝试结果不一致时'],
  '当模型已经很了解任务时，零样本提示就能奏效。'],
 ['Unusual formats usually need examples (few-shot).','Unfamiliar labels need examples or fine-tuning.','Inconsistent results call for examples or clearer instructions.'],
-['不寻常的格式通常需要示例（少样本）。','陌生的标签需要示例或微调。','结果不一致需要示例或更清晰的指令。']);
+['不寻常的格式通常需要示例（少量样本）。','陌生的标签需要示例或微调。','结果不一致需要示例或更清晰的指令。']);
 
 Q('3.2','single',[0],
 ['Which task benefits most from chain-of-thought prompting?',
@@ -301,7 +301,7 @@ Q('3.2','single',[0],
  ['Combine clear instructions with guardrails, such as Amazon Bedrock Guardrails, instead of relying on the prompt alone','Ask users to behave','Turn off logging','Put secrets in the system prompt'],
  'Prompts can be bypassed, so safety needs enforced controls as well.'],
 ['以下哪项是保障安全的提示工程最佳实践？',
- ['把清晰的指令与防护栏（例如 Amazon Bedrock Guardrails）结合，而不是只依赖提示','要求用户守规矩','关闭日志记录','把机密信息放进系统提示'],
+ ['把清晰的指令与防护机制（例如 Amazon Bedrock Guardrails）结合，而不是只依赖提示','要求用户守规矩','关闭日志记录','把机密信息放进系统提示'],
  '提示可能被绕过，因此安全还需要强制性的控制措施。'],
 ['Attackers will not follow such requests.','Logs are needed to detect abuse.','Secrets in a prompt can be leaked.'],
 ['攻击者不会遵守这种请求。','需要日志来发现滥用。','提示中的机密可能被泄露。']);
@@ -311,17 +311,17 @@ Q('3.2','single',[0],
  ['They help the model tell instructions apart from data, which improves accuracy and lowers the risk of injection','They reduce the token count to zero','The model cannot read the prompt without them','The law requires them'],
  'Clearly separated sections make prompts easier for the model to follow.'],
 ['为什么要用分隔符（例如 XML 标签或 ###）把指令和粘贴进来的用户内容分开？',
- ['帮助模型区分指令和数据，提高准确性并降低注入风险','能把 token 数减到零','没有它们模型就读不懂提示','法律要求使用'],
+ ['帮助模型区分指令和数据，提高准确性并降低注入风险','能把令牌数减到零','没有它们模型就读不懂提示','法律要求使用'],
  '清晰分隔的各个部分让模型更容易遵循提示。'],
 ['Delimiters add a few tokens, not remove them.','Models can read prompts without them; they just work better with them.','There is no such legal requirement.'],
-['分隔符会增加少量 token，而不是减少。','没有分隔符模型也能读，只是有了它们效果更好。','并没有这样的法律要求。']);
+['分隔符会增加少量令牌，而不是减少。','没有分隔符模型也能读，只是有了它们效果更好。','并没有这样的法律要求。']);
 
 Q('3.2','single',[0],
 ['A bank’s chatbot is manipulated into writing poems and advertising for the attacker’s unrelated product. What is this?',
  ['Prompt hijacking','Data poisoning','Prompt exposure','Overfitting'],
  'Hijacking redirects the model away from its intended task toward the attacker’s goal.'],
 ['某银行的聊天机器人被操纵去为攻击者无关的产品写诗和打广告。这是什么？',
- ['提示劫持','数据投毒','提示泄露','过拟合'],
+ ['提示劫持','数据投毒','提示暴露','过拟合'],
  '劫持会让模型偏离预定任务，转而为攻击者的目的服务。'],
 ['Poisoning corrupts training or retrieval data.','Exposure reveals hidden prompts or data.','Overfitting is a training problem.'],
 ['投毒是污染训练或检索数据。','泄露是暴露隐藏的提示或数据。','过拟合是训练问题。']);
@@ -330,7 +330,7 @@ Q('3.2','single',[0],
 ['How can a team reduce the risk of its system prompt being exposed to users?',
  ['Keep secrets out of the system prompt, and add output filtering and instructions not to reveal it','Put all secrets in the system prompt so the model knows them','Publish the system prompt on the website','Raise the temperature'],
  'Assume a system prompt can leak, so never store secrets in it.'],
-['团队如何降低系统提示泄露给用户的风险？',
+['团队如何降低系统提示暴露给用户的风险？',
  ['不在系统提示中放机密，并加入输出过滤以及“不得泄露”的指令','把所有机密都放进系统提示，让模型知道','在网站上公开系统提示','调高温度'],
  '要假设系统提示可能泄露，因此绝不在其中存放机密。'],
 ['That turns any leak into a data breach.','That exposes it on purpose.','Temperature has no effect on leakage.'],
@@ -351,10 +351,10 @@ Q('3.2','single',[0],
  ['Variables that are filled in at run time, making the prompt a reusable template','Guardrail policies','Model hyperparameters','Knowledge base IDs'],
  'Variables let one managed prompt serve many requests.'],
 ['在 Amazon Bedrock Prompt Management 中，某个提示写着“Translate {{text}} into {{language}}”。其中的 {{text}} 和 {{language}} 是什么？',
- ['运行时填入的变量，让提示成为可复用的模板','防护栏策略','模型超参数','知识库 ID'],
+ ['运行时填入的变量，让提示成为可复用的模板','防护机制策略','模型超参数','知识库 ID'],
  '变量让一个托管的提示可以服务许多请求。'],
 ['Guardrails are configured separately.','Hyperparameters such as temperature are separate settings.','Knowledge bases are not referenced this way.'],
-['防护栏需要单独配置。','温度等超参数是另外的设置。','知识库不是这样引用的。']);
+['防护机制需要单独配置。','温度等超参数是另外的设置。','知识库不是这样引用的。']);
 
 Q('3.2','multi',[0,1],
 ['Which TWO help defend a chatbot against jailbreaking? (Choose TWO.)',
@@ -380,20 +380,20 @@ Q('3.3','single',[0],
  ['Massive amounts of broad, mostly unlabeled data','A small labeled dataset','Only images','Only user feedback'],
  'Pre-training learns general patterns from huge, varied datasets.'],
 ['预训练基础模型使用的是什么样的数据？',
- ['海量、广泛且大多未标注的数据','小型的带标签数据集','只有图像','只有用户反馈'],
+ ['海量、广泛且大多未标记的数据','小型的已标记数据集','只有图像','只有用户反馈'],
  '预训练从庞大且多样的数据中学习通用规律。'],
 ['Small labeled sets are used for fine-tuning.','Many foundation models learn from text, code and more.','Feedback is used later to refine a model.'],
-['小型带标签数据集用于微调。','许多基础模型从文本、代码等多种数据中学习。','反馈用于之后对模型的改进。']);
+['小型已标记数据集用于微调。','许多基础模型从文本、代码等多种数据中学习。','反馈用于之后对模型的改进。']);
 
 Q('3.3','single',[0],
 ['During pre-training, an LLM learns by predicting the next token in text. Which learning approach is this?',
  ['Self-supervised learning','Reinforcement learning from rewards','Supervised learning with a human label for every token','Clustering'],
  'The text supplies its own “labels”: the next token is the answer to predict.'],
-['在预训练期间，LLM 通过预测文本中的下一个 token 来学习。这是哪种学习方式？',
- ['自监督学习','基于奖励的强化学习','每个 token 都有人工标签的监督学习','聚类'],
- '文本本身就提供了“标签”：下一个 token 就是要预测的答案。'],
+['在预训练期间，LLM 通过预测文本中的下一个令牌来学习。这是哪种学习方式？',
+ ['自监督学习','基于奖励的强化学习','每个令牌都有人工标签的监督学习','聚类'],
+ '文本本身就提供了“标签”：下一个令牌就是要预测的答案。'],
 ['No reward signal is used here.','No human labels each token.','Clustering groups data; it does not predict tokens.'],
-['这里没有使用奖励信号。','没有人为每个 token 打标签。','聚类是分组，不预测 token。']);
+['这里没有使用奖励信号。','没有人为每个令牌打标签。','聚类是分组，不预测令牌。']);
 
 Q('3.3','single',[0],
 ['In model distillation, what is the “teacher”?',
@@ -449,8 +449,8 @@ Q('3.3','single',[0],
 ['How much data does instruction fine-tuning typically need compared with pre-training?',
  ['Far less: hundreds to thousands of high-quality examples, compared with trillions of tokens','More than pre-training','Exactly the same amount','No data at all'],
  'Fine-tuning builds on what the model already knows, so a small, good dataset goes a long way.'],
-['与预训练相比，指令微调通常需要多少数据？',
- ['少得多：几百到几千个高质量示例，而预训练需要数万亿个 token','比预训练更多','完全相同','完全不需要数据'],
+['与预训练相比，指令优化通常需要多少数据？',
+ ['少得多：几百到几千个高质量示例，而预训练需要数万亿个令牌','比预训练更多','完全相同','完全不需要数据'],
  '微调建立在模型已有知识之上，因此少量优质数据就能发挥很大作用。'],
 ['Pre-training needs vastly more data.','The scales are very different.','Fine-tuning always needs examples.'],
 ['预训练需要的数据要多得多。','两者的数据规模相差极大。','微调总是需要示例。']);
@@ -480,7 +480,7 @@ Q('3.3','single',[0],
  ['Continued pre-training uses unlabeled text; fine-tuning uses labeled prompt and response pairs','Continued pre-training needs labeled pairs; fine-tuning uses unlabeled text','Both use only images','Neither needs any data'],
  'Continued pre-training learns a domain from raw text; fine-tuning learns a task from examples.'],
 ['在 Amazon Bedrock 中，继续预训练的训练数据与微调的数据有何不同？',
- ['继续预训练使用未标注的文本；微调使用带标签的提示与回答对','继续预训练需要带标签的数据对；微调使用未标注的文本','两者都只使用图像','两者都不需要数据'],
+ ['继续预训练使用未标记的文本；微调使用已标记的提示与回答对','继续预训练需要已标记的数据对；微调使用未标记的文本','两者都只使用图像','两者都不需要数据'],
  '继续预训练从原始文本中学习领域知识；微调从示例中学习任务。'],
 ['That is reversed.','Both typically use text.','Both need data.'],
 ['这是说反了。','两者通常都使用文本。','两者都需要数据。']);
@@ -490,7 +490,7 @@ Q('3.3','multi',[0,1],
  ['It changes the model’s weights','It needs labeled training data and compute','It takes effect instantly with no training','It is free','It is the same thing as RAG'],
  'Fine-tuning trains the model; prompt engineering only changes the input.'],
 ['与提示工程相比，关于微调的哪两项说法是正确的？（选择两项）',
- ['它会改变模型的权重','它需要带标签的训练数据和算力','它无需训练、立即生效','它是免费的','它与 RAG 是同一回事'],
+ ['它会改变模型的权重','它需要已标记的训练数据和算力','它无需训练、立即生效','它是免费的','它与 RAG 是同一回事'],
  '微调会训练模型；提示工程只改变输入。'],
 ['Fine-tuning requires a training job.','Training and hosting a custom model cost money.','RAG retrieves documents and leaves weights unchanged.'],
 ['微调需要运行训练任务。','训练和托管定制模型都要花钱。','RAG 检索文档，不改变权重。']);
@@ -500,7 +500,7 @@ Q('3.3','match',[],
  [['Continued pre-training','Teach domain vocabulary from unlabeled text'],['Instruction tuning','Improve how well the model follows instructions'],['Reinforcement learning from human feedback','Align answers with human preferences'],['Distillation','Produce a smaller, cheaper model']],
  'Each method serves a different purpose in adapting a model.'],
 ['将每种训练方法与其主要目标配对。',
- [['继续预训练','从未标注文本中学习领域词汇'],['指令微调','提升模型遵循指令的能力'],['基于人类反馈的强化学习','让回答符合人类偏好'],['蒸馏','得到更小、更便宜的模型']],
+ [['继续预训练','从未标记文本中学习领域词汇'],['指令优化','提升模型遵循指令的能力'],['基于人类反馈的强化学习','让回答符合人类偏好'],['蒸馏','得到更小、更便宜的模型']],
  '每种方法在适配模型时各有不同的用途。']);
 
 Q('3.3','order',[],
@@ -508,7 +508,7 @@ Q('3.3','order',[],
  ['Collect candidate examples','Remove personal data and confirm usage rights','Clean, deduplicate and label the examples','Split them into training and validation sets','Upload them to Amazon S3 for the fine-tuning job'],
  'Governance and cleaning come before splitting and uploading.'],
 ['按顺序排列准备微调数据的步骤。',
- ['收集候选示例','删除个人数据并确认使用权','清洗、去重并标注示例','划分为训练集和验证集','上传到 Amazon S3 供微调任务使用'],
+ ['收集候选示例','删除个人数据并确认使用权','清洗、去重并标记示例','划分为训练集和验证集','上传到 Amazon S3 供微调任务使用'],
  '治理和清洗要先于划分和上传。']);
 
 /* ================= 3.4 Evaluating FM performance ================= */
@@ -517,7 +517,7 @@ Q('3.4','single',[0],
  ['How much of the reference text’s words and phrases appear in the generated text (recall-oriented overlap)','Precision of n-grams in machine translation','Semantic similarity using embeddings','Response latency'],
  'ROUGE is recall-oriented and widely used for summarization.'],
 ['ROUGE 主要衡量什么？',
- ['参考文本中的词语和短语有多少出现在生成文本中（以召回为导向的重合度）','机器翻译中 n-gram 的精确率','基于嵌入的语义相似度','响应延迟'],
+ ['参考文本中的词语和短语有多少出现在生成文本中（以召回为导向的重合度）','机器翻译中 n-gram 的查准率','基于嵌入的语义相似度','响应延迟'],
  'ROUGE 以召回为导向，广泛用于评估摘要。'],
 ['That describes BLEU.','That describes BERTScore.','Latency is a performance measure, not a text metric.'],
 ['那描述的是 BLEU。','那描述的是 BERTScore。','延迟是性能指标，不是文本指标。']);
@@ -527,7 +527,7 @@ Q('3.4','single',[0],
  ['The n-gram precision of generated text against reference translations','How many users clicked a result','The semantic meaning using embeddings','How toxic the output is'],
  'BLEU is the classic machine translation metric.'],
 ['BLEU 比较的是什么？',
- ['生成文本相对于参考译文的 n-gram 精确率','有多少用户点击了结果','基于嵌入的语义含义','输出的有害程度'],
+ ['生成文本相对于参考译文的 n-gram 查准率','有多少用户点击了结果','基于嵌入的语义含义','输出的有害程度'],
  'BLEU 是经典的机器翻译评估指标。'],
 ['Clicks are a business metric.','That is BERTScore.','Toxicity needs a different kind of check.'],
 ['点击量是业务指标。','那是 BERTScore。','有害性需要另一种检查方式。']);
@@ -557,10 +557,10 @@ Q('3.4','single',[0],
  ['Human-based evaluation with your own work team','Automatic evaluation with built-in metrics','LLM-as-a-judge evaluation','Amazon CloudWatch'],
  'Human evaluation lets people you choose judge qualities that metrics miss.'],
 ['Amazon Bedrock Model Evaluation 的哪个选项由你自己的团队对模型回答打分？',
- ['使用自有工作团队的人工评估','使用内置指标的自动评估','LLM 作为评判者的评估','Amazon CloudWatch'],
+ ['使用自有工作团队的人工评估','使用内置指标的自动评估','LLM 评审员的评估','Amazon CloudWatch'],
  '人工评估让你选定的人员判断指标无法衡量的质量。'],
 ['Automatic evaluation uses algorithms, not people.','LLM-as-a-judge uses a model to score answers.','CloudWatch monitors metrics and logs.'],
-['自动评估使用算法，而不是人。','LLM 评判者是用模型给回答打分。','CloudWatch 用于监控指标和日志。']);
+['自动评估使用算法，而不是人。','LLM 评审员是用模型给回答打分。','CloudWatch 用于监控指标和日志。']);
 
 Q('3.4','single',[0],
 ['Which Amazon Bedrock capability evaluates a knowledge base on retrieval quality and on the answers it generates, for example context relevance and correctness?',
@@ -570,15 +570,15 @@ Q('3.4','single',[0],
  ['Amazon Bedrock Evaluations 中的知识库（RAG）评估','Amazon Bedrock Guardrails','Amazon Bedrock Prompt Management','Amazon Inspector'],
  'RAG 评估会同时检查检索步骤和生成的答案。'],
 ['Guardrails filter content; they do not score retrieval.','Prompt Management stores and versions prompts.','Inspector scans for software vulnerabilities.'],
-['防护栏用于过滤内容，不为检索打分。','Prompt Management 用于存储和管理提示版本。','Inspector 扫描软件漏洞。']);
+['防护机制用于过滤内容，不为检索打分。','Prompt Management 用于存储和管理提示版本。','Inspector 扫描软件漏洞。']);
 
 Q('3.4','single',[0],
 ['What is a known weakness of LLM-as-a-judge evaluation?',
  ['The judge model can have biases, such as favouring longer answers, so it should be checked against human ratings','It cannot read text','It is always slower than human reviewers','It always costs more than human review'],
  'LLM judges scale well but need calibration against people.'],
-['“LLM 作为评判者”的评估方式有什么已知弱点？',
+['“LLM 评审员”的评估方式有什么已知弱点？',
  ['评判模型可能存在偏好（例如偏爱更长的回答），因此应与人工评分对照校准','它无法阅读文本','它总是比人工审核员慢','它总是比人工审核更贵'],
- 'LLM 评判者易于扩展，但需要与人工评分对照校准。'],
+ 'LLM 评审员易于扩展，但需要与人工评分对照校准。'],
 ['Reading text is exactly what it does.','It is usually much faster than people.','It is usually cheaper at scale.'],
 ['阅读文本正是它的本事。','它通常比人快得多。','在大规模时它通常更便宜。']);
 
@@ -587,10 +587,10 @@ Q('3.4','single',[0],
  ['For subjective qualities such as helpfulness and tone, or expert correctness that automatic metrics cannot judge','For checking JSON syntax','For counting tokens','For measuring latency'],
  'People are best at judging nuanced, subjective or expert qualities.'],
 ['在什么情况下最需要人工评估？',
- ['评估有用性、语气等主观品质，或自动指标无法判断的专业正确性时','检查 JSON 语法时','统计 token 数时','测量延迟时'],
+ ['评估有用性、语气等主观品质，或自动指标无法判断的专业正确性时','检查 JSON 语法时','统计令牌数时','测量延迟时'],
  '人最擅长判断细微、主观或需要专业知识的品质。'],
 ['Syntax can be checked automatically.','Token counting is automatic.','Latency is measured automatically.'],
-['语法可以自动检查。','token 数可以自动统计。','延迟可以自动测量。']);
+['语法可以自动检查。','令牌数可以自动统计。','延迟可以自动测量。']);
 
 Q('3.4','single',[0],
 ['A travel-booking agent completes 820 of 1,000 requests without human help. Which metric is this?',
@@ -607,10 +607,10 @@ Q('3.4','single',[0],
  ['User satisfaction','ROUGE','Token count','F1 score'],
  'User satisfaction shows whether the application meets people’s needs.'],
 ['团队在每次聊天后收集点赞、点踩和满意度评分。这是哪个业务指标？',
- ['用户满意度','ROUGE','token 数量','F1 分数'],
+ ['用户满意度','ROUGE','令牌数量','F1 分数'],
  '用户满意度能说明应用是否满足了用户需求。'],
 ['ROUGE is a text-overlap metric.','Token count measures usage and cost.','F1 is a classification metric.'],
-['ROUGE 是文本重合度指标。','token 数量衡量的是用量和成本。','F1 是分类指标。']);
+['ROUGE 是文本重合度指标。','令牌数量衡量的是用量和成本。','F1 是分类指标。']);
 
 Q('3.4','single',[0],
 ['A generative AI coding assistant is judged by whether developers finish features faster. Which business objective is this?',
@@ -627,10 +627,10 @@ Q('3.4','single',[0],
  ['Evaluate each step’s output and the end-to-end result against expected outcomes','Measure only the final step’s latency','Count only the tokens used','Do not evaluate it, because each model was tested separately'],
  'Errors can enter at any step, so check the steps and the whole.'],
 ['应如何评估一个多步骤的生成式 AI 工作流（先提取、再校验、最后总结）？',
- ['对照预期结果，评估每一步的输出以及端到端的最终结果','只测量最后一步的延迟','只统计使用的 token','不用评估，因为每个模型都单独测试过'],
+ ['对照预期结果，评估每一步的输出以及端到端的最终结果','只测量最后一步的延迟','只统计使用的令牌','不用评估，因为每个模型都单独测试过'],
  '错误可能出现在任何一步，因此既要检查各步，也要检查整体。'],
 ['Latency says nothing about correctness.','Token counts measure cost, not quality.','Parts that work alone can still fail together.'],
-['延迟无法说明正确性。','token 数衡量成本，而不是质量。','单独能用的部分组合在一起仍可能出错。']);
+['延迟无法说明正确性。','令牌数衡量成本，而不是质量。','单独能用的部分组合在一起仍可能出错。']);
 
 Q('3.4','single',[0],
 ['Beyond the final answer, what should be evaluated for an AI agent?',
@@ -657,7 +657,7 @@ Q('3.4','match',[],
  [['Benchmark datasets','Compare models consistently on standard questions'],['Human evaluation','Judge tone, empathy and expert correctness'],['LLM-as-a-judge','Score open-ended answers at scale'],['ROUGE and BLEU','Measure overlap with reference answers']],
  'Combining approaches gives the fullest picture of model quality.'],
 ['将每种评估方法与其最适合的场景配对。',
- [['基准数据集','在标准问题上一致地比较模型'],['人工评估','判断语气、同理心和专业正确性'],['LLM 作为评判者','大规模地为开放式回答打分'],['ROUGE 和 BLEU','衡量与参考答案的重合程度']],
+ [['基准数据集','在标准问题上一致地比较模型'],['人工评估','判断语气、同理心和专业正确性'],['LLM 评审员','大规模地为开放式回答打分'],['ROUGE 和 BLEU','衡量与参考答案的重合程度']],
  '结合多种方法才能最全面地了解模型质量。']);
 
 Q('3.4','single',[0],

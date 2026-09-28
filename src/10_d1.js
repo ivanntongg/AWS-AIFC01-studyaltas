@@ -106,7 +106,7 @@ zh:`
 <div class="box ex"><p><b>同一个问题的五个层次：处理客户邮件。</b></p>
 <ul>
 <li><b>基于规则的 AI：</b>主题含“退款”就转到账单队列。</li>
-<li><b>ML：</b>用 5 万封已标注邮件训练的分类器预测邮件类别。</li>
+<li><b>ML：</b>用 5 万封已标记邮件训练的分类器预测邮件类别。</li>
 <li><b>深度学习：</b>神经网络读取整封邮件，能理解俚语和错别字。</li>
 <li><b>生成式 AI：</b>起草一封礼貌、个性化的回复。</li>
 <li><b>智能体 AI：</b>读邮件 → 通过 API 查询订单 → 50 美元以下直接退款 → 发送回复；超过 50 美元转人工。</li>
@@ -133,7 +133,7 @@ zh:`
 
 <h3>数据类型</h3>
 <div class="tw"><table><thead><tr><th>类型</th><th>样子</th><th>典型用途</th></tr></thead><tbody>
-<tr><td>有标签数据</td><td>每个样本都附有正确答案（邮件 → “垃圾邮件”）。</td><td>监督学习。标注耗时耗钱（可用 SageMaker Ground Truth）。</td></tr>
+<tr><td>有标签数据</td><td>每个样本都附有正确答案（邮件 → “垃圾邮件”）。</td><td>监督学习。标记耗时耗钱（可用 SageMaker Ground Truth）。</td></tr>
 <tr><td>无标签数据</td><td>只有原始样本，没有答案。</td><td>无监督学习、基础模型的自监督预训练。</td></tr>
 <tr><td>结构化 / 表格数据</td><td>行和列、固定模式：CSV、关系表。</td><td>传统 ML：客户流失、信用风险、定价。</td></tr>
 <tr><td>半结构化数据</td><td>有标记但结构灵活：JSON、XML、日志。</td><td>先解析，再做 ML 或分析。</td></tr>
@@ -149,7 +149,7 @@ zh:`
 <tr><td>无监督学习</td><td>无标签</td><td>发现结构：<b>聚类</b>、降维 (PCA)、异常检测、关联规则。</td><td>客户分群；异常交易。</td></tr>
 <tr><td>强化学习 (RL)</td><td>来自环境的奖励</td><td>智能体通过试错学习策略，使累计奖励最大化。</td><td>机器人、游戏、AWS DeepRacer。</td></tr>
 <tr><td>自监督学习</td><td>无标签，标签来自数据本身</td><td>预测下一个词或被遮盖的词。</td><td>LLM 的预训练方式。</td></tr>
-<tr><td>半监督学习</td><td>少量有标签 + 大量无标签</td><td>让稀缺的标签发挥更大作用。</td><td>专家标注很少的医学影像。</td></tr>
+<tr><td>半监督学习</td><td>少量有标签 + 大量无标签</td><td>让稀缺的标签发挥更大作用。</td><td>专家标记很少的医学影像。</td></tr>
 <tr><td>迁移学习</td><td>预训练模型 + 较小的新数据集</td><td>把已学到的知识复用到新任务。</td><td>微调基础模型。</td></tr>
 </tbody></table></div>
 <div class="box rem"><p>有标签 → <b>监督学习</b>；无标签、找分组 → <b>无监督（聚类）</b>；通过试错从奖励中学习 → <b>强化学习</b>。RLHF（基于人类反馈的强化学习）是用 RL 让 LLM 对齐人类偏好，详见任务 3.3。</p></div>
@@ -255,7 +255,7 @@ zh:`
 <h3>什么时候不该用 AI/ML</h3>
 <ul>
 <li><b>需要确定、精确的结果。</b>ML 输出的是预测和概率。工资计算、按固定规则计税、利息计算应当用普通代码。</li>
-<li><b>成本大于收益。</b>把数据收集、标注、训练、推理和维护成本与产生的价值对比。</li>
+<li><b>成本大于收益。</b>把数据收集、标记、训练、推理和维护成本与产生的价值对比。</li>
 <li><b>缺乏足够的优质数据</b>，或数据不能代表真实情况。</li>
 <li><b>每个决策都必须完全可解释</b>，而简单规则已经够用。</li>
 <li><b>不允许出错</b>，且没有人工复核。</li>
@@ -299,7 +299,7 @@ zh:`
 <tr><td>受监管的决策（信贷、保险），每个结果都要解释</td><td>传统 ML</td><td>可解释模型（逻辑回归、决策树）加上可解释性工具能满足监管要求。</td></tr>
 <tr><td>结构化表格预测：流失、价格、风险评分</td><td>传统 ML</td><td>更便宜、更快，在表格数据上通常更准确。</td></tr>
 <tr><td>开放式语言、图像或内容创作；任务多样</td><td>基础模型</td><td>一个预训练模型通过提示词即可处理多种任务。</td></tr>
-<tr><td>标注数据很少但需要语言理解能力</td><td>基础模型</td><td>无需训练，用提示词或少样本即可。</td></tr>
+<tr><td>标记数据很少但需要语言理解能力</td><td>基础模型</td><td>无需训练，用提示词或少量样本即可。</td></tr>
 <tr><td>超高调用量、极低延迟、单一窄任务，或离线/边缘部署</td><td>小型传统模型</td><td>单次预测成本低；可在受限硬件上运行。</td></tr>
 </tbody></table></div>
 <div class="box rem"><p>受监管 + 每个决策需解释 + 表格数据 → <b>传统 ML</b>。非结构化、开放式、生成式 → <b>基础模型</b>。</p></div>
@@ -309,12 +309,12 @@ zh:`
 AIF.tasks['1.3'] = {d:'d1',
 title:{en:'Describe the AI/ML development lifecycle', zh:'描述 AI/ML 开发生命周期'},
 obj:[
- ['Describe and tell apart the components of an AI/ML pipeline','描述并区分 AI/ML 流水线的各个组成部分'],
+ ['Describe and tell apart the components of an AI/ML pipeline','描述并区分 AI/ML 管道的各个组成部分'],
  ['Describe where models come from: open-source pre-trained models, training custom models','描述模型来源：开源预训练模型、训练自定义模型'],
  ['Describe ways to run a model in production: managed API service vs self-hosted API','描述生产环境使用模型的方式：托管 API 服务 vs 自托管 API'],
- ['Map AWS services to each pipeline stage (Bedrock, Amazon Q, Amazon Quick, Kiro, SageMaker AI)','把 AWS 服务对应到流水线各阶段（Bedrock、Amazon Q、Amazon Quick、Kiro、SageMaker AI）'],
+ ['Map AWS services to each pipeline stage (Bedrock, Amazon Q, Amazon Quick, Kiro, SageMaker AI)','把 AWS 服务对应到管道各阶段（Bedrock、Amazon Q、Amazon Quick、Kiro、SageMaker AI）'],
  ['Describe MLOps: experimentation, repeatable processes, scalability, technical debt, production readiness, monitoring, re-training','描述 MLOps：实验、可重复流程、可扩展系统、技术债管理、生产就绪、模型监控、再训练'],
- ['Describe model metrics (accuracy, precision, recall, F1) and business metrics (cost per user, development cost, customer feedback, ROI)','描述模型指标（准确率、精确率、召回率、F1）和业务指标（每用户成本、开发成本、客户反馈、ROI）']
+ ['Describe model metrics (accuracy, precision, recall, F1) and business metrics (cost per user, development cost, customer feedback, ROI)','描述模型指标（准确率、查准率、查全率、F1）和业务指标（每用户成本、开发成本、客户反馈、ROI）']
 ],
 en:`
 <h3>The pipeline, stage by stage</h3>
@@ -396,13 +396,13 @@ F1        = 2 × P × R / (P + R)</div>
 <div class="box rem"><p>A model with great F1 but no business impact has failed. Tie every model metric to a business metric agreed at the start.</p></div>
 `,
 zh:`
-<h3>流水线逐阶段拆解</h3>
+<h3>管道逐阶段拆解</h3>
 <div class="flow loop"><span>业务目标</span><span>定义 ML 问题</span><span>收集数据</span><span>数据准备与 EDA</span><span>特征工程</span><span>训练</span><span>调优</span><span>评估</span><span>部署</span><span>监控</span><span>再训练 ↺</span></div>
 <div class="tw"><table><thead><tr><th>阶段</th><th>做什么</th><th>AWS 服务与功能</th></tr></thead><tbody>
 <tr><td>业务目标与问题定义</td><td>确定 KPI 与成功标准；判断是否需要 ML 以及类型（分类、回归……）。</td><td>与业务方沟通，无需服务</td></tr>
 <tr><td>数据收集</td><td>从多个来源采集、导入并存储数据。</td><td>Amazon S3、AWS Glue (ETL)、Amazon EMR（大数据）、AWS Data Exchange（第三方数据）、AWS Lake Formation</td></tr>
 <tr><td>数据准备与 EDA</td><td>清洗、处理缺失值、探索数据分布（探索性数据分析）。</td><td>SageMaker Data Wrangler、AWS Glue DataBrew（无代码）、SageMaker Studio 笔记本</td></tr>
-<tr><td>数据标注</td><td>添加真实标签。</td><td>SageMaker Ground Truth</td></tr>
+<tr><td>数据标记</td><td>添加真实标签。</td><td>SageMaker Ground Truth</td></tr>
 <tr><td>特征工程</td><td>构造和选择模型要学习的输入，并存储以便复用。</td><td>SageMaker Feature Store</td></tr>
 <tr><td>训练与调优</td><td>拟合模型；搜索超参数。</td><td>SageMaker AI 训练任务、自动模型调优、SageMaker Canvas（无代码）、SageMaker JumpStart（预训练模型）</td></tr>
 <tr><td>评估</td><td>在留出数据上衡量质量、偏差和可解释性。</td><td>SageMaker Clarify、SageMaker 实验跟踪（托管 MLflow）</td></tr>
@@ -431,7 +431,7 @@ zh:`
 <p>MLOps 把 DevOps 的工程纪律用于机器学习，让模型可靠地进入生产并保持良好表现。</p>
 <ul>
 <li><b>实验管理：</b>记录每次运行的数据版本、代码、超参数和指标，方便对比。</li>
-<li><b>可重复流程：</b>流水线和基础设施即代码；数据、代码、模型一起做版本管理。</li>
+<li><b>可重复流程：</b>管道和基础设施即代码；数据、代码、模型一起做版本管理。</li>
 <li><b>可扩展系统：</b>训练和服务能随数据量和流量增长而扩展，无需重新设计。</li>
 <li><b>管理技术债：</b>避免无文档的模型、一次性脚本和隐藏的数据依赖。</li>
 <li><b>生产就绪：</b>自动化测试、模型注册表中的审批关卡、回滚预案。</li>
@@ -450,20 +450,20 @@ zh:`
 <tr><td>实际为负</td><td>假正例 (FP)，误报</td><td>真负例 (TN)</td></tr>
 </tbody></table></div>
 <div class="formula">准确率 Accuracy  = (TP + TN) / 总数
-精确率 Precision = TP / (TP + FP)   被判为正的里面有多少是对的？
-召回率 Recall    = TP / (TP + FN)   真正的正例里抓到了多少？
+查准率 Precision = TP / (TP + FP)   被判为正的里面有多少是对的？
+查全率 Recall    = TP / (TP + FN)   真正的正例里抓到了多少？
 F1               = 2 × P × R / (P + R)</div>
 <ul>
-<li><b>误报 (FP)</b> 代价高时看<b>精确率</b>：垃圾邮件过滤不能把真实客户邮件藏起来。</li>
-<li><b>漏报 (FN)</b> 代价高时看<b>召回率</b>：漏诊癌症、漏掉欺诈。</li>
+<li><b>误报 (FP)</b> 代价高时看<b>查准率</b>：垃圾邮件过滤不能把真实客户邮件藏起来。</li>
+<li><b>漏报 (FN)</b> 代价高时看<b>查全率</b>：漏诊癌症、漏掉欺诈。</li>
 <li><b>F1</b> 兼顾两者，适用于类别不平衡的数据。</li>
 <li><b>AUC-ROC</b> 衡量模型在所有阈值下区分类别的能力：0.5 = 随机，1.0 = 完美。</li>
 <li>回归指标：<b>MAE</b>（平均绝对误差）、<b>RMSE</b>（对大误差惩罚更重）、<b>R²</b>（解释的方差比例）。</li>
 </ul>
 <div class="box ex"><p>垃圾邮件过滤器检查 100 封邮件：TP = 40，FP = 10，FN = 5，TN = 45。</p>
-<p>准确率 = 85/100 = <b>85%</b> · 精确率 = 40/50 = <b>80%</b> · 召回率 = 40/45 = <b>88.9%</b> · F1 = 2×0.80×0.889 / 1.689 ≈ <b>0.84</b>。</p>
-<p>有 10 封正常邮件被误判为垃圾邮件（误报）。如果客户抱怨收不到邮件，就要调高精确率。</p></div>
-<div class="box trap"><p>如果只有 1% 的交易是欺诈，一个永远回答“不是欺诈”的模型准确率为 99%，召回率却是 0%。数据不平衡时只看准确率会误导，要看召回率、精确率或 F1。</p></div>
+<p>准确率 = 85/100 = <b>85%</b> · 查准率 = 40/50 = <b>80%</b> · 查全率 = 40/45 = <b>88.9%</b> · F1 = 2×0.80×0.889 / 1.689 ≈ <b>0.84</b>。</p>
+<p>有 10 封正常邮件被误判为垃圾邮件（误报）。如果客户抱怨收不到邮件，就要调高查准率。</p></div>
+<div class="box trap"><p>如果只有 1% 的交易是欺诈，一个永远回答“不是欺诈”的模型准确率为 99%，查全率却是 0%。数据不平衡时只看准确率会误导，要看查全率、查准率或 F1。</p></div>
 
 <h3>业务指标</h3>
 <ul>

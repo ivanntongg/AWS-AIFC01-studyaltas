@@ -162,14 +162,14 @@ Q('5.1','match',[],
  [['Prompt injection','Guardrails prompt attack filter and input validation'],['Data leakage','Sensitive information filters and least-privilege retrieval'],['Account threats','Amazon GuardDuty'],['Software vulnerabilities','Amazon Inspector'],['Missing audit trail','AWS CloudTrail and model invocation logging']],
  'Each risk needs its own control; together they give defence in depth.'],
 ['将 AI 应用中的每种安全风险与应对它的控制措施配对。',
- [['提示注入','防护栏提示攻击过滤器和输入验证'],['数据泄露','敏感信息过滤器和最小权限检索'],['账户威胁','Amazon GuardDuty'],['软件漏洞','Amazon Inspector'],['缺少审计记录','AWS CloudTrail 和模型调用日志']],
+ [['提示注入','防护机制提示攻击过滤器和输入验证'],['数据泄露','敏感信息过滤器和最小权限检索'],['账户威胁','Amazon GuardDuty'],['软件漏洞','Amazon Inspector'],['缺少审计记录','AWS CloudTrail 和模型调用日志']],
  '每种风险都需要相应的控制措施，组合起来形成纵深防御。']);
 
 Q('5.1','order',[],
 ['Put these steps of a secure data pipeline for training data in order.',
  ['Find personal data with Amazon Macie','Mask or remove the sensitive fields','Store the data encrypted in Amazon S3 with restricted access','Record lineage in the data catalogue','Use the approved dataset for training'],
  'Discover and protect sensitive data before it is stored, documented and used.'],
-['按顺序排列训练数据安全流水线的步骤。',
+['按顺序排列训练数据安全管道的步骤。',
  ['用 Amazon Macie 查找个人数据','遮盖或删除敏感字段','把数据加密存储在访问受限的 Amazon S3 中','在数据目录中记录数据沿袭','使用经批准的数据集进行训练'],
  '先发现并保护敏感数据，再进行存储、记录和使用。']);
 

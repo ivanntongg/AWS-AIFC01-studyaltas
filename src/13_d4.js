@@ -12,7 +12,7 @@ obj:[
  ['Identify legal risks of GenAI: IP infringement, biased outputs, loss of trust, end-user risk, hallucinations','识别生成式 AI 的法律风险：知识产权侵权、有偏见的输出、失去客户信任、终端用户风险、幻觉'],
  ['Identify dataset characteristics: inclusivity, diversity, curated sources, balance','识别数据集特征：包容性、多样性、经筛选的数据源、均衡性'],
  ['Describe effects of bias and variance: demographic effects, inaccuracy, overfitting, underfitting','描述偏差与方差的影响：对人口群体的影响、不准确、过拟合、欠拟合'],
- ['Describe tools to detect and monitor bias, trustworthiness and truthfulness: label quality analysis, human audits, subgroup analysis','描述检测与监控偏见、可信度和真实性的工具：标注质量分析、人工审计、子群体分析']
+ ['Describe tools to detect and monitor bias, trustworthiness and truthfulness: label quality analysis, human audits, subgroup analysis','描述检测与监控偏见、可信度和真实性的工具：标记质量分析、人工审计、亚组分析']
 ],
 en:`
 <h3>AWS's dimensions of responsible AI</h3>
@@ -111,7 +111,7 @@ zh:`
 <tr><td>上下文依据检查</td><td>评估回答是否<b>有据</b>于源材料、是否与问题<b>相关</b>；低于阈值则拦截。用于发现 RAG、摘要、改写中的幻觉。</td></tr>
 <tr><td>自动推理检查</td><td>依据从政策文档中构建的形式化逻辑规则验证回答，给出可数学验证的解释。</td></tr>
 </tbody></table></div>
-<p><b>其他负责任 AI 工具：</b><b>SageMaker Clarify</b>（训练前后的偏差指标、可解释性）、<b>SageMaker Model Monitor</b>（生产环境中的偏差漂移）、<b>Amazon Augmented AI (A2I)</b>（把低置信度预测交给人工复核）、<b>SageMaker Ground Truth</b>（高质量标注）、<b>Bedrock 模型评估</b>（毒性与鲁棒性测试）。</p>
+<p><b>其他负责任 AI 工具：</b><b>SageMaker Clarify</b>（训练前后的偏差指标、可解释性）、<b>SageMaker Model Monitor</b>（生产环境中的偏差漂移）、<b>Amazon Augmented AI (A2I)</b>（把低置信度预测交给人工复核）、<b>SageMaker Ground Truth</b>（高质量标记）、<b>Bedrock 模型评估</b>（毒性与鲁棒性测试）。</p>
 
 <h3>负责任的模型选择：可持续性</h3>
 <ul>
@@ -136,7 +136,7 @@ zh:`
 <li><b>包容且多样：</b>覆盖模型将面对的所有群体、语言、口音和场景。</li>
 <li><b>均衡：</b>没有哪个群体或类别被严重高估或低估。</li>
 <li><b>数据源经过筛选：</b>可信、有授权、经过审核，不含有害或低质量内容。</li>
-<li>此外还要标注准确、数据新鲜、能代表生产环境的数据。</li>
+<li>此外还要标记准确、数据新鲜、能代表生产环境的数据。</li>
 </ul>
 
 <h3>偏差、方差、欠拟合与过拟合</h3>
@@ -151,9 +151,9 @@ zh:`
 
 <h3>检测和监控偏见与真实性</h3>
 <ul>
-<li><b>标注质量分析：</b>检查不一致或带偏见的标签，衡量标注员间一致性。</li>
+<li><b>标记质量分析：</b>检查不一致或带偏见的标签，衡量标记人员间一致性。</li>
 <li><b>人工审计：</b>由人抽查输出中的偏见、毒性和事实错误。</li>
-<li><b>子群体分析：</b>分别计算每个群体的准确率、误报率等并进行比较。</li>
+<li><b>亚组分析：</b>分别计算每个群体的准确率、误报率等并进行比较。</li>
 <li><b>SageMaker Clarify</b> 偏差指标：如训练前的类别不平衡、训练后不同群体结果的差异。</li>
 <li>用 <b>SageMaker Model Monitor</b> 监控偏差随时间的漂移；用 <b>A2I</b> 持续进行人工复核。</li>
 </ul>

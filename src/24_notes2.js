@@ -18,12 +18,12 @@ W(86,['Analyzes text meaning; does not read scanned forms.','Finds objects in im
 W(87,['Needs labeled data and ML skills the team does not have.','Enormous cost and time.','Analyzes images, not text sentiment.'],['需要团队不具备的有标签数据和 ML 技能。','成本和时间都极高。','分析图像，不分析文本情感。']);
 W(88,['Text to speech.','Builds chatbots; does not translate.','Extracts text from documents.'],['文字转语音。','构建聊天机器人，不做翻译。','从文档中提取文字。']);
 /* 1.3 */
-W(89,['Labels data.','Explains predictions and detects bias.','Documents models.'],['标注数据。','解释预测并检测偏差。','记录模型信息。']);
+W(89,['Labels data.','Explains predictions and detects bias.','Documents models.'],['标记数据。','解释预测并检测偏差。','记录模型信息。']);
 W(90,['Text to speech.','Compliance reports.','Finds PII in S3.'],['文字转语音。','合规报告。','在 S3 中查找 PII。']);
 W(91,['Archive storage; no approval workflow.','Best-practice checks.','Content delivery network.'],['归档存储，没有审批流程。','最佳实践检查。','内容分发网络。']);
 W(92,['Needs ops skills the startup lacks, and bills while idle.','Takes months and a lot of money.','Bills around the clock even with no traffic.'],['需要初创公司不具备的运维能力，空闲也计费。','需要数月时间和大量资金。','即使没有流量也全天计费。']);
 W2(93,['Manual steps are error-prone and not repeatable.','Skipping tests undermines production readiness.','Undocumented work creates technical debt.'],['手动步骤容易出错、不可重复。','跳过测试会破坏生产就绪。','无文档的工作会产生技术债。']);
-W(94,['The simple average of 0.60 and 0.90, not F1.','That is P × R.','That is recall alone.'],['这是 0.60 和 0.90 的简单平均，不是 F1。','这是 P × R。','这只是召回率。']);
+W(94,['The simple average of 0.60 and 0.90, not F1.','That is P × R.','That is recall alone.'],['这是 0.60 和 0.90 的简单平均，不是 F1。','这是 P × R。','这只是查全率。']);
 W(95,['Benefit ÷ cost, without subtracting the cost first.','(Benefit − cost) ÷ benefit: divides by the wrong number.','Cost ÷ benefit.'],['收益 ÷ 成本，没有先减去成本。','(收益 − 成本) ÷ 收益：除错了数。','成本 ÷ 收益。']);
 /* 2.1 */
 W(96,['The FM generates the answer, not the embedding model.','Encryption is handled by KMS.','Chunking splits documents; embedding comes after.'],['答案由 FM 生成，不是嵌入模型。','加密由 KMS 负责。','分块负责切分文档，嵌入在其后。']);
@@ -36,7 +36,7 @@ W(104,['Training happens elsewhere; MCP only connects tools.','That is a vector 
 W(105,['Cheap: just writing inputs.','Costs far less than training from scratch.','Collecting ratings is cheap.'],['很便宜，只是写输入。','比从零训练便宜得多。','收集评分成本很低。']);
 /* 2.2 */
 W(106,['Makes answers even more varied.','Removes the instructions that keep answers consistent.','Adds more randomness.'],['会让答案更加多样。','去掉了保持答案一致的指令。','增加随机性。']);
-W2(107,['GenAI can hallucinate, so accuracy is not guaranteed.','GenAI models are hard to interpret.','GenAI is nondeterministic.'],['生成式 AI 会产生幻觉，无法保证准确。','生成式 AI 模型难以解释。','生成式 AI 是非确定性的。']);
+W2(107,['GenAI can hallucinate, so accuracy is not guaranteed.','GenAI models are hard to interpret.','GenAI is nondeterministic.'],['生成式 AI 会产生幻觉，无法保证准确。','生成式 AI 模型难以解释。','生成式 AI 是不确定性的。']);
 W(108,['Irrelevant to reading contracts.','Irrelevant to reading contracts.','Affects retrieval, not how much text fits in one request.'],['与阅读合同无关。','与阅读合同无关。','影响检索，不影响单次请求能放多少文本。']);
 W(109,['Adaptability is a strength.','Responsiveness is a strength.','A low barrier to entry is a strength.'],['适应性是优势。','响应速度是优势。','低门槛是优势。']);
 W(110,['Revenue per user over a period, not the whole relationship.','Share of visitors who buy.','A language-model metric.'],['某段时间内的人均收入，不是整个客户关系。','购买的访客比例。','语言模型指标。']);

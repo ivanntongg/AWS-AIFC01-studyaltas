@@ -33,10 +33,10 @@ Q('1.1','single',[0],
  ['Inference','Training','Data labeling','Hyperparameter tuning'],
  'Inference means using a trained model to make predictions on new data.'],
 ['一个已部署的模型接收新客户的信息，并返回流失风险分数。这个步骤叫什么？',
- ['推理','训练','数据标注','超参数调优'],
+ ['推理','训练','数据标记','超参数调优'],
  '推理是指用训练好的模型对新数据进行预测。'],
 ['Training happens earlier, when the model learns from historical data.','Labeling adds correct answers to training data.','Tuning searches for the best training settings before deployment.'],
-['训练发生在更早阶段，即模型从历史数据中学习。','标注是给训练数据加上正确答案。','调优是在部署前寻找最佳训练设置。']);
+['训练发生在更早阶段，即模型从历史数据中学习。','标记是给训练数据加上正确答案。','调优是在部署前寻找最佳训练设置。']);
 
 Q('1.1','single',[0],
 ['Every night a retailer scores all 2 million customers for the next day’s marketing campaign. Nobody waits for the results. Which type of inference fits best?',
@@ -72,18 +72,18 @@ Q('1.1','single',[0],
 ['Which dataset is labeled?',
  ['Emails that are each tagged “spam” or “not spam”','Raw photos with no descriptions','Web server logs','A clickstream of pages visited'],
  'Labeled data includes the correct answer (the label) for each example.'],
-['以下哪个数据集是带标签的？',
- ['每封邮件都标注了“垃圾邮件”或“正常邮件”','没有任何说明的原始照片','Web 服务器日志','用户访问页面的点击流'],
- '带标签的数据为每个样本提供了正确答案（标签）。'],
+['以下哪个数据集是已标记的？',
+ ['每封邮件都标记了“垃圾邮件”或“正常邮件”','没有任何说明的原始照片','Web 服务器日志','用户访问页面的点击流'],
+ '已标记的数据为每个样本提供了正确答案（标签）。'],
 ['Photos without descriptions have no labels.','Logs record events but carry no target answer.','A clickstream shows behavior, not a labeled outcome.'],
-['没有说明的照片没有标签。','日志记录事件，但不包含目标答案。','点击流体现的是行为，而不是带标签的结果。']);
+['没有说明的照片没有标签。','日志记录事件，但不包含目标答案。','点击流体现的是行为，而不是已标记的结果。']);
 
 Q('1.1','multi',[0,1],
 ['Which TWO are supervised learning tasks? (Choose TWO.)',
  ['Predicting house prices from past sales where the sale price is known','Classifying emails as spam or not spam using labeled examples','Grouping customers into segments with no predefined labels','Training a game-playing agent with rewards and penalties','Reducing hundreds of features to two for a chart'],
  'Supervised learning learns from examples that include the correct answer: regression and classification.'],
 ['以下哪两项属于监督学习任务？（选择两项）',
- ['根据已知成交价的历史销售预测房价','用带标签的样本将邮件分为垃圾邮件或正常邮件','在没有预设标签的情况下对客户分群','通过奖励和惩罚训练玩游戏的智能体','把数百个特征降到两个以便画图'],
+ ['根据已知成交价的历史销售预测房价','用已标记的样本将邮件分为垃圾邮件或正常邮件','在没有预设标签的情况下对客户分群','通过奖励和惩罚训练玩游戏的智能体','把数百个特征降到两个以便画图'],
  '监督学习从带有正确答案的样本中学习，例如回归和分类。'],
 ['Grouping without labels is clustering, which is unsupervised.','Learning from rewards is reinforcement learning.','Dimensionality reduction without labels is unsupervised.'],
 ['没有标签的分组是聚类，属于无监督学习。','从奖励中学习属于强化学习。','没有标签的降维属于无监督学习。']);
@@ -123,7 +123,7 @@ Q('1.1','single',[0],
  ['A transformer-based model trained on huge amounts of text to predict the next token, able to perform many language tasks','A rule-based chatbot with scripted replies','A database of stored answers','A model trained for one classification task only'],
  'LLMs learn general language patterns at scale, so one model can summarize, translate, answer questions and more.'],
 ['什么是大语言模型（LLM）？',
- ['基于 Transformer、用海量文本训练来预测下一个 token 的模型，能完成多种语言任务','使用预设回复的规则型聊天机器人','存储答案的数据库','只针对单一分类任务训练的模型'],
+ ['基于 Transformer、用海量文本训练来预测下一个令牌的模型，能完成多种语言任务','使用预设回复的规则型聊天机器人','存储答案的数据库','只针对单一分类任务训练的模型'],
  'LLM 大规模学习通用语言规律，因此一个模型就能总结、翻译、问答等。'],
 ['Scripted bots follow fixed rules; they do not learn from data.','LLMs generate text; they do not look answers up in a table.','Single-task models are the opposite of general-purpose LLMs.'],
 ['脚本机器人遵循固定规则，不从数据中学习。','LLM 生成文本，而不是在表格里查答案。','单一任务模型与通用的 LLM 正好相反。']);
@@ -263,7 +263,7 @@ Q('1.2','single',[0],
  ['辅助人类决策','完全取代医生','保证诊断正确','不再需要任何训练数据'],
  'AI 的价值在于支持专家决策，而不是取代专家。'],
 ['Doctors still decide; the AI only assists.','No AI system can guarantee correctness.','The model still needs labeled scans to learn from.'],
-['仍由医生做决定，AI 只是辅助。','没有任何 AI 系统能保证正确。','模型仍需要带标签的影像来学习。']);
+['仍由医生做决定，AI 只是辅助。','没有任何 AI 系统能保证正确。','模型仍需要已标记的影像来学习。']);
 
 Q('1.2','single',[0],
 ['An insurer uses AI to review 50,000 claims a day, far more than its 10 staff could ever read. Which value of AI does this show?',
@@ -289,9 +289,9 @@ Q('1.2','single',[0],
 ['A company wants to summarize free-text customer feedback written in many languages. It has no labeled data. Which approach fits best?',
  ['A foundation model through Amazon Bedrock','Linear regression','K-means clustering alone','A hand-written rules engine'],
  'Foundation models handle open-ended language tasks in many languages without task-specific labeled data.'],
-['一家公司希望总结用多种语言写成的客户自由文本反馈，而且没有带标签的数据。哪种方法最合适？',
+['一家公司希望总结用多种语言写成的客户自由文本反馈，而且没有已标记的数据。哪种方法最合适？',
  ['通过 Amazon Bedrock 使用基础模型','线性回归','仅使用 K 均值聚类','人工编写的规则引擎'],
- '基础模型无需特定任务的标注数据，就能处理多种语言的开放式语言任务。'],
+ '基础模型无需特定任务的标记数据，就能处理多种语言的开放式语言任务。'],
 ['Regression predicts numbers; it cannot write summaries.','Clustering can group feedback but cannot summarize it.','Rules cannot cope with free text in many languages.'],
 ['回归预测数值，不能写总结。','聚类可以对反馈分组，但不能总结。','规则无法应对多种语言的自由文本。']);
 
@@ -328,7 +328,7 @@ Q('1.3','single',[0],
 ['Before training, a team plots feature distributions and checks for missing values and outliers. Which pipeline stage is this?',
  ['Exploratory data analysis','Deployment','Model monitoring','Hyperparameter tuning'],
  'Exploratory data analysis (EDA) examines the data to understand it and spot quality problems.'],
-['在训练之前，团队绘制特征分布图并检查缺失值和异常值。这属于流水线的哪个阶段？',
+['在训练之前，团队绘制特征分布图并检查缺失值和异常值。这属于管道的哪个阶段？',
  ['探索性数据分析','部署','模型监控','超参数调优'],
  '探索性数据分析（EDA）通过查看数据来理解它并发现质量问题。'],
 ['Deployment happens after the model is trained and evaluated.','Monitoring watches a model already in production.','Tuning adjusts training settings; it comes after data work.'],
@@ -339,10 +339,10 @@ Q('1.3','single',[0],
  ['Feature engineering','Model evaluation','Inference','Data labeling'],
  'Feature engineering turns raw data into inputs that help the model learn.'],
 ['数据科学家根据原始购买日期新建了一列“距上次购买的天数”。这属于什么？',
- ['特征工程','模型评估','推理','数据标注'],
+ ['特征工程','模型评估','推理','数据标记'],
  '特征工程是把原始数据转换成有助于模型学习的输入。'],
 ['Evaluation measures a trained model’s performance.','Inference uses a trained model to predict.','Labeling adds the correct answers to examples.'],
-['评估是衡量已训练模型的表现。','推理是用已训练的模型进行预测。','标注是为样本加上正确答案。']);
+['评估是衡量已训练模型的表现。','推理是用已训练的模型进行预测。','标记是为样本加上正确答案。']);
 
 Q('1.3','single',[0],
 ['A team wants to automatically try many combinations of learning rate and tree depth to find the best-performing model. Which SageMaker AI capability fits?',
@@ -352,7 +352,7 @@ Q('1.3','single',[0],
  ['自动模型调优（超参数调优）','SageMaker Model Monitor','SageMaker Ground Truth','SageMaker Clarify'],
  '自动模型调优会用不同的超参数运行多个训练任务，并选出最佳结果。'],
 ['Model Monitor watches deployed models for drift.','Ground Truth is for labeling data.','Clarify detects bias and explains predictions.'],
-['Model Monitor 监控已部署模型的漂移。','Ground Truth 用于数据标注。','Clarify 用于检测偏差和解释预测。']);
+['Model Monitor 监控已部署模型的漂移。','Ground Truth 用于数据标记。','Clarify 用于检测偏差和解释预测。']);
 
 Q('1.3','single',[0],
 ['A team wants to use a foundation model without managing servers, scaling or patching, and pay per request. How should it use the model in production?',
@@ -388,9 +388,9 @@ Q('1.3','match',[],
 ['Match each ML pipeline stage to the SageMaker AI capability that supports it.',
  [['Label the training data','SageMaker Ground Truth'],['Clean and transform data with little code','SageMaker Data Wrangler'],['Train and tune the model','SageMaker AI training jobs'],['Watch the model in production for drift','SageMaker Model Monitor']],
  'Each stage of the pipeline has a matching managed capability in SageMaker AI.'],
-['将机器学习流水线的每个阶段与支持它的 SageMaker AI 功能配对。',
- [['标注训练数据','SageMaker Ground Truth'],['用少量代码清洗和转换数据','SageMaker Data Wrangler'],['训练和调优模型','SageMaker AI 训练任务'],['监控生产环境中模型的漂移','SageMaker Model Monitor']],
- '流水线的每个阶段在 SageMaker AI 中都有对应的托管功能。']);
+['将机器学习管道的每个阶段与支持它的 SageMaker AI 功能配对。',
+ [['标记训练数据','SageMaker Ground Truth'],['用少量代码清洗和转换数据','SageMaker Data Wrangler'],['训练和调优模型','SageMaker AI 训练任务'],['监控生产环境中模型的漂移','SageMaker Model Monitor']],
+ '管道的每个阶段在 SageMaker AI 中都有对应的托管功能。']);
 
 Q('1.3','single',[0],
 ['Business users want to explore the results of an AI project, build dashboards and ask questions about the data in plain language. Which AWS offering fits?',
@@ -400,7 +400,7 @@ Q('1.3','single',[0],
  ['Amazon Quick','Kiro','SageMaker Ground Truth','Amazon Polly'],
  'Amazon Quick 为业务用户整合了商业智能和 AI 助手。'],
 ['Kiro is an agentic IDE for developers.','Ground Truth is for labeling training data.','Polly converts text to speech.'],
-['Kiro 是面向开发人员的智能体 IDE。','Ground Truth 用于标注训练数据。','Polly 把文本转成语音。']);
+['Kiro 是面向开发人员的智能体 IDE。','Ground Truth 用于标记训练数据。','Polly 把文本转成语音。']);
 
 Q('1.3','single',[0],
 ['Which AWS tool helps developers write the application code around an AI model using spec-driven, agent-assisted development?',
@@ -417,8 +417,8 @@ Q('1.3','single',[0],
  ['Technical debt, fixed with repeatable, versioned and tested pipelines','Underfitting','Data drift','Hallucination'],
  'Manual, untested processes pile up technical debt; MLOps replaces them with automated pipelines.'],
 ['一个团队为每个模型手动复制笔记本，路径写死、没有测试。几个月后，每次改动都会出问题。这是哪种 MLOps 问题？',
- ['技术债务：用可重复、有版本控制并经过测试的流水线解决','欠拟合','数据漂移','幻觉'],
- '手动且未经测试的流程会不断累积技术债务；MLOps 用自动化流水线取而代之。'],
+ ['技术债务：用可重复、有版本控制并经过测试的管道解决','欠拟合','数据漂移','幻觉'],
+ '手动且未经测试的流程会不断累积技术债务；MLOps 用自动化管道取而代之。'],
 ['Underfitting is a model quality issue, not a process issue.','Drift is a change in production data.','Hallucination concerns generative model output.'],
 ['欠拟合是模型质量问题，而不是流程问题。','漂移是生产数据发生了变化。','幻觉涉及生成式模型的输出。']);
 
@@ -447,7 +447,7 @@ Q('1.3','single',[0],
  ['Investigate, retrain on recent data through the pipeline, evaluate, then redeploy','Ignore it, because the model passed testing at launch','Raise the temperature setting','Turn off monitoring to stop the alerts'],
  'Monitoring and retraining together keep a model accurate as the world changes.'],
 ['SageMaker Model Monitor 报告某个生产模型的输入数据发生了明显漂移。最佳的下一步是什么？',
- ['调查原因，通过流水线用最新数据重新训练、评估，然后重新部署','忽略它，因为模型上线时已通过测试','调高温度参数','关闭监控以停止告警'],
+ ['调查原因，通过管道用最新数据重新训练、评估，然后重新部署','忽略它，因为模型上线时已通过测试','调高温度参数','关闭监控以停止告警'],
  '监控与再训练相结合，才能在环境变化时保持模型准确。'],
 ['Passing tests at launch does not protect against later drift.','Temperature is a generative model setting, not a fix for drift.','Hiding alerts leaves the model getting worse.'],
 ['上线时通过测试并不能防止之后的漂移。','温度是生成式模型的参数，不能解决漂移。','关掉告警只会让模型继续变差。']);
@@ -457,28 +457,28 @@ Q('1.3','single',[0],
  ['The classes are imbalanced, so the model catches no fraud at all; recall, precision or F1 tell the real story','Accuracy is always the best metric','99% accuracy proves the model is excellent','Precision cannot be calculated, so the model is perfect'],
  'With rare positives, accuracy hides failure; use metrics that focus on the positive class.'],
 ['99% 的交易都是正常的。一个把所有交易都判为“正常”的模型准确率达到 99%。为什么这里的准确率具有误导性？',
- ['类别不平衡，模型根本抓不到欺诈；召回率、精确率或 F1 才能反映真实情况','准确率永远是最好的指标','99% 的准确率证明模型非常出色','无法计算精确率，所以模型是完美的'],
+ ['类别不平衡，模型根本抓不到欺诈；查全率、查准率或 F1 才能反映真实情况','准确率永远是最好的指标','99% 的准确率证明模型非常出色','无法计算查准率，所以模型是完美的'],
  '正例很少时，准确率会掩盖失败；应使用关注正类的指标。'],
 ['Accuracy is often the wrong metric for imbalanced data.','It misses 100% of fraud cases.','An undefined precision is a warning sign, not proof of quality.'],
-['对于不平衡数据，准确率往往是错误的指标。','它漏掉了 100% 的欺诈案例。','精确率无法计算是一个警示信号，而不是质量证明。']);
+['对于不平衡数据，准确率往往是错误的指标。','它漏掉了 100% 的欺诈案例。','查准率无法计算是一个警示信号，而不是质量证明。']);
 
 Q('1.3','single',[0],
 ['A fraud model finds 45 of the 50 actual fraud cases and also flags 15 legitimate transactions. What is its recall?',
  ['90%','75%','97%','50%'],
  'Recall = true positives ÷ all actual positives = 45 ÷ 50 = 90%.'],
-['一个欺诈模型在 50 个真实欺诈案例中找出了 45 个，同时误报了 15 笔正常交易。它的召回率是多少？',
+['一个欺诈模型在 50 个真实欺诈案例中找出了 45 个，同时误报了 15 笔正常交易。它的查全率是多少？',
  ['90%','75%','97%','50%'],
- '召回率 = 真正例 ÷ 所有实际正例 = 45 ÷ 50 = 90%。'],
+ '查全率 = 真正例 ÷ 所有实际正例 = 45 ÷ 50 = 90%。'],
 ['75% is precision: 45 ÷ (45 + 15).','That does not match either formula.','That does not match either formula.'],
-['75% 是精确率：45 ÷ (45 + 15)。','这与两个公式都不符。','这与两个公式都不符。']);
+['75% 是查准率：45 ÷ (45 + 15)。','这与两个公式都不符。','这与两个公式都不符。']);
 
 Q('1.3','multi',[0,1],
 ['Which TWO are business metrics, rather than model metrics, for an ML solution? (Choose TWO.)',
  ['Development cost','Customer feedback scores','F1 score','Precision','Area under the ROC curve (AUC)'],
  'Business metrics measure value to the organization; model metrics measure prediction quality.'],
 ['以下哪两项是机器学习方案的业务指标，而不是模型指标？（选择两项）',
- ['开发成本','客户反馈评分','F1 分数','精确率','ROC 曲线下面积（AUC）'],
+ ['开发成本','客户反馈评分','F1 分数','查准率','ROC 曲线下面积（AUC）'],
  '业务指标衡量对组织的价值；模型指标衡量预测质量。'],
 ['F1 is a model metric.','Precision is a model metric.','AUC is a model metric.'],
-['F1 是模型指标。','精确率是模型指标。','AUC 是模型指标。']);
+['F1 是模型指标。','查准率是模型指标。','AUC 是模型指标。']);
 })();

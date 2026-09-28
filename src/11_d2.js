@@ -167,7 +167,7 @@ zh:`
 <div class="tw"><table><thead><tr><th>模式</th><th>工作方式</th><th>适用</th></tr></thead><tbody>
 <tr><td>单智能体</td><td>一个智能体配一组工具。</td><td>简单、边界清晰的任务。</td></tr>
 <tr><td>主管 / 编排者（层级式）</td><td>主智能体拆分目标，分派给专业智能体，再汇总结果。</td><td>需要多种专长的复杂任务（Bedrock 多智能体协作）。</td></tr>
-<tr><td>顺序式（流水线）</td><td>智能体 A 的输出交给 B，再交给 C。</td><td>固定阶段：调研 → 起草 → 审核。</td></tr>
+<tr><td>顺序式（管道）</td><td>智能体 A 的输出交给 B，再交给 C。</td><td>固定阶段：调研 → 起草 → 审核。</td></tr>
 <tr><td>并行式</td><td>多个智能体同时处理互不依赖的子任务，最后合并。</td><td>提速：同时分析五份文档。</td></tr>
 <tr><td>蜂群 / 点对点</td><td>智能体之间直接交接工作，没有中央控制者。</td><td>开放式探索与头脑风暴。</td></tr>
 </tbody></table></div>
@@ -181,7 +181,7 @@ AIF.tasks['2.2'] = {d:'d2',
 title:{en:'Understand the capabilities and limitations of GenAI for business problems', zh:'理解生成式 AI 解决业务问题的能力与局限'},
 obj:[
  ['Describe GenAI advantages: adaptability, responsiveness, conversational ability, content generation','描述生成式 AI 的优势：适应性、响应速度、对话能力、内容生成能力'],
- ['Identify disadvantages: hallucinations, interpretability, inaccuracy, nondeterminism','识别劣势：幻觉、可解释性差、不准确、非确定性'],
+ ['Identify disadvantages: hallucinations, interpretability, inaccuracy, nondeterminism','识别劣势：幻觉、可解释性差、不准确、不确定性'],
  ['Identify model selection factors: type, performance, capabilities, constraints, compliance, cost, latency, complexity','识别选择模型的因素：模型类型、性能要求、能力、约束、合规、成本、延迟、模型复杂度'],
  ['Determine business value and metrics: cross-domain performance, ROI, efficiency, conversion rate, ARPU, accuracy, customer lifetime value','确定业务价值与指标：跨领域表现、ROI、效率、转化率、每用户平均收入、准确度、客户终身价值']
 ],
@@ -244,7 +244,7 @@ zh:`
 <tr><td>幻觉</td><td>自信流畅但错误的陈述，或编造来源。</td><td>带引用的 RAG、护栏上下文依据检查、人工复核</td></tr>
 <tr><td>可解释性差</td><td>难以说明模型<i>为什么</i>给出某个答案。</td><td>展示来源和推理过程；监管要求时改用可解释的传统模型</td></tr>
 <tr><td>不准确</td><td>知识过时（训练截止日期）、算术弱、领域错误。</td><td>用 RAG 引入最新数据、用工具做计算、用自有测试集评估</td></tr>
-<tr><td>非确定性</td><td>同一提示可能得到不同答案。</td><td>调低温度、结构化输出格式、提示模板</td></tr>
+<tr><td>不确定性</td><td>同一提示可能得到不同答案。</td><td>调低温度、结构化输出格式、提示模板</td></tr>
 <tr><td>其他风险</td><td>大规模时的成本与延迟、偏见、知识产权与隐私问题、提示注入。</td><td>选择合适规模的模型、护栏、治理（领域 4–5）</td></tr>
 </tbody></table></div>
 <div class="box trap"><p>调低温度让输出更一致，但<b>不会</b>让它更真实。解决幻觉要靠依据增强（RAG、上下文依据检查），而不是温度。</p></div>
