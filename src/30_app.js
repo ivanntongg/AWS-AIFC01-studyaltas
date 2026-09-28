@@ -1608,6 +1608,17 @@ function openAbout(from){
   setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
 }
 var CHANGELOG = [
+  {v: '1.3', date: '2026-09-28', en: [
+    '<b>480 practice questions</b>, double the bank: 240 new questions written against every objective in the AIF-C01 exam guide v1.1, spread by the official domain weights.',
+    'New questions in all four exam formats, each in English and Chinese with a note on why every wrong option is wrong.',
+    'Quick mocks and the exam simulation now draw from the larger pool, so repeat attempts see far fewer repeated questions.',
+    'Newer AWS services and features covered, including Amazon Bedrock AgentCore, Strands Agents, Bedrock Flows, Data Automation, knowledge base evaluation and cross-Region inference profiles.'
+  ], zh: [
+    '<b>480 道练习题</b>，题库翻倍：新增 240 道题，逐条对照 AIF-C01 考试指南 v1.1 的每个目标编写，并按官方领域权重分布。',
+    '新题覆盖全部四种考试题型，每道题都有中英文版本，并说明每个错误选项错在哪里。',
+    '快速模考和考试模拟现在从更大的题库中抽题，重复练习时遇到重复题目的机会大大减少。',
+    '覆盖更多新的 AWS 服务和功能，包括 Amazon Bedrock AgentCore、Strands Agents、Bedrock Flows、Data Automation、知识库评估以及跨区域推理配置文件。'
+  ]},
   {v: '1.2', date: '2026-09-24', en: [
     '<b>Sync my progress</b>: sign in with an email link to keep lessons, flashcards, missed questions and exam history in step on every device. No password.',
     'Progress still saves on the device first and syncs in the background; two devices combine without losing lessons, flashcard levels or scores.',
