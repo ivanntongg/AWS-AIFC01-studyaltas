@@ -301,13 +301,13 @@ Q('3.7','single',[0],
 
 Q('3.7','single',[0],
 ['An e-learning company wants its articles read aloud in natural-sounding voices. Which service should it use?',
- ['Amazon Polly','Amazon Transcribe','Amazon Lex','Amazon Kendra'],
+ ['Amazon Polly','Amazon Transcribe','Amazon Lex','Amazon Textract'],
  'Amazon Polly turns text into lifelike speech.'],
 ['某在线教育公司希望用自然的声音朗读其文章。应使用哪项服务？',
- ['Amazon Polly','Amazon Transcribe','Amazon Lex','Amazon Kendra'],
+ ['Amazon Polly','Amazon Transcribe','Amazon Lex','Amazon Textract'],
  'Amazon Polly 把文本转换为逼真的语音。'],
-['Transcribe converts speech to text.','Lex builds chatbots.','Kendra is intelligent search.'],
-['Transcribe 把语音转换为文字。','Lex 用于构建聊天机器人。','Kendra 是智能搜索服务。']);
+['Transcribe converts speech to text.','Lex builds chatbots.','Textract extracts text from documents.'],
+['Transcribe 把语音转换为文字。','Lex 用于构建聊天机器人。','Textract 从文档中提取文字。']);
 
 Q('3.7','single',[0],
 ['A retailer wants to determine whether thousands of product reviews are positive or negative. Which service should it use?',

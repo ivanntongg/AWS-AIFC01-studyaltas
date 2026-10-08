@@ -226,12 +226,12 @@ en:`
 <tr><td>Amazon Textract</td><td>Extracts printed and handwritten text, forms (key-value pairs) and tables from documents.</td><td>"Scanned invoices/forms into structured data"</td></tr>
 <tr><td>Amazon Personalize</td><td>Real-time personalized recommendations.</td><td>"Recommend products per user"</td></tr>
 <tr><td>Amazon Bedrock</td><td>Serverless API access to many foundation models, with RAG, agents, guardrails and customization.</td><td>"Generative AI app without managing infrastructure"</td></tr>
-<tr><td>Amazon Nova</td><td>Amazon's own foundation models: text/multimodal understanding (Micro, Lite, Pro, Premier), image (Canvas), video (Reel), speech (Sonic).</td><td>"Amazon-built FM", "cost-effective multimodal model"</td></tr>
+<tr><td>Amazon Nova</td><td>Amazon's own foundation models: text/multimodal understanding (Micro, Lite, Pro, Premier), image (Canvas), video (Reel), speech (Sonic). The newer Nova 2 generation adds Nova 2 Lite (with extended thinking), Nova 2 Sonic and Nova Multimodal Embeddings.</td><td>"Amazon-built FM", "cost-effective multimodal model"</td></tr>
 <tr><td>Amazon Quick</td><td>Agentic workspace for business users: chat with company data, research, BI dashboards, automations.</td><td>"Employees ask questions across company data"</td></tr>
 <tr><td>Kiro</td><td>Agentic IDE for developers: spec-driven development (requirements → design → tasks), agent hooks.</td><td>"Developers build features from specs with AI agents"</td></tr>
 <tr><td>AWS Transform</td><td>Agentic AI for migration and modernization: .NET, mainframe, VMware, Java upgrades.</td><td>"Modernize legacy applications"</td></tr>
 </tbody></table></div>
-<div class="box note"><p>Amazon Q Developer (AI assistant in the IDE, CLI and console) and Amazon Q Business still appear in older material. The v1.1 guide names Amazon Quick and Kiro as the current business-user and developer tools, and keeps Amazon Q in scope.</p></div>
+<div class="box note"><p>Amazon Q Developer (AI assistant in the IDE, CLI and console) and Amazon Q Business still appear in older material. The v1.1 guide names Amazon Quick and Kiro as the current business-user and developer tools; Amazon Q is no longer on its service list. Amazon Q Business is closed to new customers (Quick is its successor), and Amazon Q Developer IDE plugins are supported until 30 April 2027.</p></div>
 
 <h3>Traditional ML or a foundation model?</h3>
 <div class="tw"><table><thead><tr><th>Situation</th><th>Better choice</th><th>Why</th></tr></thead><tbody>
@@ -287,12 +287,12 @@ zh:`
 <tr><td>Amazon Textract</td><td>从文档中提取印刷体和手写文字、表单（键值对）和表格。</td><td>“扫描发票/表单转结构化数据”</td></tr>
 <tr><td>Amazon Personalize</td><td>实时个性化推荐。</td><td>“为每个用户推荐商品”</td></tr>
 <tr><td>Amazon Bedrock</td><td>通过无服务器 API 使用多种基础模型，并提供 RAG、智能体、护栏和定制功能。</td><td>“无需管理基础设施的生成式 AI 应用”</td></tr>
-<tr><td>Amazon Nova</td><td>亚马逊自研基础模型：文本/多模态理解（Micro、Lite、Pro、Premier）、图像 (Canvas)、视频 (Reel)、语音 (Sonic)。</td><td>“亚马逊自研 FM”“高性价比多模态模型”</td></tr>
+<tr><td>Amazon Nova</td><td>亚马逊自研基础模型：文本/多模态理解（Micro、Lite、Pro、Premier）、图像 (Canvas)、视频 (Reel)、语音 (Sonic)。新一代 Nova 2 增加了 Nova 2 Lite（支持扩展思考）、Nova 2 Sonic 和 Nova Multimodal Embeddings。</td><td>“亚马逊自研 FM”“高性价比多模态模型”</td></tr>
 <tr><td>Amazon Quick</td><td>面向业务用户的智能体工作空间：与企业数据对话、调研、BI 仪表板、自动化。</td><td>“员工跨公司数据提问”</td></tr>
 <tr><td>Kiro</td><td>面向开发者的智能体 IDE：规格驱动开发（需求 → 设计 → 任务），智能体钩子。</td><td>“开发者借助 AI 智能体按规格开发功能”</td></tr>
 <tr><td>AWS Transform</td><td>用于迁移和现代化的智能体 AI：.NET、大型机、VMware、Java 升级。</td><td>“现代化遗留应用”</td></tr>
 </tbody></table></div>
-<div class="box note"><p>旧资料中常见 Amazon Q Developer（IDE、CLI 和控制台中的 AI 助手）和 Amazon Q Business。v1.1 考纲把 Amazon Quick 和 Kiro 列为当前面向业务用户和开发者的工具，同时仍保留 Amazon Q 在考试范围内。</p></div>
+<div class="box note"><p>旧资料中常见 Amazon Q Developer（IDE、CLI 和控制台中的 AI 助手）和 Amazon Q Business。v1.1 考纲把 Amazon Quick 和 Kiro 列为当前面向业务用户和开发者的工具，其服务列表中已不再有 Amazon Q。Amazon Q Business 已不再向新客户开放（Quick 是其后继产品），Amazon Q Developer 的 IDE 插件支持到 2027 年 4 月 30 日。</p></div>
 
 <h3>传统 ML 还是基础模型？</h3>
 <div class="tw"><table><thead><tr><th>场景</th><th>更佳选择</th><th>原因</th></tr></thead><tbody>

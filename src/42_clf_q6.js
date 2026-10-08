@@ -303,12 +303,12 @@ Q('3.7','single',[0],
 ['Kinesis 用于导入流数据。','Quick Sight 用于数据可视化。','EMR Studio 是笔记本环境，而不是爬网程序。']);
 
 Q('3.7','single',[0],
-['A company wants a generative AI assistant that answers employees’ questions using content from its internal wikis, documents and business applications. Which service fits?',
- ['Amazon Q (Amazon Q Business)','Amazon Polly','Amazon Rekognition','AWS Glue'],
- 'Amazon Q Business connects to company data sources and answers questions, summarizes content and helps complete tasks.'],
-['某公司希望有一个生成式 AI 助手，利用其内部维基、文档和业务应用中的内容回答员工的问题。哪项服务合适？',
- ['Amazon Q（Amazon Q Business）','Amazon Polly','Amazon Rekognition','AWS Glue'],
- 'Amazon Q Business 连接公司的数据源，可以回答问题、总结内容并帮助完成任务。'],
+['Developers want a generative AI assistant in their IDE and the AWS console that suggests code, answers questions about AWS services and helps troubleshoot. Which in-scope service fits?',
+ ['Amazon Q (Amazon Q Developer)','Amazon Polly','Amazon Rekognition','AWS Glue'],
+ 'Amazon Q Developer is the generative AI assistant for building on AWS. (Amazon Q Business, the employee assistant, is closed to new customers; its successor is Amazon Quick.)'],
+['开发人员希望在 IDE 和 AWS 控制台中使用一个生成式 AI 助手，它能建议代码、解答有关 AWS 服务的问题并帮助排查故障。哪项考试范围内的服务合适？',
+ ['Amazon Q（Amazon Q Developer）','Amazon Polly','Amazon Rekognition','AWS Glue'],
+ 'Amazon Q Developer 是用于在 AWS 上构建的生成式 AI 助手。（面向员工的 Amazon Q Business 已不再向新客户开放，其后继产品是 Amazon Quick。）'],
 ['Polly converts text to speech.','Rekognition analyses images and video.','Glue prepares data.'],
 ['Polly 把文本转换为语音。','Rekognition 分析图像和视频。','Glue 用于准备数据。']);
 

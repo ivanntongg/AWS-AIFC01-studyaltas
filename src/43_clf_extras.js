@@ -100,7 +100,7 @@ var S = [
 ['Amazon Comprehend','ml','Natural language processing: sentiment, entities, key phrases, PII.','Understand meaning in text.','自然语言处理：情感、实体、关键短语、PII。','理解文本的含义。'],
 ['Amazon Rekognition','ml','Image and video analysis: objects, faces, text, unsafe content.','Analyse images or video.','图像和视频分析：物体、人脸、文字、不安全内容。','分析图像或视频。'],
 ['Amazon Textract','ml','Extracts text, forms and tables from scanned documents.','Read data from scanned forms.','从扫描文档中提取文字、表单和表格。','从扫描表单中读取数据。'],
-['Amazon Q','ml','Generative AI-powered assistant for business users and developers.','Generative AI assistant at work.','由生成式 AI 驱动的助手，面向业务用户和开发人员。','工作中的生成式 AI 助手。'],
+['Amazon Q','ml','Generative AI-powered assistant, such as Amazon Q Developer for building on AWS. Amazon Q Business is closed to new customers (successor: Amazon Quick).','Generative AI assistant for developers on AWS.','由生成式 AI 驱动的助手，例如用于在 AWS 上构建的 Amazon Q Developer。Amazon Q Business 已不再向新客户开放（后继产品：Amazon Quick）。','面向 AWS 开发人员的生成式 AI 助手。'],
 /* migration */
 ['AWS Application Discovery Service','migration','Discovers on-premises servers, configuration and dependencies.','Plan which servers move together.','发现本地服务器、配置和依赖关系。','规划哪些服务器要一起迁移。'],
 ['Migration Evaluator','migration','Builds a data-driven business case with projected AWS costs.','Justify the migration with numbers.','构建基于数据、包含预计 AWS 成本的业务案例。','用数据论证迁移的合理性。'],
@@ -120,8 +120,8 @@ var S = [
 ['AWS CodePipeline','apps','Continuous delivery that automates build, test and deploy stages.','Automated release pipeline.','自动执行构建、测试和部署阶段的持续交付服务。','自动化发布管道。'],
 ['AWS X-Ray','apps','Traces requests through distributed applications.','Find bottlenecks in microservices.','跟踪请求在分布式应用中的路径。','找出微服务中的瓶颈。'],
 ['Amazon WorkSpaces','apps','Managed virtual desktops (Windows or Linux).','Desktops for remote employees.','托管的虚拟桌面（Windows 或 Linux）。','为远程员工提供桌面。'],
-['Amazon AppStream 2.0','apps','Streams desktop applications to a browser.','Run one app on any device.','把桌面应用流式传输到浏览器。','在任何设备上运行某个应用。'],
-['Amazon WorkSpaces Secure Browser','apps','Secure browser access to internal websites and SaaS apps.','Contractors access internal web apps safely.','安全地通过浏览器访问内部网站和 SaaS 应用。','承包商安全访问内部 Web 应用。'],
+['Amazon AppStream 2.0','apps','Streams desktop applications to a browser. Now named Amazon WorkSpaces Applications.','Run one app on any device.','把桌面应用流式传输到浏览器。现名 Amazon WorkSpaces Applications。','在任何设备上运行某个应用。'],
+['Amazon WorkSpaces Secure Browser','apps','Secure browser access to internal websites and SaaS apps. Closing to new customers on 29 October 2026.','Contractors access internal web apps safely.','安全地通过浏览器访问内部网站和 SaaS 应用。2026 年 10 月 29 日起不再向新客户开放。','承包商安全访问内部 Web 应用。'],
 ['AWS Amplify','apps','Build, deploy and host full-stack web and mobile apps.','Quickly ship a web or mobile app.','构建、部署和托管全栈 Web 和移动应用。','快速发布 Web 或移动应用。'],
 ['AWS IoT Core','apps','Securely connects IoT devices and routes their messages to AWS services.','Connect and manage IoT devices.','安全地连接物联网设备，并把它们的消息路由到 AWS 服务。','连接和管理物联网设备。']
 ];
@@ -179,7 +179,7 @@ var C = [
 ['d2','IAM credential report vs access advisor?','Credential report: every user’s password, key and MFA status. Access advisor: services used and when.','IAM 凭证报告与访问顾问的区别？','凭证报告：每个用户的密码、密钥和 MFA 状态；访问顾问：使用过哪些服务以及使用时间。'],
 ['d2','What does a service control policy (SCP) do?','Sets the maximum permissions for accounts in an organization or OU, even for administrators.','服务控制策略（SCP）的作用是什么？','为组织或 OU 中的账户设置最大权限，即使是管理员也受限制。'],
 ['d2','Where do you find security bulletins and guidance?','AWS Security Center, AWS Security Blog, Knowledge Center, re:Post.','在哪里查找安全公告和指导？','AWS 安全中心、AWS 安全博客、知识中心、re:Post。'],
-['d2','Which service collects audit evidence continuously?','AWS Audit Manager.','哪项服务持续收集审计证据？','AWS Audit Manager。'],
+['d2','Which service continuously checks your resources against compliance rules?','AWS Config, with rules and conformance packs.','哪项服务持续根据合规规则检查你的资源？','AWS Config，借助规则和一致性包。'],
 ['d3','Console vs CLI vs SDK vs IaC?','Console: visual, one-off. CLI: scripts. SDK: application code. IaC (CloudFormation, CDK): repeatable environments.','控制台、CLI、SDK 与 IaC 的区别？','控制台：可视化、一次性任务；CLI：脚本；SDK：应用代码；IaC（CloudFormation、CDK）：可重复的环境。'],
 ['d3','Cloud vs hybrid vs on-premises deployment?','Cloud: all in AWS. Hybrid: connects cloud and on-premises. On-premises: your data centre (e.g. AWS Outposts).','云、混合与本地部署的区别？','云：全部在 AWS 中；混合：连接云和本地；本地部署：你的数据中心（例如 AWS Outposts）。'],
 ['d3','Region vs Availability Zone vs edge location?','Region: geographic area with 3+ AZs. AZ: one or more isolated data centres. Edge location: caching and DNS near users.','区域、可用区与边缘站点的区别？','区域：包含 3 个以上可用区的地理区域；可用区：一个或多个隔离的数据中心；边缘站点：在用户附近提供缓存和 DNS。'],
@@ -213,7 +213,7 @@ var C = [
 ['d3','Kinesis vs Glue vs Quick Sight?','Kinesis: real-time streams. Glue: ETL and data catalogue. Quick Sight: BI dashboards.','Kinesis、Glue 与 Quick Sight 的区别？','Kinesis：实时流；Glue：ETL 和数据目录；Quick Sight：商业智能仪表板。'],
 ['d3','SQS vs SNS vs EventBridge?','SQS: queue (pull, decouple). SNS: pub/sub push notifications. EventBridge: event bus with rules and schedules.','SQS、SNS 与 EventBridge 的区别？','SQS：队列（拉取、解耦）；SNS：发布/订阅推送通知；EventBridge：带规则和调度的事件总线。'],
 ['d3','CodeBuild vs CodePipeline vs X-Ray?','CodeBuild: compile and test. CodePipeline: automate the release. X-Ray: trace requests.','CodeBuild、CodePipeline 与 X-Ray 的区别？','CodeBuild：编译和测试；CodePipeline：自动化发布；X-Ray：跟踪请求。'],
-['d3','WorkSpaces vs AppStream 2.0 vs Secure Browser?','WorkSpaces: full desktops. AppStream 2.0: single apps streamed. Secure Browser: internal websites only.','WorkSpaces、AppStream 2.0 与 Secure Browser 的区别？','WorkSpaces：完整桌面；AppStream 2.0：流式传输单个应用；Secure Browser：只访问内部网站。'],
+['d3','WorkSpaces vs AppStream 2.0 vs Secure Browser?','WorkSpaces: full desktops. AppStream 2.0 (now WorkSpaces Applications): single apps streamed. Secure Browser: internal websites only.','WorkSpaces、AppStream 2.0 与 Secure Browser 的区别？','WorkSpaces：完整桌面；AppStream 2.0（现名 WorkSpaces Applications）：流式传输单个应用；Secure Browser：只访问内部网站。'],
 ['d3','Connect vs SES?','Connect: cloud contact centre. SES: application email.','Connect 与 SES 的区别？','Connect：云联络中心；SES：应用电子邮件。'],
 ['d3','Amplify vs IoT Core?','Amplify: web and mobile apps. IoT Core: connect IoT devices.','Amplify 与 IoT Core 的区别？','Amplify：Web 和移动应用；IoT Core：连接物联网设备。'],
 ['d4','On-Demand vs Spot vs Reserved?','On-Demand: no commitment, no interruption. Spot: up to 90% off, can be interrupted. Reserved: 1–3 year commitment, up to 72% off.','按需型、竞价型与预留实例的区别？','按需型：无需承诺、不会中断；竞价型：最高节省 90%，可能被中断；预留：1–3 年承诺，最高节省 72%。'],

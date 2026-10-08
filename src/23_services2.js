@@ -10,7 +10,7 @@ var S = [
 ['Bedrock Flows','genai','Visual builder for fixed, multi-step GenAI workflows linking prompts, knowledge bases and Lambda.','Predictable, auditable GenAI workflows.','可视化构建固定的多步骤生成式 AI 工作流，连接提示、知识库和 Lambda。','可预测、可审计的生成式 AI 工作流。'],
 ['Bedrock Data Automation','genai','Extracts insights from documents, images, audio and video into structured output.','Process unstructured multimodal content at scale.','从文档、图像、音频和视频中提取结构化信息。','大规模处理非结构化多模态内容。'],
 ['Bedrock Model Distillation','genai','Trains a smaller student model from a larger teacher model\'s responses.','Near-teacher accuracy at lower cost and latency.','用大型教师模型的回答训练较小的学生模型。','以更低成本和延迟获得接近教师模型的准确率。'],
-['Amazon Q Business','genai','Earlier AWS assistant for enterprise data; its capabilities now live in Amazon Quick.','Seen in older questions about enterprise Q&A.','早期面向企业数据的 AWS 助手，其能力现已并入 Amazon Quick。','出现在关于企业问答的旧题中。'],
+['Amazon Q Business','genai','Earlier AWS assistant for enterprise data. No longer available to new customers; AWS calls Amazon Quick its successor.','Seen in older questions about enterprise Q&A.','早期面向企业数据的 AWS 助手。已不再向新客户开放；AWS 称 Amazon Quick 是其后继产品。','出现在关于企业问答的旧题中。'],
 ['PartyRock','genai','No-code playground for building small GenAI apps; named in the v1.0 guide only.','Learning and experimenting, not production.','构建小型生成式 AI 应用的无代码练习场；仅在 v1.0 考纲中出现。','学习和试验，而非生产。'],
 ['AWS Lambda','core','Serverless functions triggered by events.','Run code for agent actions or to glue AI services together.','由事件触发的无服务器函数。','为智能体操作运行代码，或串联 AI 服务。'],
 ['Amazon ECS / Amazon EKS','core','Managed container orchestration (EKS = Kubernetes).','Run containerized model servers and apps.','托管的容器编排（EKS = Kubernetes）。','运行容器化的模型服务和应用。'],
@@ -28,12 +28,12 @@ var S = [
 ['AWS Cost Explorer','core','Visualize and analyze past and forecast spending.','Find which models or teams drive cost.','可视化分析历史和预测支出。','找出是哪些模型或团队在推高成本。'],
 ['Amazon GuardDuty','sec','Threat detection from logs and account activity.','Detect suspicious activity in AI accounts.','基于日志和账户活动的威胁检测。','发现 AI 账户中的可疑活动。'],
 ['AWS WAF','sec','Web application firewall.','Filter malicious traffic before it reaches an AI app\'s API.','Web 应用防火墙。','在恶意流量到达 AI 应用 API 之前将其过滤。'],
-['AWS Audit Manager','gov','Continuously collects evidence for audits; includes a GenAI best-practices framework.','Prepare for compliance audits of AI workloads.','持续收集审计证据；提供生成式 AI 最佳实践框架。','为 AI 工作负载的合规审计做准备。']
+['AWS Audit Manager','gov','Collected audit evidence against frameworks, including a GenAI one. Closed to new customers since 30 April 2026 and not on the v1.1 list.','Older questions only; use AWS Config for continuous compliance checks.','按框架（包括生成式 AI 框架）收集审计证据。自 2026 年 4 月 30 日起不再向新客户开放，也不在 v1.1 列表中。','仅见于旧题；持续合规检查请用 AWS Config。']
 ];
 S.forEach(function(s){AIF.svc.push({n:s[0],c:s[1],en:{w:s[2],p:s[3]},zh:{w:s[4],p:s[5]}});});
 
 /* Scope marker: L = named in the exam guide's in-scope list; F = feature of a listed service; otherwise context only. */
-var L = ['Amazon Bedrock','Bedrock AgentCore','Amazon Nova','SageMaker JumpStart','Strands Agents','Amazon Quick','Amazon Q Developer','Kiro','AWS Transform',
+var L = ['Amazon Bedrock','Bedrock AgentCore','Amazon Nova','SageMaker JumpStart','Strands Agents','Amazon Quick','Kiro','AWS Transform',
  'Amazon SageMaker AI','Amazon Comprehend','Amazon Transcribe','Amazon Translate','Amazon Polly','Amazon Lex','Amazon Rekognition','Amazon Textract','Amazon Personalize',
  'Amazon EC2','Amazon S3','Amazon OpenSearch Service','Amazon Aurora / RDS for PostgreSQL','Amazon Neptune','AWS Glue / DataBrew','AWS Lake Formation',
  'AWS IAM','AWS KMS','Amazon Macie','AWS Secrets Manager','Amazon Inspector','AWS Artifact','AWS CloudTrail','AWS Config','AWS Trusted Advisor','Amazon CloudWatch','AWS Well-Architected Tool',

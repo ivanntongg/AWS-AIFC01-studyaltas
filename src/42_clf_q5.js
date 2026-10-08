@@ -316,13 +316,13 @@ Q('4.3','single',[0],
 
 Q('4.3','single',[0],
 ['Which AWS team works with customers to design solutions and answer architecture questions, often during pre-sales and planning?',
- ['AWS Solutions Architects','AWS Trust & Safety','AWS Artifact','AWS Billing Conductor'],
+ ['AWS Solutions Architects','AWS Trust & Safety','AWS Artifact','AWS Pricing Calculator'],
  'AWS Solutions Architects help customers design secure, reliable and cost-effective architectures.'],
 ['哪个 AWS 团队与客户合作设计解决方案并解答架构问题，通常在售前和规划阶段？',
- ['AWS 解决方案架构师','AWS 信任与安全团队','AWS Artifact','AWS Billing Conductor'],
+ ['AWS 解决方案架构师','AWS 信任与安全团队','AWS Artifact','AWS 定价计算器'],
  'AWS 解决方案架构师帮助客户设计安全、可靠且经济高效的架构。'],
-['Trust & Safety handles abuse reports.','Artifact is a document portal, not a team.','Billing Conductor customizes billing data.'],
-['信任与安全团队处理滥用举报。','Artifact 是文档门户，不是团队。','Billing Conductor 用于自定义账单数据。']);
+['Trust & Safety handles abuse reports.','Artifact is a document portal, not a team.','The Pricing Calculator is a cost estimation tool, not a team.'],
+['信任与安全团队处理滥用举报。','Artifact 是文档门户，不是团队。','定价计算器是成本估算工具，不是团队。']);
 
 Q('4.3','multi',[0,1],
 ['Which TWO resources are free for every AWS customer, without a paid support plan? (Select TWO.)',

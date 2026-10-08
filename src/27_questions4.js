@@ -156,10 +156,10 @@ Q('3.2','match',[],
 /* ---------- 3.3 training and fine-tuning ---------- */
 Q('3.3','order',[],
 ['Put the steps to customize a model in Amazon Bedrock in order.',
- ['Curate labeled prompt and response examples','Upload the training data to Amazon S3','Create a fine-tuning job in Amazon Bedrock','Set up inference for the custom model (for example, Provisioned Throughput)','Evaluate the custom model against the base model before rolling it out'],
+ ['Curate labeled prompt and response examples','Upload the training data to Amazon S3','Create a fine-tuning job in Amazon Bedrock','Set up inference for the custom model (on-demand deployment or Provisioned Throughput)','Evaluate the custom model against the base model before rolling it out'],
  'Data first, then the training job. A custom model can only be called once inference is set up, so provision it, then evaluate it before real users see it.'],
 ['按顺序排列在 Amazon Bedrock 中定制模型的步骤。',
- ['整理已标记的提示与回答示例','把训练数据上传到 Amazon S3','在 Amazon Bedrock 中创建微调任务','为定制模型配置推理（例如预置吞吐量）','上线前将定制模型与基础模型进行对比评估'],
+ ['整理已标记的提示与回答示例','把训练数据上传到 Amazon S3','在 Amazon Bedrock 中创建微调任务','为定制模型配置推理（按需部署或预置吞吐量）','上线前将定制模型与基础模型进行对比评估'],
  '先准备数据，再运行训练任务。定制模型只有配置好推理后才能调用，因此要先配置，再在真实用户使用前进行评估。']);
 
 Q('3.3','single',[0],

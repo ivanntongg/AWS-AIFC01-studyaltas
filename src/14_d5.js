@@ -29,7 +29,7 @@ en:`
 <tr><td>Amazon Inspector</td><td>Automated vulnerability scanning of EC2 instances, container images and Lambda functions (known CVEs, network exposure).</td></tr>
 <tr><td>Amazon Bedrock Guardrails</td><td>Filters prompt attacks, harmful content and PII on inputs and outputs.</td></tr>
 <tr><td>Amazon Bedrock AgentCore Identity</td><td>Identity and credential management for agents: who may invoke an agent (inbound) and how the agent securely gets OAuth tokens or API keys to act on a user's behalf in other systems (outbound).</td></tr>
-<tr><td>Policy in AgentCore</td><td>Deterministic rules that allow or deny which tools an agent can call, for which users and with which parameters. Written in Cedar (or described in plain English and converted to Cedar) and enforced at the AgentCore Gateway, outside the agent's own code, with every decision logged.</td></tr>
+<tr><td>Policy in AgentCore</td><td>Deterministic rules that allow or deny which tools an agent can call, for which users and with which parameters. Written in natural language or a Cedar-compatible policy language, and enforced at the AgentCore Gateway, outside the agent's own code, with every decision logged.</td></tr>
 </tbody></table></div>
 
 <h3>Source citation and data origins</h3>
@@ -93,7 +93,7 @@ zh:`
 <tr><td>Amazon Inspector</td><td>自动扫描 EC2 实例、容器镜像和 Lambda 函数的漏洞（已知 CVE、网络暴露）。</td></tr>
 <tr><td>Amazon Bedrock 护栏</td><td>对输入和输出过滤提示攻击、有害内容和 PII。</td></tr>
 <tr><td>Amazon Bedrock AgentCore Identity</td><td>智能体的身份与凭证管理：谁可以调用智能体（入站），以及智能体如何安全获取 OAuth 令牌或 API 密钥、代表用户访问其他系统（出站）。</td></tr>
-<tr><td>AgentCore 中的 Policy</td><td>确定性地允许或拒绝智能体为哪些用户、以哪些参数调用哪些工具的规则。用 Cedar 编写（或用英文自然语言描述后转换为 Cedar），在智能体代码之外的 AgentCore Gateway 处强制执行，每次决策都有日志。</td></tr>
+<tr><td>AgentCore 中的 Policy</td><td>确定性地允许或拒绝智能体为哪些用户、以哪些参数调用哪些工具的规则。用自然语言或兼容 Cedar 的策略语言编写，在智能体代码之外的 AgentCore Gateway 处强制执行，每次决策都有日志。</td></tr>
 </tbody></table></div>
 
 <h3>来源引用与数据来源</h3>
@@ -161,7 +161,7 @@ en:`
 <tr><td>AWS Well-Architected Tool</td><td>Review a workload against the Well-Architected pillars, including the Machine Learning and Generative AI lenses.</td><td>Structured design review before launch.</td></tr>
 </tbody></table></div>
 <div class="box trap"><p><b>CloudTrail = actions</b> (API calls by users and services). <b>Config = state</b> (what a resource looks like now and over time, and whether it complies with rules). Artifact = <b>AWS's</b> compliance paperwork, not yours.</p></div>
-<div class="box note"><p>AWS Audit Manager (not named in the guide) can continuously collect evidence for audits and includes a generative AI best-practices framework. For spending governance, AWS Budgets and Cost Explorer are in scope.</p></div>
+<div class="box note"><p>AWS Audit Manager, which older material mentions for collecting audit evidence, has been closed to new customers since 30 April 2026 and is not on the v1.1 service list; use AWS Config rules and conformance packs to evaluate compliance continuously, and AWS Artifact for AWS’s own compliance reports. For spending governance, AWS Budgets and Cost Explorer are in scope.</p></div>
 
 <h3>Data governance strategies</h3>
 <div class="tw"><table><thead><tr><th>Strategy</th><th>What it means</th></tr></thead><tbody>
@@ -208,7 +208,7 @@ zh:`
 <tr><td>AWS Well-Architected Tool</td><td>按 Well-Architected 支柱（含机器学习和生成式 AI 透镜）评审工作负载。</td><td>上线前进行结构化的设计评审。</td></tr>
 </tbody></table></div>
 <div class="box trap"><p><b>CloudTrail = 行为</b>（用户和服务的 API 调用）。<b>Config = 状态</b>（资源当前及历史的配置，是否符合规则）。Artifact = <b>AWS 自己</b>的合规文件，不是你的。</p></div>
-<div class="box note"><p>AWS Audit Manager（考纲未点名）可持续收集审计证据，并提供生成式 AI 最佳实践框架。支出治理方面，AWS Budgets 和 Cost Explorer 也在考试范围内。</p></div>
+<div class="box note"><p>旧资料中提到用于收集审计证据的 AWS Audit Manager 自 2026 年 4 月 30 日起已不再向新客户开放，也不在 v1.1 服务列表中；可用 AWS Config 规则和一致性包持续评估合规情况，用 AWS Artifact 获取 AWS 自身的合规报告。支出治理方面，AWS Budgets 和 Cost Explorer 也在考试范围内。</p></div>
 
 <h3>数据治理策略</h3>
 <div class="tw"><table><thead><tr><th>策略</th><th>含义</th></tr></thead><tbody>

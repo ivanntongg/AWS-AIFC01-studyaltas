@@ -11,13 +11,13 @@ var C = [
 ['d2','What is SageMaker HyperPod?','Resilient clusters for training very large foundation models over long periods.','什么是 SageMaker HyperPod？','用于长时间训练超大基础模型的高韧性集群。'],
 ['d2','Bedrock Flows vs Bedrock Agents?','Flows run a fixed, predictable sequence of steps; Agents let the model decide the next step.','Bedrock Flows 与 Bedrock Agents 的区别？','Flows 按固定、可预测的步骤执行；Agents 由模型决定下一步。'],
 ['d2','What does Bedrock Data Automation do?','Extracts structured insights from documents, images, audio and video.','Bedrock Data Automation 做什么？','从文档、图像、音频和视频中提取结构化信息。'],
-['d2','What happened to Amazon Q Business?','Its enterprise assistant capabilities now live in Amazon Quick.','Amazon Q Business 怎么样了？','它的企业助手能力现已并入 Amazon Quick。'],
+['d2','What happened to Amazon Q Business?','It is no longer available to new customers; AWS calls Amazon Quick its successor.','Amazon Q Business 怎么样了？','它已不再向新客户开放；AWS 称 Amazon Quick 是其后继产品。'],
 ['d3','When is Amazon S3 Vectors the right vector store?','Very large vector datasets that are queried infrequently and must be cheap to store.','什么时候选 Amazon S3 Vectors 作为向量存储？','超大规模、查询不频繁、需要低成本存储的向量数据集。'],
 ['d3','Which vector stores can Bedrock Knowledge Bases use?','OpenSearch Serverless and managed clusters, S3 Vectors, Aurora PostgreSQL, Neptune Analytics, plus Pinecone, Redis Enterprise Cloud and MongoDB Atlas.','Bedrock 知识库可以使用哪些向量存储？','OpenSearch Serverless 和托管集群、S3 Vectors、Aurora PostgreSQL、Neptune Analytics，以及 Pinecone、Redis Enterprise Cloud 和 MongoDB Atlas。'],
 ['d5','Amazon VPC and AWS PrivateLink: how do they relate?','A VPC is your private network; PrivateLink interface endpoints inside it reach AWS services privately.','Amazon VPC 与 AWS PrivateLink 有什么关系？','VPC 是你的私有网络；其中的 PrivateLink 接口终端节点可私密访问 AWS 服务。'],
 ['d5','What is Amazon GuardDuty?','Threat detection that analyzes logs and account activity for suspicious behavior.','什么是 Amazon GuardDuty？','分析日志和账户活动、发现可疑行为的威胁检测服务。'],
 ['d5','What does AWS WAF protect?','Web apps and APIs, by filtering malicious traffic before it reaches them.','AWS WAF 保护什么？','Web 应用和 API，在恶意流量到达之前将其过滤。'],
-['d5','What is AWS Audit Manager for?','Continuously collecting evidence for audits; it includes a generative AI best-practices framework.','AWS Audit Manager 用来做什么？','持续收集审计证据；包含生成式 AI 最佳实践框架。'],
+['d5','Which in-scope service continuously checks whether your AWS resources follow your compliance rules?','AWS Config (rules and conformance packs). AWS Audit Manager, seen in older material, has been closed to new customers since 30 April 2026.','哪项考试范围内的服务可以持续检查你的 AWS 资源是否遵循合规规则？','AWS Config（规则和一致性包）。旧资料中的 AWS Audit Manager 自 2026 年 4 月 30 日起已不再向新客户开放。'],
 ['d5','Why S3 Glacier in AI governance?','Low-cost archive for data and logs you must retain but rarely access.','为什么 AI 治理会用到 S3 Glacier？','低成本归档必须保留但很少访问的数据和日志。']
 ];
 C.forEach(function(c){AIF.cards.push({d:c[0],en:{q:c[1],a:c[2]},zh:{q:c[3],a:c[4]}});});
