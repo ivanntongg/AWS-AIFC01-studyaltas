@@ -379,7 +379,10 @@ ul.plain li{margin:5px 0}
 .qbar-prog i{display:block;height:100%;width:0;background:var(--accent);border-radius:2px;transition:width .3s}
 .qbar-next{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
 .qbar-top{flex:none}
-.qbar-go{flex:none;margin:0}
+.qbar-go{flex:none;margin:0;display:flex;align-items:stretch}
+.qbar-gobtn{flex:none;width:36px;display:grid;place-items:center;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:0 9px 9px 0;margin-left:-1px;cursor:pointer;padding:0}
+.qbar-go .field:placeholder-shown + .qbar-gobtn{display:none}
+.qbar-go .field:not(:placeholder-shown){border-radius:9px 0 0 9px}
 .qbar-go .field{width:86px;height:36px;padding:0 10px;text-align:center;font-variant-numeric:tabular-nums}
 .qbar-go .field[aria-invalid="true"]{border-color:var(--bad);box-shadow:0 0 0 1px var(--bad)}
 .qbar-err{color:var(--bad);font-weight:600}
@@ -677,6 +680,7 @@ html{touch-action:manipulation}
   .sfield .field{padding-right:46px}
   .gs-bar .sclear{width:44px;height:44px}
   .qbar-go .field{height:44px}
+  .qbar-gobtn{width:44px}
   .qbar-next{min-height:44px}
   .acct-x{width:44px;height:44px}
   .day label{min-height:44px;align-items:center;padding:0}

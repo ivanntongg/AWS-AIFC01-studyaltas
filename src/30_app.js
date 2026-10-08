@@ -111,7 +111,7 @@ en: {
   practice:'Practice by domain', mockMode:'Quick mock · 50', check:'Check answer', correct:'Correct.', incorrect:'Not quite.', notAnswered:'Not answered.',
   answerIs:'Answer:', correctOrder:'Correct order:', single:'Choose ONE', chooseN:'Choose {n}', orderT:'Ordering', matchT:'Matching',
   resetOrder:'Reset order', orderHint:'Click the items in the correct order.', select:'Select…',
-  statsLine:'{c} checked · {r} correct', clearTxt:'Clear', qbNav:'Question navigator', qbPos:'Question {k} of {n}', qbAns:'{a} answered', qbNext:'Next question', qbNextS:'Next', qbAllDone:'All done · back to top', qbTop:'Back to top', qbGo:'Go to question number', qbGoPh:'Go to #', qbGoErr:'Enter 1–{n}', resetPractice:'Clear answers',
+  statsLine:'{c} checked · {r} correct', clearTxt:'Clear', qbNav:'Question navigator', qbPos:'Question {k} of {n}', qbAns:'{a} answered', qbNext:'Next question', qbNextS:'Next', qbAllDone:'All done · back to top', qbTop:'Back to top', qbGo:'Go to question number', qbGoBtn:'Go', qbGoPh:'Go to #', qbGoErr:'Enter 1–{n}', resetPractice:'Clear answers',
   mockH:'Timed mock exam', mockList:['50 questions drawn at random, weighted like the real exam: D1 10 · D2 12 · D3 14 · D4 7 · D5 7.','Questions you have not seen yet are drawn first, so repeat mocks stay fresh.','A 90-minute timer that keeps running if you close or refresh the page. Answers are revealed only after you submit.','Your result is broken down by domain, and every miss is added to your Missed list.'],
   startMock:'Start mock exam', best:'Best mock score so far', timeLeft:'Time left', answered:'Answered', submit:'Submit exam', confirmSubmit:'{n} unanswered. Submit anyway?',
   result:'Your result', resultLine:'{c} of {n} correct', target:'Aim for 80% or more on mock exams before booking. The real exam reports a scaled score, so treat this percentage as a guide.', retake:'Start a new mock exam', byDomain:'By domain',
@@ -188,7 +188,7 @@ zh: {
   practice:'按领域练习', mockMode:'快速模考 · 50', check:'核对答案', correct:'回答正确。', incorrect:'回答错误。', notAnswered:'未作答。',
   answerIs:'答案：', correctOrder:'正确顺序：', single:'单选', chooseN:'选择 {n} 项', orderT:'排序题', matchT:'匹配题',
   resetOrder:'重新排序', orderHint:'按正确顺序依次点击各项。', select:'请选择…',
-  statsLine:'已核对 {c} 题 · 答对 {r} 题', clearTxt:'清除', qbNav:'题目导航', qbPos:'第 {k} / {n} 题', qbAns:'已答 {a} 题', qbNext:'下一题', qbNextS:'下一题', qbAllDone:'全部完成 · 回到顶部', qbTop:'回到顶部', qbGo:'跳转到第几题', qbGoPh:'跳至题号', qbGoErr:'请输入 1–{n}', resetPractice:'清空答案',
+  statsLine:'已核对 {c} 题 · 答对 {r} 题', clearTxt:'清除', qbNav:'题目导航', qbPos:'第 {k} / {n} 题', qbAns:'已答 {a} 题', qbNext:'下一题', qbNextS:'下一题', qbAllDone:'全部完成 · 回到顶部', qbTop:'回到顶部', qbGo:'跳转到第几题', qbGoBtn:'跳转', qbGoPh:'跳至题号', qbGoErr:'请输入 1–{n}', resetPractice:'清空答案',
   mockH:'限时模拟考试', mockList:['随机抽取 50 题，按真实考试权重分配：D1 10 · D2 12 · D3 14 · D4 7 · D5 7。','优先抽取你没做过的题，重复模考也能保持新鲜。','90 分钟计时，关闭或刷新页面后计时继续。交卷后才显示答案。','成绩按领域拆分，每道错题都会加入“错题”列表。'],
   startMock:'开始模拟考试', best:'目前最佳成绩', timeLeft:'剩余时间', answered:'已答', submit:'交卷', confirmSubmit:'还有 {n} 题未答，仍要交卷？',
   result:'你的成绩', resultLine:'答对 {c}/{n} 题', target:'建议模拟考试稳定在 80% 以上再报名。真实考试给出的是换算分，此百分比仅供参考。', retake:'开始新的模拟考试', byDomain:'各领域',
@@ -874,6 +874,7 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && hint
 /* ---------------- floating question bar (practice and quick mock) ---------------- */
 var SHUF = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>';
 var ARROW_DN = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
+var ARROW_RIGHT = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 var ARROW_UP = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
 function qbarList(){ return S.exMode === 'mock' ? S.mock.set : practiceList(); }
 function qbarDone(qi){ return S.exMode === 'mock' ? answered(A.qs[qi], S.mock.ans[qi]) : !!S.checked[qi]; }
@@ -882,7 +883,7 @@ function qbarHTML(){
   if (!qbarList().length) return '';
   return '<div class="qbar" id="qbar" role="region" aria-label="' + tt.qbNav + '"><div class="qbar-in">' +
     '<div class="qbar-info"><div class="qbar-line"><b id="qbPos"></b><span id="qbStats"></span><span class="qbar-err" id="qbErr" role="status"></span></div><div class="qbar-prog" aria-hidden="true"><i id="qbProg"></i></div></div>' +
-    '<form class="qbar-go" id="qbGo" novalidate><label for="qbGoIn" class="sr-only">' + tt.qbGo + '</label><input id="qbGoIn" class="field" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" enterkeyhint="go" placeholder="' + tt.qbGoPh + '" data-hint="' + tt.qbGo + '"></form>' +
+    '<form class="qbar-go" id="qbGo" novalidate><label for="qbGoIn" class="sr-only">' + tt.qbGo + '</label><input id="qbGoIn" class="field" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" enterkeyhint="go" placeholder="' + tt.qbGoPh + '" data-hint="' + tt.qbGo + '"><button type="submit" class="qbar-gobtn" aria-label="' + tt.qbGoBtn + '">' + ARROW_RIGHT + '</button></form>' +
     '<button type="button" class="ctl qbar-top" data-act="qb-top" aria-label="' + tt.qbTop + '" data-hint="' + tt.qbTop + '">' + ARROW_UP + '</button>' +
     '<button type="button" class="btn pri qbar-next" id="qbNext" data-act="qb-next"></button></div></div>';
 }
@@ -924,7 +925,9 @@ function paintQbar(){
 }
 function goToQ(){
   var inp = document.getElementById('qbGoIn'), err = document.getElementById('qbErr'), list = qbarList();
-  var n = parseInt((inp.value || '').replace(/\D/g, ''), 10);
+  var raw = (inp.value || '').replace(/\D/g, '');
+  if (!raw) return; // nothing typed, or it already jumped when the phone keyboard closed
+  var n = parseInt(raw, 10);
   if (!(n >= 1 && n <= list.length)) {
     var m = fmt(t().qbGoErr, {n: list.length});
     inp.setAttribute('aria-invalid', 'true'); err.textContent = m; inp.select();
@@ -1238,6 +1241,8 @@ document.addEventListener('click', function(e){
 });
 document.addEventListener('change', function(e){
   var el = e.target;
+  // phone number pads (iOS) have no Enter key: tapping Done closes the keyboard and commits the number
+  if (el.id === 'qbGoIn') { if (el.value && window.matchMedia && window.matchMedia('(pointer: coarse)').matches) goToQ(); return; }
   if (el.id === 'svcScope') { S.svcScope = el.checked; document.getElementById('svcTable').innerHTML = svcTable(); }
   else if (el.getAttribute('data-act') === 'plan') {
     var k = el.getAttribute('data-k');
@@ -1680,12 +1685,14 @@ var CHANGELOG = [
     '<b>Fact-check against current AWS documentation</b> for both courses.',
     'Retired or closed services are no longer taught as answers: Amazon Q Business (now Amazon Quick), Amazon Kendra, AWS Audit Manager (use AWS Config) and AWS IQ. Questions now use the tools on the current exam guides, such as Amazon Quick, Kiro and AWS Transform.',
     'Updated facts: custom Bedrock models can run on demand as well as on Provisioned Throughput; Bedrock service tiers (Priority, Standard, Flex); newer AgentCore services; the Nova 2 models; Cost Explorer forecasts 18 months ahead.',
-    'Name changes and closures noted: AppStream 2.0 is now Amazon WorkSpaces Applications, and WorkSpaces Secure Browser closes to new customers on 29 October 2026.'
+    'Name changes and closures noted: AppStream 2.0 is now Amazon WorkSpaces Applications, and WorkSpaces Secure Browser closes to new customers on 29 October 2026.',
+    'On phones, the Go to # box in the question bar now has a Go button, and tapping Done on the number keypad jumps to the question (iPhone number pads have no Enter key).'
   ], zh: [
     '两门课程都已对照最新的 AWS 文档<b>完成事实核查</b>。',
     '已停用或关闭的服务不再作为正确答案：Amazon Q Business（现为 Amazon Quick）、Amazon Kendra、AWS Audit Manager（改用 AWS Config）和 AWS IQ。题目改用现行考试指南中的工具，例如 Amazon Quick、Kiro 和 AWS Transform。',
     '更新的事实：Bedrock 定制模型既可使用预置吞吐量，也可按需运行；Bedrock 服务层级（Priority、Standard、Flex）；AgentCore 新增服务；Nova 2 模型；Cost Explorer 可预测未来 18 个月。',
-    '标注了更名和关闭：AppStream 2.0 现名 Amazon WorkSpaces Applications，WorkSpaces Secure Browser 将于 2026 年 10 月 29 日起不再向新客户开放。'
+    '标注了更名和关闭：AppStream 2.0 现名 Amazon WorkSpaces Applications，WorkSpaces Secure Browser 将于 2026 年 10 月 29 日起不再向新客户开放。',
+    '在手机上，题目栏中的“跳至题号”输入框新增了跳转按钮，在数字键盘上点“完成”也会直接跳到该题（iPhone 的数字键盘没有回车键）。'
   ]},
   {v: '2.0', date: '2026-10-08', en: [
     '<b>New: AWS Certified Cloud Practitioner (CLF-C02).</b> Pick your exam from the menu or the top of the Overview page. Each exam keeps its own progress, scores and flashcard reviews.',
