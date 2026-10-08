@@ -94,6 +94,7 @@ en: {
   all:'All', question:'Question', answer:'Answer', tapFlip:'Tap, or press Space, to flip · ← → to move',
   know:'I know this', learning:'Still learning', shuffle:'Shuffle', unshuffle:'Original order', pShuffleHint:'Mix up the question order', pShuffled:'Questions shuffled', pOrdered:'Original question order', knownOf:'{a} of {b} known',
   noCards:'Every card in this set is marked as known. Turn off "Hide known cards" to review them again.',
+  offH:'Official AWS practice', offP:'Finish with AWS’s own material. It is written by AWS and is the closest you will get to the real exam.', offGuide:'Exam guide', offCert:'Certification page (sample questions and prep links)', offSB:'AWS Skill Builder: Official Practice Question Set (free), Practice Exam and Pretest',
   examH:'Practice exam', examP:'{n} original questions written against the exam guide, in all four official formats. Options are shuffled every session. Practice by domain or lesson, retry your missed questions, take a quick 50-question mock, or sit a full 65-question simulation of the real exam.',
   simMode:'Exam simulation · 65', simH:'Real exam simulation',
   simList:['65 questions in 90 minutes, like the real AIF-C01. 50 are scored and weighted like the exam (D1 10 · D2 12 · D3 14 · D4 7 · D5 7); 15 are unscored, and you won\'t know which.','One question per screen. Move with Previous and Next (or ← →), flag questions to revisit, and use the review screen to see what is unanswered or flagged.','No domain or topic hints, and no answers until the exam is over.','Use <b>End exam</b> to finish early. You\'ll be asked to confirm, and unanswered questions count as wrong.','Your result shows an estimated scaled score (100–1,000; 700 passes) and a breakdown by domain. The timer keeps running if you close or refresh the page.'],
@@ -170,6 +171,7 @@ zh: {
   all:'全部', question:'问题', answer:'答案', tapFlip:'点击或按空格翻面 · ← → 切换',
   know:'已掌握', learning:'还在学', shuffle:'打乱顺序', unshuffle:'恢复顺序', pShuffleHint:'随机打乱题目顺序', pShuffled:'题目已打乱', pOrdered:'已恢复原始顺序', knownOf:'已掌握 {a}/{b}',
   noCards:'本组所有卡片都已标记为已掌握。关闭“隐藏已掌握”即可重新复习。',
+  offH:'AWS 官方练习', offP:'最后用 AWS 官方资料检验一下：这些内容由 AWS 编写，最接近真实考试。', offGuide:'考试指南', offCert:'认证页面（样题和备考链接）', offSB:'AWS Skill Builder：官方练习题集（免费）、官方模拟考试和官方预测试',
   examH:'模拟练习', examP:'{n} 道依据考纲原创的题目，覆盖全部四种官方题型，选项每次都会打乱。可按领域或课程练习、重做错题、做 50 题快速模考，或参加 65 题的真实考试模拟。',
   simMode:'真实考试模拟 · 65', simH:'真实考试模拟',
   simList:['与真实 AIF-C01 一样：90 分钟 65 道题。其中 50 道计分，按考试权重分配（D1 10 · D2 12 · D3 14 · D4 7 · D5 7）；15 道不计分，且你不知道是哪几道。','每屏一道题。用“上一题/下一题”（或 ← →）切换，可标记待复查的题目，并在检查页面查看未答和已标记的题。','不显示领域或主题提示，考试结束前不显示答案。','可用<b>结束考试</b>提前交卷。系统会要求你确认，未答题按错误计。','成绩会显示估算的换算分（100–1,000，700 分及格）和各领域得分。关闭或刷新页面后计时继续。'],
@@ -658,6 +660,10 @@ function vExam(){
     return '<button type="button" data-act="exmode" data-mode="' + m[0] + '" aria-pressed="' + (S.exMode === m[0]) + '">' + m[1] + '</button>';
   }).join('') + '</div>';
   var head = '<div class="sechead"><div><h2>' + tt.examH + '</h2><p>' + fmt(tt.examP, {n: A.qs.length}) + '</p></div>' + seg + '</div>';
+  var off = A.meta && A.meta.official;
+  if (off) head += '<aside class="offprep" aria-label="' + tt.offH + '"><p><b>' + tt.offH + '</b> ' + tt.offP + '</p><p class="offlinks">' +
+    [[off.guide, tt.offGuide], [off.cert, tt.offCert], [{en: 'https://skillbuilder.aws/', zh: 'https://skillbuilder.aws/'}, tt.offSB]].map(function(x){
+      return '<a href="' + x[0][l] + '" target="_blank" rel="noopener">' + x[1] + ' ↗</a>'; }).join('') + '</p></aside>';
   if (S.exMode === 'sim') return head + vSim();
   if (S.exMode === 'practice') {
     var counts = {}; A.qs.forEach(function(q){ counts[q.d] = (counts[q.d] || 0) + 1; });
@@ -1673,14 +1679,18 @@ var CHANGELOG = [
   {v: '2.0', date: '2026-10-08', en: [
     '<b>New: AWS Certified Cloud Practitioner (CLF-C02).</b> Pick your exam from the menu or the top of the Overview page. Each exam keeps its own progress, scores and flashcard reviews.',
     '19 lessons, one for every task statement in the CLF-C02 exam guide, with the official Chinese terms.',
-    '308 original practice questions weighted like the real exam, in English and Chinese, with a note on why each wrong option is wrong. Quick 50-question mocks and a full 65-question, 90-minute simulation.',
+    '378 original practice questions weighted like the real exam, in English and Chinese, with a note on why each wrong option is wrong. Quick 50-question mocks and a full 65-question, 90-minute simulation.',
     'Flashcards, a glossary, a map of every in-scope service and a 7-day plan for CLF-C02.',
+    '25 new AI Practitioner questions (505 in total) on services the bank covered lightly, such as Amazon Q Business, Amazon Q Developer, Kendra, Comprehend, Transcribe and A2I.',
+    'Each exam has its own colour: AI Practitioner stays yellow, Cloud Practitioner is blue. The Practice exam page now links to AWS’s official practice material.',
     'Your AI Practitioner progress is untouched, and progress for both exams syncs across devices.'
   ], zh: [
     '<b>新增：AWS 认证云从业者（CLF-C02）。</b>可在菜单或概览页顶部选择考试。每个考试分别保存自己的进度、成绩和闪卡复习记录。',
     '19 节课，与 CLF-C02 考试指南中的每项任务说明一一对应，并使用官方中文术语。',
-    '308 道按真实考试权重分配的原创练习题，中英双语，并说明每个错误选项错在哪里。提供 50 题快速模考和 65 题、90 分钟的完整模拟考试。',
+    '378 道按真实考试权重分配的原创练习题，中英双语，并说明每个错误选项错在哪里。提供 50 题快速模考和 65 题、90 分钟的完整模拟考试。',
     'CLF-C02 专属的闪卡、术语表、全部考试范围内服务的速查表以及 7 天学习计划。',
+    '新增 25 道 AI 从业者题目（共 505 道），覆盖题库之前较少涉及的服务，例如 Amazon Q Business、Amazon Q Developer、Kendra、Comprehend、Transcribe 和 A2I。',
+    '每个考试都有自己的颜色：AI 从业者保持黄色，云从业者为蓝色。“模拟练习”页面新增了指向 AWS 官方练习资料的链接。',
     '你的 AI 从业者进度保持不变，两个考试的进度都会在设备之间同步。'
   ]},
   {v: '1.3', date: '2026-09-28', en: [

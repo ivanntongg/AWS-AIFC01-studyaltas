@@ -5,7 +5,11 @@ window.CLF = {domains: [], tasks: {}, cards: [], qs: [], svc: [], gloss: [], pla
 CLF.meta = {
   name: {en: 'AWS Certified Cloud Practitioner', zh: 'AWS 认证云从业者'},
   short: {en: 'Cloud Practitioner', zh: '云从业者'},
-  checked: '2026-10-08'
+  checked: '2026-10-08',
+  official: {
+    guide: {en: 'https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html', zh: 'https://docs.aws.amazon.com/zh_cn/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html'},
+    cert: {en: 'https://aws.amazon.com/certification/certified-cloud-practitioner/', zh: 'https://aws.amazon.com/cn/certification/certified-cloud-practitioner/'}
+  }
 };
 /* every service in the map comes from the official in-scope list, so no scope toggle */
 CLF.noScope = true;

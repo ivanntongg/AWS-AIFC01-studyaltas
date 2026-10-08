@@ -3,8 +3,8 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const DATA = ['10_d1.js', '11_d2.js', '12_d3.js', '13_d4.js', '14_d5.js', '20_questions.js', '22_questions2.js',
-  '24_notes.js', '24_notes2.js', '25_questions3.js', '27_questions4.js', '28_q5_d1.js', '28_q5_d2.js', '28_q5_d3.js', '28_q5_d4.js', '28_q5_d5.js', '21_extras.js', '26_cards2.js', '23_services2.js', '29_aif_meta.js',
-  '40_clf_core.js', '41_clf_d1.js', '41_clf_d2.js', '41_clf_d3.js', '41_clf_d4.js', '42_clf_q1.js', '42_clf_q2.js', '42_clf_q3.js', '42_clf_q3b.js', '42_clf_q4.js', '43_clf_extras.js', '31_merge.js'];
+  '24_notes.js', '24_notes2.js', '25_questions3.js', '27_questions4.js', '28_q5_d1.js', '28_q5_d2.js', '28_q5_d3.js', '28_q5_d4.js', '28_q5_d5.js', '28_q6_gaps.js', '21_extras.js', '26_cards2.js', '23_services2.js', '29_aif_meta.js',
+  '40_clf_core.js', '41_clf_d1.js', '41_clf_d2.js', '41_clf_d3.js', '41_clf_d4.js', '42_clf_q1.js', '42_clf_q2.js', '42_clf_q3.js', '42_clf_q3b.js', '42_clf_q4.js', '42_clf_q5.js', '42_clf_q6.js', '43_clf_extras.js', '31_merge.js'];
 const ctx = { window: {} };
 ctx.window = ctx;
 vm.createContext(ctx);
