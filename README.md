@@ -2,7 +2,12 @@
 
 **Live:** https://senseidoge.vercel.app
 
-SenseiDoge is a bilingual (English / 简体中文) study app for the **AWS Certified AI Practitioner (AIF-C01)** exam, mapped to the official exam guide **v1.1 (April 2026)**.
+SenseiDoge is a bilingual (English / 简体中文) study app for two AWS exams. Pick the exam from the menu or the top of the Overview page; each exam keeps its own progress.
+
+- **AWS Certified AI Practitioner (AIF-C01)**, mapped to the official exam guide **v1.1 (April 2026)** (details below)
+- **AWS Certified Cloud Practitioner (CLF-C02)** (new in 2.0): 19 lessons (one per task statement, with the official Chinese terms), 308 original questions in both official formats weighted like the exam, 103 flashcards, a 62-term glossary, a map of all 111 in-scope services and a 7-day plan
+
+### AI Practitioner (AIF-C01)
 
 - 14 lessons, one per task statement in the exam guide, each listing the objectives it covers
 - 480 practice questions in all four official formats (381 multiple choice, 38 multiple response, 27 ordering, 34 matching), each tagged to its lesson, with an explanation for the right answer and a note on why every wrong option is wrong
@@ -30,6 +35,7 @@ Progress still works fully without signing in; syncing merges devices safely (un
 
 ```
 src/                 source: shell + styles, lesson content per domain, questions, notes, extras, app logic
+                     (10_–31_ AI Practitioner and app; 40_–43_ Cloud Practitioner)
 build.mjs            bundles src/ into dist/ (page, icons, manifest, offline service worker)
 test.mjs             content checks: answer keys, translations, wrong-option notes, formats
 dist/index.html      build output that gets deployed

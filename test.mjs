@@ -3,21 +3,31 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const DATA = ['10_d1.js', '11_d2.js', '12_d3.js', '13_d4.js', '14_d5.js', '20_questions.js', '22_questions2.js',
-  '24_notes.js', '24_notes2.js', '25_questions3.js', '27_questions4.js', '28_q5_d1.js', '28_q5_d2.js', '28_q5_d3.js', '28_q5_d4.js', '28_q5_d5.js', '21_extras.js', '26_cards2.js', '23_services2.js', '31_merge.js'];
+  '24_notes.js', '24_notes2.js', '25_questions3.js', '27_questions4.js', '28_q5_d1.js', '28_q5_d2.js', '28_q5_d3.js', '28_q5_d4.js', '28_q5_d5.js', '21_extras.js', '26_cards2.js', '23_services2.js', '29_aif_meta.js',
+  '40_clf_core.js', '41_clf_d1.js', '41_clf_d2.js', '41_clf_d3.js', '41_clf_d4.js', '42_clf_q1.js', '42_clf_q2.js', '42_clf_q3.js', '42_clf_q3b.js', '42_clf_q4.js', '43_clf_extras.js', '31_merge.js'];
 const ctx = { window: {} };
 ctx.window = ctx;
 vm.createContext(ctx);
 for (const f of DATA) vm.runInContext(readFileSync(new URL(`./src/${f}`, import.meta.url), 'utf8'), ctx, { filename: f });
-const A = ctx.AIF;
-
 const errors = [];
-const fail = (msg) => errors.push(msg);
 const nonEmpty = (s) => typeof s === 'string' && s.trim().length > 0;
+const EXAMS = {
+  'AIF-C01': { A: ctx.AIF, domains: 5, tasks: 14, need: { d1: 10, d2: 12, d3: 14, d4: 7, d5: 7 } },
+  'CLF-C02': { A: ctx.CLF, domains: 4, tasks: 19, need: { d1: 12, d2: 15, d3: 17, d4: 6 } }
+};
+for (const [code, spec] of Object.entries(EXAMS)) checkExam(code, spec);
+
+function checkExam(code, spec) {
+const A = spec.A;
+const fail = (msg) => errors.push(`${code}: ${msg}`);
+if (!A || !A.meta || !nonEmpty(A.meta.name.en) || !nonEmpty(A.meta.name.zh)) fail('missing exam name');
+
 
 // Domains and lessons
 const taskIds = Object.keys(A.tasks);
-if (A.domains.length !== 5) fail(`expected 5 domains, found ${A.domains.length}`);
-if (taskIds.length !== 14) fail(`expected 14 task statements, found ${taskIds.length}`);
+if (A.domains.length !== spec.domains) fail(`expected ${spec.domains} domains, found ${A.domains.length}`);
+if (taskIds.length !== spec.tasks) fail(`expected ${spec.tasks} task statements, found ${taskIds.length}`);
+if (A.domains.reduce((s, d) => s + (d.q || 0), 0) && A.domains.reduce((s, d) => s + d.q, 0) !== 50) fail('domain question counts do not add up to 50');
 if (A.domains.reduce((s, d) => s + d.w, 0) !== 100) fail('domain weights do not add up to 100');
 for (const d of A.domains) for (const id of d.tasks) if (!A.tasks[id]) fail(`domain ${d.id} lists missing task ${id}`);
 for (const [id, t] of Object.entries(A.tasks)) {
@@ -68,7 +78,7 @@ A.qs.forEach((q, i) => {
 });
 const perDomain = {};
 A.qs.forEach((q) => { perDomain[q.d] = (perDomain[q.d] || 0) + 1; });
-const need = { d1: 10, d2: 12, d3: 14, d4: 7, d5: 7 };
+const need = spec.need;
 for (const [d, n] of Object.entries(need)) if ((perDomain[d] || 0) < n + 15) fail(`${d}: only ${perDomain[d]} questions; the simulation needs a comfortable margin over ${n}`);
 
 // Flashcards, services, glossary, plan
@@ -81,9 +91,13 @@ A.plan.forEach((day, di) => day.items.forEach((it) => {
   if (kind === 't' && !A.tasks[val]) fail(`plan day ${di + 1}: unknown lesson ${val}`);
 }));
 function DOMAIN(id) { return A.domains.some((d) => d.id === id); }
+console.log(`${code} · lessons ${taskIds.length} · questions ${A.qs.length} ${JSON.stringify(types)} · per domain ${JSON.stringify(perDomain)}`);
+console.log(`${code} · flashcards ${A.cards.length} · services ${A.svc.length} · glossary ${A.gloss.length}`);
+}
 
 // Sync merge rules: progress from two devices must combine without losing anything
 (() => {
+  const fail = (msg) => errors.push(msg);
   const M = ctx.SDMerge.merge;
   const t0 = 1000, t1 = 2000;
   const a = { data: { done: ['1.1', '2.1'], srs: { 3: { b: 2, due: 50 }, 4: { b: 0, due: 10 } }, hist: [{ t: 1, pct: 50 }], stats: { d1: [3, 5] }, best: 60, task: '2.1', missed: [1, 2] }, ts: { task: t0, missed: t1 } };
@@ -100,9 +114,10 @@ function DOMAIN(id) { return A.domains.some((d) => d.id === id); }
   if (!eq(M({ data: {}, ts: {} }, b).data, b.data)) fail('merge: an empty device should adopt the synced copy');
   if (!eq(M(a, { data: {}, ts: {} }).data, a.data)) fail('merge: an empty synced copy should adopt this device');
   if (!eq(M(m, m).data, m.data)) fail('merge: merging identical copies must change nothing');
+  const c = M({ data: { 'clf.done': ['1.1'], 'clf.best': 60, done: ['5.1'] }, ts: {} }, { data: { 'clf.done': ['3.2'], 'clf.best': 75, done: ['1.1'] }, ts: {} });
+  if (!eq([...c.data['clf.done']].sort(), ['1.1', '3.2']) || c.data['clf.best'] !== 75) fail('merge: Cloud Practitioner keys should follow the same rules as AI Practitioner keys');
+  if (!eq([...c.data.done].sort(), ['1.1', '5.1'])) fail('merge: progress for each exam must stay separate');
 })();
 
-console.log(`Lessons ${taskIds.length} · questions ${A.qs.length} ${JSON.stringify(types)} · per domain ${JSON.stringify(perDomain)}`);
-console.log(`Flashcards ${A.cards.length} · services ${A.svc.length} · glossary ${A.gloss.length}`);
 if (errors.length) { console.error(`\n${errors.length} problem(s):\n- ` + errors.join('\n- ')); process.exit(1); }
 console.log('All content and sync-merge checks passed.');

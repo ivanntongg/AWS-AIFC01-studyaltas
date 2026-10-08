@@ -39,13 +39,13 @@ window.SDMerge = (function(){
     for (k in local.data) keys[k] = 1;
     for (k in remote.data) keys[k] = 1;
     for (k in keys) {
-      var a = local.data[k], b = remote.data[k], has = (k in local.data) && (k in remote.data);
+      var a = local.data[k], b = remote.data[k], has = (k in local.data) && (k in remote.data), base = k.indexOf('.') >= 0 ? k.slice(k.indexOf('.') + 1) : k;
       if (!has) data[k] = (k in local.data) ? a : b;
-      else if (UNION.indexOf(k) >= 0) data[k] = uniq((a || []).concat(b || []));
-      else if (MAXNUM.indexOf(k) >= 0) data[k] = (a == null) ? b : (b == null ? a : Math.max(a, b));
-      else if (k === 'srs') data[k] = mergeSrs(a, b);
-      else if (k === 'hist') data[k] = mergeHist(a, b);
-      else if (k === 'stats') data[k] = mergeStats(a, b);
+      else if (UNION.indexOf(base) >= 0) data[k] = uniq((a || []).concat(b || []));
+      else if (MAXNUM.indexOf(base) >= 0) data[k] = (a == null) ? b : (b == null ? a : Math.max(a, b));
+      else if (base === 'srs') data[k] = mergeSrs(a, b);
+      else if (base === 'hist') data[k] = mergeHist(a, b);
+      else if (base === 'stats') data[k] = mergeStats(a, b);
       else data[k] = newer(k, local, remote);
       ts[k] = Math.max(local.ts[k] || 0, remote.ts[k] || 0);
     }

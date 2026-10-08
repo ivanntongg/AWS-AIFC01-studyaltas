@@ -1,17 +1,33 @@
 (function(){
 'use strict';
-var A = window.AIF;
+/* Exams in this app. AI Practitioner keeps its original storage keys, so existing progress is untouched. */
+var EXAMS = {
+  aif: {data: window.AIF, prefix: 'aifc01:', sync: '', code: 'AIF-C01', want: {d1: 10, d2: 12, d3: 14, d4: 7, d5: 7}},
+  clf: {data: window.CLF, prefix: 'clfc02:', sync: 'clf.', code: 'CLF-C02', want: {d1: 12, d2: 15, d3: 17, d4: 6}}
+};
+Object.keys(EXAMS).forEach(function(id){ if (!EXAMS[id].data) delete EXAMS[id]; });
+/* progress that belongs to one exam (everything else, like language and theme, is shared) */
+var EXAM_KEYS = ['done', 'task', 'srs', 'missed', 'seen', 'stats', 'hist', 'best', 'bestSim', 'plan', 'exam', 'known', 'porder'];
+var EXAM = (function(){
+  var q = (location.search.match(/[?&]exam=([a-z]+)/) || [])[1], s = null;
+  try { s = JSON.parse(localStorage.getItem('aifc01:examId')); } catch (e) {}
+  var id = q || s || 'aif';
+  return EXAMS[id] ? id : 'aif';
+})();
+var A = EXAMS[EXAM].data;
 var root = document.documentElement;
+function skey(k){ return (EXAM_KEYS.indexOf(k) >= 0 ? EXAMS[EXAM].prefix : 'aifc01:') + k; }
+function tsName(k){ return EXAM_KEYS.indexOf(k) >= 0 ? EXAMS[EXAM].sync + k : k; }
 /* progress keys that "Sync my progress" carries between devices (display prefs like theme stay per device) */
 var SYNC_KEYS = ['done', 'task', 'srs', 'missed', 'seen', 'stats', 'hist', 'best', 'bestSim', 'plan', 'exam', 'lang', 'cardMode', 'known'];
 var store = {
-  get: function(k, d){ try { var v = localStorage.getItem('aifc01:' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  get: function(k, d){ try { var v = localStorage.getItem(skey(k)); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
   set: function(k, v){
     try {
-      localStorage.setItem('aifc01:' + k, JSON.stringify(v));
+      localStorage.setItem(skey(k), JSON.stringify(v));
       if (SYNC_KEYS.indexOf(k) >= 0) {
         var ts = {}; try { ts = JSON.parse(localStorage.getItem('aifc01:_ts') || '{}') || {}; } catch (e2) {}
-        ts[k] = Date.now(); localStorage.setItem('aifc01:_ts', JSON.stringify(ts));
+        ts[tsName(k)] = Date.now(); localStorage.setItem('aifc01:_ts', JSON.stringify(ts));
         syncDirty();
       }
     } catch (e) {}
@@ -25,8 +41,13 @@ function dc(id){ return 'var(--' + id + ')'; }
 var APP_VERSION = '__APP_VERSION__';
 var LET = 'ABCDEFGH';
 var NUMW = ['', 'ONE', 'TWO', 'THREE', 'FOUR'];
-var DOM = {}; A.domains.forEach(function(d){ DOM[d.id] = d; });
-var ORDER = []; A.domains.forEach(function(d){ d.tasks.forEach(function(t){ ORDER.push(t); }); });
+var DOM, ORDER;
+function bindExam(){
+  A = EXAMS[EXAM].data;
+  DOM = {}; A.domains.forEach(function(d){ DOM[d.id] = d; });
+  ORDER = []; A.domains.forEach(function(d){ d.tasks.forEach(function(t){ ORDER.push(t); }); });
+}
+bindExam();
 var VIEWS = ['overview','course','cards','exam','services','glossary','plan'];
 var CATC = {genai:'var(--d2)', ml:'var(--d1)', ai:'var(--d3)', infra:'var(--d4)', data:'var(--accent-text)', core:'var(--ink2)', sec:'var(--d5)', gov:'var(--muted)'};
 
@@ -104,7 +125,7 @@ en: {
   justNow:'just now', minAgo:'{n} min ago', syncNow:'Sync now', signOut:'Sign out', signOutNote:'Signing out keeps your progress on this device.', delAcct:'Delete my account and synced data', delAsk:'This permanently deletes your account and the progress saved online. Progress on this device stays. Delete?', delYes:'Delete permanently', cancel:'Cancel', deleted:'Your account and synced data were deleted.',
   linkExpired:'That sign-in link did not work ({m}). Send yourself a new one.', syncCta:'Studying on more than one device? Keep your progress in step.', syncCtaBtn:'Sync my progress',
   aboutSync:'Your progress is stored in this browser. If you sign in to sync it, your email address and progress are also stored in our database (hosted by Supabase) so they follow you across devices. You can delete them at any time from "Sync my progress".',
-  brand:'SenseiDoge', privT:'Privacy', privLink:'Privacy', checked:'Content last checked against AIF-C01 exam guide v1.1 on {d}.', aboutT:'About SenseiDoge', aboutClose:'Close',
+  examPick:'Choose your exam', examNow:'Now studying {e}', sections:'Sections', brand:'SenseiDoge', privT:'Privacy', privLink:'Privacy', checked:'Content last checked against AIF-C01 exam guide v1.1 on {d}.', aboutT:'About SenseiDoge', aboutClose:'Close',
   aboutP:['SenseiDoge is <b>independent study material</b> for the AWS Certified AI Practitioner (AIF-C01) exam. It is <b>not affiliated with, endorsed by or sponsored by</b> Amazon Web Services (AWS) or Amazon.com, Inc.',
     'AWS, Amazon Web Services, AWS Certified AI Practitioner, Amazon Bedrock, Amazon SageMaker and all related names and logos are trademarks of Amazon.com, Inc. or its affiliates. They are used here only to identify the exam and the services being studied.',
     'Lessons follow the public AIF-C01 exam guide, version 1.1 (April 2026). All practice questions are original and are not taken from the real exam. Check the latest exam guide and AWS documentation before you sit the exam.',
@@ -180,7 +201,7 @@ zh: {
   justNow:'刚刚', minAgo:'{n} 分钟前', syncNow:'立即同步', signOut:'退出登录', signOutNote:'退出登录后，本设备上的进度仍会保留。', delAcct:'删除我的账户和已同步数据', delAsk:'这将永久删除你的账户以及保存在网上的进度，本设备上的进度会保留。确定删除吗？', delYes:'永久删除', cancel:'取消', deleted:'你的账户和已同步数据已删除。',
   linkExpired:'该登录链接无效（{m}）。请重新发送一个。', syncCta:'在多台设备上学习？让进度保持同步。', syncCtaBtn:'同步我的进度',
   aboutSync:'你的学习进度保存在当前浏览器中。如果你登录并开启同步，你的邮箱地址和学习进度也会保存在我们的数据库（由 Supabase 托管）中，以便在不同设备间同步。你可以随时在“同步我的进度”中删除。',
-  brand:'考汪', privT:'隐私说明', privLink:'隐私', checked:'内容最近一次对照 AIF-C01 考试指南 v1.1 核对于 {d}。', aboutT:'关于考汪', aboutClose:'关闭',
+  examPick:'选择考试', examNow:'当前学习：{e}', sections:'栏目', brand:'考汪', privT:'隐私说明', privLink:'隐私', checked:'内容最近一次对照 AIF-C01 考试指南 v1.1 核对于 {d}。', aboutT:'关于考汪', aboutClose:'关闭',
   aboutP:['考汪是 AWS 认证 AI 从业者 (AIF-C01) 考试的<b>独立学习资料</b>，与 Amazon Web Services (AWS) 或 Amazon.com, Inc. <b>无任何隶属、背书或赞助关系</b>。',
     'AWS、Amazon Web Services、AWS Certified AI Practitioner、Amazon Bedrock、Amazon SageMaker 及所有相关名称和标志均为 Amazon.com, Inc. 或其关联公司的商标，本站仅用于指明所学习的考试和服务。',
     '课程内容依据公开的 AIF-C01 考纲 1.1 版（2026 年 4 月）编写。所有练习题均为原创，并非真实考题。参加考试前请查阅最新考纲和 AWS 文档。',
@@ -227,7 +248,17 @@ if (VIEWS.indexOf(hash) >= 0) S.view = hash;
 var savedTheme = store.get('theme', null);
 root.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
 
-function t(){ return T[S.lang]; }
+var TC = {};
+function t(){
+  var k = EXAM + ':' + S.lang;
+  if (!TC[k]) {
+    var o = {}, base = T[S.lang], ov = (A.ui || {})[S.lang] || {}, x;
+    for (x in base) o[x] = base[x];
+    for (x in ov) o[x] = ov[x];
+    TC[k] = o;
+  }
+  return TC[k];
+}
 function L(){ return S.lang; }
 function inArr(a, v){ return a.indexOf(v) >= 0; }
 
@@ -273,13 +304,14 @@ function renderHeader(){
   var tt = t();
   root.lang = S.lang === 'zh' ? 'zh-CN' : 'en';
   var bn = tt.brand;
+  var bs = document.getElementById('brandSub'); if (bs) bs.textContent = Object.keys(EXAMS).length > 1 ? ((A.meta && A.meta.short) ? A.meta.short[S.lang] : '') : '';
   ['brandName', 'drawerName'].forEach(function(id){ var el = document.getElementById(id); el.textContent = bn; el.classList.toggle('brand-zh', S.lang === 'zh'); });
   document.querySelector('.brand').setAttribute('aria-label', bn);
   document.title = bn;
   document.getElementById('tabs').innerHTML = VIEWS.map(function(v){
     return '<button class="tab" type="button" data-go="' + v + '"' + (S.view === v ? ' aria-current="page"' : '') + '>' + tt[v] + '</button>';
   }).join('');
-  document.getElementById('drawerNav').innerHTML = VIEWS.map(function(v){
+  document.getElementById('drawerNav').innerHTML = (Object.keys(EXAMS).length > 1 ? '<p class="drawer-label">' + tt.examPick + '</p>' + Object.keys(EXAMS).map(function(id){ var m = EXAMS[id].data.meta || {}; return '<button class="dlink dexam" type="button" data-act="exam" data-e="' + id + '"' + (id === EXAM ? ' aria-current="true"' : '') + '><span class="dexam-code">' + EXAMS[id].code + '</span><span>' + (m.short ? m.short[S.lang] : id) + '</span></button>'; }).join('') + '<p class="drawer-label">' + tt.sections + '</p>' : '') + VIEWS.map(function(v){
     return '<button class="dlink" type="button" data-go="' + v + '"' + (S.view === v ? ' aria-current="page"' : '') + '>' + NAVICON[v] + '<span>' + tt[v] + '</span></button>';
   }).join('');
   document.getElementById('drawerFoot').innerHTML = '<span>' + '<button type="button" class="link foot-about" data-act="about" aria-haspopup="dialog" data-hint="' + esc(tt.aboutOpen) + '">' + esc(tt.foot) + '</button> · ' + '<button type="button" class="link foot-about" data-act="log" aria-haspopup="dialog" data-hint="' + esc(tt.logOpen) + '">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · <button type="button" class="link foot-about" data-act="privacy" aria-haspopup="dialog">' + esc(tt.privLink) + '</button>' + '</span>' + '<span class="credit">Craft by <b>Eyevuhn</b></span>';
@@ -320,9 +352,9 @@ function vOverview(){
   var tt = t(), l = L();
   var next = ORDER.filter(function(id){ return !inArr(S.done, id); })[0];
   var label = S.done.length === 0 ? tt.start : (next ? tt.cont + next : tt.review);
-  var facts = [['65', tt.f1, tt.f1s], ['90', tt.f2, tt.f2s], ['700', tt.f3, tt.f3s], ['14', tt.f4, tt.f4s]];
+  var facts = [['65', tt.f1, tt.f1s], ['90', tt.f2, tt.f2s], ['700', tt.f3, tt.f3s], [String(ORDER.length), tt.f4, tt.f4s]];
   return '<section class="hero"><div>' +
-    '<p class="eyebrow">' + tt.eyebrow + '</p><h1>' + tt.heroH + '</h1><p class="lede">' + fmt(tt.heroP, {q: A.qs.length, c: A.cards.length}) + '</p>' +
+    (Object.keys(EXAMS).length > 1 ? '<div class="exam-pick"><span class="sr-only" id="examPickL">' + tt.examPick + '</span>' + ddHTML({id: 'examPick', labelledby: 'examPickL', value: EXAM, options: examOptions(), cls: 'dd-exam', pick: switchExam}) + '</div>' : '<p class="eyebrow">' + tt.eyebrow + '</p>') + '<h1>' + tt.heroH + '</h1><p class="lede">' + fmt(tt.heroP, {q: A.qs.length, c: A.cards.length, n: ORDER.length}) + '</p>' +
     '<div class="row"><button class="btn pri" type="button" data-act="open-task" data-task="' + (next || '1.1') + '">' + label + '</button>' +
     '<button class="btn" type="button" data-go="exam" data-mode="sim">' + tt.mock + '</button>' +
     '</div></div>' +
@@ -656,7 +688,7 @@ function vExam(){
     (r.n - r.c > 0 ? '<button type="button" class="btn" data-act="practice-missed">' + fmt(tt.practiceMissed, {n: r.n - r.c}) + '</button>' : '') + '</div></div></div></section>' + list;
 }
 function startMock(){
-  var want = {d1: 10, d2: 12, d3: 14, d4: 7, d5: 7}, set = [];
+  var want = EXAMS[EXAM].want, set = [];
   Object.keys(want).forEach(function(d){
     var ids = A.qs.map(function(_, i){ return i; }).filter(function(i){ return A.qs[i].d === d; });
     var fresh = shuffle(ids.filter(function(i){ return !inArr(S.seen, i); }));
@@ -917,7 +949,7 @@ function freshFirst(ids){
   return shuffle(ids.filter(function(i){ return !inArr(S.seen, i); })).concat(shuffle(ids.filter(function(i){ return inArr(S.seen, i); })));
 }
 function startSim(){
-  var want = {d1: 10, d2: 12, d3: 14, d4: 7, d5: 7}, scored = [];
+  var want = EXAMS[EXAM].want, scored = [];
   Object.keys(want).forEach(function(d){
     scored = scored.concat(freshFirst(A.qs.map(function(_, i){ return i; }).filter(function(i){ return A.qs[i].d === d; })).slice(0, want[d]));
   });
@@ -1026,21 +1058,21 @@ function vSim(){
 /* ---------------- services ---------------- */
 function svcTable(){
   var tt = t(), l = L(), q = S.svcQ.trim().toLowerCase();
-  var rows = A.svc.filter(function(s){ return (S.svcCat === 'all' || s.c === S.svcCat) && (!S.svcScope || s.s) && (!q || (s.n + ' ' + s.en.w + ' ' + s.en.p + ' ' + s.zh.w + ' ' + s.zh.p).toLowerCase().indexOf(q) >= 0); });
+  var rows = A.svc.filter(function(s){ return (S.svcCat === 'all' || s.c === S.svcCat) && (A.noScope || !S.svcScope || s.s) && (!q || (s.n + ' ' + s.en.w + ' ' + s.en.p + ' ' + s.zh.w + ' ' + s.zh.p).toLowerCase().indexOf(q) >= 0); });
   if (!rows.length) return '<div class="empty">' + tt.none + '</div>';
   return '<div class="tw svc"><table><thead><tr><th>' + tt.svcCol[0] + '</th><th>' + tt.svcCol[1] + '</th><th>' + tt.svcCol[2] + '</th></tr></thead><tbody>' +
     rows.map(function(s){
-      var sc = s.s === 'L' ? '<span class="badge in">' + tt.scopeL + '</span>' : (s.s === 'F' ? '<span class="badge part">' + tt.scopeF + '</span>' : '<span class="badge ctx">' + tt.scopeC + '</span>');
-      return '<tr><td>' + esc(s.n) + '<div class="cat" style="--c:' + CATC[s.c] + '">' + tt.cat[s.c] + '</div>' + sc + '</td><td>' + esc(s[l].w) + '</td><td>' + esc(s[l].p) + '</td></tr>';
+      var sc = A.noScope ? '' : s.s === 'L' ? '<span class="badge in">' + tt.scopeL + '</span>' : (s.s === 'F' ? '<span class="badge part">' + tt.scopeF + '</span>' : '<span class="badge ctx">' + tt.scopeC + '</span>');
+      return '<tr><td>' + esc(s.n) + '<div class="cat" style="--c:' + (A.catC || CATC)[s.c] + '">' + tt.cat[s.c] + '</div>' + sc + '</td><td>' + esc(s[l].w) + '</td><td>' + esc(s[l].p) + '</td></tr>';
     }).join('') + '</tbody></table></div>';
 }
 function vServices(){
   var tt = t();
-  var cats = ['all','genai','ml','ai','infra','data','core','sec','gov'];
+  var cats = A.svcCats ? ['all'].concat(A.svcCats) : ['all','genai','ml','ai','infra','data','core','sec','gov'], catc = A.catC || CATC;
   return '<div class="sechead"><div><h2>' + tt.svcH + '</h2><p>' + tt.svcP + '</p></div></div>' +
     '<div class="filters">' + '<div class="sfield">' + '<input id="svcSearch" class="field" type="search" enterkeyhint="search" autocomplete="off" placeholder="' + tt.svcSearch + '" aria-label="' + tt.svcSearch + '" value="' + esc(S.svcQ) + '">' + '<button type="button" class="sclear" data-act="sclear" aria-label="' + tt.clearTxt + '" data-hint="' + tt.clearTxt + '">' + XICON + '</button></div>' + '<div class="chips">' +
-    cats.map(function(c){ return '<button type="button" class="chip"' + (c !== 'all' ? ' style="--c:' + CATC[c] + '"' : '') + ' data-act="svccat" data-c="' + c + '" aria-pressed="' + (S.svcCat === c) + '">' + (c !== 'all' ? '<span class="dot"></span>' : '') + tt.cat[c] + '</button>'; }).join('') +
-    '</div><label class="toggle" for="svcScope"><input type="checkbox" id="svcScope"' + (S.svcScope ? ' checked' : '') + '> ' + tt.scopeOnly + '</label></div><div id="svcTable">' + svcTable() + '</div>';
+    cats.map(function(c){ return '<button type="button" class="chip"' + (c !== 'all' ? ' style="--c:' + catc[c] + '"' : '') + ' data-act="svccat" data-c="' + c + '" aria-pressed="' + (S.svcCat === c) + '">' + (c !== 'all' ? '<span class="dot"></span>' : '') + tt.cat[c] + '</button>'; }).join('') +
+    '</div>' + (A.noScope ? '' : '<label class="toggle" for="svcScope"><input type="checkbox" id="svcScope"' + (S.svcScope ? ' checked' : '') + '> ' + tt.scopeOnly + '</label>') + '</div><div id="svcTable">' + svcTable() + '</div>';
 }
 
 /* ---------------- glossary ---------------- */
@@ -1093,6 +1125,7 @@ document.addEventListener('click', function(e){
   var act = el.getAttribute('data-act'), qi = +el.getAttribute('data-q'), i = +el.getAttribute('data-i');
   switch (act) {
     case 'about': openAbout(el); break;
+    case 'exam': if (menuOpen) setMenu(false, false); switchExam(el.getAttribute('data-e')); setView('overview'); break;
     case 'log': openLog(el); break;
     case 'privacy': openPrivacy(el); break;
     case 'acct': openAcct(); break;
@@ -1246,7 +1279,7 @@ var SIDX = {};
 function plain(h){ return String(h).replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim(); }
 function searchIndex(){
   var l = L();
-  if (SIDX[l]) return SIDX[l];
+  if (SIDX[EXAM + l]) return SIDX[EXAM + l];
   var o = l === 'en' ? 'zh' : 'en', idx = [];
   ORDER.forEach(function(id){ var tk = A.tasks[id], body = plain(tk[l]); idx.push({k: 'l', id: id, title: id + ' · ' + tk.title[l], body: body, s: (tk.title[l] + ' ' + body).toLowerCase()}); });
   A.qs.forEach(function(q, i){ var Q = q[l], opts = Q.o.map(function(x){ return Array.isArray(x) ? x.join(' ') : x; }).join(' '); idx.push({k: 'q', id: i, title: Q.q, body: '', s: (Q.q + ' ' + opts + ' ' + Q.x).toLowerCase(), tag: q.k}); });
@@ -1317,19 +1350,47 @@ var SB_JS = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.1/dist/umd
 var sentTo = '', resendAt = 0, resendTimer = null;
 var sbc = null, syncUser = null, syncState = 'off', syncErr = '', lastSync = 0, lastPull = 0, pushTimer = null, syncBusy = false, acctMsg = '', acctDel = false;
 function syncEnabled(){ return SYNC_CFG.url.indexOf('https://') === 0 && SYNC_CFG.key.length > 20; }
+/* every exam's progress travels in one synced copy; other exams' keys get a prefix such as "clf." */
+function syncNames(){
+  var out = [];
+  SYNC_KEYS.forEach(function(k){
+    if (EXAM_KEYS.indexOf(k) < 0) out.push([k, 'aifc01:' + k]);
+    else Object.keys(EXAMS).forEach(function(id){ out.push([EXAMS[id].sync + k, EXAMS[id].prefix + k]); });
+  });
+  return out;
+}
 function localSnapshot(){
-  var data = {}, ts = store.get('_ts', {}) || {};
-  SYNC_KEYS.forEach(function(k){ var v = store.get(k, undefined); if (v !== undefined) data[k] = v; });
+  var data = {}, ts = {};
+  try { ts = JSON.parse(localStorage.getItem('aifc01:_ts') || '{}') || {}; } catch (e) {}
+  syncNames().forEach(function(p){ try { var v = localStorage.getItem(p[1]); if (v != null) data[p[0]] = JSON.parse(v); } catch (e) {} });
   return {data: data, ts: ts};
 }
 function writeLocal(snap){
   try {
-    Object.keys(snap.data).forEach(function(k){ localStorage.setItem('aifc01:' + k, JSON.stringify(snap.data[k])); });
+    var where = {}; syncNames().forEach(function(p){ where[p[0]] = p[1]; });
+    Object.keys(snap.data).forEach(function(k){ if (where[k]) localStorage.setItem(where[k], JSON.stringify(snap.data[k])); });
     localStorage.setItem('aifc01:_ts', JSON.stringify(snap.ts || {}));
   } catch (e) {}
 }
+/* Switch the whole app to another exam and load that exam's own progress */
+function examOptions(){
+  return Object.keys(EXAMS).map(function(id){ var m = EXAMS[id].data.meta || {}; return {v: id, label: (m.name ? m.name[S.lang] : id) + ' (' + EXAMS[id].code + ')'}; });
+}
+function switchExam(id){
+  if (!EXAMS[id] || id === EXAM) return;
+  EXAM = id; bindExam();
+  try { localStorage.setItem('aifc01:examId', JSON.stringify(id)); } catch (e) {}
+  S.ans = {}; S.checked = {}; S.qperm = {}; S.mock = null; S.sim = null; S.simDlg = null; S.exMode = 'practice'; S.exFilter = 'all';
+  S.cardDomain = 'all'; S.cardIdx = 0; S.flip = false; S.perm = null; S.known = store.get('known', []);
+  S.svcCat = 'all'; S.svcQ = ''; S.svcScope = false; S.glQ = ''; S.q = ''; S.task = ORDER[0];
+  pOrder = store.get('porder', null); if (pOrder && pOrder.length !== A.qs.length) pOrder = null; pRank = null;
+  var ex = store.get('exam', null); if (ex && ex.mode) S.exMode = ex.mode;
+  hydrate();
+  window.scrollTo(0, 0);
+  announce(fmt(t().examNow, {e: examOptions().filter(function(o){ return o.v === id; })[0].label}));
+}
 function hydrate(){
-  S.done = store.get('done', []); S.task = store.get('task', S.task) || '1.1'; if (!A.tasks[S.task]) S.task = '1.1';
+  S.done = store.get('done', []); S.task = store.get('task', S.task) || ORDER[0]; if (!A.tasks[S.task]) S.task = ORDER[0];
   S.srs = store.get('srs', {}); S.missed = store.get('missed', []); S.seen = store.get('seen', []);
   S.stats = store.get('stats', {}); S.hist = store.get('hist', []); S.best = store.get('best', null); S.planDone = store.get('plan', []);
   var ex = store.get('exam', null);
@@ -1602,12 +1663,25 @@ function openAbout(from){
     '<div class="about-h"><img class="mark" src="' + document.querySelector('.brand .mark').getAttribute('src') + '" alt="" width="38" height="38"><h3 id="aboutT">' + tt.aboutT + '</h3></div>' +
     (syncEnabled() ? tt.aboutP.slice(0, -1).concat([tt.aboutSync]) : tt.aboutP).map(function(x){ return '<p>' + x + '</p>'; }).join('') +
     '<p class="about-ver"><button type="button" class="link foot-about" data-act="log">' + esc(fmt(tt.ver, {v: APP_VERSION})) + '</button> · Craft by Eyevuhn · <button type="button" class="link foot-about" data-act="privacy">' + tt.privLink + '</button></p>' +
-    '<p class="about-checked">' + fmt(tt.checked, {d: fmtDate(CHECKED)}) + '</p>' +
+    '<p class="about-checked">' + fmt(tt.checked, {d: fmtDate((A.meta && A.meta.checked) || CHECKED)}) + '</p>' +
     '<div class="row dlg-act"><button type="button" class="btn pri" id="aboutClose" data-act="about-close">' + tt.aboutClose + '</button></div></div></div>');
   document.body.style.overflow = 'hidden';
   setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
 }
 var CHANGELOG = [
+  {v: '2.0', date: '2026-10-08', en: [
+    '<b>New: AWS Certified Cloud Practitioner (CLF-C02).</b> Pick your exam from the menu or the top of the Overview page. Each exam keeps its own progress, scores and flashcard reviews.',
+    '19 lessons, one for every task statement in the CLF-C02 exam guide, with the official Chinese terms.',
+    '308 original practice questions weighted like the real exam, in English and Chinese, with a note on why each wrong option is wrong. Quick 50-question mocks and a full 65-question, 90-minute simulation.',
+    'Flashcards, a glossary, a map of every in-scope service and a 7-day plan for CLF-C02.',
+    'Your AI Practitioner progress is untouched, and progress for both exams syncs across devices.'
+  ], zh: [
+    '<b>新增：AWS 认证云从业者（CLF-C02）。</b>可在菜单或概览页顶部选择考试。每个考试分别保存自己的进度、成绩和闪卡复习记录。',
+    '19 节课，与 CLF-C02 考试指南中的每项任务说明一一对应，并使用官方中文术语。',
+    '308 道按真实考试权重分配的原创练习题，中英双语，并说明每个错误选项错在哪里。提供 50 题快速模考和 65 题、90 分钟的完整模拟考试。',
+    'CLF-C02 专属的闪卡、术语表、全部考试范围内服务的速查表以及 7 天学习计划。',
+    '你的 AI 从业者进度保持不变，两个考试的进度都会在设备之间同步。'
+  ]},
   {v: '1.3', date: '2026-09-28', en: [
     '<b>480 practice questions</b>, double the bank: 240 new questions written against every objective in the AIF-C01 exam guide v1.1, spread by the official domain weights.',
     'New questions in all four exam formats, each in English and Chinese with a note on why every wrong option is wrong.',

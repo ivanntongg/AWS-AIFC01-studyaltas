@@ -1,14 +1,14 @@
 <title>SenseiDoge</title>
-<meta name="description" content="Bilingual (English / 简体中文) course for the AWS Certified AI Practitioner AIF-C01 exam, mapped to exam guide v1.1.">
+<meta name="description" content="Bilingual (English / 简体中文) courses for the AWS Certified AI Practitioner (AIF-C01) and Cloud Practitioner (CLF-C02) exams.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SenseiDoge">
-<meta property="og:title" content="SenseiDoge · 考汪: AWS AI Practitioner (AIF-C01) study app">
-<meta property="og:description" content="14 lessons, 480 practice questions, flashcards and a full exam simulation for AIF-C01. Free, in English and 中文.">
+<meta property="og:title" content="SenseiDoge · 考汪: AWS AI Practitioner and Cloud Practitioner study app">
+<meta property="og:description" content="Lessons, practice questions, flashcards and full exam simulations for AIF-C01 (480 questions) and CLF-C02 (308 questions). Free, in English and 中文.">
 <meta property="og:url" content="https://senseidoge.vercel.app/">
 <meta property="og:image" content="https://senseidoge.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SenseiDoge · 考汪, a study app for the AWS Certified AI Practitioner (AIF-C01) exam">
+<meta property="og:image:alt" content="SenseiDoge · 考汪, a study app for the AWS AI Practitioner and Cloud Practitioner exams">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -485,6 +485,14 @@ ul.plain li{margin:5px 0}
 .acct-danger{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
 .acct-danger p{margin:0 0 10px!important}
 .acct-del{color:var(--bad)!important;font-size:13px}
+.hero > *{min-width:0}
+.exam-pick{margin:0 0 10px}
+.dd-exam{display:inline-block;max-width:100%}
+.dd-exam .dd-btn{width:auto;max-width:100%;border:1px solid var(--line);border-radius:999px;padding:6px 12px 6px 14px;background:var(--surface);font:600 12px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.dd-exam .dd-btn .chev{color:var(--accent-text)}
+.drawer-label{font:700 11px var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:10px 12px 4px}
+.dexam-code{font:700 11px var(--f-mono);letter-spacing:.04em;color:var(--accent-text);min-width:58px}
+.dexam[aria-current="true"]{background:var(--accent-soft)}
 .acct-sent{text-align:center;padding:4px 0 0}
 .acct-sent-ic{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--accent-soft);color:var(--accent-text);margin-top:6px}
 .acct-sent h4{font-family:var(--f-display);font-size:19px;margin:12px 0 6px;color:var(--ink);outline:none}
@@ -669,7 +677,7 @@ html{touch-action:manipulation}
   <header class="top">
     <div class="top-in">
       <button class="ctl burger" id="menuBtn" type="button" aria-controls="drawer" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-      <a class="brand" href="#overview" data-go="overview" aria-label="SenseiDoge"><img class="mark" src="__MARK__" alt="" width="38" height="38"><span class="bt"><b id="brandName">SenseiDoge</b></span></a>
+      <a class="brand" href="#overview" data-go="overview" aria-label="SenseiDoge"><img class="mark" src="__MARK__" alt="" width="38" height="38"><span class="bt"><b id="brandName">SenseiDoge</b><small id="brandSub"></small></span></a>
       <nav class="tabs" id="tabs" aria-label="Sections"></nav>
       <div class="ctrls">
         <button class="ctl" id="searchBtn" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
