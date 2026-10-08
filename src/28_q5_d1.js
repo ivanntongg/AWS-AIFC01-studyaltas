@@ -206,12 +206,12 @@ Q('1.2','single',[0],
 ['Comprehend 分析文本，不构建推荐模型。','Lex 用于构建聊天机器人。','Polly 把文本转成语音。']);
 
 Q('1.2','single',[0],
-['Employees want to ask natural-language questions and get answers from documents spread across SharePoint, Confluence and Amazon S3. Which AWS service provides this intelligent enterprise search?',
- ['Amazon Kendra','Amazon Polly','Amazon Transcribe','Amazon Rekognition'],
- 'Kendra indexes content from many sources and answers natural-language queries.'],
-['员工希望用自然语言提问，并从分散在 SharePoint、Confluence 和 Amazon S3 中的文档里获得答案。哪项 AWS 服务提供这种智能企业搜索？',
- ['Amazon Kendra','Amazon Polly','Amazon Transcribe','Amazon Rekognition'],
- 'Kendra 会为多个来源的内容建立索引，并回答自然语言问题。'],
+['Business users want a ready-made AI workspace where they can ask natural-language questions and get answers from documents spread across SharePoint, Confluence and Amazon S3, without building an app. Which AWS service fits?',
+ ['Amazon Quick','Amazon Polly','Amazon Transcribe','Amazon Rekognition'],
+ 'Amazon Quick is the agentic AI workspace for business users: it connects to company data sources so people can chat with their data, research and build dashboards. (Older material named Amazon Kendra or Amazon Q Business here; both are closed to new customers.)'],
+['业务用户希望有一个现成的 AI 工作空间，无需构建应用，就能用自然语言提问，并从分散在 SharePoint、Confluence 和 Amazon S3 中的文档里获得答案。哪项 AWS 服务合适？',
+ ['Amazon Quick','Amazon Polly','Amazon Transcribe','Amazon Rekognition'],
+ 'Amazon Quick 是面向业务用户的智能体 AI 工作空间：它连接公司数据源，让人们可以与数据对话、开展研究并构建仪表板。（旧资料在这里用的是 Amazon Kendra 或 Amazon Q Business，两者都已不再向新客户开放。）'],
 ['Polly speaks text aloud; it does not search.','Transcribe converts speech to text.','Rekognition analyzes images and video.'],
 ['Polly 只朗读文本，不做搜索。','Transcribe 把语音转成文字。','Rekognition 分析图像和视频。']);
 

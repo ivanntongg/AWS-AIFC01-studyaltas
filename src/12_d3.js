@@ -87,7 +87,7 @@ en:`
 <p>An AI agent takes a goal, plans the steps, calls tools and APIs, uses memory and completes multi-step tasks with little human input (see Task 2.1 for the building blocks).</p>
 <div class="tw"><table><thead><tr><th>AWS option</th><th>What it gives you</th></tr></thead><tbody>
 <tr><td>Amazon Bedrock Agents</td><td>Managed agents: instructions + action groups (Lambda / OpenAPI) + knowledge bases + guardrails; multi-agent collaboration; user confirmation before actions.</td></tr>
-<tr><td>Amazon Bedrock AgentCore</td><td>Run agents built with any framework and any model: Runtime, Memory, Gateway (APIs → MCP tools), Identity, Policy, Observability, Browser, Code Interpreter.</td></tr>
+<tr><td>Amazon Bedrock AgentCore</td><td>Run agents built with any framework and any model: Runtime, Memory, Gateway (APIs → MCP tools), Identity, Policy, Observability, Evaluations, Browser, Code Interpreter, and newer services such as Registry.</td></tr>
 <tr><td>Strands Agents</td><td>Open-source SDK to write agents in code.</td></tr>
 </tbody></table></div>
 <p><b>Business applications:</b> customer service that takes actions (refunds, bookings, address changes), IT operations and ticket triage, insurance claims processing, sales research, coding agents (Kiro), application modernization (AWS Transform), data analysis assistants.</p>
@@ -167,7 +167,7 @@ zh:`
 <p>AI 智能体接收目标后规划步骤、调用工具和 API、利用记忆，在很少人工干预下完成多步骤任务（组成要素见任务 2.1）。</p>
 <div class="tw"><table><thead><tr><th>AWS 方案</th><th>提供什么</th></tr></thead><tbody>
 <tr><td>Amazon Bedrock Agents</td><td>托管智能体：指令 + 操作组（Lambda / OpenAPI）+ 知识库 + 护栏；多智能体协作；执行操作前可要求用户确认。</td></tr>
-<tr><td>Amazon Bedrock AgentCore</td><td>运行任何框架、任何模型构建的智能体：Runtime、Memory、Gateway（API → MCP 工具）、Identity、Policy、Observability、Browser、Code Interpreter。</td></tr>
+<tr><td>Amazon Bedrock AgentCore</td><td>运行任何框架、任何模型构建的智能体：Runtime、Memory、Gateway（API → MCP 工具）、Identity、Policy、Observability、Evaluations、Browser、Code Interpreter，以及 Registry 等新服务。</td></tr>
 <tr><td>Strands Agents</td><td>用代码编写智能体的开源 SDK。</td></tr>
 </tbody></table></div>
 <p><b>业务应用：</b>能执行操作的客服（退款、预订、改地址）、IT 运维与工单分诊、保险理赔处理、销售调研、编码智能体 (Kiro)、应用现代化 (AWS Transform)、数据分析助手。</p>

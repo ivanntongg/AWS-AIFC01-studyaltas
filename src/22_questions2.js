@@ -324,12 +324,12 @@ Q('2.3','single',[0],
  ['提示缓存','预置吞吐量','调高温度','模型评估'],
  '提示缓存复用已处理的共享前缀，缓存 Token 按大幅折扣计费（受支持模型最高约 90%）。']);
 Q('2.3','single',[0],
-['A team fine-tuned a model in Amazon Bedrock. According to Bedrock\'s general rule, what must it purchase to run inference on the custom model?',
- ['Provisioned Throughput','A SageMaker Savings Plan','Batch inference credits','An AWS Artifact agreement'],
- 'AWS documents that customized models require Provisioned Throughput. As an exception, some customized models (certain Amazon Nova and Llama models in specific Regions) can now use on-demand deployment.'],
-['团队在 Amazon Bedrock 中微调了一个模型。按照 Bedrock 的一般规则，要对这个定制模型进行推理必须购买什么？',
- ['预置吞吐量','SageMaker Savings Plan','批量推理额度','AWS Artifact 协议'],
- 'AWS 文档说明定制模型需要预置吞吐量。例外是：部分定制模型（特定区域的某些 Amazon Nova 和 Llama 模型）现在可以按需部署。']);
+['A team fine-tuned an Amazon Nova model in Amazon Bedrock. Traffic is low and unpredictable, so it does not want to pay for idle capacity. How should it serve the custom model?',
+ ['Create a custom model deployment for on-demand inference','A SageMaker Savings Plan','Batch inference credits','An AWS Artifact agreement'],
+ 'A custom model can be served in two ways: Provisioned Throughput (dedicated, guaranteed capacity, paid by the hour) or a custom model deployment for on-demand inference (pay per use). For low, unpredictable traffic, on-demand avoids paying for idle capacity.'],
+['某团队在 Amazon Bedrock 中微调了一个 Amazon Nova 模型。流量低且不可预测，因此不想为闲置容量付费。应如何为这个定制模型提供推理？',
+ ['创建定制模型部署进行按需推理','SageMaker Savings Plan','批量推理额度','AWS Artifact 协议'],
+ '定制模型有两种推理方式：预置吞吐量（专用、保证容量，按小时付费），或创建定制模型部署进行按需推理（按用量付费）。流量低且不可预测时，按需推理可以避免为闲置容量付费。']);
 Q('2.3','single',[0],
 ['During traffic peaks a Bedrock application hits throughput limits in one Region. What can spread requests across Regions in the same geography automatically?',
  ['Cross-Region inference','Amazon CloudFront caching','Batch inference','AWS Artifact'],

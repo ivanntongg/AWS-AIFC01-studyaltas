@@ -92,7 +92,7 @@ en:`
 </tbody></table></div>
 <p><b>Communication:</b> agents exchange messages through an orchestrator, share state or memory, or talk directly using agent-to-agent protocols (such as A2A).</p>
 <p><b>Workflow orchestration:</b> a <b>deterministic workflow</b> runs fixed steps in a fixed order (Amazon Bedrock Flows, AWS Step Functions), which is predictable and easy to audit. An <b>agent-driven</b> flow lets the model choose the next step, which is flexible but less predictable. Pick the workflow when the process is known and must be auditable.</p>
-<div class="box note"><p><b>Strands Agents</b> is AWS's open-source SDK for building agents in a few lines of code (model-driven; supports MCP and multi-agent patterns). <b>Amazon Bedrock AgentCore</b> runs agents from any framework securely at scale: Runtime, Memory, Gateway, Identity, Policy, Observability, Browser and Code Interpreter.</p></div>
+<div class="box note"><p><b>Strands Agents</b> is AWS's open-source SDK for building agents in a few lines of code (model-driven; supports MCP and multi-agent patterns). <b>Amazon Bedrock AgentCore</b> runs agents from any framework securely at scale. Its core services include Runtime, Memory, Gateway, Identity, Policy, Observability, Evaluations, Browser and Code Interpreter, and AWS keeps adding more (such as Registry and Optimization).</p></div>
 `,
 zh:`
 <h3>从文本到向量</h3>
@@ -173,7 +173,7 @@ zh:`
 </tbody></table></div>
 <p><b>通信方式：</b>通过编排者传递消息、共享状态或记忆，或使用智能体间协议（如 A2A）直接对话。</p>
 <p><b>工作流编排：</b><b>确定性工作流</b>按固定顺序执行固定步骤（Amazon Bedrock Flows、AWS Step Functions），可预测、易审计；<b>智能体驱动</b>的流程由模型决定下一步，灵活但不易预测。流程已知且必须可审计时，选工作流。</p>
-<div class="box note"><p><b>Strands Agents</b> 是 AWS 的开源 SDK，几行代码即可构建智能体（模型驱动，支持 MCP 和多智能体模式）。<b>Amazon Bedrock AgentCore</b> 可安全、大规模地运行任何框架构建的智能体：Runtime、Memory、Gateway、Identity、Policy、Observability、Browser、Code Interpreter。</p></div>
+<div class="box note"><p><b>Strands Agents</b> 是 AWS 的开源 SDK，几行代码即可构建智能体（模型驱动，支持 MCP 和多智能体模式）。<b>Amazon Bedrock AgentCore</b> 可安全、大规模地运行任何框架构建的智能体。其核心服务包括 Runtime、Memory、Gateway、Identity、Policy、Observability、Evaluations、Browser 和 Code Interpreter，AWS 还在不断增加新服务（例如 Registry 和 Optimization）。</p></div>
 `};
 
 /* ===================== TASK 2.2 ===================== */
@@ -321,8 +321,9 @@ en:`
 <div class="tw"><table><thead><tr><th>Option</th><th>How you pay</th><th>Tradeoff</th></tr></thead><tbody>
 <tr><td>On-demand</td><td>Per input and output token, no commitment</td><td>Flexible and good for variable traffic; subject to account throughput quotas.</td></tr>
 <tr><td>Batch inference</td><td>Per token at a lower rate (about 50% below on-demand for supported models)</td><td>Cheapest for large volumes, but asynchronous: results arrive later in S3.</td></tr>
+<tr><td>Service tiers</td><td>Priority (higher price, fastest), Standard, and Flex (about 50% cheaper) for supported models</td><td>Match price to urgency without changing the model: Flex for work that can wait, Priority for latency-critical traffic.</td></tr>
 <tr><td>Provisioned Throughput</td><td>Hourly for purchased model units; optional 1- or 6-month commitment for a discount</td><td>Guaranteed, consistent throughput for high steady load; you pay whether or not you use it. The default way to serve a customized model.</td></tr>
-<tr><td>Custom models</td><td>Training (per token processed) + monthly storage + inference</td><td>Better fit for your domain, but extra cost. AWS's general rule: a customized model needs Provisioned Throughput. Exception: some customized models (certain Amazon Nova and Llama models, in specific Regions) can be deployed for on-demand inference.</td></tr>
+<tr><td>Custom models</td><td>Training (per token processed) + monthly storage + inference</td><td>Better fit for your domain, but extra cost. To serve a custom model you either buy Provisioned Throughput (guaranteed capacity) or create a custom model deployment for on-demand inference (pay per use; for example, fine-tuned Nova models at base-model prices).</td></tr>
 <tr><td>Prompt caching</td><td>Cached prompt prefix tokens billed at a steep discount (up to about 90% on supported models)</td><td>Big savings and lower latency when many requests share the same long context.</td></tr>
 <tr><td>Cross-Region inference</td><td>Same price; requests routed across Regions in a geography</td><td>Higher availability and throughput in bursts; check data residency needs.</td></tr>
 </tbody></table></div>
@@ -394,8 +395,9 @@ zh:`
 <div class="tw"><table><thead><tr><th>方式</th><th>计费</th><th>权衡</th></tr></thead><tbody>
 <tr><td>按需 (On-demand)</td><td>按输入/输出 Token，无承诺</td><td>灵活，适合流量多变；受账户吞吐量配额限制。</td></tr>
 <tr><td>批量推理</td><td>按 Token，价格更低（受支持模型约比按需低 50%）</td><td>大批量最便宜，但是异步的：结果稍后写入 S3。</td></tr>
+<tr><td>服务层级</td><td>受支持模型提供 Priority（价格更高、最快）、Standard 和 Flex（约便宜 50%）</td><td>不换模型也能按紧急程度匹配价格：可以等待的工作用 Flex，对延迟敏感的流量用 Priority。</td></tr>
 <tr><td>预置吞吐量 (Provisioned Throughput)</td><td>按购买的模型单元每小时计费；可选 1 或 6 个月承诺以获折扣</td><td>为持续高负载提供有保障、稳定的吞吐；用不用都要付费。这是为定制模型提供服务的默认方式。</td></tr>
-<tr><td>自定义模型</td><td>训练（按处理的 Token）+ 每月存储 + 推理</td><td>更贴合你的领域，但有额外成本。AWS 的一般规则：定制模型需要预置吞吐量。例外：部分定制模型（特定区域的某些 Amazon Nova 和 Llama 模型）可以部署为按需推理。</td></tr>
+<tr><td>自定义模型</td><td>训练（按处理的 Token）+ 每月存储 + 推理</td><td>更贴合你的领域，但有额外成本。要为定制模型提供推理，可以购买预置吞吐量（保证容量），或创建定制模型部署进行按需推理（按用量付费；例如微调后的 Nova 模型按基础模型价格计费）。</td></tr>
 <tr><td>提示缓存</td><td>被缓存的提示前缀 Token 按大幅折扣计费（受支持模型最高约 90%）</td><td>大量请求共享同一长上下文时，显著省钱并降低延迟。</td></tr>
 <tr><td>跨区域推理</td><td>价格不变；请求在同一地理范围内跨区域路由</td><td>突发时可用性和吞吐更高；需核对数据驻留要求。</td></tr>
 </tbody></table></div>

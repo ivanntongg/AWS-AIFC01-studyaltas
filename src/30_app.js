@@ -1676,6 +1676,17 @@ function openAbout(from){
   setTimeout(function(){ var b = document.getElementById('aboutClose'); if (b) b.focus({preventScroll: true}); }, 30);
 }
 var CHANGELOG = [
+  {v: '2.0.1', date: '2026-10-08', en: [
+    '<b>Fact-check against current AWS documentation</b> for both courses.',
+    'Retired or closed services are no longer taught as answers: Amazon Q Business (now Amazon Quick), Amazon Kendra, AWS Audit Manager (use AWS Config) and AWS IQ. Questions now use the tools on the current exam guides, such as Amazon Quick, Kiro and AWS Transform.',
+    'Updated facts: custom Bedrock models can run on demand as well as on Provisioned Throughput; Bedrock service tiers (Priority, Standard, Flex); newer AgentCore services; the Nova 2 models; Cost Explorer forecasts 18 months ahead.',
+    'Name changes and closures noted: AppStream 2.0 is now Amazon WorkSpaces Applications, and WorkSpaces Secure Browser closes to new customers on 29 October 2026.'
+  ], zh: [
+    '两门课程都已对照最新的 AWS 文档<b>完成事实核查</b>。',
+    '已停用或关闭的服务不再作为正确答案：Amazon Q Business（现为 Amazon Quick）、Amazon Kendra、AWS Audit Manager（改用 AWS Config）和 AWS IQ。题目改用现行考试指南中的工具，例如 Amazon Quick、Kiro 和 AWS Transform。',
+    '更新的事实：Bedrock 定制模型既可使用预置吞吐量，也可按需运行；Bedrock 服务层级（Priority、Standard、Flex）；AgentCore 新增服务；Nova 2 模型；Cost Explorer 可预测未来 18 个月。',
+    '标注了更名和关闭：AppStream 2.0 现名 Amazon WorkSpaces Applications，WorkSpaces Secure Browser 将于 2026 年 10 月 29 日起不再向新客户开放。'
+  ]},
   {v: '2.0', date: '2026-10-08', en: [
     '<b>New: AWS Certified Cloud Practitioner (CLF-C02).</b> Pick your exam from the menu or the top of the Overview page. Each exam keeps its own progress, scores and flashcard reviews.',
     '19 lessons, one for every task statement in the CLF-C02 exam guide, with the official Chinese terms.',

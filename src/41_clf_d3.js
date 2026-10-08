@@ -490,7 +490,7 @@ en:`
 <tr><td>Amazon Comprehend</td><td>Natural language processing: sentiment, entities, key phrases</td><td>"Sentiment of customer reviews"</td></tr>
 <tr><td>Amazon Rekognition</td><td>Image and video analysis: objects, faces, unsafe content</td><td>"Identify objects or faces in images"</td></tr>
 <tr><td>Amazon Textract</td><td>Extracts text, forms and tables from scanned documents</td><td>"Read data from scanned forms"</td></tr>
-<tr><td>Amazon Q</td><td>Generative AI-powered assistant for work, such as answering questions from company data and helping developers</td><td>"Generative AI assistant for employees or developers"</td></tr>
+<tr><td>Amazon Q</td><td>Generative AI-powered assistant, such as Amazon Q Developer for building on AWS (code suggestions, AWS answers, cost questions in the console). Amazon Q Business is closed to new customers; its successor is Amazon Quick</td><td>"Generative AI assistant for developers working on AWS"</td></tr>
 </tbody></table></div>
 <div class="box trap"><p><b>Transcribe</b> turns speech into text; <b>Polly</b> turns text into speech. <b>Comprehend</b> understands text; <b>Textract</b> pulls text out of documents.</p></div>
 
@@ -517,7 +517,7 @@ zh:`
 <tr><td>Amazon Comprehend</td><td>自然语言处理：情感、实体、关键短语</td><td>“分析客户评论的情感”</td></tr>
 <tr><td>Amazon Rekognition</td><td>图像和视频分析：物体、人脸、不安全内容</td><td>“识别图像中的物体或人脸”</td></tr>
 <tr><td>Amazon Textract</td><td>从扫描文档中提取文字、表单和表格</td><td>“从扫描表单中读取数据”</td></tr>
-<tr><td>Amazon Q</td><td>由生成式 AI 驱动的工作助手，例如根据公司数据回答问题、协助开发人员</td><td>“面向员工或开发人员的生成式 AI 助手”</td></tr>
+<tr><td>Amazon Q</td><td>由生成式 AI 驱动的助手，例如用于在 AWS 上构建的 Amazon Q Developer（代码建议、AWS 问答、在控制台中询问成本问题）。Amazon Q Business 已不再向新客户开放，其后继产品是 Amazon Quick</td><td>“面向在 AWS 上工作的开发人员的生成式 AI 助手”</td></tr>
 </tbody></table></div>
 <div class="box trap"><p><b>Transcribe</b> 把语音转成文字；<b>Polly</b> 把文字转成语音。<b>Comprehend</b> 理解文本；<b>Textract</b> 从文档中提取文字。</p></div>
 
@@ -572,8 +572,8 @@ en:`
 <h3>End-user computing</h3>
 <div class="tw"><table><thead><tr><th>Service</th><th>Delivers</th><th>Question cue</th></tr></thead><tbody>
 <tr><td>Amazon WorkSpaces</td><td>Full virtual desktops (Windows or Linux)</td><td>"Virtual desktops for remote employees"</td></tr>
-<tr><td>Amazon AppStream 2.0</td><td>Individual desktop <b>applications</b> streamed to a browser</td><td>"Stream a design application to any device"</td></tr>
-<tr><td>Amazon WorkSpaces Secure Browser</td><td>Secure browser access to internal websites and SaaS apps, without data on the device</td><td>"Contractors access internal web apps securely"</td></tr>
+<tr><td>Amazon AppStream 2.0 (now named Amazon WorkSpaces Applications)</td><td>Individual desktop <b>applications</b> streamed to a browser</td><td>"Stream a design application to any device"</td></tr>
+<tr><td>Amazon WorkSpaces Secure Browser</td><td>Secure browser access to internal websites and SaaS apps, without data on the device (closing to new customers on 29 October 2026)</td><td>"Contractors access internal web apps securely"</td></tr>
 </tbody></table></div>
 
 <h3>Frontend, mobile and IoT</h3>
@@ -610,8 +610,8 @@ zh:`
 <h3>终端用户计算服务</h3>
 <div class="tw"><table><thead><tr><th>服务</th><th>提供</th><th>题目线索</th></tr></thead><tbody>
 <tr><td>Amazon WorkSpaces</td><td>完整的虚拟桌面（Windows 或 Linux）</td><td>“为远程员工提供虚拟桌面”</td></tr>
-<tr><td>Amazon AppStream 2.0</td><td>把单个桌面<b>应用程序</b>流式传输到浏览器</td><td>“把设计软件流式传输到任何设备”</td></tr>
-<tr><td>Amazon WorkSpaces Secure Browser</td><td>安全地通过浏览器访问内部网站和 SaaS 应用，设备上不留数据</td><td>“承包商安全访问内部 Web 应用”</td></tr>
+<tr><td>Amazon AppStream 2.0（现名 Amazon WorkSpaces Applications）</td><td>把单个桌面<b>应用程序</b>流式传输到浏览器</td><td>“把设计软件流式传输到任何设备”</td></tr>
+<tr><td>Amazon WorkSpaces Secure Browser</td><td>安全地通过浏览器访问内部网站和 SaaS 应用，设备上不留数据（2026 年 10 月 29 日起不再向新客户开放）</td><td>“承包商安全访问内部 Web 应用”</td></tr>
 </tbody></table></div>
 
 <h3>前端 Web、移动与物联网</h3>

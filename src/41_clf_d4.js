@@ -102,7 +102,7 @@ en:`
 <div class="tw"><table><thead><tr><th>Tool</th><th>When</th><th>What it does</th><th>Question cue</th></tr></thead><tbody>
 <tr><td>AWS Pricing Calculator</td><td><b>Before</b>: planning</td><td>Estimates the monthly cost of an architecture you have not built yet</td><td>"Estimate the cost of a new workload", "compare with on-premises"</td></tr>
 <tr><td>AWS Budgets</td><td><b>During</b>: control</td><td>Set cost, usage, RI or Savings Plans budgets and get <b>alerts</b> (email or Amazon SNS) when actual or forecast spend crosses a threshold; budget actions can apply policies automatically</td><td>"Notify me when spend exceeds $500", "alert on forecast"</td></tr>
-<tr><td>AWS Cost Explorer</td><td><b>After</b>: analysis</td><td>Visualizes and filters past costs and usage (up to 13 months of history) and forecasts the next 12 months; gives RI and Savings Plans recommendations</td><td>"Which service cost the most last quarter?", "spending trends"</td></tr>
+<tr><td>AWS Cost Explorer</td><td><b>After</b>: analysis</td><td>Visualizes and filters past costs and usage (up to 13 months of history) and forecasts the next 18 months; gives RI and Savings Plans recommendations</td><td>"Which service cost the most last quarter?", "spending trends"</td></tr>
 <tr><td>AWS Cost and Usage Report (CUR) / AWS Data Exports</td><td>After: detailed data</td><td>The most detailed line-item billing data, delivered to Amazon S3 for analysis with Athena, Redshift or Quick Sight</td><td>"Most granular billing data", "hourly line items"</td></tr>
 <tr><td>AWS Billing and Cost Management console</td><td>Any time</td><td>Bills, payments, invoices, the Billing dashboard and Free Tier usage</td><td>"View or pay the monthly bill"</td></tr>
 <tr><td>AWS Cost Anomaly Detection</td><td>During</td><td>Uses machine learning to spot unusual spend and alert you</td><td>"Detect unexpected cost spikes automatically"</td></tr>
@@ -131,7 +131,7 @@ zh:`
 <div class="tw"><table><thead><tr><th>工具</th><th>阶段</th><th>作用</th><th>题目线索</th></tr></thead><tbody>
 <tr><td>AWS 定价计算器</td><td><b>之前</b>：规划</td><td>估算尚未构建的架构每月的成本</td><td>“估算新工作负载的成本”“与本地部署比较”</td></tr>
 <tr><td>AWS Budgets</td><td><b>之中</b>：控制</td><td>设置成本、用量、预留实例或节省计划预算，当实际或预测支出超过阈值时发送<b>告警</b>（电子邮件或 Amazon SNS）；预算操作可以自动应用策略</td><td>“支出超过 500 美元时通知我”“按预测值告警”</td></tr>
-<tr><td>AWS Cost Explorer</td><td><b>之后</b>：分析</td><td>可视化并筛选过去的成本和用量（最多 13 个月历史），预测未来 12 个月；提供预留实例和节省计划建议</td><td>“上季度哪项服务花费最多？”“支出趋势”</td></tr>
+<tr><td>AWS Cost Explorer</td><td><b>之后</b>：分析</td><td>可视化并筛选过去的成本和用量（最多 13 个月历史），预测未来 18 个月；提供预留实例和节省计划建议</td><td>“上季度哪项服务花费最多？”“支出趋势”</td></tr>
 <tr><td>AWS 成本和使用情况报告（CUR）/ AWS Data Exports</td><td>之后：详细数据</td><td>最详细的逐项账单数据，交付到 Amazon S3，可用 Athena、Redshift 或 Quick Sight 分析</td><td>“最细粒度的账单数据”“按小时的明细”</td></tr>
 <tr><td>AWS 账单与成本管理控制台</td><td>任何时候</td><td>账单、付款、发票、账单仪表板和免费套餐用量</td><td>“查看或支付月度账单”</td></tr>
 <tr><td>AWS Cost Anomaly Detection</td><td>之中</td><td>用机器学习发现异常支出并提醒你</td><td>“自动发现意外的成本激增”</td></tr>
@@ -200,7 +200,7 @@ en:`
 <tr><td>AWS Solutions Architects</td><td>Help customers design secure, reliable, cost-effective architectures</td></tr>
 <tr><td>AWS Trust & Safety team</td><td>Handles <b>abuse reports</b>: spam, phishing, malware, port scanning or DDoS attacks coming from AWS resources</td></tr>
 <tr><td>Technical Account Manager (TAM)</td><td>Your designated technical contact on Enterprise-level plans; proactive guidance</td></tr>
-<tr><td>AWS IQ / AWS Training and Certification</td><td>Find certified freelancers; learning paths and exams</td></tr>
+<tr><td>AWS Training and Certification / AWS Skill Builder</td><td>Learning paths, labs, official practice questions and exams</td></tr>
 </tbody></table></div>
 <div class="box trap"><p>"Report that an AWS IP address is sending spam or attacking you" = <b>AWS Trust & Safety</b>, not AWS Support. "Buy pre-configured third-party software" = <b>AWS Marketplace</b>. "Hire a partner to help migrate" = <b>AWS Partner Network</b>.</p></div>
 `,
@@ -239,7 +239,7 @@ zh:`
 <tr><td>AWS 解决方案架构师</td><td>帮助客户设计安全、可靠、经济高效的架构</td></tr>
 <tr><td>AWS 信任与安全团队</td><td>处理<b>滥用举报</b>：来自 AWS 资源的垃圾邮件、网络钓鱼、恶意软件、端口扫描或 DDoS 攻击</td></tr>
 <tr><td>技术客户经理（TAM）</td><td>企业级计划中为你指定的技术联系人，提供主动指导</td></tr>
-<tr><td>AWS IQ / AWS 培训与认证</td><td>寻找经过认证的自由职业者；学习路径和考试</td></tr>
+<tr><td>AWS 培训与认证 / AWS Skill Builder</td><td>学习路径、实验、官方练习题和考试</td></tr>
 </tbody></table></div>
 <div class="box trap"><p>“举报某个 AWS IP 地址在发送垃圾邮件或攻击你”= <b>AWS 信任与安全团队</b>，而不是 AWS Support；“购买预先配置好的第三方软件”= <b>AWS Marketplace</b>；“聘请合作伙伴帮助迁移”= <b>AWS 合作伙伴网络</b>。</p></div>
 `};

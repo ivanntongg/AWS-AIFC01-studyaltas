@@ -54,10 +54,10 @@ Q('3.2','order',
  '草稿 → 测试 → 发版 → 上线 → 必要时回滚。']);
 Q('3.3','order',
 ['Put the steps to fine-tune and use a model in Amazon Bedrock in order.',
- ['Prepare labeled JSONL training data in S3','Create a model customization job','Evaluate the custom model','Set up inference: buy Provisioned Throughput or deploy on-demand if supported','Invoke the custom model from the app'],
+ ['Prepare labeled JSONL training data in S3','Create a model customization job','Evaluate the custom model','Set up inference: a custom model deployment (on-demand) or Provisioned Throughput','Invoke the custom model from the app'],
  'Data → training job → evaluation → inference capacity → use.'],
 ['请按顺序排列在 Amazon Bedrock 中微调并使用模型的步骤。',
- ['在 S3 中准备有标签的 JSONL 训练数据','创建模型定制任务','评估定制模型','配置推理：购买预置吞吐量，或在支持时按需部署','在应用中调用定制模型'],
+ ['在 S3 中准备有标签的 JSONL 训练数据','创建模型定制任务','评估定制模型','配置推理：定制模型部署（按需）或预置吞吐量','在应用中调用定制模型'],
  '数据 → 训练任务 → 评估 → 推理容量 → 使用。']);
 Q('3.4','order',
 ['Put the steps of choosing a model with a structured evaluation in order.',

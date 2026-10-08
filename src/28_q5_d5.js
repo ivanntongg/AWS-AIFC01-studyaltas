@@ -185,14 +185,14 @@ Q('5.1','single',[0],
 
 /* ================= 5.2 Governance and compliance ================= */
 Q('5.2','single',[0],
-['Which service continuously collects evidence to help prepare for audits, including against a generative AI best practices framework?',
- ['AWS Audit Manager','AWS Artifact','AWS Config','Amazon Polly'],
- 'Audit Manager automates evidence collection against frameworks you choose.'],
-['哪项服务可以持续收集证据以帮助准备审计，包括依据生成式 AI 最佳实践框架进行审计？',
- ['AWS Audit Manager','AWS Artifact','AWS Config','Amazon Polly'],
- 'Audit Manager 会按照你选择的框架自动收集证据。'],
-['Artifact provides AWS’s own compliance reports.','Config records configurations and evaluates rules.','Polly generates speech.'],
-['Artifact 提供 AWS 自身的合规报告。','Config 记录配置并评估规则。','Polly 生成语音。']);
+['A company must show auditors, at any time, whether its AI workload resources (S3 buckets, SageMaker endpoints, KMS keys) follow its compliance rules, using prebuilt rule sets. Which in-scope service does this continuously?',
+ ['AWS Config (rules and conformance packs)','AWS Artifact','Amazon Polly','Amazon Translate'],
+ 'AWS Config continuously evaluates resource configurations against rules; conformance packs bundle rules for a compliance framework. (Older material used AWS Audit Manager here; it has been closed to new customers since 30 April 2026.)'],
+['某公司必须能随时向审计人员展示其 AI 工作负载的资源（S3 存储桶、SageMaker 端点、KMS 密钥）是否遵循合规规则，并使用预置的规则集。哪项考试范围内的服务可以持续做到这一点？',
+ ['AWS Config（规则和一致性包）','AWS Artifact','Amazon Polly','Amazon Translate'],
+ 'AWS Config 根据规则持续评估资源配置；一致性包把某个合规框架的规则打包在一起。（旧资料在这里用的是 AWS Audit Manager，它自 2026 年 4 月 30 日起已不再向新客户开放。）'],
+['Artifact provides AWS’s own compliance reports, not checks of your resources.','Polly generates speech.','Translate converts text between languages.'],
+['Artifact 提供 AWS 自身的合规报告，而不是检查你的资源。','Polly 生成语音。','Translate 在语言之间转换文本。']);
 
 Q('5.2','single',[0],
 ['Which feature can centrally stop every account in a company from using Amazon Bedrock in unapproved Regions?',

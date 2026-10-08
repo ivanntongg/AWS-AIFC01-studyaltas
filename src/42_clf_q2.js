@@ -300,13 +300,13 @@ Q('2.2','single',[0],
 
 Q('2.2','single',[0],
 ['A security team wants one dashboard that collects findings from GuardDuty, Inspector and Macie and checks the account against security best practices. Which service should it use?',
- ['AWS Security Hub','Amazon Detective','AWS Artifact','AWS Audit Manager'],
+ ['AWS Security Hub','Amazon Detective','AWS Artifact','AWS Config'],
  'Security Hub aggregates and prioritizes security findings across AWS services and partners, and runs automated security posture checks.'],
 ['某安全团队希望有一个仪表板，收集来自 GuardDuty、Inspector 和 Macie 的安全发现，并按安全最佳实践检查账户。应使用哪项服务？',
- ['AWS Security Hub','Amazon Detective','AWS Artifact','AWS Audit Manager'],
+ ['AWS Security Hub','Amazon Detective','AWS Artifact','AWS Config'],
  'Security Hub 汇总 AWS 服务和合作伙伴的安全发现并确定优先级，还会运行自动化的安全态势检查。'],
-['Detective helps investigate the root cause of a specific finding.','Artifact provides AWS compliance reports.','Audit Manager collects audit evidence.'],
-['Detective 帮助调查某个具体发现的根本原因。','Artifact 提供 AWS 合规报告。','Audit Manager 收集审计证据。']);
+['Detective helps investigate the root cause of a specific finding.','Artifact provides AWS compliance reports.','Config evaluates resource settings; it does not gather findings from GuardDuty, Inspector and Macie.'],
+['Detective 帮助调查某个具体发现的根本原因。','Artifact 提供 AWS 合规报告。','Config 评估资源设置，不会汇总 GuardDuty、Inspector 和 Macie 的发现。']);
 
 Q('2.2','single',[0],
 ['After GuardDuty raises a finding, an analyst wants to visualize related activity and find the root cause. Which service helps with this investigation?',
@@ -369,14 +369,14 @@ Q('2.2','single',[0],
 ['KMS 是多租户的托管服务。','ACM 管理证书。','Secrets Manager 存储机密。']);
 
 Q('2.2','single',[0],
-['A company wants to continuously collect evidence of its AWS usage to prepare for audits against standards such as PCI DSS. Which service is designed for this?',
- ['AWS Audit Manager','AWS Artifact','Amazon Inspector','AWS Trusted Advisor'],
- 'Audit Manager continuously audits your AWS usage and automates evidence collection against prebuilt and custom frameworks.'],
-['某公司希望持续收集其 AWS 使用情况的证据，以便为 PCI DSS 等标准的审计做准备。哪项服务专门用于此目的？',
- ['AWS Audit Manager','AWS Artifact','Amazon Inspector','AWS Trusted Advisor'],
- 'Audit Manager 持续审计你的 AWS 使用情况，并根据预置和自定义框架自动收集证据。'],
-['Artifact provides AWS’s own reports, not evidence about your usage.','Inspector scans for vulnerabilities.','Trusted Advisor gives best-practice recommendations.'],
-['Artifact 提供的是 AWS 自己的报告，而不是关于你的使用情况的证据。','Inspector 扫描漏洞。','Trusted Advisor 提供最佳实践建议。']);
+['A company must be able to show auditors at any time whether its AWS resources comply with rules based on PCI DSS, using a prebuilt set of rules. Which service is designed for this?',
+ ['AWS Config (with a conformance pack)','AWS Artifact','Amazon Inspector','AWS Trusted Advisor'],
+ 'AWS Config continuously evaluates resource configurations against rules, and conformance packs bundle rules for frameworks such as PCI DSS. Config also keeps a configuration history for audits.'],
+['某公司必须能随时向审计人员展示其 AWS 资源是否符合基于 PCI DSS 的规则，并使用一套预置的规则。哪项服务专门用于此目的？',
+ ['AWS Config（配合一致性包）','AWS Artifact','Amazon Inspector','AWS Trusted Advisor'],
+ 'AWS Config 根据规则持续评估资源配置，一致性包把 PCI DSS 等框架的规则打包在一起。Config 还会保留配置历史以供审计。'],
+['Artifact provides AWS’s own compliance reports, not checks of your resources.','Inspector scans for software vulnerabilities, not compliance rules.','Trusted Advisor gives general best-practice recommendations, not framework-based compliance checks.'],
+['Artifact 提供的是 AWS 自己的合规报告，而不是检查你的资源。','Inspector 扫描软件漏洞，而不是合规规则。','Trusted Advisor 提供一般性的最佳实践建议，而不是基于框架的合规检查。']);
 
 Q('2.2','single',[0],
 ['Where can a customer find which AWS services are in scope for a specific compliance program, such as HIPAA?',
@@ -390,13 +390,13 @@ Q('2.2','single',[0],
 
 Q('2.2','single',[0],
 ['A healthcare company must sign a Business Associate Addendum (BAA) with AWS. Where can it review and accept the agreement?',
- ['AWS Artifact','AWS Organizations','AWS Support Center','AWS Audit Manager'],
+ ['AWS Artifact','AWS Organizations','AWS Support Center','AWS Config'],
  'AWS Artifact Agreements lets you review, accept and manage agreements such as the BAA.'],
 ['某医疗公司必须与 AWS 签订商业伙伴附录（BAA）。它可以在哪里查看并接受该协议？',
- ['AWS Artifact','AWS Organizations','AWS Support 中心','AWS Audit Manager'],
+ ['AWS Artifact','AWS Organizations','AWS Support 中心','AWS Config'],
  'AWS Artifact Agreements 让你查看、接受和管理 BAA 等协议。'],
-['Organizations manages accounts.','The Support Center handles support cases.','Audit Manager collects evidence for audits.'],
-['Organizations 管理账户。','Support 中心处理支持案例。','Audit Manager 为审计收集证据。']);
+['Organizations manages accounts.','The Support Center handles support cases.','Config records and evaluates resource configurations.'],
+['Organizations 管理账户。','Support 中心处理支持案例。','Config 记录并评估资源配置。']);
 
 Q('2.2','single',[0],
 ['Which IAM feature generates a downloadable report that lists all users in an account and the status of their passwords, access keys and MFA devices?',
@@ -490,13 +490,13 @@ Q('2.2','single',[0],
 
 Q('2.2','single',[0],
 ['Which AWS website is the official place to find security bulletins, best practices and information on AWS security services?',
- ['The AWS Security Center','AWS Marketplace','The AWS Pricing Calculator','AWS IQ'],
+ ['The AWS Security Center','AWS Marketplace','The AWS Pricing Calculator','AWS Budgets'],
  'The AWS Security Center (aws.amazon.com/security) gathers security bulletins, compliance information, whitepapers and learning resources.'],
 ['哪个 AWS 网站是查找安全公告、最佳实践和 AWS 安全服务信息的官方渠道？',
- ['AWS 安全中心','AWS Marketplace','AWS 定价计算器','AWS IQ'],
+ ['AWS 安全中心','AWS Marketplace','AWS 定价计算器','AWS Budgets'],
  'AWS 安全中心（aws.amazon.com/security）汇集了安全公告、合规信息、白皮书和学习资源。'],
-['Marketplace sells software.','The Pricing Calculator estimates costs.','AWS IQ connects you with freelancers.'],
-['Marketplace 销售软件。','定价计算器估算成本。','AWS IQ 帮你联系自由职业者。']);
+['Marketplace sells software.','The Pricing Calculator estimates costs.','Budgets tracks spending against limits.'],
+['Marketplace 销售软件。','定价计算器估算成本。','Budgets 根据限额跟踪支出。']);
 
 Q('2.2','multi',[0,1],
 ['Which TWO services detect or assess security issues in an AWS environment? (Select TWO.)',

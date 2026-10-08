@@ -29,13 +29,13 @@ Q('1.2','single',[0],
 
 Q('1.2','single',[0],
 ['A contact centre wants call recordings turned into text with each speaker identified, sensitive details such as card numbers removed, and product names recognized correctly. Which service provides these features?',
- ['Amazon Transcribe (speaker diarization, PII redaction, custom vocabulary)','Amazon Translate','Amazon Polly','Amazon Kendra'],
+ ['Amazon Transcribe (speaker diarization, PII redaction, custom vocabulary)','Amazon Translate','Amazon Polly','Amazon Textract'],
  'Transcribe converts speech to text and supports speaker identification, automatic PII redaction and custom vocabularies; Call Analytics adds call insights.'],
 ['某联络中心希望把通话录音转换为文字，识别每位发言人，去除卡号等敏感信息，并正确识别产品名称。哪项服务提供这些功能？',
- ['Amazon Transcribe（发言人分离、PII 遮盖、自定义词汇）','Amazon Translate','Amazon Polly','Amazon Kendra'],
+ ['Amazon Transcribe（发言人分离、PII 遮盖、自定义词汇）','Amazon Translate','Amazon Polly','Amazon Textract'],
  'Transcribe 把语音转换为文字，支持发言人识别、自动 PII 遮盖和自定义词汇；Call Analytics 还提供通话洞察。'],
-['Translate converts text between languages.','Polly converts text to speech.','Kendra is enterprise search.'],
-['Translate 在语言之间转换文本。','Polly 把文本转换为语音。','Kendra 是企业搜索服务。']);
+['Translate converts text between languages.','Polly converts text to speech.','Textract extracts text from documents.'],
+['Translate 在语言之间转换文本。','Polly 把文本转换为语音。','Textract 从文档中提取文字。']);
 
 Q('1.2','single',[0],
 ['An e-commerce site wants "recommended for you" product lists based on each shopper’s browsing and purchase history, without building ML models itself. Which service fits?',
@@ -47,13 +47,13 @@ Q('1.2','single',[0],
 ['Comprehend analyses text.','Textract extracts text from documents.','Transcribe converts speech to text.'],
 ['Comprehend 分析文本。','Textract 从文档中提取文字。','Transcribe 把语音转换为文字。']);
 
-Q('1.2','single',[0],
-['Employees want to type natural-language questions such as "What is our parental leave policy?" and get precise answers found across SharePoint, Confluence and file shares. Which service provides intelligent enterprise search?',
- ['Amazon Kendra','Amazon Polly','Amazon Rekognition','Amazon Lex alone'],
- 'Kendra is an ML-powered enterprise search service with connectors to many repositories; it can also act as the retriever for RAG.'],
-['员工希望输入“我们的育儿假政策是什么？”这样的自然语言问题，从 SharePoint、Confluence 和文件共享中找到准确答案。哪项服务提供智能企业搜索？',
- ['Amazon Kendra','Amazon Polly','Amazon Rekognition','单独使用 Amazon Lex'],
- 'Kendra 是由 ML 驱动的企业搜索服务，提供连接多种数据存储库的连接器，也可以作为 RAG 的检索器。'],
+Q('3.1','single',[0],
+['A development team is building an internal assistant that must answer questions from documents in SharePoint, Confluence and Amazon S3, with citations, without building its own ingestion and chunking pipeline. Which capability fits?',
+ ['Amazon Bedrock Knowledge Bases','Amazon Polly','Amazon Rekognition','Amazon Lex on its own'],
+ 'Bedrock Knowledge Bases is fully managed RAG: it connects to data sources such as S3, SharePoint and Confluence, then parses, chunks, embeds and stores the content and returns answers with citations.'],
+['某开发团队正在构建一个内部助手，必须依据 SharePoint、Confluence 和 Amazon S3 中的文档回答问题并给出引用，且不想自己构建导入和分块流程。哪项功能合适？',
+ ['Amazon Bedrock Knowledge Bases','Amazon Polly','Amazon Rekognition','单独使用 Amazon Lex'],
+ 'Bedrock Knowledge Bases 是完全托管的 RAG：它连接 S3、SharePoint 和 Confluence 等数据源，然后解析、分块、嵌入并存储内容，返回带引用的答案。'],
 ['Polly converts text to speech.','Rekognition analyses images.','Lex builds conversational interfaces but does not index documents.'],
 ['Polly 把文本转换为语音。','Rekognition 分析图像。','Lex 用于构建对话界面，但不会为文档建立索引。']);
 
@@ -90,13 +90,13 @@ Q('1.3','single',[0],
 
 Q('1.3','single',[0],
 ['Several teams compute the same customer features (such as "purchases in the last 30 days") separately, causing inconsistent results between training and live inference. Which capability solves this?',
- ['SageMaker Feature Store','SageMaker Ground Truth','Amazon Polly','Amazon Kendra'],
+ ['SageMaker Feature Store','SageMaker Ground Truth','Amazon Polly','Amazon Translate'],
  'Feature Store is a central repository to store, share and reuse features, with an offline store for training and an online store for low-latency inference.'],
 ['多个团队分别计算相同的客户特征（例如“过去 30 天的购买次数”），导致训练和实时推理之间结果不一致。哪项功能可以解决这个问题？',
- ['SageMaker Feature Store','SageMaker Ground Truth','Amazon Polly','Amazon Kendra'],
+ ['SageMaker Feature Store','SageMaker Ground Truth','Amazon Polly','Amazon Translate'],
  'Feature Store 是用于存储、共享和复用特征的中央存储库，提供用于训练的离线存储和用于低延迟推理的在线存储。'],
-['Ground Truth labels training data.','Polly converts text to speech.','Kendra is enterprise search.'],
-['Ground Truth 标记训练数据。','Polly 把文本转换为语音。','Kendra 是企业搜索服务。']);
+['Ground Truth labels training data.','Polly converts text to speech.','Translate converts text between languages.'],
+['Ground Truth 标记训练数据。','Polly 把文本转换为语音。','Translate 在语言之间转换文本。']);
 
 Q('1.3','single',[0],
 ['What is the main difference between SageMaker Ground Truth and Amazon Augmented AI (A2I)?',
@@ -140,44 +140,44 @@ Q('1.3','single',[0],
 
 /* ---------- 2.3 AWS GenAI services ---------- */
 Q('2.3','single',[0],
-['A development team wants an AI assistant in its IDE that suggests code, explains code, scans for security issues and helps upgrade old Java applications. Which service fits?',
- ['Amazon Q Developer','Amazon Q Business','Amazon Polly','Amazon Comprehend'],
- 'Amazon Q Developer is a generative AI assistant for software development and AWS tasks, available in IDEs, the console and the command line.'],
-['某开发团队希望在 IDE 中使用一个 AI 助手，它能建议代码、解释代码、扫描安全问题，并帮助升级旧的 Java 应用。哪项服务合适？',
- ['Amazon Q Developer','Amazon Q Business','Amazon Polly','Amazon Comprehend'],
- 'Amazon Q Developer 是面向软件开发和 AWS 任务的生成式 AI 助手，可在 IDE、控制台和命令行中使用。'],
-['Q Business answers questions from company data for employees.','Polly converts text to speech.','Comprehend analyses text.'],
-['Q Business 依据公司数据为员工回答问题。','Polly 把文本转换为语音。','Comprehend 分析文本。']);
+['A development team wants an agentic AI IDE that turns a feature request into requirements, a design and a task list, then writes and tests the code with AI agents. Which AWS tool named in the AIF-C01 guide fits?',
+ ['Kiro','Amazon Polly','Amazon Comprehend','AWS Glue DataBrew'],
+ 'Kiro is AWS’s agentic development tool with spec-driven development, agents and hooks. Older material used Amazon Q Developer here; its IDE plugins are supported until 30 April 2027.'],
+['某开发团队希望使用一个智能体 AI IDE，它能把功能需求转化为需求文档、设计和任务清单，然后由 AI 智能体编写并测试代码。AIF-C01 考纲中点名的哪个 AWS 工具合适？',
+ ['Kiro','Amazon Polly','Amazon Comprehend','AWS Glue DataBrew'],
+ 'Kiro 是 AWS 的智能体开发工具，支持规范驱动开发、智能体和钩子。旧资料在这里用的是 Amazon Q Developer，其 IDE 插件支持到 2027 年 4 月 30 日。'],
+['Polly converts text to speech.','Comprehend analyses text.','DataBrew prepares data visually; it does not write application code.'],
+['Polly 把文本转换为语音。','Comprehend 分析文本。','DataBrew 以可视化方式准备数据，不会编写应用代码。']);
 
 Q('2.3','single',[0],
-['A company wants a ready-made generative AI assistant that connects to its existing data sources and only shows employees information they already have permission to see. Which service fits with the least building?',
- ['Amazon Q Business','A custom model trained from scratch on SageMaker AI','Amazon Polly','AWS Glue'],
- 'Q Business is a fully managed assistant with connectors to many enterprise sources, and it respects the access controls of those sources.'],
-['某公司希望有一个现成的生成式 AI 助手，它能连接现有的数据源，并且只向员工显示他们本来就有权查看的信息。哪项服务需要构建的工作最少？',
- ['Amazon Q Business','在 SageMaker AI 上从零训练的定制模型','Amazon Polly','AWS Glue'],
- 'Q Business 是完全托管的助手，带有连接多种企业数据源的连接器，并遵守这些数据源的访问控制。'],
+['A company wants a ready-made generative AI workspace where employees can research topics across company data, build BI dashboards and automate routine tasks with agents, with the least building. Which service fits?',
+ ['Amazon Quick','A custom model trained from scratch on SageMaker AI','Amazon Polly','AWS Glue'],
+ 'Amazon Quick is the agentic AI workspace for business users: chat with company data, research, BI dashboards and automations. AWS calls it the successor to Amazon Q Business, which is closed to new customers.'],
+['某公司希望有一个现成的生成式 AI 工作空间，员工可以在其中跨公司数据研究问题、构建商业智能仪表板，并用智能体自动完成日常任务，而且需要构建的工作最少。哪项服务合适？',
+ ['Amazon Quick','在 SageMaker AI 上从零训练的定制模型','Amazon Polly','AWS Glue'],
+ 'Amazon Quick 是面向业务用户的智能体 AI 工作空间：与公司数据对话、研究、商业智能仪表板和自动化。AWS 称它是 Amazon Q Business 的后继产品，而后者已不再向新客户开放。'],
 ['Training from scratch takes the most effort and cost.','Polly converts text to speech.','Glue prepares data; it is not an assistant.'],
 ['从零训练需要的工作量和成本最高。','Polly 把文本转换为语音。','Glue 用于准备数据，不是助手。']);
 
 Q('2.3','single',[0],
-['A teacher wants students to experiment with building small generative AI apps in a browser, without needing an AWS account or writing code. Which option fits?',
- ['PartyRock, an Amazon Bedrock playground','Amazon SageMaker HyperPod','Amazon EC2 with GPUs','AWS Outposts'],
- 'PartyRock lets anyone build and share generative AI apps in a browser, powered by Bedrock models, without an AWS account.'],
-['一位老师希望学生在浏览器中尝试构建小型生成式 AI 应用，无需 AWS 账户，也不用写代码。哪个选项合适？',
- ['PartyRock（Amazon Bedrock 演练平台）','Amazon SageMaker HyperPod','带 GPU 的 Amazon EC2','AWS Outposts'],
- 'PartyRock 让任何人都能在浏览器中构建和分享由 Bedrock 模型驱动的生成式 AI 应用，无需 AWS 账户。'],
-['HyperPod is for large-scale model training.','GPU instances need an account and setup.','Outposts runs AWS on premises.'],
-['HyperPod 用于大规模模型训练。','GPU 实例需要账户和配置。','Outposts 在本地运行 AWS。']);
+['A company wants to use agentic AI to speed up modernizing its legacy .NET applications and mainframe workloads and migrating its VMware environment to AWS. Which service is designed for this?',
+ ['AWS Transform','Amazon Polly','Amazon Rekognition','AWS Batch'],
+ 'AWS Transform is an agentic AI service for migration and modernization: Windows and .NET, mainframe, VMware and custom code transformations.'],
+['某公司希望利用智能体 AI 加快其旧版 .NET 应用和大型机工作负载的现代化，并把 VMware 环境迁移到 AWS。哪项服务专为此设计？',
+ ['AWS Transform','Amazon Polly','Amazon Rekognition','AWS Batch'],
+ 'AWS Transform 是用于迁移和现代化的智能体 AI 服务：涵盖 Windows 和 .NET、大型机、VMware 以及自定义代码的转换。'],
+['Polly converts text to speech.','Rekognition analyses images and video.','Batch runs batch computing jobs; it does not modernize code.'],
+['Polly 把文本转换为语音。','Rekognition 分析图像和视频。','Batch 运行批量计算作业，不负责代码现代化。']);
 
 Q('2.3','multi',[0,1],
-['Which TWO statements describe how Amazon Q Developer and Amazon Q Business differ? (Select TWO.)',
- ['Q Developer focuses on writing, explaining and transforming code and working with AWS resources','Q Business focuses on answering employees’ questions using company data and business applications','Both are only text-to-speech services','Q Business requires you to train your own foundation model first','Q Developer can only be used by AWS employees'],
- 'Q Developer serves developers and IT; Q Business serves business users with company knowledge. Neither requires you to train a model.'],
-['哪两种说法描述了 Amazon Q Developer 与 Amazon Q Business 的区别？（选择两项。）',
- ['Q Developer 侧重于编写、解释和转换代码以及操作 AWS 资源','Q Business 侧重于利用公司数据和业务应用回答员工的问题','两者都只是文本转语音服务','Q Business 要求你先训练自己的基础模型','Q Developer 只能由 AWS 员工使用'],
- 'Q Developer 服务于开发人员和 IT 人员；Q Business 借助公司知识服务于业务用户。两者都不需要你训练模型。'],
-['Neither is a text-to-speech service.','No model training is required.','Q Developer is available to customers.'],
-['两者都不是文本转语音服务。','无需训练模型。','客户可以使用 Q Developer。']);
+['Which TWO statements correctly describe AWS tools named in the AIF-C01 guide? (Select TWO.)',
+ ['Amazon Quick gives business users an AI workspace to chat with company data, research and build dashboards','Kiro is an agentic development tool that helps developers go from specs to working code','AWS Transform is a text-to-speech service','Strands Agents is a managed data warehouse','Amazon Nova is a vector database'],
+ 'Quick serves business users; Kiro serves developers. Transform modernizes applications, Strands Agents is an SDK for building agents, and Nova is a family of foundation models.'],
+['以下哪两种说法正确描述了 AIF-C01 考纲中点名的 AWS 工具？（选择两项。）',
+ ['Amazon Quick 为业务用户提供 AI 工作空间，可与公司数据对话、开展研究并构建仪表板','Kiro 是智能体开发工具，帮助开发人员从规范走到可运行的代码','AWS Transform 是文本转语音服务','Strands Agents 是托管的数据仓库','Amazon Nova 是向量数据库'],
+ 'Quick 服务于业务用户；Kiro 服务于开发人员。Transform 用于应用现代化，Strands Agents 是构建智能体的 SDK，Nova 是一系列基础模型。'],
+['AWS Transform modernizes and migrates applications.','Strands Agents is an open-source SDK for building agents.','Nova is a family of foundation models; vector stores include OpenSearch and S3 Vectors.'],
+['AWS Transform 用于应用的现代化和迁移。','Strands Agents 是构建智能体的开源 SDK。','Nova 是一系列基础模型；向量存储包括 OpenSearch 和 S3 Vectors。']);
 
 /* ---------- 3.1 application design ---------- */
 Q('3.1','single',[0],
@@ -191,14 +191,14 @@ Q('3.1','single',[0],
 ['Deep Archive 取回需要数小时。','Artifact 提供合规报告。','Polly 把文本转换为语音。']);
 
 Q('3.1','single',[0],
-['A company already uses Amazon Kendra to index its documents and now wants a generative AI app that answers questions from those documents. What role can Kendra play?',
- ['The retriever in a RAG architecture, returning relevant passages that are added to the prompt','The foundation model that generates the final answer','A tool to fine-tune the model weights','A text-to-speech engine for the answers'],
- 'In RAG, Kendra can retrieve the most relevant passages, which are passed to a foundation model (for example in Amazon Bedrock) to generate a grounded answer.'],
-['某公司已经使用 Amazon Kendra 为其文档建立索引，现在希望构建一个依据这些文档回答问题的生成式 AI 应用。Kendra 可以扮演什么角色？',
- ['RAG 架构中的检索器，返回相关段落并将其加入提示','生成最终答案的基础模型','用于微调模型权重的工具','为答案提供文本转语音的引擎'],
- '在 RAG 中，Kendra 可以检索最相关的段落，再交给基础模型（例如 Amazon Bedrock 中的模型）生成有依据的答案。'],
-['Kendra searches; a foundation model generates the answer.','Kendra does not change model weights.','Kendra does not produce speech.'],
-['Kendra 负责搜索，由基础模型生成答案。','Kendra 不会改变模型权重。','Kendra 不会生成语音。']);
+['A company already runs Amazon OpenSearch Service for site search and now wants a generative AI app on Amazon Bedrock that answers questions from the same documents. What role can OpenSearch play?',
+ ['The vector store and retriever in a RAG architecture, returning relevant chunks that are added to the prompt','The foundation model that generates the final answer','A tool to fine-tune the model weights','A text-to-speech engine for the answers'],
+ 'OpenSearch Service (managed clusters or Serverless) can store embeddings and run vector search, so it can retrieve relevant passages for a Bedrock model to ground its answer. Bedrock Knowledge Bases supports it as a vector store.'],
+['某公司已经在使用 Amazon OpenSearch Service 做站内搜索，现在希望在 Amazon Bedrock 上构建一个依据同一批文档回答问题的生成式 AI 应用。OpenSearch 可以扮演什么角色？',
+ ['RAG 架构中的向量存储和检索器，返回相关分块并加入提示','生成最终答案的基础模型','用于微调模型权重的工具','为答案提供文本转语音的引擎'],
+ 'OpenSearch Service（托管集群或 Serverless）可以存储嵌入并执行向量搜索，因此能为 Bedrock 模型检索相关段落，让答案有据可依。Bedrock Knowledge Bases 支持把它作为向量存储。'],
+['OpenSearch searches; a foundation model generates the answer.','OpenSearch does not change model weights.','OpenSearch does not produce speech.'],
+['OpenSearch 负责搜索，由基础模型生成答案。','OpenSearch 不会改变模型权重。','OpenSearch 不会生成语音。']);
 
 Q('3.1','single',[0],
 ['A travel assistant built with Amazon Bedrock Agents must look up live flight prices and book tickets through the company’s APIs. Which agent feature makes these API calls possible?',
@@ -243,22 +243,22 @@ Q('5.1','multi',[0,1],
 
 /* ---------- 5.2 governance ---------- */
 Q('5.2','single',[0],
-['A compliance officer wants to continuously collect evidence that the company’s generative AI workloads follow AWS best practices, mapped to controls, for an upcoming audit. Which service helps?',
- ['AWS Audit Manager, using its generative AI best practices framework','Amazon Polly','Amazon Personalize','AWS Global Accelerator'],
- 'Audit Manager automates evidence collection against prebuilt and custom frameworks, including one for generative AI best practices.'],
-['某合规官希望持续收集证据，证明公司的生成式 AI 工作负载遵循 AWS 最佳实践并映射到相应控制措施，以应对即将到来的审计。哪项服务有帮助？',
- ['AWS Audit Manager，使用其生成式 AI 最佳实践框架','Amazon Polly','Amazon Personalize','AWS Global Accelerator'],
- 'Audit Manager 根据预置和自定义框架（包括生成式 AI 最佳实践框架）自动收集证据。'],
+['Auditors ask a company for AWS’s third-party certification against ISO/IEC 42001, the standard for AI management systems. Where can the company download it?',
+ ['AWS Artifact','Amazon Polly','Amazon Personalize','AWS Global Accelerator'],
+ 'AWS holds an ISO/IEC 42001 certification for in-scope services, and customers download the certificate, like other AWS compliance reports, from AWS Artifact.'],
+['审计人员要求某公司提供 AWS 依据 ISO/IEC 42001（AI 管理体系标准）获得的第三方认证。公司可以在哪里下载？',
+ ['AWS Artifact','Amazon Polly','Amazon Personalize','AWS Global Accelerator'],
+ 'AWS 已为范围内的服务获得 ISO/IEC 42001 认证，客户可以像获取其他 AWS 合规报告一样，从 AWS Artifact 下载该证书。'],
 ['Polly converts text to speech.','Personalize produces recommendations.','Global Accelerator routes network traffic.'],
 ['Polly 把文本转换为语音。','Personalize 生成推荐。','Global Accelerator 路由网络流量。']);
 
 Q('5.2','single',[0],
 ['Auditors ask a company to prove which team changed the Guardrails configuration of its Bedrock application last month. Which service provides this record?',
- ['AWS CloudTrail','Amazon CloudWatch metrics alone','Amazon Comprehend','Amazon Kendra'],
+ ['AWS CloudTrail','Amazon CloudWatch metrics alone','Amazon Comprehend','Amazon Rekognition'],
  'CloudTrail records management API calls, including who changed Bedrock resources such as guardrails, and when.'],
 ['审计人员要求某公司证明上个月是哪个团队修改了其 Bedrock 应用的护栏配置。哪项服务提供这一记录？',
- ['AWS CloudTrail','仅使用 Amazon CloudWatch 指标','Amazon Comprehend','Amazon Kendra'],
+ ['AWS CloudTrail','仅使用 Amazon CloudWatch 指标','Amazon Comprehend','Amazon Rekognition'],
  'CloudTrail 记录管理 API 调用，包括谁在何时修改了护栏等 Bedrock 资源。'],
-['Metrics show performance, not who made changes.','Comprehend analyses text.','Kendra is enterprise search.'],
-['指标显示的是性能，而不是谁做了更改。','Comprehend 分析文本。','Kendra 是企业搜索服务。']);
+['Metrics show performance, not who made changes.','Comprehend analyses text.','Rekognition analyses images and video.'],
+['指标显示的是性能，而不是谁做了更改。','Comprehend 分析文本。','Rekognition 分析图像和视频。']);
 })();
