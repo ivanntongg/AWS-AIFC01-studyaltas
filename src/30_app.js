@@ -44,6 +44,7 @@ var NUMW = ['', 'ONE', 'TWO', 'THREE', 'FOUR'];
 var DOM, ORDER;
 function bindExam(){
   A = EXAMS[EXAM].data;
+  root.setAttribute('data-exam', EXAM);
   DOM = {}; A.domains.forEach(function(d){ DOM[d.id] = d; });
   ORDER = []; A.domains.forEach(function(d){ d.tasks.forEach(function(t){ ORDER.push(t); }); });
 }
